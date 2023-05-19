@@ -133,10 +133,45 @@
 
 比特币网络自2009年1月发布以来一直运行顺畅。2019年，比特币网络处理了超过1.12亿笔交易，总共移动了**15.58万亿美元**[^2]。
 
-比特币程序本身也在积极开发中，自发布以来已有超过**600**人为代码做出了贡献3。这是因为该软件是“开源”的，这意味着任何人都可以查看代码并为其改进做出贡献。
+比特币程序本身也在积极开发中，自发布以来已有超过**600**人为代码做出了贡献[^3]。这是因为该软件是“开源”的，这意味着任何人都可以查看代码并为其改进做出贡献。
 
 https://bitcoin.org/bitcoin.pdf (白皮书)
+
 https://github.com/bitcoin/bitcoin/ (源代码)
+
+## 想要了解更多吗？
+好的，你来对地方了。
+
+这个网站充满了有关比特币如何运作的**简单解释**。
+
+1. *初学者指南* - 有时候你只需要一个完整的基础教程。这是我在2015年第一次学习比特币运作时写的最简短、最简单的指南。
+2. *技术指南* - 更全面、更深入的比特币运作指南。适合程序员。
+3. *区块链浏览器* - 通过浏览数据并查看它们如何相互连接，你可以感受比特币的运作方式。就像打开汽车引擎盖看里面的一样。
+4. [视频(YouTube)](https://www.youtube.com/channel/UCj9MFr-7a02d_qe4xVnZ1sA/videos)- 这些是程序员从比特币的角度深入解释其机制的视频。如果你想用比特币编写东西，这些视频课程会让你入门。
+5. [代码(GitHub)](https://github.com/in3rsha/learnmeabitcoin-code)- 常见比特币操作的示例代码片段。
+
+## 为什么我应该相信你？
+我在比特币方面没有官方资格。我只是阅读了很多代码，[编写了很多代码](https://github.com/in3rsha)，[并提出了很多问题](https://bitcoin.stackexchange.com/users/24926/inersha)。我所知道的关于比特币的一切都来自实践。
+
+另外，*我很酷*
+
+## 为什么所有这些信息都是免费的？
+
+因为：
+
+* 比特币是一个[开源程序](https://github.com/bitcoin/bitcoin)，你可以免费运行它。
+* 我所学到的关于[比特币](https://bitcoin.stackexchange.com/)、编程和[写作](https://www.pokerseo.org/about/)的一切都是免费的。
+* 这个网站是完全由免费的[开源工具](https://learnmeabitcoin.com/thanks#development)构建的。
+那么为什么不免费教育呢？
+
+尽管如此，捐赠非常感激：[3Beer3irc1vgs76ENA4coqsEQpGZeM5CTd](bitcoin:3Beer3irc1vgs76ENA4coqsEQpGZeM5CTd)
+
+## 为什么你做这个网站？
+
+因为我想让其他人也能理解比特币的工作原理。
+
+比特币可以让你向世界上任何人转移价值，我认为这很重要。如果你理解了比特币的工作原理，你可以创建自己的酷炫软件，产生积极的影响。
 
 [^1]:https://en.wikipedia.org/wiki/RSA_(cryptosystem)
 [^2]:536,916,338 bitcoins were moved in 2020. The exchange rate on 31 December 2020 was $29,013.39/BTC
+[^3]:https://github.com/bitcoin/bitcoin/graphs/contributors
