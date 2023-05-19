@@ -33,6 +33,7 @@
 ## 区块链是如何共享的？
 区块链由*比特币网络*上的节点共享，就像一个完全合法且非版权的视频文件可能在[BitTorrent网络](https://en.wikipedia.org/wiki/BitTorrent)上共享一样。
 ![blockchain-4.png](img/blockchain-4.png)
+
 P2P文件共享是一个单独的话题，但现在只需知道区块链像BitTorrent文件一样在比特币网络上共享。
 
 ## 我可以在哪里获取区块链的副本？
