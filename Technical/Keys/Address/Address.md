@@ -1,0 +1,116 @@
+# 地址
+一个易于分享的锁定脚本格式。
+![address-1.png](img/address-1.png)
+
+**地址**是您提供给人们的信息，以便他们可以“发送”比特币给您。
+
+当有人收到它时，他们可以根据您提供的地址类型创建一个特定的*锁定脚本*。
+
+## 你如何创建一个地址？
+
+好吧，这取决于你希望你的比特币被锁定的方式。
+
+但一般来说，一个地址包含：
+
+1. 一些你想包含在锁定中的特定数据。例如，你的公钥哈希。
+2. 一个前缀，表示要创建什么样的锁定。
+3. 以及一个校验和，用于帮助检查任何拼写错误。
+最后，所有这些都被转换为Base58，这使它更易于使用。
+
+## 支付到公钥哈希（P2PKH）
+*P2PKH*：这是一个典型的地址，将比特币锁定到*公钥*（或更准确地说：*公钥哈希*）。
+
+如上所述，我们将一个**前缀**附加到我们的哈希公钥并在前面添加一个**校验和**，然后将其全部编码为base58。
+![address-2.png](img/address-2.png)
+
+现在我们有一个地址可以给别人。 
+
+### 解码：
+当有人从这个地址创建一个锁定脚本时，他们只需解码base58以检索其中的hash160，然后创建一个P2PKH锁定脚本，如下所示：
+![address-3.png](img/address-3.png)
+
+**前缀**指示了要创建什么类型的锁定，而**hash160**告诉它们要在其中放什么。
+
+## 支付到脚本哈希（P2SH）
+*P2SH*：这个锁定包括*脚本*的哈希。我们稍后提供实际的锁定脚本（当我们来解锁它时），这允许我们构建复杂的锁定脚本，而不必让其他人担心它的细节。
+
+与之前相同，只是这次我们包括脚本的哈希，并使用前缀05来表示P2SH。
+![address-4.png](img/address-4.png)
+### 解码后：
+这就是一个P2SH的样子：
+![address-5.png](img/address-5.png)
+
+## 前缀
+如前所述，**您使用的前缀将指示要创建的锁定脚本类型**。
+
+以下是常见地址前缀的列表：
+
+在比特币中，在将数据转换为base58之前，会添加不同的前缀以影响结果的前导字符。然后，这个前导字符帮助我们识别每个base58字符串代表的内容。
+
+以下是比特币中使用的最常见前缀：
+
+主网:
+|前缀（十六进制）|	Base58前导字符|	表示|	示例|
+|---|---|---|---|
+|00	|1	|P2PKH Address	|1AKDDsfTh8uY4X3ppy1m7jw1fVMBSMkzjP|
+|05	|3	|P2SH Address	|34nSkinWC9rDDJiUY438qQN1JHmGqBHGW7|
+|80	|K / L|	WIF Private Key 	|L4mee2GrpBSckB9SgC9WhHxvtEgKUvgvTiyYcGu38mr9CGKBGp93|
+|80|	5|	WIF Private Key 	|5KXWNXeaVMwjzMsrKPv8dmdEZuVPmPay4nm5SfVZCjLHoy1B56w|
+|0488ADE4|	xprv|	Extended Private Key|xprv9tuogRdb5YTgcL3P8Waj7REqDuQx4sXcodQaWTtEVFEp6yRKh1CjrWfXChnhgHeLDuXxo2auDZegMiVMGGxwxcrb2PmiGyCngLxvLeGsZRq|
+|0488B21E|	xpub|	Extended Public Key|xpub67uA5wAUuv1ypp7rEY7jUZBZmwFSULFUArLBJrHr3amnymkUEYWzQJz13zLacZv33sSuxKVmerpZeFExapBNt8HpAqtTtWqDQRAgyqSKUHu|
+
+测试网络:
+|前缀（十六进制）|	Base58前导字符|	表示|	示例|
+|---|---|---|---|
+|6F	|m / n	|P2PKH Address|	ms2qxPw1Q2nTkm4eMHqe6mM7JAFqAwDhpB|
+|C4	|2	|P2SH Address|	2MwSNRexxm3uhAKF696xq3ztdiqgMj36rJo|
+|EF	|c	|WIF Private Key 	|cV8e6wGiFF8succi4bxe4cTzWTyj9NncXm81ihMYdtW9T1QXV5gS|
+|EF	|9	|WIF Private Key 	|93J8xGU85b1sxRP8wjp3WNBCDZr6vZ8AQjd2XHr4YU5Lb21jS1L|
+|04358394|	tprv|	Extended Private Key|tprv9tuogRdb5YTgcL3P8Waj7REqDuQx4sXcodQaWTtEVFEp6yRKh1CjrWfXChnhgHeLDuXxo2auDZegMiVMGGxwxcrb2PmiGyCngLxvLeGsZRq|
+|043587CF	|tpub	|Extended Public Key|tpub67uA5wAUuv1ypp7rEY7jUZBZmwFSULFUArLBJrHr3amnymkUEYWzQJz13zLacZv33sSuxKVmerpZeFExapBNt8HpAqtTtWqDQRAgyqSKUHu|
+
+>前缀00在编码为base58时不会自然地转换为“1”。这种转换是在代码中手动执行的。
+
+>您会注意到*WIF私钥*使用相同的十六进制前缀，但产生不同的前导字符。这是因为如果使用私钥创建压缩的公钥（将生成与非压缩的公钥不同的地址），我们在转换为base58之前还会附加一个01。这个额外的字节会影响base58结果中的前导字符。
+
+>*扩展密钥包*含原始公钥和私钥之外的额外元数据，这就是它们的base58字符串要长得多的原因。
+
+https://en.bitcoin.it/wiki/List_of_address_prefixes
+
+>前缀还会改变地址的前导字符，因此通过查看地址本身，您可以告诉使用了什么样的锁定脚本。
+
+## 为什么我们要使用地址？
+>地址是以人类可读的方式简写锁定脚本的方法。- echeveria（在IRC上）
+
+如果我们不使用地址，我们将不得不发送其他人完整的锁定*脚本*，例如：
+```
+76a914662ad25db00e7bb38bc04831ae48b4b446d1269888ac # P2PKH脚本
+```
+但是通过使用地址，我们可以只发送类似于以下内容：
+```
+1AKDDsfTh8uY4X3ppy1m7jw1fVMBSMkzjP
+```
+它们都可以达到相同的效果，但地址为我们提供了更用户友好的格式。更不用说它们包含一个校验和，这意味着如果有人错误地编写地址，错误可以被检测到。
+
+## 代码
+注意：此代码需要[checksum.rb](https://github.com/in3rsha/learnmeabitcoin-code/blob/master/checksum.rb)和[base58_encode.rb](https://github.com/in3rsha/learnmeabitcoin-code/blob/master/base58_encode.rb)函数。
+```ruby
+def hash160_to_address(hash160, type=:p2pkh)
+  prefixes = {
+    p2pkh: '00',         # 1address - For standard bitcoin addresses
+    p2sh:  '05',         # 3address - For sending to an address that requires multiple signatures (multisig)
+    p2pkh_testnet: '6F', # (m/n)address
+    p2sh_testnet:  'C4'  # 2address
+  }
+
+  prefix = prefixes[type]
+  checksum = checksum(prefix + hash160)
+  address = base58_encode(prefix + hash160 + checksum)
+
+  return address
+end
+
+hash160 = '662ad25db00e7bb38bc04831ae48b4b446d12698'
+puts hash160_to_address(hash160) # 1AKDDsfTh8uY4X3ppy1m7jw1fVMBSMkzjP
+```
+
