@@ -32,8 +32,8 @@
 |前一个区块的哈希值|	32 bytes|	Little-endian|
 |Merkle根|	32 bytes|	Little-endian|
 |时间|	4 bytes|	Little-endian|
-|二进制数字|	4 bytes|	Little-endian|
-|随机数|	4 bytes|	Little-endian|
+|bitss|	4 bytes|	Little-endian|
+|nonce|	4 bytes|	Little-endian|
 
 ## 工具
 * *哈希块头* - 插入单个块头字段，获取序列化块头和块哈希。
