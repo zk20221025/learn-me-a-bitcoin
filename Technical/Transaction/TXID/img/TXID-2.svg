@@ -1,0 +1,12 @@
+<svg viewBox="40, 40, 80, 80" xmlns="http://www.w3.org/2000/svg">
+
+<line x1="40" y1="40" x2="51" y2="51" stroke="black" stroke-width="3" />
+<line x1="120" y1="40" x2="109" y2="51" stroke="black" stroke-width="3" />
+
+<rect x="50" y="50" width="60" height="60" />
+<text x="80" y="80" text-anchor="middle" fill="white" font-family="Courier" font-size="14" font-weight="bold">SHA256</text>
+
+<line x1="76" y1="110" x2="76" y2="120" stroke="black" stroke-width="3" />
+<line x1="84" y1="110" x2="84" y2="120" stroke="black" stroke-width="3" />
+
+</svg>
