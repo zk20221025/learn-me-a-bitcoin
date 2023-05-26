@@ -18,8 +18,8 @@
 ## 什么是比特币?
 比特币只是一个**计算机程序**。你可以下载并在您的计算机上运行它。
 ![Home-2.png](img/Home-2.png)
-
 来吧，[试试](https://bitcoin.org/en/download)
+
 当你运行该程序时，它将连接到其他也在运行该程序的计算机，并且它们将开始与你共享文件。这个文件被称为*blockchain*，它基本上是一个大的*transactions*。
 ![Home-3.png](img/Home-3%20(1).png)
 
