@@ -2,7 +2,7 @@
 一个用于调节挖掘一个区块所需时间的机制。
 ## 什么是难度？
 **难度是一个数字，它调节矿工需要多长时间将新的交易*块*添加到*区块链*中。**
-![difficulty-1.png](img/difficulty-1.png)
+![difficulty-1.png](img/difficulty-1%20(1).png)
 
 这个难度值每两周更新一次，以确保平均需要10分钟将新区块添加到区块链中。
 
@@ -37,17 +37,18 @@
 
 ### 1. 简单的例子
 假设我给你一个从1到100的数字范围。
-![difficulty-2.png](img/difficulty-2.png)
+![difficulty-2.png](img/difficulty-2%20(1).png)
 
 现在，你可以每分钟随机生成一个1到100之间的数字。**你的目标是生成一个低于我的目标数字的数字**。
 
 比如说，如果我设置目标为**50**：
-![difficulty-3.png](img/difficulty-3.png)
+![difficulty-3.png](img/difficulty-3%20(1).png)
 
 考虑到你每分钟只能生成1到100之间的一个数字，这应该需要**2分钟**时间。
 
 但这太容易了。现在我将目标降低到**20**，这意味着你只能有1/5的几率生成一个获胜数字，或者每**5分钟**才能生成一次：
-![difficulty-4.png](img/difficulty-4.png)
+![difficulty-4.png](img/difficulty-4%20(1).png)
+目标越低，生成获胜号码就越困难。
 
 >每次都不一定需要5分钟，因为你可能会在第一个生成的数字就得到幸运数字。但是长期来看，平均每5分钟就会有一个幸运数字。
 
@@ -55,7 +56,8 @@
 
 **引入难度…**
 我是一台计算机，而且我发现通过使用一个新数字来分割数字范围来给你目标值更容易一些，而不是直接告诉你目标值。
-![difficulty-5.png](img/difficulty-5.png)
+![difficulty-5.png](img/difficulty-5%20(1).png)
+这个新的数字能够控制目标的高度。
 
 **这个新数字是难度，它被用作我修改目标高度的简便方法。**
 
@@ -63,23 +65,26 @@
 >target = targetmax / difficulty
 
 此外，我可以使用这个难度值来帮助我设定任何我想要的目标水平：
-![difficulty-6.png](img/difficulty-6.png)
+![difficulty-6.png](img/difficulty-6%20(1).png)
+难度越高，目标就越低。
 
 因此，我使用难度来控制目标，以此来控制生成获胜号码所需的时间。
 
 ## 2. 比特币示例。
 比特币的难度以完全相同的方式工作——它用于设定一个目标值，而矿工不断产生数字（对候选块进行哈希），希望他们会找到一个比这个目标值更低的数字：
-![difficulty-7.png](img/difficulty-7.png)
+![difficulty-7.png](img/difficulty-7%20(1).png)
 
 由于矿工能够每分钟生成数千个数字（哈希值），因此比特币使用了极其巨大的数字。
-![difficulty-8.png](img/difficulty-8.png)
+![difficulty-8.png](img/difficulty-8%20(1).png)
+比特币中的数字只是在一个更大的规模上。
 
 由于现在有成千上万的矿工试图找到获胜的数字，为了确保每10分钟找到一个获胜的数字（而不是每几秒钟），成功数字的范围最终变得非常小：
-![difficulty-9.png](img/difficulty-9.png)
+![difficulty-9.png](img/difficulty-9%20(1).png)
+尽管难度数字看起来很大，但目标仍然极难达成。这就像中了彩票一样难。
 
 ### 介绍十六进制数...
 由于这些目标数字非常大，计算机更喜欢以十六进制格式进行计算。
-![difficulty-10.png](img/difficulty-10.png)
+![difficulty-10.png](img/difficulty-10%20(1).png)
 
 这就是为什么块的哈希值看起来像这样：000000000003ba27aa200b1cecaad478d2b00432346c3f1f3986da1afd33e506——这是十六进制的。
 
@@ -100,7 +105,8 @@
 这就是为什么你通常会看到哈希和目标以一堆数字和字母的形式出现 - 它们是十六进制的，而不是人类更熟悉的十进制。但请记住，这两种十进制和十六进制数字具有相同的值，并且您可以轻松地在两者之间进行转换。
 
 >尴尬的是，难度通常以十进制格式给出，而哈希和目标以十六进制存储。但正如我所说，它们都是数字，只要将它们转换为相同的格式，您仍然可以使用它们。
-![difficulty-11.png](img/difficulty-11.png)
+![difficulty-11.png](img/difficulty-11%20(1).png)
+区块100,000的头部。目标是十六进制的，但它以紧凑格式存储在块头（称为比特）中。
 
 **例子：利用难度找到目标。**
 让我们使用难度值计算出[第100,000个区块](http://blockexplorer.com/b/100000)的目标值。但是让我们主要使用十进制数，因为它们更容易理解。
@@ -171,7 +177,7 @@ hash   = 3BA27AA200B1CECAAD478D2B00432346C3F1F3986DA1AFD33E506
 您可以通过在比特币客户端中输入getdifficulty命令来查找当前的难度：
 
 >难度也可以在getmininginfo（在其他挖矿信息中）中找到。
-![difficulty-12](img/difficulty-12.png)
+![difficulty-12](img/difficulty-12%20(1).png)
 
 如果你没有比特币客户端，你可以在这里查找难度：http://chainquery.com/bitcoin-api/getdifficulty
 如果你对难度的变化感兴趣，这是一个带有图表的网站：https://bitcoinwisdom.com/bitcoin/difficulty
