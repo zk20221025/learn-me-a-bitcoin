@@ -25,13 +25,15 @@ public_key  = 02b4632d08485ff1df2db55b9dafd23347d1c47a457072a1e87be26896549a8737
 
 ### 一个椭圆曲线长什么样？
 就像这样：
-![public_keys-1.png](img/public_keys-1.png)
+![public_keys-1.png](img/public_keys-1%20(1).png)
+华丽的。
 
 此外，比特币中使用的椭圆曲线具有特定的起始点。
-![public_keys-2.png](img/public_keys-2.png)
+![public_keys-2.png](img/public_keys-2%20(1).png)
 
 如果我们对这条曲线进行一些基本的“乘法”操作（例如将起始点乘以2），我们会像这样在曲线上移动。
-![public_keys-3.png](img/public_keys-3.png)
+![public_keys-3.png](img/public_keys-3%20(1).png)
+我们可以在曲线上的任何地方画出一条切线，并且它将与曲线上的另一点相交，这是椭圆曲线的一个特殊特征。
 
 于是我们就完成了。我们刚刚通过2倍化初始坐标（G），找到了最终坐标（2G）的位置。
 
@@ -54,7 +56,8 @@ private_key = 108165236279178312660610114131826512483935470542850824183737259708
 public_key  = 108165236279178312660610114131826512483935470542850824183737259708197206310322 * G
 ```
 或者换句话说，“在椭圆曲线**私钥**上反复跳跃。”
-![public_keys-4.png](img/public_keys-4.png)
+![public_keys-4.png](img/public_keys-4%20(1).png)
+你懂的。
 
 在椭圆曲线上的最终停止点将给出一组坐标，这些坐标形成您的公钥。
 
@@ -89,7 +92,7 @@ public_key = 04b4632d08485ff1df2db55b9dafd23347d1c47a457072a1e87be26896549a87378
 这是因为椭圆曲线是一个方程（y^2 = x^3 + 7），这意味着如果您有x坐标，仍然可以计算出相应的y坐标。
 
 然而，由于方程中的y^2部分，y可以是正数或负数：
-![public_keys-5.png](img/public_keys-5.png)
+![public_keys-5.png](img/public_keys-5%20(1).png)
 
 因此，您找到正确的y坐标所需的唯一额外信息是知道y坐标是在x轴上方还是下方。由于椭圆曲线的工作方式：
 
@@ -101,7 +104,7 @@ public_key = 04b4632d08485ff1df2db55b9dafd23347d1c47a457072a1e87be26896549a87378
 
 * 偶数= 02
 * 奇数= 03
-![public_keys-6.png](img/public_keys-6.png)
+![public_keys-6.png](img/public_keys-6%20(1).png)
 
 因此，原始公钥将以04开头，而压缩公钥将以02或03开头：
 例子
@@ -136,10 +139,11 @@ public_key_compressed = 02b4632d08485ff1df2db55b9dafd23347d1c47a457072a1e87be268
 
 1. 我可以将我的私钥通过一些椭圆曲线数学运算得到一个新值。
 2. 我可以将我的公钥通过一些其他椭圆曲线数学运算得到另一个新值。
-![public_keys-7.png](img/public_keys-7.png)
+![public_keys-7.png](img/public_keys-7%20(1).png)
 
 现在，这些新值会有一些小重叠。
-![public_keys-8.png](img/public_keys-8.png)
+![public_keys-8.png](img/public_keys-8%20(1).png)
+我可以从我的私钥创建的新价值被称为数字签名。
 
 而且…
 
