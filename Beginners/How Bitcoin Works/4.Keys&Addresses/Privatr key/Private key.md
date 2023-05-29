@@ -3,18 +3,26 @@
 
 ## 什么是私钥？
 私钥是随机生成的数字。
-![private_keys-1.png](img/private_keys-1.jpg)
+例子
+一个私钥
+108165236279178312660610114131826512483935470542850824183737259708197206310322
 
 但更准确地说，因为比特币使用256位数字，随机生成的私钥起始看起来像这样：
-![private_keys-2.png](img/private_keys-2.jpg)
+例子
+二进制
+1110111100100011010110101010110011111001000011011001111101001010101011011101100011001001001011100100101100100101011000101110000111011001111010111001011111110000110111111001101110100011101101010000100000100101100001110011100111001011000000010011110110110010
 
 >是的，这仍然是一个数字。它只是用二进制表示，这是一种在计算机中存储数字的基本方式。因为你知道，比特币毕竟是一个计算机程序。
 
 无论如何，我们可以轻松地将这个私钥从二进制转换为十进制：
-![private_keys-3.png](img/private_keys-3.jpg)
+例子
+十进制
+108165236279178312660610114131826512483935470542850824183737259708197206310322
 
 或者十六进制:
-![private_keys-4.png](img/private_keys-4.jpg)
+例子
+十六进制
+ef235aacf90d9f4aadd8c92e4b2562e1d9eb97f0df9ba3b508258739cb013db2
 
 这没有区别。它们都是相同的数字，它们都是相同的私钥。
 
@@ -37,7 +45,7 @@
 |bit||
 
 事实上，一个比特是如此的小，它只能存储值为1或0。
-![private_keys-10.png](img/private_keys-10.png)
+![private_keys-10.png](img/private_keys-10%20(1).png)
 
 然而，您仍然可以使用比特表示其他类型的数据，例如日常数字。
 
@@ -45,7 +53,7 @@
 ![private_keys-11.png](img/private_keys-11.png)
 
 一个256位的数字就是一个可以用256个比特（最多）来表示的数字。
-![private_keys-12.png](img/private_keys-12.png)
+![private_keys-12.png](img/private_keys-12%20(1).png)
 
 换句话说，一个256位的数字在以下范围内：
 
@@ -70,13 +78,20 @@ max:1157920892373161954235709850086879078532699846656405640394575840079131296399
 你可以通过多种方式实现这一点：
 例子:
 1. 抛256次硬币。
-![private_keys-6.png](img/private_keys-6.png)
+![private_keys-6.png](img/private_keys-6%20(1).png)
+这将为您提供一个二进制的私钥。
 
 2. 使用您喜欢的编程语言生成一个随机数。
-![private_keys-7.png](img/private_keys-7.jpg)
+```python
+# need to use the operating system's random number generator for security
+import random
+random.SystemRandom().randint(1, 115792089237316195423570985008687907852837564279074904382605163141518161494336)
+```
+这将为您提供一个十进制的私钥。
 
 3. 使用SHA256哈希函数对一些数据进行*哈希处理*。（*尝试一下*）
-![private_keys-8.png](img/private_keys-8.png)
+![private_keys-8.png](img/private_keys-8%20(1).png)
+这将给你一个十六进制的私钥。
 
 所有这些方法都会给你一个256位的数字。如果你拥有一个256位的数字，你就拥有了一个私钥。
 
@@ -112,4 +127,19 @@ max:1157920892373161954235709850086879078532699846656405640394575840079131296399
 现在请离开我的办公网站。
 
 [^1]:没有什么是完全随机的，但你应该尽力而为。
-[^2]:这是我的数学：![private_keys-9.png](img/private_keys-9.jpg)
+[^2]:这是我的数学```python
+keys = 115792089237316195423570985008687907852837564279074904382605163141518161494336
+monkeys = 1000000
+monkeyhashrate = 1000000
+
+keyspersecond = monkeys * monkeyhashrate
+
+seconds = keys / keyspersecond
+minutes = seconds / 60
+hours = minutes / 60
+days = hours / 24
+years = days / 365
+millionyears = years / 1000000
+
+print millionyears
+```
