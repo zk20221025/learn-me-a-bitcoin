@@ -3,7 +3,7 @@
 
 ## 什么是数字签名
 一种数字签名是你可以使用它来展示你知道与*公钥*相关联的*私钥*，而不必透露实际的私钥。
-![digital_signatures-1.png](img/Digital%20Signatures-1.png)
+![digital_signatures-1.png](img/Digital%20Signatures-1%20(1).png)
 
 因此，如果有人问你是否拥有特定公钥（或地址）的私钥，你可以提供数字签名来证明它。
 
@@ -11,10 +11,10 @@
 
 ## 为什么我们在比特币中使用数字签名?
 因为当你进行交易时，你需要解锁你想要使用的*输出*。这是通过展示你“拥有”该输出来实现的，而你需要展示你知道输出所锁定的地址的私钥：
-![digital_signatures-2.png](img/Digital%20Signatures-2.png)
+![digital_signatures-2.png](img/Digital%20Signatures-2%20(1).png)
 
 但是，如果你把你的私钥放入*交易数据*中，网络上的每个人都能看到它：
-![digital_signatures-3.png](img/Digital%20Signatures-3.png)
+![digital_signatures-3.png](img/Digital%20Signatures-3%20(1).png)
 
 如果任何人得到了你的私钥，他们可以使用它来解锁和花费任何其他被锁定到相同地址的输出。
 
@@ -25,7 +25,7 @@
 >**数字签名可以用于解锁输出，因为它表明我们知道地址的私钥。**
 
 但最好的是，使用数字签名意味着我们不会将私钥提供给网络：
-![digital_signatures-4.png](img/Digital%20Signatures-4.png)
+![digital_signatures-4.png](img/Digital%20Signatures-4%20(1).png)
 
 这就是为什么我们使用数字签名而不是直接将私钥放入交易数据中的原因。
 
@@ -35,13 +35,13 @@
 >**答案是：因为每个数字签名都是唯一的，只适用于该交易。**
 
 换句话说，你不仅使用私钥来生成数字签名，还需要使用原始交易数据本身：
-![digital_signatures-5.png](img/Digital%20Signatures-5.png)
+![digital_signatures-5.png](img/Digital%20Signatures-5%20(1).png)
 
 因此，每个数字签名都与其使用的交易相关联：
-![digital_signatures-6.png](img/Digital%20Signatures-6.png)
+![digital_signatures-6.png](img/Digital%20Signatures-6%20(1).png)
 
 因此，如果有人试图在不同的交易中使用此数字签名，它将与数字签名的内存中的交易数据发生冲突，比特币网络上的节点将不会接受它。
-![digital_signatures-7.png](img/Digital%20Signatures-7.png)
+![digital_signatures-7.png](img/Digital%20Signatures-7%20(1).png)
 
 因此，数字签名还将防止任何人篡改其所用于的交易。
 
