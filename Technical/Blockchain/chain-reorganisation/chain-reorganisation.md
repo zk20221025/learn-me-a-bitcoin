@@ -1,6 +1,6 @@
 # 链重组
 禁用和启用块以采用新的最长链。
-![chain-reorganisation-1.png](img/chain-reorganisation-1.png)
+![chain-reorganisation-1.png](img/chain-reorganisation-1%20(1).png)
 
 链重组（或“重组”）发生在您的节点接收到新的*最长链*的区块时。您的节点将停用旧的最长链中的区块，而选择构建**新的最长链**的区块。
 
@@ -11,31 +11,36 @@
 ## 什么时候会发生链重组？
 
 当两个区块同时被挖掘时，链重组最常见。
-![chain-reorganisation-2.png](img/chain-reorganisation-2.png)
+![chain-reorganisation-2.png](img/chain-reorganisation-2%20(1).png)
 
 由于区块在网络中传播的速度，一些节点会先收到一个区块，而另一些节点会先收到另一个区块。因此，关于哪个区块实际上是“第一个”并应该位于每个人的区块链顶部会产生分歧。
-![chain-reorganisation-3.png](img/chain-reorganisation-3.png)
+![chain-reorganisation-3.png](img/chain-reorganisation-3%20(1).png)
+节点对于区块链的外观有不同的看法。
 
 那么，我们如何解决这个争议，确保每个人都同意相同的区块链版本呢？
 
 这个问题可以在下一个区块被挖出时解决。下一个区块将建立在这些区块之一的基础上，创建一个新的最长链。当节点收到这个最新的区块时，它们会看到它创建了一个新的最长链，并会执行链重新组织来采用它。
-![chain-reorganisation-4.png](img/chain-reorganisation-4.png)
+![chain-reorganisation-4.png](img/chain-reorganisation-4%20(1).png)
+旧的短链中的区块被停用，新的更长链中的区块被激活。
 
 因此，由于区块链的链重组，每个节点都能够独立地同意与其他人相同的区块链版本。
 
 ## 旧的最长链中的交易会发生什么？
 
 由于链重组（也称为“孤块”），被停用的区块中的交易不再是区块链的交易历史的一部分。
-![chain-reorganisation-5.png](img/chain-reorganisation-5.png)
+![chain-reorganisation-5.png](img/chain-reorganisation-5%20(1).png)
+只有最长的区块链中的交易才是有效交易历史的一部分。
 
 因此，如果您试图在孤立块中花费比特币，节点会拒绝您的交易，因为您试图花费不存在于有效链中的比特币。
-![chain-reorganisation-6.png](img/chain-reorganisation-6.png)
+![chain-reorganisation-6.png](img/chain-reorganisation-6%20(1).png)
+就像孤立区块中的交易从未发生过一样。
 
 实际上，如果同时挖掘了两个区块，它们很可能会包含相同的交易，因此重组通常不会给任何人带来问题。
-![chain-reorganisation-7.png](img/chain-reorganisation-7.png)
+![chain-reorganisation-7.png](img/chain-reorganisation-7%20(1).png)
+您的交易很可能被包含在链重组后的“竞争”块中。
 
 然而，如果孤块中有交易不在竞争块中，它们将被发送回您节点的内存池，并再次传播到网络中，以便有机会在未来的块中进行挖掘。
-![chain-reorganisation-8.png](img/chain-reorganisation-8.png)
+![chain-reorganisation-8.png](img/chain-reorganisation-8%20(1).png)
 
 但这并不是一个保证，如果一个交易在活跃的链中不存在，那么它就好像从未发生过一样。
 
@@ -117,7 +122,7 @@
     * valid-headers - 我们的节点观察到可能发生链重组。我们下载了这些区块，但由于我们的活动链是等效的且变得更长，所以没有验证它们。
     *   headers-only - 我们的节点观察到可能发生链重组。我们接收了一个竞争链的区块头，但没有下载完整的区块。
     * invalid - 包含无效区块的分支。
-![chain-reorganisation-10.png](img/chain-reorganisation-10.png)
+![chain-reorganisation-10.png](img/chain-reorganisation-10%20(1).png)
 
 因此，状态为valid-fork的分支是我们最初考虑作为活动区块链的块，但在接收到新的更长的块链后，我们后来将其停用的分支。
 
