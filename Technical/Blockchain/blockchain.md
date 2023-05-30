@@ -1,16 +1,16 @@
 # 区块链
 比特币交易文件。
-![blockchain-S-1.png](img/blockchain-S-1.png)
+![blockchain-S-1.png](img/blockchain-S-1%20(1).png)
 
 区块链是一个*交易*文件。它是比特币*节点*维护的最重要的文件。
 
 它被称为“区块链”，因为新的交易被添加到文件中的*块*中，这些块相互堆叠形成一个块链。因此，叫做区块链。
 
 但最终，区块链是**比特币交易的永久存储**。
-![blockchain-S-2.png](img/blockchain-S-2.png)
+![blockchain-S-2.png](img/blockchain-S-2%20(1).png)
 
 ## 你如何获取区块链的副本？
-![blockchain-S-3.png](img/blockchain-S-3.png)
+![blockchain-S-3.png](img/blockchain-S-3%20(1).png)
 
 当你运行比特币时，你的节点会从网络上的其他节点下载区块，直到你拥有最新的区块链副本。
 
@@ -23,14 +23,14 @@
 >**注意**：我的节点的*区块链*目前为**0.00 GB**，因此第一次运行比特币时可能需要一段时间下载。这被称为[初始区块下载](https://btcinformation.org/en/developer-guide#initial-block-download)（或IBD）。
 
 ## 如何将新块添加到区块链？
-![blockchain-S-4.png](img/blockchain-S-4.png)
+![blockchain-S-4.png](img/blockchain-S-4%20(1).png)
 
 在将新的交易块添加到区块链之前，必须先*挖掘*新的交易块。
 
 简而言之，挖掘的过程包括从*内存池*中收集交易到一个*候选块*中，然后利用处理能力生成一个*块哈希*，使其低于特定的目标值。这意味着网络上的任何节点都可以挖掘新的块，但需要消耗能量才能这样做。
 
 当一个节点（或“矿工”）成功挖掘出一个新块时，它们将与网络上的其他节点共享。当其他节点收到这个新块时，它们将把它添加到它们的区块链中，并开始尝试在其上挖掘新的块。
-![blockchain-S-5.png](img/blockchain-S-5.png)
+![blockchain-S-5.png](img/blockchain-S-5%20(1).png)
 因此，矿工不断努力通过全新的交易块来扩展区块链。
 
 >**注**：由于挖掘一个块所需的难度和处理能力，平均每10分钟才会添加一个新的块到区块链中。
@@ -38,7 +38,7 @@
 >**注**：节点不必尝试挖掘新块。相反，它可以仅保留区块链的副本，并在收到新块时将其中继到其他节点。
 
 ## 两个区块能同时被挖掘吗？
-![blockchain-S-7.png](img/blockchain-S-7.png)
+![blockchain-S-7.png](img/blockchain-S-7%20(1).png)
 
 是的，这是完全正常的。
 
@@ -51,16 +51,19 @@
 因此，一些节点将*执行链重组*，以将旧活动链中的区块移出，以支持新的更长的链中的区块。
 
 因此，尽管在任何给定时间内可能存在关于哪些区块应位于区块链顶部的分歧，但新区块的挖掘和最长链的采用意味着节点将始终达成一致。
-![blockchain-S-8.png](img/blockchain-S-8.png)
+![blockchain-S-8.png](img/blockchain-S-8%20(1).png)
+节点始终采用最长的区块链作为区块链的接受版本。
 
 ## 这是否意味着区块链中的块可以被替换？
 是的。
 
 由于节点始终采用最长的链，因此您始终可以尝试构建一个新的更长的区块链以替换现有的区块链，而网络上的每个节点都将采用它。实际上，这将允许您从区块链中“撤消”或撤销比特币交易。
-![blockchain-S-9.png](img/blockchain-S-9.png)
+![blockchain-S-9.png](img/blockchain-S-9%20(1).png)
+如果你建立了一个新的最长的区块链，其他节点将会采用它。
 
 然而，问题在于所有矿工都有动力始终在最长链上进行构建。这意味着网络上的矿工的综合处理能力将集中在构建一个单一的链上，这条链将比任何你自己构建的链都建得更快。
-![blockchain-S-10.png](img/blockchain-S-10.png)
+![blockchain-S-10.png](img/blockchain-S-10%20(1).png)
+每个其他的矿工都在努力扩展当前最长的区块链。
 
 换句话说，网络的联合处理能力有助于保护已经挖掘到区块链上的块（和交易）。
 
@@ -86,6 +89,7 @@
 节点总是采用最长的区块链作为活动版本，这解决了关于哪些区块应该在链的顶部的争议。这也保护了已经存在于区块链中的区块，因为要用大量的能量来构建替换已经存在的区块的链。
 
 因此，区块链是一个经常更新的交易文件。挖掘区块和采用最长的链的系统**允许网络上的多台计算机达成一致**，认为哪些区块和交易是活动的，同时也使得任何人难以对文件中的区块和交易进行历史性的更改。
-![blockchain-S-11.png](img/blockchain-S-11.png)(https://learnmeabitcoin.com/technical/images/blockchain/blockchain.gif)
+![blockchain-S-11.png](img/blockchain-S-11%20(1).png)(https://learnmeabitcoin.com/technical/images/blockchain/blockchain.gif)
+点击图像查看区块链建设的gif动画。
 
 [^1]:https://bitcoin.stackexchange.com/questions/50693/why-are-blk-dat-files-134200000-bytes
