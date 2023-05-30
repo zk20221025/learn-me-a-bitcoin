@@ -1,6 +1,6 @@
 # 目标
 你需要达到的数字以挖掘一个区块。
-![target-1.png](img/target-1.png)
+![target-1.png](img/target-1%20(1).png)
 
 目标是在*挖掘*中使用的一个数字，*区块哈希*必须低于该数字才能将该区块添加到*区块链*中。
 
@@ -29,18 +29,18 @@ Block *0*
 
 >这个初始（和最大）目标值是硬编码到每个比特币节点的源代码中的[^1]。这可能是Satoshi对于一个足够困难的目标的最佳猜测，这个目标会导致新块之间的10分钟间隔。
 
-![target-2.png](img/target-2.png)
+![target-2.png](img/target-2%20(1).png)
 
 每经过2016个区块，每个节点将查看最近2016个区块的时间，然后计算它们的平均挖掘速度是否快于或慢于10分钟。
-![target-3.png](img/target-3.png)
+![target-3.png](img/target-3%20(1).png)
 
 >每个区块的*区块头*包含一个时间戳。这个时间戳以[Unix](https://en.wikipedia.org/wiki/Unix_time)时间表示，即自1970年1月1日以来的秒数。
 
 如果在此期间挖掘的区块速度比每10分钟更快，目标将调整向下，以使在下一个区块周期中更难达到目标。
-![target-4.png](img/target-4.png)
+![target-4.png](img/target-4%20(1).png)
 
 相反地，如果挖掘区块速度慢于每10分钟，目标值会上调，以便在下一个区块周期内更容易达到目标值以下。
-![target-5.png](img/target-5.png)
+![target-5.png](img/target-5%20(1).png)
 
 因此，每个节点定期重新计算目标，以在矿工随时间加入和离开网络的情况下强制执行新块之间的10分钟间隔。
 Try it! - Target Recalculator
@@ -62,10 +62,10 @@ Try it! - Target Recalculator
 然而，因为所有节点都采用最长的区块链作为它们的区块链，它们最终会计算出与其他人相同的目标值，因此**实际上所有节点最终都会共享相同的当前目标值**。
 
 例如，当您第一次运行比特币时，您的节点将执行初始块下载并在执行过程中计算目标值。由于您收到的区块与其他人相同，因此您最终也会计算出相同的当前目标值。
-![target-6.png](img/target-6.png)
+![target-6.png](img/target-6%20(1).png)
 
 此外，所有节点持续共享区块链的相同视图（因为它们始终采用*可用的最长区块链*）。因此，随着每个新块的挖掘，节点也将持续计算相同的目标值。
-![target-7.png](img/target-7.png)
+![target-7.png](img/target-7%20(1).png)
 
 因此，尽管节点独立计算目标，它们每个节点都共享相同的区块链，并计算相同的目标值。
 
@@ -79,19 +79,21 @@ Try it! - Target Recalculator
 ### **i. 它给区块时间在网络中传播。**
 
 最好让矿工尽可能地在扩展相同的区块链上工作。为了实现这一点，我们需要允许新区块在下一个区块被挖掘之前在网络中传播的时间。
-![target-8.png](img/target-8.png)
+![target-8.png](img/target-8%20(1).png)
 
 如果挖掘出的区块比它们在网络中传播的速度更快，那么将导致矿工经常建立竞争链。其中只有一个将成为*最长的链*，因此一些矿工将浪费能源努力在竞争链上进行建设，最终由于*链重新组织*而被抛弃。
-![target-9.png](img/target-9.png)
+![target-9.png](img/target-9%20(1).png)
 
 因此，区块之间的时间延迟使它们能够在网络中传播，以便更多的矿工可以采用最长可用的区块链，从而将网络的挖矿能力集中在扩展相同的区块链上。
-![target-10.png](img/target-10.png)
+![target-10.png](img/target-10%20(1).png)
 
 如果广播实际上比预期更慢，目标区块生成时间可能需要增加，以避免浪费资源。我们希望区块通常能够在生成时间的远远短于传播时间内传播，否则节点将花费太多时间在过时的区块上工作。-[中本聪](https://satoshi.nakamotoinstitute.org/emails/cryptography/12/#selection-63.209-63.512)
 
 ### **ii. 新比特币的持续发行。**
 比特币是一种货币，因此固定引入系统的新比特币数量可以提供稳定性。
-![target-11.png](img/target-11.png)
+![target-11.png](img/target-11%20(1).png)
+由于目标设定，您可以确信只要网络运行，新的比特币将以可预测的速率铸造出来。
+
 >硬币必须以某种方式进行初始分配，恒定的速率似乎是最好的公式。-[中本聪](https://satoshi.nakamotoinstitute.org/emails/cryptography/5/#selection-57.0-57.97)
 
 ## 5.为什么区块之间要间隔10分钟？
@@ -101,7 +103,8 @@ Try it! - Target Recalculator
 
 ## 6. 你可以在哪里找到目标？
 目标被存储在每个*区块头*中的*比特*字段中。
-![target-11.png](img/target-11.png)
+![target-11.png](img/target-12%20(1).png)
+目标以紧凑格式存储以节省空间。
 
 ## **命令**
 >bitcoin-cli getblocktemplate
