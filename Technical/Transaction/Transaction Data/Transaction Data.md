@@ -1,5 +1,5 @@
 # 交易数据
-![Transaction Data-1.png](img/Transaction%20Data-1.svg)
+![Transaction Data-1.png](img/Transaction%20Data-1-svg.png)
 
 比特币交易只是描述比特币转移的一堆数据。
 
@@ -12,14 +12,14 @@
 Transaction: [c1b4e695098210a31fe02abffe9005cffc051bbe86ff33e173155bcbdc5821e3]
 
 ## 领域
-![Transaction Data-3.png](img/Transaction%20Data-3.jpg)
+![Transaction Data-3.png](img/Transaction%20Data-3.png)
 
 * 交易中的所有数据都是*十六进制*的。
 * 以下图标表示数据是*反向字节顺序*：⟲
 
 ## 图表
 交易基本上是**一系列***输入*和**一系列***输出*。
-![Transaction Data-2.png](img/Transaction%20Data-2.gif)
+![Transaction Data-2.png](img/Transaction%20Data-2%20(1).gif)
 
 更详细地说，交易数据告诉您如何**解锁现有的比特币包**（来自先前的交易），以及如何将它们重新锁定到新的包中。
 
