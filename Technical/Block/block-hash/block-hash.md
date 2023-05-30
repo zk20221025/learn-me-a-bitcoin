@@ -1,6 +1,6 @@
 # 区块哈希
 区块头的哈希值。
-![block-hash-1.png](img/block-hash-1.png)
+![block-hash-1.png](img/block-hash-1%20(1).png)
 
 一个**块哈希**基本上是*区块链*中一个*块*的参考编号。
 
@@ -13,6 +13,7 @@
 ```
 010000009500c43a25c624520b5100adf82cb9f9da72fd2447a496bc600b0000000000006cd862370395dedf1da2841ccda0fc489e3039de5f1ccddef0e834991a65600ea6c8cb4db3936a1ae3143991
 ```
+![block-hash-2.png](img/block-hash-2.svg)
 ![block-hash-2.png](img/block-hash-2.svg)
 (*交换字节序*)
 ```

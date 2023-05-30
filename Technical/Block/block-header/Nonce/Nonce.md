@@ -17,7 +17,7 @@
 因此，挖矿的过程就是围绕着寻找一个幸运数字或“nonce”展开的。
 
 ## Gif
-![nonce-2.png](img/Nonce-2.gif)
+![nonce-2.png](img/Nonce-2%20(1).gif)
 
 ## 为什么它被称为“nonce”？
 这只是密码学中使用的那些术语之一，就像Alice、Bob等等。
