@@ -1,6 +1,6 @@
 # 脚本
 一个小型编程语言。
-![Scpipt-1.png](img/Script-1.png)
+![Scpipt-1.png](img/Script-1%20(1).png)
 
 脚本是一种迷你编程语言，用作*输出*的锁定机制。
 
@@ -16,7 +16,7 @@
 * OPCODES - 对数据进行操作的简单函数。
   
 以下是比特币中使用的典型P2PKH脚本的简单图示：
-![Scpipt-2.png](img/Script-2.png)
+![Scpipt-2.png](img/Script-2%20(1).png)
 
 >**提示**：这是一个完整的[操作码](https://en.bitcoin.it/wiki/Script#Opcodes)列表。
 
@@ -24,15 +24,15 @@
 >**完整的脚本从左到右运行。在运行时，它使用了一个称为“堆栈”的数据结构**。
 
 **数据**总是被推到**堆栈**上。
-![Scpipt-3.png](img/Script-3.gif)
+![Scpipt-3.gif](img/Script-3%20(1).gif)
 
 OPCODES可以从堆栈中弹出元素，对其进行处理，然后可选择性地将新元素“推”回到**堆栈**中。
-![Scpipt-4.png](img/Script-4.gif)
+![Scpipt-4.gif](img/Script-4%20(1).gif)
 DUP操作码复制堆栈顶部元素。
 
 ## 什么使脚本有效？
 一个脚本是有效的，**如果栈顶且唯一剩下的元素是1（或更大）**。
-![Scpipt-5.png](img/Script-5.gif)
+![Scpipt-5.gif](img/Script-5%20(1).gif)
 
 >如果脚本满足以下条件，则视为无效：
 1.最终堆栈为空
@@ -43,16 +43,16 @@ DUP操作码复制堆栈顶部元素。
 ## 你可以在哪里找到比特币的脚本？
 
 每个交易**输出**都放置了一个**锁定脚本**：
-![Scpipt-6.png](img/Script-6.png)
+![Scpipt-6.png](img/Script-6%20(1).png)
 
 每个您想在交易中花费的输入都必须提供一个解锁脚本：
-![Scpipt-7.png](img/Script-7.png)
+![Scpipt-7.png](img/Script-7%20(1).png)
 
 每个节点都将结合并运行这两个脚本以确保它们有效。
 
 >**首先运行解锁脚本!**
 尽管解锁脚本是在初始锁定脚本之后提供的，但实际上在运行这两个脚本时，我们将其放在第一位。
-![Scpipt-8.png](img/Script-8.png)
+![Scpipt-8.png](img/Script-8%20(1).png)
 当我们运行完整脚本时，解锁脚本会在锁定脚本之前执行。
 
 ## 为什么我们要使用脚本？
@@ -65,17 +65,17 @@ DUP操作码复制堆栈顶部元素。
 
 ### 1. 数学谜题
 要使用此输出，您需要提供**两个相加得到8**的数字。
-![Scpipt-9.png](img/Script-9.png)
+![Scpipt-9.png](img/Script-9%20(1).png)
 
 ### 2. 哈希拼图
 在这里，你只需要找到一个与锁定脚本中的**哈希结果相同**的东西。
-![Scpipt-10.png](img/Script-10.png)
+![Scpipt-10.png](img/Script-10%20(1).png)
 
 ### 3. 哈希碰撞谜题
 这是一个很酷的谜题。你可以通过提供两个不同的数据字符串来解锁它，这些字符串会产生**相同的哈希结果**。
 
 换句话说，它是一种激励，鼓励人们寻找“[哈希碰撞](https://bitcointalk.org/index.php?topic=293382.0)”。
-![Scpipt-11.png](img/Script-11.png)
+![Scpipt-11.png](img/Script-11%20(1).png)
 比特币被锁定在这个脚本中的可以在地址35Snmmy3uhaer2gTboc81ayCip4m9DT4ko中找到。然而，该脚本已经被包装在一个P2SH锁定脚本中，因此您无法实际查看原始锁定脚本（除非有人解锁它们）。
 
 >**这些锁定脚本是非标准的**[^2]。虽然这些脚本是有效的（并且可以开采到区块链上），但典型的比特币核心节点不会从其内存池中中继它们，这使得它们很难在第一时间被开采。
@@ -88,7 +88,7 @@ DUP操作码复制堆栈顶部元素。
 * *P2MS*（支付到多重签名）
 * *P2SH*（支付到脚本哈希）
 * *NULL DATA*
-![Scpipt-12.png](img/Script-12.png)
+![Scpipt-12.png](img/Script-12%20(1).png)
 
 ### 为什么节点不转发非标准脚本？
 
