@@ -41,7 +41,7 @@ base58       =  123456789ABCDEFGH JKLMN PQRSTUVWXYZabcdefghijk mnopqrstuvwxyz
 1. 它提供了一个大的字符集，因此您可以用较短的格式表示大的数字。
 
 2. 它略去了尴尬的字符，以避免您在抄写时出错。
-![base58-1.png](img/Base58-1.svg)
+![base58-1.png](img/Base58-1-svg.png)
 一个讨厌的O/0
 
 ## Base58编码
@@ -61,7 +61,7 @@ base10 = 123456789
 base58 = [10][52][43][23][19]
 base58 = BukQL
 ```
-![base58-2.png](img/Base58-2.gif)
+![base58-2.gif](img/Base58-2%20(1).gif)
 
 Base58编码（简单）
 ```ruby
@@ -96,6 +96,61 @@ end
 
 puts int_to_base58(123456789) #=> BukQL
 ```
+
+## Base58解码
+
+要将一个Base58值转换为Base10，你需要将每个字符的索引乘以该数字在该位置表示的58的数量。
+
+然后将所有这些值加在一起即可。
+```
+base58 = BukQL
+
+L = 19 * 58^0 = 19
+Q = 23 * 58^1 = 1334
+k = 43 * 58^2 = 144652
+u = 52 * 58^3 = 10145824
+B = 10 * 58^4 = 113164960
+
+base10 = 19 + 1334 + 144652 + 10145824 + 113164960
+base10 = 123456789
+```
+![base58-3.gif](img/Base58-3%20(1).gif)
+
+Base58 解码（简单）
+```ruby
+def base58_to_int(base58)
+
+  @characters = %w[
+      1 2 3 4 5 6 7 8 9
+    A B C D E F G H   J K L M N   P Q R S T U V W X Y Z
+    a b c d e f g h i j k   m n o p q r s t u v w x y z
+    ]
+  
+  # create an integer to hold the result
+  total = 0
+
+  # reverse the base58 string so we can read characters from right to left
+  base58 = base58.reverse
+  
+  # run through each character, including the index so we know how many character we've read
+  base58.each_char.with_index do |char, i|
+  
+    # get the index number for this character
+    char_i = @characters.index(char)
+    
+    # work out how many 58s this character represents (increment the power for each character)
+    value  = char_i * (58**i)
+    
+    # add to total
+    total = total + value
+  end
+
+  return total
+
+end
+
+puts base58_to_int("BukQL") #=> 123456789
+```
 ## Base58在比特币中的应用
 
 当你想把常用数据转换成更易分享的格式时，比特币中使用Base58。例如：
@@ -113,7 +168,7 @@ puts int_to_base58(123456789) #=> BukQL
 
 >**我们将每个十六进制值开头的零字节（0x00）转换为Base58表示中的1。**
 
-![base58-3.png](img/Base58-3.gif)
+![base58-4.png](img/Base58-4-svg.png)
 
 你看，把零放在数字前面并不会增加它的大小（例如0x12与0x0012是相同的），因此当我们转换为base58（它使用模数函数）时，任何额外的零在开头将不会影响结果。
 
