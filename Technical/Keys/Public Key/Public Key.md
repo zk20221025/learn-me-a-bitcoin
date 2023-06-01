@@ -1,6 +1,6 @@
 # 公钥
 一个从私钥数学生成的独特数字。
-![Public Key-1.png](img/Public%20Key-1.png)
+![Public Key-1.png](img/Public%20Key-1%20(1).png)
 
 公钥就像您用来接收比特币的账号号码。
 
@@ -10,7 +10,7 @@
 您使用您的**私钥**（它只是一个大的随机数）来生成相应的公钥。
 
 您使用您的私钥执行**椭圆曲线乘法**，这将给您一个最终的椭圆曲线上的固定点。该点的*x*和*y*坐标就是您的公钥。
-![Public Key-2.png](img/Public%20Key-2.png)
+![Public Key-2.png](img/Public%20Key-2%20(1).png)
 
 ### 代码
 这里是从私钥创建公钥的基本代码。
@@ -148,7 +148,7 @@ puts public_key_compressed #=> 02b4632d08485ff1df2db55b9dafd23347d1c47a457072a1e
 
 #### 1. 不知道如何反向计算私钥。
 您可以使用椭圆曲线乘法向前计算，但无法进行反向数学计算。
-![Public Key-3.png](img/Public%20Key-3.png)
+![Public Key-3.png](img/Public%20Key-3%20(1).png)
 
 这意味着从你的私钥到公钥有一个数学连接，但没有人可以使用你的公钥来找出你的私钥。
 
@@ -158,7 +158,7 @@ puts public_key_compressed #=> 02b4632d08485ff1df2db55b9dafd23347d1c47a457072a1e
 基本上，使用一些椭圆曲线数学，你可以创建一个数字签名，证明你拥有与公钥相对应的私钥，而不必透露你的实际私钥。
 
 就像说你有一个账户的密码，但你不必向任何人展示你的实际密码来证明它。
-![Public Key-4.png](img/Public%20Key-4.png)
+![Public Key-4.png](img/Public%20Key-4%20(1).png)
 这要归功于数字签名似乎神奇的特性，而这一切都是通过椭圆曲线数学实现的。
 
 ## 公钥格式
@@ -172,21 +172,21 @@ puts public_key_compressed #=> 02b4632d08485ff1df2db55b9dafd23347d1c47a457072a1e
 比特币最初使用**x**和**y**坐标来存储公钥。
 
 在这种未压缩格式中，只需将**x**和**y**坐标放在一起，然后在整个字符串前加上04以表示它是未压缩的公钥：
-![Public Key-5.png](img/Public%20Key-5.png)
+![Public Key-5.png](img/Public%20Key-5%20(1).png)
 这是一个未压缩的公钥的示例：
 ```
 public key (uncompressed) = 04b4632d08485ff1df2db55b9dafd23347d1c47a457072a1e87be26896549a87378ec38ff91d43e8c2092ebda601780485263da089465619e0358a5c1be7ac91f4
 ```
 ### 2. 压缩的
 然而，由于椭圆曲线沿着其x轴是对称的，每个x坐标只会有两个可能的y坐标。
-![Public Key-6.png](img/Public%20Key-6.png)
+![Public Key-6.png](img/Public%20Key-6%20(1).png)
 
 这里有个技巧...
 
 * 如果 y 是偶数，它对应其中一个点。
 * 如果 y 是奇数，它对应另一个点。
 因此，在压缩的公钥格式中，我们只需存储完整的 **x** 坐标，以及一个前缀，指示 **y** 是偶数还是奇数。
-![Public Key-7.png](img/Public%20Key-7.png)
+![Public Key-7.png](img/Public%20Key-7%20(1).png)
 我们只需要存储y坐标是偶数还是奇数。
 
 以下是压缩公钥与未压缩公钥的示例：
@@ -240,11 +240,11 @@ puts uncompressed #=> 04b4632d08485ff1df2db55b9dafd23347d1c47a457072a1e87be26896
 ## 公钥在比特币中如何使用？
 
 您可以向其他人透露您的公钥，以便他们在创建交易时将其包括在输出的*锁定脚本*中。
-![Public Key-8.png](img/Public%20Key-8.png)
+![Public Key-8.png](img/Public%20Key-8%20(1).png)
 我们可以把我们的公钥给别人，这样他们就可以向我们发送比特币。这被称为Pay-To-Pubkey（*P2PK*）。
 
 然而，在比特币中，我们现在更常用的是在公钥之前进行*hash160*。然后，在解锁输出时才使用*公钥*。（初始锁定将首先检查公钥是否正确哈希，然后再将其与签名进行比对。）
-![Public Key-9.png](img/Public%20Key-9.png)
+![Public Key-9.png](img/Public%20Key-9%20(1).png)
 我们的公钥的Hash160现在存储在锁定中。这被称为支付到公钥哈希（*P2PKH*）。
 
 ## 在区块链中，公钥在哪里可以找到？
