@@ -1,6 +1,6 @@
 # 私钥
 一个随机生成的大数字。
-![Private Key-1.png](img/Private%20Key-1.png)
+![Private Key-1.png](img/Private%20Key-1%20(1).png)
 
 私钥是一个随机数。它是一个256位的数字。
 

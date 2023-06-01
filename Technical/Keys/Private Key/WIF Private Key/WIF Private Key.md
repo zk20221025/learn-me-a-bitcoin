@@ -15,7 +15,7 @@ WIF私钥是一个标准的*私钥*，但加了一些额外的东西：
    * 0x01
 3. *校验*和 - 有助于检测输入私钥时的错误/打字错误。
 然后将所有这些内容转换为*Base58*，缩短整个内容并使其更容易转录...
-![WIF Private Key-1.png](img/WIF%20Private%20Key-1.svg)
+![WIF Private Key-1.png](img/WIF%20Private%20Key-1.png)
 
 >一个WIF私钥只是另一种表示原始私钥的方式。如果你有一个WIF私钥，你总是可以将其转换回其原始格式。
 
