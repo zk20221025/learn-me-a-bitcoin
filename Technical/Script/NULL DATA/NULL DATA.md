@@ -1,6 +1,6 @@
 # NULL DATA
 将数据存储在比特币交易中。
-![nulldata-1.png](img/nulldata-1.png)
+![nulldata-1.png](img/nulldata-1%20(1).png)
 “NULL DATA”是一种标准的锁定脚本，您可以使用它来在**区块链上存储数据**。
 
 >**警告**：此锁定脚本无法解锁，因此我不建议将其用作任何数量比特币的锁定。
@@ -9,14 +9,14 @@
 
 **OP_RETURN**操作码**立即结束脚本的执行**并将其标记为无效。[^1]
 因此，任何带有NULL DATA锁定脚本的输出都是**无法花费**的：
-![nulldata-2.png](img/nulldata-2.png)
+![nulldata-2.png](img/nulldata-2%20(1).png)
 您无法解锁此锁定脚本。
 
 ## 那么 NULL DATA 锁定脚本有什么用途呢？
 您可以使用 NULL DATA 进行**数据存储**，因为*标准脚本*允许在末尾进行数据推送。
 
 因此，如果您想向交易中添加任意数据，请包含一个额外的（空）输出，并在其上放置一个 NULL DATA 锁定脚本：
-![nulldata-3.png](img/nulldata-3.png)
+![nulldata-3.png](img/nulldata-3%20(1).png)
 
 你可以在NULL DATA脚本中存储什么数据？
 >一个交易只能包含一个空数据锁定脚本，才能被视为标准交易（也就是节点会转发它）。
@@ -33,7 +33,7 @@ hexadecimal = 68656c6c6f20776f726c64
 ascii       = h e l l o   w o r l dv
 ```
 ASCII字符代码表:
-![nulldata-4.png](img/nulldata-4.png)
+![nulldata-4.png](img/nulldata-4%20(1).png)
 当然，你可以存储多达80个字节的任何数据（不仅仅是ASCII字符代码形式的文本）。你只需要知道如何解码它以查看它是什么。
 
 ## 你在哪里可以找到NULL DATA脚本？
@@ -79,7 +79,7 @@ Example 3 - “家族も友達もみんなが笑顔の毎日がほしい”
 脚本中存在**OP_RETURN**操作码并不会自动使脚本无效。
 
 例如，在下面的脚本中，**OP_RETURN**在永远不会被评估的分支中，因此脚本是有效的：
-![nulldata-5.png](img/nulldata-5.jpg)
+![nulldata-5.png](img/nulldata-5.png)
 
 您可以在此处查看此脚本在*P2SH*中的*示例*。
 
