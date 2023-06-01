@@ -1,6 +1,6 @@
 # 校验和
 一种简单的数据错误检查方法。
-![Checksum-1.png](img/Checksum-1.svg)
+![Checksum-1.png](img/checksum-1.png)
 
 >**校验和是一小段数据，可以让您检查另一段数据是否与预期相同。**
 
@@ -8,14 +8,14 @@
 
 ## 它们是如何工作的？
 在比特币中，校验和是通过两次通过*SHA256**哈希数据*并取结果的前4个字节来创建的：
-![Checksum-2.png](img/Checksum-2.svg)
+![Checksum-2.png](img/checksum-2.png)
 这给你一个小而可靠的、相当独特的数据片段，有点像指纹。
 
 您将保留数据和校验和在一起，以便下次使用时可以检查整个内容是否已正确输入。
-![Checksum-3.png](img/Checksum-3.svg)
+![Checksum-3.png](img/checksum-3.png)
 
 如果您在任何部分犯了一个小错误，数据将不再与校验和匹配。
-![Checksum-4.png](img/Checksum-4.svg)
+![Checksum-4.png](img/checksum-4.png)
 
 因此，基本上，校验和是一种方便的错误检查工具。
 
