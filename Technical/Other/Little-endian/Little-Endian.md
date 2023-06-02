@@ -127,7 +127,7 @@ echo $little-endian;
 ```
 
 ### GIF
-![little-endian-1.png](img/Little-Endian-1.gif)
+![little-endian-1.png](img/Little-Endian-1%20(1).gif)
 
 ## 资源
 * [小端和大端转换](http://phoxis.org/2010/01/28/little-big-endian-conversion/)
