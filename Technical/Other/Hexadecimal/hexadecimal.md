@@ -63,7 +63,7 @@
 
 ## 转换
 这是我如何在脑海中计算十六进制数的方法：
-![hexadecimal-1.png](img/hexadecimal-1.gif)
+![hexadecimal-1.png](img/hexadecimal-1%20(1).gif)
 
 或者如果我想要得到正确的答案，我会使用这些工具：
 
