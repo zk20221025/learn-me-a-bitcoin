@@ -1,6 +1,6 @@
 VarInt
 一种指示即将到来的数据大小的格式。
-![varint-1.png](img/varint-1.svg)
+![varint-1.png](img/varint-1-svg.png)
 
 可变整数（VarInt）是用于表示即将到来的字段数量或即将到来的字段长度的*交易数据*中的字段。
 

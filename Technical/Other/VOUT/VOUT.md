@@ -7,7 +7,7 @@
 ## 用途
 
 您可以使用txid和vout来唯一选择一个输出，在新交易中用作输入。
-![VOUT-2.png](img/VOUT-2.png)
+![VOUT-2.png](img/VOUT-2%20(1).png)
 输出编号2，请。
 
 ## 注意事项
