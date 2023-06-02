@@ -1,6 +1,6 @@
 # 哈希函数
 一个将数据混淆的小程序。
-![hash-function-1.png](img/Hash%20Function-1.svg)
+![hash-function-1.png](img/Hash%20Function-1-svg.png)
 >**哈希函数是一个小型计算机程序，它接收数据，对其进行混淆处理，并给出一个唯一的固定长度结果。**
 
 哈希函数的有趣之处在于：
@@ -18,13 +18,13 @@
 ### 1.你无法从结果推断出原始数据。
 
 加密哈希函数产生的结果是随机的（没有模式），因此无法通过反向计算哈希函数来确定原始数据是什么。
-![hash-function-2.png](img/Hash%20Function-2.svg)
+![hash-function-2.png](img/Hash%20Function-2-svg.png)
 
 >这是加密哈希函数的特性。你可能能够通过“基本”哈希函数的结果重构出原始数据，但加密哈希函数的任务是尽可能地使这一过程变得困难。
 
 ### 2.相同的数据总是会返回相同的结果。
 哈希函数会系统地对数据进行混淆，使得相同的输入总是会产生相同的结果。
-![hash-function-3.png](img/Hash%20Function-3.svg)
+![hash-function-3.png](img/Hash%20Function-3-svg.png)
 
 如果你将一些数据输入到哈希函数中，你可以确信这些数据每次都会产生相同的结果。
 例如：
@@ -38,7 +38,7 @@ learnmeabitcoin     ef235aacf90d9f4aadd8c92e4b2562e1d9eb97f0df9ba3b508258739cb01
 
 ### 3.不同的数据会产生不同的结果。
 如果您将唯一的数据输入哈希函数，哈希函数将给出一个唯一的结果。
-![hash-function-4.png](img/Hash%20Function-4.svg)
+![hash-function-4.png](img/Hash%20Function-4-svg.png)
 
 即使是最小的数据变化也会返回完全不同的结果。
 例如：
