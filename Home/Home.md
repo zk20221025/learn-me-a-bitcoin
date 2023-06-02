@@ -20,13 +20,14 @@
 ![Home-2.png](img/Home-2.png)
 来吧，[试试](https://bitcoin.org/en/download)
 
-当你运行该程序时，它将连接到其他也在运行该程序的计算机，并且它们将开始与你共享文件。这个文件被称为*blockchain*，它基本上是一个大的*transactions*。
+当你运行该程序时，它将连接到其他也在运行该程序的计算机，并且它们将开始与你共享文件。这个文件被称为[blockchain](../Technical/Blockchain/blockchain.md)，它基本上是一个大的[transactions](../Technical/Transaction/Transaction%20Data/Transaction%20Data.md)。
 ![Home-3.png](img/Home-3%20(1).png)
 
-当一笔新的交易进入网络时，它会从一台计算机转发到另一台计算机，直到每个人都有一份交易的副本。每隔大约10分钟，网络上的随机计算机(*node*)将把它们收到的最新交易添加到区块链上，并与网络上的其他所有人共享更新。
+当一笔新的交易进入网络时，它会从一台计算机转发到另一台计算机，直到每个人都有一份交易的副本。每隔大约10分钟，网络上的随机计算机([node](../Beginners/How%20Bitcoin%20Works/1.Network/Nodes/Nodes.md))将把它们收到的最新交易添加到区块链上，并与网络上的其他所有人共享更新。
 ![Home-4.png](img/Home-4%20(1).png)
 
-因此，比特币程序创建了一个庞大的计算机网络，这些计算机相互通信、**共享文件并用新的交易更新文件**。
+因此，比特币程序创建了一个庞大的计算机[网络](../Beginners/How%20Bitcoin%20Works/1.Network/Network.md)，这些计算机相互通信、**共享文件并用新的交易更新文件**。
+
 ## 比特币解决了什么问题？
 在比特币出现之前，已经可以在计算机网络中转发交易了。但问题是**你可以在计算机网络中插入冲突的交易**。例如，你可以创建两个不同的交易，用于花费同一数字货币，并同时将这两个交易发送到网络中。
 这就是所谓的“**双重支出**”。
@@ -40,17 +41,17 @@
 更新后的文件将与网络共享，节点将接受更新文件中的交易为“正确”，从其内存中删除任何冲突的交易。因此，不会将任何双重支出交易写入文件中，所有节点都可以在彼此达成一致的情况下更新其文件。
 ![Home-7.png](img/Home-7%20(1).png)
 
-将交易添加到文件的过程称为*ming*，它基本上是一个网络范围内的竞争，不能由网络上的单个节点控制。
+将交易添加到文件的过程称为[ming](../Technical/Mining/Mining.md)，它基本上是一个网络范围内的竞争，不能由网络上的单个节点控制。
 
 ## 挖矿是如何工作的？
-首先，每个节点会将他们收到的最新*transactions*存储在*memory pool*中。任何节点都可以尝试将内存池中的交易挖掘到*blockchain*文件中。
-为了做到这一点，一个节点将从其内存池中收集交易，并将其放入一个称为*block*的容器中，然后使用处理能力尝试将这个交易区块添加到区块链上。
+首先，每个节点会将他们收到的最新[transactions](../Technical/Transaction/Transaction%20Data/Transaction%20Data.md)存储在[memory pool](../Technical/Node/Memory%20Pool/Memory%20Pool.md)中。任何节点都可以尝试将内存池中的交易挖掘到[blockchain](../Technical/Blockchain/blockchain.md)文件中。
+为了做到这一点，一个节点将从其内存池中收集交易，并将其放入一个称为[block](../Beginners/How%20Bitcoin%20Works/2.Mining/2.Blocks/Blocks.md)的容器中，然后使用处理能力尝试将这个交易区块添加到区块链上。
 ![Home-8.png](img/Home-8%20(1).png)
 
-那么这个处理能力从哪里得来呢？要将这个区块添加到区块链中，你必须将你的交易区块输入到一个叫做*hash function*的东西中。哈希函数基本上是一个小型计算机程序，可以接受任何数量的数据，将其混合，然后输出一个完全随机（但唯一）的数字。
+那么这个处理能力从哪里得来呢？要将这个区块添加到区块链中，你必须将你的交易区块输入到一个叫做[hash function](../Technical/Other/Hash%20Function/Hash%20Function.md)的东西中。哈希函数基本上是一个小型计算机程序，可以接受任何数量的数据，将其混合，然后输出一个完全随机（但唯一）的数字。
 ![Home-9.png](img/Home-9%20(1).png)
 
-为了使您的区块成功添加到区块链上，该数字（*block hash*）必须低于*target*，而目标值是网络上所有人都同意的阈值数字。
+为了使您的区块成功添加到区块链上，该数字（[block hash](../Technical/Block/block-hash/block-hash.md)）必须低于[target](../Technical/Mining/Target/Target.md)，而目标值是网络上所有人都同意的阈值数字。
 ![Home-10.png](img/Home-10%20(1).png)
 
 如果您的结果区块哈希值不在目标值之下，您可以对区块内部数据进行微小调整，再次将其放入哈希函数中。这将产生一个完全不同的数字，希望它会在目标值之下。如果不是，您需要再次调整区块并重试。
@@ -65,10 +66,10 @@
 这个新比特币的奖励被称为块奖励，也是这个过程被称为“挖矿”的原因。
 
 ## 为什么文件被称为“区块链”？
-正如我们所见，交易不是单独添加到文件中的 - 它们被收集在一起，以块的形式添加。每个新块都建立在现有块之上，因此文件由一系列*块*构成；因此，称为*区块链*。
+正如我们所见，交易不是单独添加到文件中的 - 它们被收集在一起，以块的形式添加。每个新块都建立在现有块之上，因此文件由一系列*块*构成；因此，称为[区块链](../Technical/Blockchain/blockchain.md)。
 ![Home-13.png](img/Home-13.png)
 
-此外，网络上的每个节点始**终会采用它们接收到的*最长块链***作为“官方”版本。这意味着矿工始终会尝试在已知的最长块链的“顶端”上构建，因为任何不属于最长链的块都不会被其他节点视为有效。
+此外，网络上的每个节点始**终会采用它们接收到的[最长块链](../Technical/Blockchain/longest-chain/longest-chain.md)**作为“官方”版本。这意味着矿工始终会尝试在已知的最长块链的“顶端”上构建，因为任何不属于最长链的块都不会被其他节点视为有效。
 ![Home-14.png](img/Home-14%20(1).png)
 
 因此，如果有人想要重写交易历史，他们需要重建一个更长的区块链，以创建一个新的最长链，让其他节点采用。然而，要实现这一点，单个矿工需要拥有比网络中其他矿工加起来更多的计算机处理能力。
@@ -81,7 +82,7 @@
 你可以将区块链想象成一个保险箱存储设施，我们称之为*outputs*。这些输出只是容器，用于存放不同数量的比特币。
 ![Home-16.png](img/Home-16%20(1).png)
 
-当你进行比特币*transaction*时，你选择一些输出并解锁它们，然后创建新的输出并加上新的*locks*。
+当你进行比特币[transaction](../Technical/Transaction/Transaction%20Data/Transaction%20Data.md)时，你选择一些输出并解锁它们，然后创建新的输出并加上新的[locks](../Beginners/How%20Bitcoin%20Works/3.Transactions/Outputs/Outputt%20Locks/Outputt%20Locks.md)。
 ![Home-17.png](img/Home-17%20(1).png)
 
 因此，当你“发送”比特币给某人时，实际上是将一定数量的比特币放入一个新的保险箱中，并在上面加上一个锁，只有你“发送”比特币给的那个人能够解锁。
@@ -98,7 +99,7 @@
 
 ## 你如何拥有比特币？
 
-要能够“接收”比特币，您需要拥有自己的一组*keys*。这组密钥就像您的帐号号码和密码，但在比特币中，它们被称为您的*public key*和*private key*。
+要能够“接收”比特币，您需要拥有自己的一组[keys](../Beginners/How%20Bitcoin%20Works/4.Keys%26Addresses/keys_addresses.md)。这组密钥就像您的帐号号码和密码，但在比特币中，它们被称为您的[public key](../Technical/Keys/Public%20Key/Public%20Key.md)和[private key](../Technical/Keys/Private%20Key/Private%20Key.md)。
 
 例如，如果我想给你发送一些比特币，你首先需要给我你的**公钥**。当我创建交易时，我会把你的公钥放在output（保险箱）上的锁里。当你想把比特币发送给其他人时，你会使用你的**私钥**来解锁这个output。
 ![Home-21.png](img/Home-21%20(1).png)
@@ -109,23 +110,23 @@
 简而言之，你的私钥只是一个大的随机数，而你的公钥是从这个私钥计算出来的一个数。但聪明的部分是，你可以把你的公钥给别人，但他们无法从中计算出私钥。
 ![Home-22.png](img/Home-22%20(1).png)
 
-现在，当您想解锁分配给您公钥的比特币时，您使用私钥创建所谓的*digital signature*。这个数字签名证明了您是公钥的所有者（因此可以解锁比特币），而不必透露您的私钥。这个数字签名也只对创建它的交易有效，因此不能用来解锁锁定在同一公钥下的其他比特币。
+现在，当您想解锁分配给您公钥的比特币时，您使用私钥创建所谓的[digital signature](../Beginners/How%20Bitcoin%20Works/4.Keys%26Addresses/Public%20keys/Digital%20Signatures/Digital%20Signatures.md)。这个数字签名证明了您是公钥的所有者（因此可以解锁比特币），而不必透露您的私钥。这个数字签名也只对创建它的交易有效，因此不能用来解锁锁定在同一公钥下的其他比特币。
 ![Home-23.png](img/Home-23%20(1).png)
 
 这个系统被称为“公钥密码学”，自1978[^1]的密钥，而无需中央机构发行账户和密码。
 
 ## 所有内容放在一起
-*get started with bitcoin*，您需要生成自己的*private key*和*public key*。您的私钥只是一个非常大的随机数，您的公钥是从它计算出来的。这些密钥可以在计算机上轻松生成，甚至可以在简单的计算器上生成。大多数人使用比特币钱包来帮助生成和管理他们的密钥。
+[开始使用比特币](../Beginners/Getting%20Started/getting-started/getting%20started.md)，您需要生成自己的[private key](../Technical/Keys/Private%20Key/Private%20Key.md)和[public key](../Technical/Keys/Private%20Key/Private%20Key.md)。您的私钥只是一个非常大的随机数，您的公钥是从它计算出来的。这些密钥可以在计算机上轻松生成，甚至可以在简单的计算器上生成。大多数人使用[比特币钱包](https://electrum.org/)来帮助生成和管理他们的密钥。
 
-要接收比特币，您需要将您的公钥提供给想要向您发送比特币的人。这个人将创建一笔*transaction*，在其中解锁他们拥有的比特币，并创建一个新的“保险箱”，将您的公钥放在锁内。
+要接收比特币，您需要将您的公钥提供给想要向您发送比特币的人。这个人将创建一笔[transaction](../Technical/Transaction/Transaction%20Data/Transaction%20Data.md)，在其中解锁他们拥有的比特币，并创建一个新的“保险箱”，将您的公钥放在锁内。
 
-这个交易被发送到比特币网络上的任何一个*node*，然后从计算机到计算机中继，直到*network*上的每个节点都有交易的副本。从这里开始，每个节点都有机会尝试将他们收到的最新交易挖掘到区块链上。
+这个交易被发送到比特币网络上的任何一个[node](../Beginners/How%20Bitcoin%20Works/1.Network/Network.md)，然后从计算机到计算机中继，直到[network](../Beginners/How%20Bitcoin%20Works/1.Network/Network.md)上的每个节点都有交易的副本。从这里开始，每个节点都有机会尝试将他们收到的最新交易挖掘到区块链上。
 
-这个*mining*过程涉及一个节点从其*memory pool*中收集交易到一个*block*中，然后反复将该块数据通过*hash function*（每次进行微小的调整）以尝试获得低于*target*的*block hash*。
+这个[mining](../Technical/Mining/Mining.md)过程涉及一个节点从其[memory pool](../Technical/Node/Memory%20Pool/Memory%20Pool.md)中收集交易到一个[block](../Beginners/How%20Bitcoin%20Works/2.Mining/2.Blocks/Blocks.md)中，然后反复将该块数据通过[hash function](../Technical/Other/Hash%20Function/Hash%20Function.md)（每次进行微小的调整）以尝试获得低于[target](../Technical/Mining/Target/Target.md)的[block hash](../Technical/Block/block-hash/block-hash.md)。
 
-第一个找到低于目标哈希值的矿工将把该块添加到他们的*blockchain*中，并将此块广播给网络上的其他节点。每个节点也会将该块添加到他们的区块链中（从内存池中删除任何冲突的交易），并重新启动挖矿过程，以尝试在该链中在新块上构建。
+第一个找到低于目标哈希值的矿工将把该块添加到他们的[blockchain](../Beginners/How%20Bitcoin%20Works/2.Mining/1.Blockchain/Blockchain.md)中，并将此块广播给网络上的其他节点。每个节点也会将该块添加到他们的区块链中（从内存池中删除任何冲突的交易），并重新启动挖矿过程，以尝试在该链中在新块上构建。
 
-最后，挖掘出这个区块的矿工会在区块内放置自己的*special transaction*，以便收集一定数量的比特币，这些比特币之前不存在。这个**区块奖励**作为节点继续构建区块链的激励，同时将新币分配到比特币网络中。
+最后，挖掘出这个区块的矿工会在区块内放置自己的[special transaction](../Technical/Transaction/Coinbase%20Transaction/Coinbase%20Transaction.md)，以便收集一定数量的比特币，这些比特币之前不存在。这个**区块奖励**作为节点继续构建区块链的激励，同时将新币分配到比特币网络中。
 ![Home-24.png](img/Home-24%20(1).png)
 
 ## 结论
@@ -144,8 +145,8 @@ https://github.com/bitcoin/bitcoin/ (源代码)
 
 这个网站充满了有关比特币如何运作的**简单解释**。
 
-1. *初学者指南* - 有时候你只需要一个完整的基础教程。这是我在2015年第一次学习比特币运作时写的最简短、最简单的指南。
-2. *技术指南* - 更全面、更深入的比特币运作指南。适合程序员。
+1. [初学者指南](../Beginners/Beginners%20Guide.md) - 有时候你只需要一个完整的基础教程。这是我在2015年第一次学习比特币运作时写的最简短、最简单的指南。
+2. [技术指南](../Technical/Technical.md) - 更全面、更深入的比特币运作指南。适合程序员。
 3. *区块链浏览器* - 通过浏览数据并查看它们如何相互连接，你可以感受比特币的运作方式。就像打开汽车引擎盖看里面的一样。
 4. [视频(YouTube)](https://www.youtube.com/channel/UCj9MFr-7a02d_qe4xVnZ1sA/videos)- 这些是程序员从比特币的角度深入解释其机制的视频。如果你想用比特币编写东西，这些视频课程会让你入门。
 5. [代码(GitHub)](https://github.com/in3rsha/learnmeabitcoin-code)- 常见比特币操作的示例代码片段。
