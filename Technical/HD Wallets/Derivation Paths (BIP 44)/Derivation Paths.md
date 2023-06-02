@@ -16,7 +16,7 @@ HD钱包如何派生密钥。
 ```
 m/0/1/3'
 ```
-![derivation-paths-1.png](img/derivation-paths-1.png)
+![derivation-paths-1.png](img/derivation-paths-1%20(1).png)
 
 斜杠/表示树中的新级别（新的子级）。数字（例如0）表示从父级的子级编号。
 
@@ -36,7 +36,7 @@ m/0/1/3'
 ```
 m / purpose' / coin_type' / account' / change / index
 ```
-![derivation-paths-2.png](img/derivation-paths-2.png)
+![derivation-paths-2.png](img/derivation-paths-2%20(1).png)
 树中的层级有特定的含义。
 
 >m: 主密钥
@@ -84,7 +84,7 @@ m / purpose' / coin_type' / account' / change / index
 ```
 m / account' / external / index
 ```
-![derivation-paths-3.png](img/derivation-paths-3.png)
+![derivation-paths-3.png](img/derivation-paths-3%20(1).png)
 
 这是一个不错且简单的推导路径，但它不允许创建替代推导路径方案的选项。
 
@@ -94,11 +94,11 @@ m / account' / external / index
 [BIP 44](https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki)基于原始的BIP 32方案，包括一个目的[^1]（类似于版本号，用于识别即将到来的方案）以及一个币种类型，以便可以使用相同的种子生成不同加密货币的密钥。
 
 公钥编码为1地址（P2PKH）。
-![derivation-paths-4.png](img/derivation-paths-4.png)
+![derivation-paths-4.png](img/derivation-paths-4%20(1).png)
 
 **BIP 49: m/49'/0'/0'/0/0**
 [BIP 49](https://github.com/bitcoin/bips/blob/master/bip-0049.mediawiki)使用与BIP 44相同的结构，但用于指示公钥应编码为3地址（P2WPKH-P2SH）。
-![derivation-paths-5.png](img/derivation-paths-5.png)
+![derivation-paths-5.png](img/derivation-paths-5%20(1).png)
 
 >**BIP 49序列化**
 BIP 49派生路径中的扩展密钥使用版本字节049d7878“yprv”或049d7cb2“ypub”进行序列化。这允许您在扩展密钥是BIP 49方案的一部分时进行识别。
@@ -109,7 +109,7 @@ yprvABrGsX5C9jant45o1Au7iHH54A8GXQH9SGhK5vkYKPUBDYsFy6KNUWX24moUE6KxoCh2qtZ8UpLa
 
 **BIP 84: m/84'/0'/0'/0/0**
 [BIP 84](https://github.com/bitcoin/bips/blob/master/bip-0084.mediawiki)使用与BIP 44相同的结构，但用于指示公钥应编码为bc1地址（P2WPKH）。
-![derivation-paths-6.png](img/derivation-paths-6.png)
+![derivation-paths-6.png](img/derivation-paths-6%20(1).png)
 
 >**BIP 84序列化**
 BIP 84派生路径中的扩展密钥在序列化过程中使用版本字节04b2430c“zprv”或04b24746“zpub”。这使您可以在BIP 84方案的一部分时识别扩展密钥。
