@@ -19,7 +19,7 @@
 3. 将助记句转换为种子
 
 ### 1.生成熵
-![Mnemonic Seed-1.png](img/Mnemonic%20Seed-1.gif)
+![Mnemonic Seed-1.png](img/Mnemonic%20Seed-1%20(1).gif)
 您的熵应为128到256位。
 
 要创建助记词，首先需要生成熵，这是我们的随机源。
@@ -48,10 +48,10 @@ puts entropy #=> "10101101110110001100100100101110010010110010010101100010111000
 现在我们已经有了我们的熵，我们可以将其编码成单词。
 
 首先，我们为我们的熵添加一个校验和，以帮助检测错误（使最终句子更用户友好）。这个校验和是通过将熵哈希通过SHA256创建的，这为我们的熵提供了一个唯一的指纹。然后，我们取该哈希的1位，用于每32位熵，并将其添加到我们的熵的末尾。
-![Mnemonic Seed-2.png](img/Mnemonic%20Seed-2.png)
+![Mnemonic Seed-2.png](img/Mnemonic%20Seed-2%20(1).png)
 
 接下来，我们将它分成11位一组，将这些数字转换为十进制数，并使用这些数字来选择相应的单词。
-![Mnemonic Seed-3.png](img/Mnemonic%20Seed-3.png)
+![Mnemonic Seed-3.png](img/Mnemonic%20Seed-3%20(1).png)
 这个单词列表中有2048个单词。
 这就是我们的助记句。
 
@@ -101,7 +101,7 @@ puts "mnemonic: #{mnemonic}" #=> "punch shock entire north file identify"
 现在我们有了助记词，我们可以将其转换成最终的种子。
 
 要创建种子，您需要将助记词通过 PBKDF2 函数。这基本上是将您的助记词（+ 可选的口令）多次哈希，直到产生最终的 64 字节（512 位）结果。
-![Mnemonic Seed-4.png](img/Mnemonic%20Seed-4.gif)
+![Mnemonic Seed-4.png](img/Mnemonic%20Seed-4%20(1).gif)
 可选的口令短语允许您修改最终种子。
 这个64字节的结果就是您的种子，可以用来创建分层确定性钱包的*主扩展密钥*。
 ```ruby
@@ -144,7 +144,7 @@ PBKDF2基本上是一个哈希函数，旨在通过多次哈希数据来减慢�
 助记词句子包含一个校验和，这意味着您可以**检查给定的助记词句子是否有效**。
 
 为此，您将助记词中的单词转换回位，确定熵部分和校验和部分，并检查从熵中创建的校验和是否与助记词中的校验和匹配。
-![Mnemonic Seed-.png](img/Mnemonic%20Seed-5.png)
+![Mnemonic Seed-5.png](img/Mnemonic%20Seed-5%20(1).png)
 
 >**警告**：不要随机生成12-24个单词来创建助记词句子。如果你只是随机选择12-24个单词，那么你最后选择的单词可能不包含正确的校验和，导致当你尝试导入到钱包时会显示无效。
 ```ruby
@@ -2238,7 +2238,7 @@ zoo
 ```
 
 ## 摘要
-![Mnemonic Seed-6](img/Mnemonic%20Seed-6.png)
+![Mnemonic Seed-6](img/Mnemonic%20Seed-6%20(1).png)
 
 ## 代码
 以下代码片段需要这个wordlist.txt文件。
