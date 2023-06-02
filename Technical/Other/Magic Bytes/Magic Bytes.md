@@ -2,7 +2,7 @@
 
 比特币网络上的消息分隔符。
 
-![Magic Bytes-1.png](img/Magic%20Bytes-1.svg)
+![Magic Bytes-1.png](img/Magic%20Bytes-1-svg.png)
 
 **魔术字节**被用作在*比特币网络*中*节点*之间识别不同消息的方式。
 
