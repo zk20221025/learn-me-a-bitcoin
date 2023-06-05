@@ -12,15 +12,15 @@
 ![getting-started-1.png](img/getting-started-1%20(1).png)
 比特币核心是由Satoshi Nakamoto于2009年创建的原始程序。
 
-当您运行该程序时，它将连接到运行相同程序的其他人，创建一个相互通信的计算*network*。
+当您运行该程序时，它将连接到运行相同程序的其他人，创建一个相互通信的计算[网络](../../How%20Bitcoin%20Works/1.Network/Network.md)。
 ![getting-started-2.png](img/getting-started-2%20(1).png)
 网络上的计算机被称为节点。
 
-第一次运行比特币核心时，您将开始从网络上的其他节点下载一个文件。该文件称为*blockchain*，它是一个大的**交易文件**。
+第一次运行比特币核心时，您将开始从网络上的其他节点下载一个文件。该文件称为[区块链](../../../Technical/Blockchain/blockchain.md)，它是一个大的**交易文件**。
 ![getting-started-3.gif](img/getting-started-3%20(1).gif)
 该文件由单独的块组成，每个块包含交易。
 
-一旦您下载并验证了完整的区块链（目前为0.00 GB），您就可以开始进行自己的*transactions*，这些交易会在网络中传播，并写入每个人计算机上的区块链。
+一旦您下载并验证了完整的区块链（目前为0.00 GB），您就可以开始进行自己的[交易](../../How%20Bitcoin%20Works/3.Transactions/Transactions.md)，这些交易会在网络中传播，并写入每个人计算机上的区块链。
 ![getting-started-4.gif](img/getting-started-4%20(1).gif)
 区块链是交易的永久存储。
 
@@ -67,8 +67,8 @@
 
 你的种子是独一无二的，它用于创建你钱包中的每个**地址**。
 
-* *地址*是你提供给别人的，以便你可以接收比特币。
-* 每个地址都有它自己的*私钥*，当你向别人发送比特币时使用它。
+* [地址](../../../Technical/Keys/Address/Address.md)是你提供给别人的，以便你可以接收比特币。
+* 每个地址都有它自己的[私钥](../../../Technical/Keys/Private%20Key/Private%20Key.md)，当你向别人发送比特币时使用它。
 ![getting-started-7.gif](img/getting-started-7%20(1).gif)
 您可以将地址视为您的帐户号码，将私钥视为其密码。
 
@@ -86,7 +86,7 @@
 ![getting-started-8.png](img/getting-started-8%20(1).png)
 这些盒子被称为输出。它们可以包含任意数量的比特币，并可以在其上放置各种锁定。
 
-当您进行*transaction*时，您的钱包会从区块链中选择属于您的一箱比特币，并为您要发送比特币的人创建一箱新的比特币。
+当您进行[交易](../../How%20Bitcoin%20Works/3.Transactions/Transactions.md)时，您的钱包会从区块链中选择属于您的一箱比特币，并为您要发送比特币的人创建一箱新的比特币。
 
 您的钱包将另一个人的地址放入新盒子上的锁中，并使用必要的私钥解锁当前锁定在您地址上的比特币盒子。
 ![getting-started-9.gif](img/getting-started-9%20(1).gif)
@@ -132,15 +132,3 @@
 * https://bitcoin-intro.com/ -另一个使用比特币的良好介绍。此页面顶部引用的来源。 
 
 [^1]:一笔交易可以从区块链中移除，但这并不容易。请参见*51%攻击*。
-
-作者：Greg Walker，2020年1月6日
-
-最后更新日期：2020年7月21日
-2020年7月21日: redirected and renamed files from /guide/ to /technical/
-2020年3月28日: updated html for h1 headers and subheadings - now dynamic from yaml
-2020年3月28日: updated html for h1 headers and subheadings
-2020年2月27日: /beginners/sending - first draft
-2020年2月14日: /beginners/buying - first draft
-2020年2月9日: /beginners/getting-started - fixed link
-2020年2月9日: /beginners/getting-started - animated some diagrams
-2020年2月7日: /beginners/getting-started - first draft

@@ -3,15 +3,15 @@
 
 开始使用比特币是最好的入门方式。
 
-在你拥有了*got yourself a wallet*后，你就可以准备获得你的第一枚比特币了。
+在你拥有了[自己的比特币钱包](../getting-started/getting%20started.md)后，你就可以准备获得你的第一枚比特币了。
 >*提示*：Satoshi是比特币的最小单位（0.00000001 BTC）。在购买比特币时，更实际的做法是以Satoshi而不是整个比特币为单位思考。
 
 # 如何购买比特币?
 购买比特币的最简单方法是从**已经拥有比特币的人那里购买**。如果您能找到这样的人，这是购买比特币的最佳方法。
 ![buying-1.gif](img/buying-1%20(1).gif)
-只需给某人一些钱和您的地址，他们就可以创建一笔交易，向您发送一些比特币。
+只需给某人一些钱和您的地址，他们就可以创建一笔[交易](../../How%20Bitcoin%20Works/3.Transactions/Transactions.md)，向您发送一些比特币。
 
->提示：始终等待交易获得至少1个确认。这意味着交易已经被*mined*到*blockchain*中，不能被撤销。
+>提示：始终等待交易获得至少1个确认。这意味着交易已经被[挖掘](../../How%20Bitcoin%20Works/2.Mining/mining.md)到[区块链](../../../Technical/Blockchain/blockchain.md)中，不能被撤销。
 
 但当然，并不是每个人都知道有人出售比特币，那么你的选择是什么？
 
@@ -20,9 +20,9 @@
 访问一个网站，创建一个账户，向他们发送资金，他们将“添加比特币”到您的账户中。
 
 ## 你在哪里可以购买比特币？
-以下是我在*2023年5月*的购买比特币推荐。这不是一个详尽的列表，但它们是*我*个人的推荐。
+以下是我在*2023年5月*的购买比特币推荐。这不是一个详尽的列表，但它们是[我](../../../About/about.md)个人的推荐。
 
-它们根据它们提供的隐私程度进行组织，我认为这是购买比特币时最重要的考虑因素（请参见下面的*隐私*）。
+它们根据它们提供的隐私程度进行组织，我认为这是购买比特币时最重要的考虑因素（请参见下面的*隐私政策*）。
 
 ### A. 没有隐私
 
@@ -57,7 +57,7 @@
 
 那么该怎么办呢？
 
-如果您想完全掌控自己的比特币（我建议这样做），则将比特币提取到自己的钱包中。通过“提取”，您正在要求公司创建一个*transaction*，将一定数量的比特币锁定到您的地址中。因此，您将拥有允许您转移比特币的密钥，这意味着除您之外没有人掌控它们。
+如果您想完全掌控自己的比特币（我建议这样做），则将比特币提取到自己的钱包中。通过“提取”，您正在要求公司创建一个[交易](../../How%20Bitcoin%20Works/3.Transactions/Transactions.md)，将一定数量的比特币锁定到您的地址中。因此，您将拥有允许您转移比特币的[密钥](../../How%20Bitcoin%20Works/4.Keys%26Addresses/keys_addresses.md)，这意味着除您之外没有人掌控它们。
 ![buying-3.gif](img/buying-3%20(1).gif)
 如果比特币在你的钱包里，黄金就在你的手里。
 
@@ -92,9 +92,9 @@
 ## 结论。
 购买比特币的最好方式是与您认识和信任的人交易。结交朋友[^1]，交换物品，这是最纯粹的交易方式，也是购买和出售比特币的最终方式……如果您能够这样做。
 
-公司提供了一种方便的购买比特币的方式，但您要以隐私作为代价。在使用您从这些公司购买的比特币支付某些东西时，请注意这一点。此外，您在线钱包中的比特币不在您的控制范围内，因此如果您希望它们真正成为您的比特币，请将它们**提取**到*自己的钱包*中。
+公司提供了一种方便的购买比特币的方式，但您要以隐私作为代价。在使用您从这些公司购买的比特币支付某些东西时，请注意这一点。此外，您在线钱包中的比特币不在您的控制范围内，因此如果您希望它们真正成为您的比特币，请将它们**提取**到[自己的钱包](../getting-started/getting%20started.md)中。
 
->**注意**：比特币中流行的一句话是“不是您的密钥，不是您的比特币”。换句话说，如果您没有发送交易中所需的私钥，则在技术上您不拥有它们。
+>**注意**：比特币中流行的一句话是“不是您的密钥，不是您的比特币”。换句话说，如果您没有发送交易中所需的[私钥](../../How%20Bitcoin%20Works/4.Keys%26Addresses/Privatr%20key/Private%20key.md)，则在技术上您不拥有它们。
 
 您可以购买比特币的地方随时变化，而且取决于您居住的地方。我列出的是我最好的建议，但是您可能会找到更好的选择。随时浏览一下是很好的。
 
@@ -105,21 +105,3 @@
 
 
 [^1]:Local meetup groups are a good way to meet other people interested in Bitcoin. See Bitcoin Wiki - Meetups and bitcoin-only.com#meetups.
-
-通过*Greg Walker*，2020年1月10日
-
-最后更新：2021年2月4日
-2021年2月4日：spelling fixes
-2020年7月28日：added noindex to json only pages and nofollow to localbitcoins links, should help with crawling and indexing
-2020年7月21日：redirected and renamed files from /guide/ to /technical/
-2020年3月28日：updated html for h1 headers and subheadings - now dynamic from yaml
-2020年3月28日：updated html for h1 headers and subheadings
-2020年2月19日：updated links
-2020年2月18日：edits
-2020年2月18日：/beginners/buying - calculator now updates with lastupdated price date
-2020年2月14日：/beginners/buying - calculator only shows USD
-2020年2月14日：edit
-2020年2月14日：max usd amount (market cap) on calculator
-2020年2月14日：edits
-2020年2月14日：updated links
-2020年2月14日：/beginners/buying - first draft

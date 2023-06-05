@@ -154,7 +154,7 @@ https://github.com/bitcoin/bitcoin/ (源代码)
 ## 为什么我应该相信你？
 我在比特币方面没有官方资格。我只是阅读了很多代码，[编写了很多代码](https://github.com/in3rsha)，[并提出了很多问题](https://bitcoin.stackexchange.com/users/24926/inersha)。我所知道的关于比特币的一切都来自实践。
 
-另外，*我很酷*
+另外，[我很酷](../About/about.md)
 
 ## 为什么所有这些信息都是免费的？
 
