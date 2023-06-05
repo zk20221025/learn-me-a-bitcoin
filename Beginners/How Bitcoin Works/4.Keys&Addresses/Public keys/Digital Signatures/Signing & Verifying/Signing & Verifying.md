@@ -64,7 +64,7 @@
 ![Signing & Verifying-12.png](img/Signing%20&%20Verifying-12%20(1).png)
 
 ## 相关页面
-* *ECDSA*-有关如何在比特币中签署交易的技术细节。
+* [ECDSA](../../../../../../Technical/Keys/ECDSA/ECDSA.md)-有关如何在比特币中签署交易的技术细节。
 
 ## 资源
 [Bitcoin 101 - The Magic of Signing & Verifying](https://www.youtube.com/watch?v=U2bw_N6kQL8)一段优秀的介绍性视频，涵盖了签名生成和验证的实际数学内容。
