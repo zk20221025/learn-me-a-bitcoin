@@ -155,14 +155,14 @@ puts base58_to_int("BukQL") #=> 123456789
 
 当你想把常用数据转换成更易分享的格式时，比特币中使用Base58。例如：
 
-1. *WIF私钥*
-   * *私钥*就像“主密码”，当你想把比特币导入到新钱包时可以使用它。为此，有一种名为WIF私钥的东西，它基本上是一个以Base58表示的私钥。
+1. [WIF私钥](../Private%20Key/WIF%20Private%20Key/WIF%20Private%20Key.md)
+   * [私钥](../Private%20Key/Private%20Key.md)就像“主密码”，当你想把比特币导入到新钱包时可以使用它。为此，有一种名为WIF私钥的东西，它基本上是一个以Base58表示的私钥。
 
-2. *地址*
-   * *公钥*是私钥的“公共对应物”，当你想向某人发送比特币时，需要使用公钥。然而，公钥相当长，所以我们将它们转换成地址，这在转换的最后一步中使用Base58。
+2. [地址](../Address/Address.md)
+   * [公钥](../Public%20Key/Public%20Key.md)是私钥的“公共对应物”，当你想向某人发送比特币时，需要使用公钥。然而，公钥相当长，所以我们将它们转换成地址，这在转换的最后一步中使用Base58。
 
 **前导零（0x00…）**
->0x: 0x前缀表示**十六进制值**。十六进制值有时只包含数字0-9，因此可能会被误认为是十进制值，因此前缀有助于我们区分它们。在计算之前，该前缀被丢弃。
+>0x: 0x前缀表示[十六进制值](../../Other/Hexadecimal/hexadecimal.md)。十六进制值有时只包含数字0-9，因此可能会被误认为是十进制值，因此前缀有助于我们区分它们。在计算之前，该前缀被丢弃。
 
 >字节：一个字节的数据可以保存0-255之间的值，并且可以用两个十六进制字符表示。例如，0xff是一个字节的数据，表示十进制值255。
 
@@ -183,12 +183,12 @@ puts base58_to_int("BukQL") #=> 123456789
 主网:
 |前缀（十六进制）|	Base58前导字符|	表示|	示例|
 |---|---|---|---|
-|00	|1	|P2PKH Address	|1AKDDsfTh8uY4X3ppy1m7jw1fVMBSMkzjP|
-|05	|3	|P2SH Address	|34nSkinWC9rDDJiUY438qQN1JHmGqBHGW7|
+|00	|1	|[P2PKH](../../Script/P2PKH/P2PKH.md) Address	|1AKDDsfTh8uY4X3ppy1m7jw1fVMBSMkzjP|
+|05	|3	|[P2SH](../../Script/P2SH/P2SH.md) Address	|34nSkinWC9rDDJiUY438qQN1JHmGqBHGW7|
 |80	|K / L|	WIF Private Key 	|L4mee2GrpBSckB9SgC9WhHxvtEgKUvgvTiyYcGu38mr9CGKBGp93|
-|80|	5|	WIF Private Key 	|5KXWNXeaVMwjzMsrKPv8dmdEZuVPmPay4nm5SfVZCjLHoy1B56w|
-|0488ADE4|	xprv|	Extended Private Key|xprv9tuogRdb5YTgcL3P8Waj7REqDuQx4sXcodQaWTtEVFEp6yRKh1CjrWfXChnhgHeLDuXxo2auDZegMiVMGGxwxcrb2PmiGyCngLxvLeGsZRq|
-|0488B21E|	xpub|	Extended Public Key|xpub67uA5wAUuv1ypp7rEY7jUZBZmwFSULFUArLBJrHr3amnymkUEYWzQJz13zLacZv33sSuxKVmerpZeFExapBNt8HpAqtTtWqDQRAgyqSKUHu|
+|80|	5|	[WIF Private Key](../Private%20Key/WIF%20Private%20Key/WIF%20Private%20Key.md) 	|5KXWNXeaVMwjzMsrKPv8dmdEZuVPmPay4nm5SfVZCjLHoy1B56w|
+|0488ADE4|	xprv|	[Extended Private Key](../../HD%20Wallets/Extended%20Keys/Extended%20Keys.md)|xprv9tuogRdb5YTgcL3P8Waj7REqDuQx4sXcodQaWTtEVFEp6yRKh1CjrWfXChnhgHeLDuXxo2auDZegMiVMGGxwxcrb2PmiGyCngLxvLeGsZRq|
+|0488B21E|	xpub|	[Extended Public Key](../../HD%20Wallets/Extended%20Keys/Extended%20Keys.md)|xpub67uA5wAUuv1ypp7rEY7jUZBZmwFSULFUArLBJrHr3amnymkUEYWzQJz13zLacZv33sSuxKVmerpZeFExapBNt8HpAqtTtWqDQRAgyqSKUHu|
 
 测试网络:
 |前缀（十六进制）|	Base58前导字符|	表示|	示例|
@@ -202,9 +202,9 @@ puts base58_to_int("BukQL") #=> 123456789
 
 >如上所述，十六进制前缀00在编码为base58时不会自动转换为“1”。这种转换是在代码中手动执行的。
 
->您会注意到，*WIF私钥*使用相同的十六进制前缀，但产生不同的前导字符。这是因为如果私钥用于创建压缩的公钥（将产生与未压缩的公钥不同的地址），我们在将其转换为base58之前还会附加一个01。这个额外的字节对base58结果中的前导字符产生影响。
+>您会注意到，[WIF私钥](../Private%20Key/WIF%20Private%20Key/WIF%20Private%20Key.md)使用相同的十六进制前缀，但产生不同的前导字符。这是因为如果私钥用于创建压缩的公钥（将产生与未压缩的公钥不同的地址），我们在将其转换为base58之前还会附加一个01。这个额外的字节对base58结果中的前导字符产生影响。
 
->扩展密钥包含原始公钥和私钥以外的额外元数据，这就是它们的base58字符串更长的原因。
+>[扩展密钥包](../../HD%20Wallets/Extended%20Keys/Extended%20Keys.md)含原始公钥和私钥以外的额外元数据，这就是它们的base58字符串更长的原因。
 
 https://en.bitcoin.it/wiki/List_of_address_prefixes
 
@@ -327,7 +327,7 @@ echo $result.PHP_EOL; // 00662ad25db00e7bb38bc04831ae48b4b446d1269817d515b6
 ```
 
 ## 模数（%）
-模数（%）函数是除法（/）函数的姐妹函数。它给出除法的余数：
+模数（%）函数是除法（/）函数的姐妹函数。它给出**除法的余数**：
 ```
 7 % 6 = 1
 7 % 5 = 2
