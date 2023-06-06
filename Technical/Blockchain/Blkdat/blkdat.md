@@ -1,9 +1,9 @@
 # 区块数据文件
 原始的区块链数据文件。
 
-~/.bitcoin/blocks/目录下的**blk.dat**文件包含比特币核心节点接收到的原始块数据。
+~/.bitcoin/blocks/目录下的**blk.dat**文件包含[比特币核心](https://bitcoin.org/en/download)节点接收到的原始块数据。
 
-这些blk.dat文件基本上存储着“*区块链*”。
+这些blk.dat文件基本上存储着“[区块链](../../../Beginners/How%20Bitcoin%20Works/2.Mining/1.Blockchain/Blockchain.md)”。
 
 ## 它们是如何工作的呢？
 您的节点接收到的每个块都会附加到一个blk.dat文件中。
@@ -60,7 +60,7 @@ A B C E F D
 此限制由[MAX_BLOCKFILE_SIZE](https://github.com/bitcoin/bitcoin/search?q=MAX_BLOCKFILE_SIZE)设置
 
 ### Linux工具
-如上所述，blk.dat文件中的数据是二进制的，因此如果你在文本编辑器中打开一个文件，你可能看不到什么意义。但是没有关系，因为二进制数据可以轻松转换为**十六进制**，有两个命令可以完成此任务：
+如上所述，blk.dat文件中的数据是二进制的，因此如果你在文本编辑器中打开一个文件，你可能看不到什么意义。但是没有关系，因为二进制数据可以轻松转换为[十六进制](../../Other/Hexadecimal/hexadecimal.md)，有两个命令可以完成此任务：
 
 1. od
 这是一个简单的命令。它会以你选择的格式转储文件的内容。
