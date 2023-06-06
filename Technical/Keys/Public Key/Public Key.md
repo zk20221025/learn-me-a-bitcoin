@@ -4,7 +4,7 @@
 
 公钥就像您用来接收比特币的账号号码。
 
-它是由您的*私钥*创建的，私钥就像该账号号码的密码。
+它是由您的[私钥](../Private%20Key/Private%20Key.md)创建的，私钥就像该账号号码的密码。
 
 ## 如何生成公钥？
 您使用您的**私钥**（它只是一个大的随机数）来生成相应的公钥。
@@ -15,7 +15,7 @@
 ### 代码
 这里是从私钥创建公钥的基本代码。
 
-我还没有解释*椭圆曲线数学*是如何工作的，但我仍然包括了这段代码，以展示如何开始计算自己的公钥。
+我还没有解释[椭圆曲线数学](../ECDSA/ECDSA.md)是如何工作的，但我仍然包括了这段代码，以展示如何开始计算自己的公钥。
 ```ruby
 # example private key
 private_key = "ef235aacf90d9f4aadd8c92e4b2562e1d9eb97f0df9ba3b508258739cb013db2"
@@ -162,7 +162,7 @@ puts public_key_compressed #=> 02b4632d08485ff1df2db55b9dafd23347d1c47a457072a1e
 这要归功于数字签名似乎神奇的特性，而这一切都是通过椭圆曲线数学实现的。
 
 ## 公钥格式
-公钥只是椭圆曲线上一点的x和y坐标。它通常以十六进制格式存储。
+公钥只是椭圆曲线上一点的x和y坐标。它通常以[十六进制](../../Other/Hexadecimal/hexadecimal.md)格式存储。
 
 有两种公钥格式：
 
@@ -195,7 +195,7 @@ public key (uncompressed) = 04b4632d08485ff1df2db55b9dafd23347d1c47a457072a1e87b
 public key (compressed)   = 02b4632d08485ff1df2db55b9dafd23347d1c47a457072a1e87be26896549a8737
 ```
 
-这种压缩格式最终使我们能够计算出完整的**x**和**y**坐标，但在区块链内节省了大量空间（例如当我们创建将*输出*锁定到特定公钥的交易时）。
+这种压缩格式最终使我们能够计算出完整的**x**和**y**坐标，但在区块链内节省了大量空间（例如当我们创建将[输出](../../Transaction/Transaction%20Data/output/output.md)锁定到特定公钥的交易时）。
 
 #### 如何解压公钥
 您可以通过解决曲线方程y^2 = x^3 + 7来解压缩公钥。
@@ -239,22 +239,22 @@ puts uncompressed #=> 04b4632d08485ff1df2db55b9dafd23347d1c47a457072a1e87be26896
 
 ## 公钥在比特币中如何使用？
 
-您可以向其他人透露您的公钥，以便他们在创建交易时将其包括在输出的*锁定脚本*中。
+您可以向其他人透露您的公钥，以便他们在创建交易时将其包括在输出的[锁定脚本](../../Transaction/Transaction%20Data/output/scriptPubKey/scriptPubKey.md)中。
 ![Public Key-8.png](img/Public%20Key-8%20(1).png)
-我们可以把我们的公钥给别人，这样他们就可以向我们发送比特币。这被称为Pay-To-Pubkey（*P2PK*）。
+我们可以把我们的公钥给别人，这样他们就可以向我们发送比特币。这被称为Pay-To-Pubkey（[P2PK](../../Script/P2PK/P2PK.md)）。
 
-然而，在比特币中，我们现在更常用的是在公钥之前进行*hash160*。然后，在解锁输出时才使用*公钥*。（初始锁定将首先检查公钥是否正确哈希，然后再将其与签名进行比对。）
+然而，在比特币中，我们现在更常用的是在公钥之前进行[hash160](../Public%20Key/Public%20Key%20Hash/public-key-hash.md)。然后，在解锁输出时才使用*公钥*。（初始锁定将首先检查公钥是否正确哈希，然后再将其与签名进行比对。）
 ![Public Key-9.png](img/Public%20Key-9%20(1).png)
-我们的公钥的Hash160现在存储在锁定中。这被称为支付到公钥哈希（*P2PKH*）。
+我们的公钥的Hash160现在存储在锁定中。这被称为支付到公钥哈希（[P2PKH](../../Script/P2PKH/P2PKH.md)）。
 
 ## 在区块链中，公钥在哪里可以找到？
-如果您正在查看*原始区块链数据*，则公钥通常可以在*交易数据*中找到。
+如果您正在查看[原始区块链数据](../../Blockchain/Blkdat/blkdat.md)，则公钥通常可以在[交易数据](../../Transaction/Transaction%20Data/Transaction%20Data.md)中找到。
 例如，在标准的P2PKH交易中：
-公钥哈希位于*输出*的锁定代码（*scriptPubKey*）中。
+公钥哈希位于[输出](../../Transaction/Transaction%20Data/output/output.md)的锁定代码（[scriptPubKey](../../Transaction/Transaction%20Data/output/scriptPubKey/scriptPubKey.md)）中。
 ![Public Key-10.png](img/public-key-10.jpg)
 接下来，在下一笔花费比特币的交易中...
 
-原始公钥可以在*输入*的解锁代码（scriptSig）中找到。
+原始公钥可以在[输入](../../Transaction/Transaction%20Data/Input/input.md)的解锁代码（scriptSig）中找到。
 ![Public Key-11.png](img/public-key-11.jpg)
 
 >正如你所看到的那样，公钥开头的04表示它是一个未压缩的公钥。这使得它几乎是现在通常使用的压缩公钥的两倍长。
