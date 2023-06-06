@@ -1,12 +1,12 @@
 # P2PK
 支付到公钥
 ![P2PK-1.png](img/P2PK-1%20(1).png)
-**P2PK**（支付到公钥）是一种*脚本*模式，将*输出*锁定到*公钥*。
+**P2PK**（支付到公钥）是一种[脚本](../Script.md)模式，将[输出](../../Transaction/Transaction%20Data/output/output.md)锁定到[公钥](../../Keys/Public%20Key/Public%20Key.md)。
 
-它是更常用的*P2PKH*锁定脚本的简化版本。
+它是更常用的[P2PKH](../P2PKH/P2PKH.md)锁定脚本的简化版本。
 
 ## P2PK如何工作？
-P2PK锁定只包含*公钥*和CHECKSIG操作码：
+P2PK锁定只包含[公钥](../../Keys/Public%20Key/Public%20Key.md)和CHECKSIG操作码：
 |scriptPubKey（脚本公钥）|04ae1a62fe09c5f51b13905f07f06b99a2f7159b2225f374cd378d71302fa28414e7aab37397f554a7df5f142c21c1b7303b8a0626f1baded5c72a704f7e6cd84c OP_CHECKSIG|
 |---|---|
 
@@ -18,9 +18,9 @@ P2PK锁定只包含*公钥*和CHECKSIG操作码：
 ![P2PK-2.png](img/P2PK-2%20(1).gif)
 
 ## 你在哪里可以找到P2PK脚本？
-尽管P2PK是将比特币锁定到某人公钥的最简单脚本，**但它并没有像类似但更复杂的P2PKH脚本一样被广泛使用**。
+尽管P2PK是将比特币锁定到某人公钥的最简单脚本，**但它并没有像类似但更复杂的[P2PKH](../P2PKH/P2PKH.md)脚本一样被广泛使用**。
 
-你最常见的**P2PK在区块链中较早的块中的coinbase交易**中找到。这是因为原始的[比特币核心](https://bitcoin.org/en/download)矿工在构建*候选块*时会使用P2PK进行块奖励:[^1]
+你最常见的**P2PK在区块链中较早的块中的[coinbase交易](../../Transaction/Coinbase%20Transaction/Coinbase%20Transaction.md)**中找到。这是因为原始的[比特币核心](https://bitcoin.org/en/download)矿工在构建[候选块](../../Node/Candidate%20Block/Candidate%20Block.md)时会使用P2PK进行块奖励:[^1]
 ![P2PK-3.png](img/P2PK-3%20(1).png)
 新的挖矿软件通常使用P2PKH，因此现在很少在coinbase交易中看到P2PK脚本。
 
@@ -33,12 +33,12 @@ P2PK锁定只包含*公钥*和CHECKSIG操作码：
 
 不确定。你得问问她/他。
 
-我认为**P2PKH**被用作方便人们进行交易的方式，因为它允许您使用*地址*而不是传递您的公钥（长度更长）。然而，矿工不需要地址的便利，因此P2PK成为了更简单的选择。
+我认为**P2PKH**被用作方便人们进行交易的方式，因为它允许您使用[地址](../../Keys/Address/Address.md)而不是传递您的公钥（长度更长）。然而，矿工不需要地址的便利，因此P2PK成为了更简单的选择。
 
 ## b为什么我们不经常使用P2PK？
 
-因为Satoshi设计了*P2PKH*，以便我们可以互相发送较短的**地址**而不是完整的公钥。
+因为Satoshi设计了[P2PKH](../P2PKH/P2PKH.md)，以便我们可以互相发送较短的**地址**而不是完整的公钥。
 
-参见：*为什么我们既有P2PKH又有P2PK？*
+参见：[为什么我们既有P2PKH又有P2PK？](../P2PKH/P2PKH.md)
 
 [^1]:https://bitcoin.stackexchange.com/questions/73563/how-did-pay-to-pubkey-hash-come-about-what-is-its-history

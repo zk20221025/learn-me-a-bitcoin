@@ -2,10 +2,10 @@
 一个小型编程语言。
 ![Scpipt-1.png](img/Script-1%20(1).png)
 
-脚本是一种迷你编程语言，用作*输出*的锁定机制。
+脚本是一种迷你编程语言，用作[输出](../Transaction/Transaction%20Data/output/output.md)的锁定机制。
 
-* 每个输出都会放置一个*锁定脚本*。
-* 必须提供一个**解锁脚本**来解锁输出（即在使用它作为输入时）。
+* 每个输出都会放置一个[锁定脚本](../Transaction/Transaction%20Data/output/scriptPubKey/scriptPubKey.md)。
+* 必须提供一个**解锁脚本**来解锁输出（即在使用它作为[输入](../Transaction/Transaction%20Data/Input/input.md)时）。
 
 如果一个完整的脚本（解锁+锁定）是有效的，输出就会“解锁”，可以被花费。
 
@@ -38,7 +38,7 @@ DUP操作码复制堆栈顶部元素。
 1.最终堆栈为空
 2.堆栈顶部元素为0
 3.在执行结束时，堆栈上仍有超过一个元素[^1]。
-4.脚本过早退出（例如，在空数据脚本中使用OP_RETURN）。
+4.脚本过早退出（例如，在[空数据](./NULL%20DATA/NULL%20DATA.md)脚本中使用OP_RETURN）。
 
 ## 你可以在哪里找到比特币的脚本？
 
@@ -83,11 +83,11 @@ DUP操作码复制堆栈顶部元素。
 ## 标准脚本
 尽管可以使用各种组合的**操作码**创建各种不同的锁定脚本，但大多数节点只会中继少量的“标准脚本”：
 
-* *P2PK*（支付到公钥）
-* *P2PKH*（支付到公钥哈希）
-* *P2MS*（支付到多重签名）
-* *P2SH*（支付到脚本哈希）
-* *NULL DATA*
+* [P2PK](./P2PK/P2PK.md)（支付到公钥）
+* [P2PKH](./P2PKH/P2PKH.md)（支付到公钥哈希）
+* [P2MS](./P2MS/P2MS.md)（支付到多重签名）
+* [P2SH](./P2SH/P2SH.md)（支付到脚本哈希）
+* [NULL DATA](./NULL%20DATA/NULL%20DATA.md)
 ![Scpipt-12.png](img/Script-12%20(1).png)
 
 ### 为什么节点不转发非标准脚本？
