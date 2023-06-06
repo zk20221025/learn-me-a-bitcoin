@@ -55,20 +55,20 @@ learnmeabitcoin4    255da46dc8699fffd841b7c66a31eeb4f8eda8e1ca6850c7356376518f52
 
 ## 比特币中哈希函数的使用在哪里？
 ### 1. 交易哈希
->**将*交易数据*哈希为*TXID*（交易ID，交易哈希）。**
+>**将[交易数据](../../Transaction/Transaction%20Data/Transaction%20Data.md)哈希为[TXID](../../Transaction/TXID/TXID.md)（交易ID，交易哈希）。**
 
 * 哈希长字符串的能力可以为每个交易创建一个唯一的标识符。
 
 ### 2. 区块哈希（和挖矿）
->**将*区块头哈希*为*区块哈希*。**
+>**将[区块头哈希](../../Block/block-header/block-header.md)为[区块哈希](../../Block/block-hash/block-hash.md)。**
 
 * 因此，您也可以为每个区块创建一个唯一的ID。
-* 每个哈希结果是随机的事实允许挖掘机制。
+* 每个哈希结果是随机的事实允许[挖掘](../../Mining/Mining.md)机制。
 
 ### 3. 地址
->在创建比特币地址的过程中，使用*公钥*进行哈希（同时使用SHA256和RIPEMD160）。
+>在创建比特币[地址](../../Keys/Address/Address.md)的过程中，使用[公钥](../../Keys/Public%20Key/Public%20Key.md)进行哈希（同时使用SHA256和RIPEMD160）。
 
-* 您不能从哈希结果向后工作的事实有助于在将公钥放置在锁定脚本中时提高公钥的安全性。
+* 您不能从哈希结果向后工作的事实有助于在将公钥放置在[锁定脚本](../../Transaction/Transaction%20Data/output/scriptPubKey/scriptPubKey.md)中时提高公钥的安全性。
 * RIPEMD-160生成一个比公钥长度短的摘要，从而缩短了生成的地址的长度。
 
 ## 如何在比特币中哈希数据？
@@ -80,7 +80,7 @@ learnmeabitcoin4    255da46dc8699fffd841b7c66a31eeb4f8eda8e1ca6850c7356376518f52
 ### 1. Hash256
 这涉及将数据通过[SHA-256](https://github.com/in3rsha/sha256-animation/)哈希函数进行处理，然后再次通过SHA-256进行处理。换句话说，这就是“双SHA-256”。我们简称为Hash256。
 
-这是比特币中最常用的哈希数据方法。它用于在创建*TXID*s时哈希*交易数据*，以及在*挖掘*期间*哈希块头*。
+这是比特币中最常用的哈希数据方法。它用于在创建[TXIDs](../../Transaction/TXID/TXID.md)时哈希[交易数据](../../Transaction/Transaction%20Data/Transaction%20Data.md)，以及在[挖掘](../../Mining/Mining.md)期间[哈希块头](../../Block/block-header/block-header.md)。
 ```ruby
 require 'digest'
 
@@ -108,7 +108,7 @@ puts hash256("aa") #=> e51600d48d2f72eb428e78733e01fbd6081b349528335bf21269362ed
 
 RIPEMD-160生成比SHA-256更短的哈希摘要（160位/20字节），因此通常在您想要生成比使用Hash256更短的哈希时使用。
 
-它仅在创建传统地址（例如以1或3开头的地址）的过程中缩短*公钥*和*脚本*时使用。它在比特币中未用于任何需要对数据进行哈希处理的最新开发中。
+它仅在创建传统[地址](../../Keys/Address/Address.md)（例如以1或3开头的地址）的过程中缩短[公钥](../../Keys/Public%20Key/Public%20Key.md)和[脚本](../../Script/Script.md)时使用。它在比特币中未用于任何需要对数据进行哈希处理的最新开发中。
 ```ruby
 require 'digest'
 

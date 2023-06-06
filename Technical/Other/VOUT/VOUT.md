@@ -2,11 +2,11 @@
 比特币交易中输出的向量。
 ![VOUT-1.png](img/VOUT-1.png)
 
-一个vout基本上是一个交易输出的索引号码。
+一个vout基本上是一个交易[输出](../../Transaction/Transaction%20Data/output/output.md)的索引号码。
 
 ## 用途
 
-您可以使用txid和vout来唯一选择一个输出，在新交易中用作输入。
+您可以使用txid和vout来唯一选择一个输出，在新交易中用作[输入](../../Transaction/Transaction%20Data/Input/input.md)。
 ![VOUT-2.png](img/VOUT-2%20(1).png)
 输出编号2，请。
 
