@@ -1,7 +1,7 @@
 # nonce
 用于辅助采矿的数字。
 
-**Nonce**是区*块头*中的一个字段。
+**Nonce**是[区块头](../block-header.md)中的一个字段。
 
 我称它为“挖矿字段”。
 
@@ -9,7 +9,7 @@
 [cryptography.wikia.com](http://cryptography.wikia.com/wiki/Cryptographic_nonce)
 
 ## 它有什么用处？
-在尝试将其块头的*哈希值*降低到*目标*以下时，矿工会调整Nonce。（即为其候选块获得有效的*块哈希*。）
+在尝试将其块头的[哈希值](../../../Other/Hash%20Function/Hash%20Function.md)降低到[目标](../../../Mining/Target/Target.md)以下时，矿工会调整Nonce。（即为其候选块获得有效的[块哈希](../../block-hash/block-hash.md)。）
 ![nonce-1.png](img/Nonce-1.gif)
 区块头中的所有其他字段都是预先确定的，因此nonce是允许您创建不同哈希结果的唯一变量。*区块404,104*。
 
@@ -32,4 +32,4 @@
 
 ## 相关
 
-* *挖矿*
+* [挖矿](../../../Mining/Mining.md)
