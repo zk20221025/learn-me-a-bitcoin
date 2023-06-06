@@ -4,7 +4,7 @@
 
 私钥是一个随机数。它是一个256位的数字。
 
-它被用作公钥的源头。
+它被用作[公钥](../Public%20Key/Public%20Key.md)的源头。
 
 >**永远不要使用由网站或其他人生成的私钥。始终在自己的计算机上秘密生成自己的私钥**。
 
@@ -38,4 +38,4 @@ ef235aacf90d9f4aadd8c92e4b2562e1d9eb97f0df9ba3b508258739cb013db2
 
 ### 钱包导入格式
 
-然而，您可以将私钥转换为*WIF私钥*，这样可以更轻松地复制和导入到*钱包*中。
+然而，您可以将私钥转换为[WIF私钥](./WIF%20Private%20Key/WIF%20Private%20Key.md)，这样可以更轻松地复制和导入到[钱包](../../../Beginners/Getting%20Started/getting-started/getting%20started.md)中。
