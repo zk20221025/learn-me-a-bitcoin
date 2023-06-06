@@ -7,7 +7,7 @@
 
 * **确定性**意味着密钥和地址始终以相同的方式生成。
 * **分层**意味着密钥和地址可以组织成树形结构。
-但是这些钱包最好的地方是，您可以在不知道它们的*私钥*的情况下生成新的*公钥*。
+但是这些钱包最好的地方是，您可以在不知道它们的[私钥](../Keys/Private%20Key/Private%20Key.md)的情况下生成新的[公钥](../Keys/Public%20Key/Public%20Key.md)。
 
 ## 为什么使用HD钱包？
 ### 1. 单个备份
@@ -51,7 +51,7 @@
 ```
 mnemonic: lion lady whisper pulp mix base park program bar stable movie upper
 ```
-请参阅助记种子以获取详细信息。
+请参阅[助记种子](./Mnemonic%20Seed/Mnemonic%20Seed.md)以获取详细信息。
 
 ### 2.主私钥
 ![hd-wallets-6.gif](img/hd-wallets-6%20(1).gif)
@@ -62,7 +62,7 @@ mnemonic: lion lady whisper pulp mix base park program bar stable movie upper
 
 * 前32个字节是私钥。
 * 最后32个字节是链码。
-链码只是额外的32个字节，我们将其与私钥配对以创建所谓的扩展密钥。
+链码只是额外的32个字节，我们将其与私钥配对以创建所谓的[扩展密钥](./Extended%20Keys/Extended%20Keys.md)。
 
 >**为什么要哈希种子？**我们可以直接使用64个字节的种子来创建主扩展私钥。然而，未来的子扩展密钥是使用HMAC创建的，因此保持创建方式一致是很好的。
 
@@ -120,7 +120,7 @@ master extended public key:
 >一个扩展密钥可以生成2,147,483,648个子密钥。
 因此，一个扩展密钥总共可以派生4,294,967,296个子密钥（2,147,483,648个高级子密钥和2,147,483,648个基本子密钥）。
 
-有关更多详细信息，请参见扩展密钥。
+有关更多详细信息，请参见[扩展密钥](./Extended%20Keys/Extended%20Keys.md)。
 
 **为什么要使用链码扩展密钥？**
 
@@ -169,13 +169,13 @@ key:         00389bb0ee8f01c94f7c94594e813ae2eccb67b0a64bc44c32a2663a7c012edcb1 
 
 serialized: 0488ade400000000000000000092c022d5b43ed7ecf65ebe37c5754cae1583bb4559a894291ed58529885651e500389bb0ee8f01c94f7c94594e813ae2eccb67b0a64bc44c32a2663a7c012edcb1
 ```
-我们可以通过将其转换为base58（包括校验和）来使其更方便：
+我们可以通过将其转换为[base58](../Keys/Base58/Base58.md)（包括[校验和](../Keys/Checksum/Checksum.md)）来使其更方便：
 ```
 xprv9s21ZrQH143K3X6emxCTwJs3G4wQW2qJUnJKEZPBUkbR6auSitdSzEcVjR47uUH7cqnuq7CTCDABsYcmNJfCZcVWeGti616FnkgBfXyDEtx
 ```
 这是我们扩展密钥的更有用的格式。它更容易在计算机之间共享并导入到钱包中。
 
-有关详细信息，请参阅*扩展密钥*序列化。
+有关详细信息，请参阅[扩展密钥](./Extended%20Keys/Extended%20Keys.md)序列化。
 
 ## 谁提出了HD钱包的概念？
 
@@ -185,7 +185,7 @@ xprv9s21ZrQH143K3X6emxCTwJs3G4wQW2qJUnJKEZPBUkbR6auSitdSzEcVjR47uUH7cqnuq7CTCDAB
 
 Armory是第一个实现同态派生的钱包，并引入了使用链码的概念。
 
-[Pieter Wuille](https://github.com/sipa)提出了使用分层结构的想法，并在Armory使用的方案基础上构建了BIP 32规范。
+[Pieter Wuille](https://github.com/sipa)提出了使用分层结构的想法，并在Armory使用的方案基础上构建了[BIP 32](https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki)规范。
 
 >HD钱包（BIP32）基于Armory的方案，但具有更大的灵活性（分层结构）和索引的随机访问（Armory的方案需要在派生地址号n之前生成所有N个地址）。- Pieter Wuille
 
@@ -207,20 +207,20 @@ m/49'/0'/0'
 m/84'/0'/0'
 
 ```
-有关更多细节，请参阅派生路径。
+有关更多细节，请参阅[派生路径](./Derivation%20Paths/Derivation%20Paths.md)。
 
 ## 摘要
 ![hd-wallets-17.gif](img/hd-wallets-17%20(1).gif)
 
-一个**分层确定性钱包**提供了一个有用的方法来生成新的*私钥*和8。
+一个**分层确定性钱包**提供了一个有用的方法来生成新的[私钥](../Keys/Private%20Key/Private%20Key.md)和[公钥](../Keys/Public%20Key/Public%20Key.md)。
 
 它是确定性的，因为每次都从种子以相同的方式生成所有子密钥，而且它是分层的，因为可以将密钥组织成树形结构（或层次结构）。额外的好处是可以在不知道私钥的情况下派生钱包中的公钥。
 
 如果您对HD钱包的详细信息感兴趣，这里有一些更技术性的解释：
 
-* *助记符种子*（为您的HD钱包生成用户友好的种子。）
-* *扩展密钥*（创建主扩展密钥，并从中派生子密钥。）
-* *导出路径*（钱包用于组织密钥的常见层次结构。）
+* [助记符种子](./Mnemonic%20Seed/Mnemonic%20Seed.md)（为您的HD钱包生成用户友好的种子。）
+* [扩展密钥](./Extended%20Keys/Extended%20Keys.md)（创建主扩展密钥，并从中派生子密钥。）
+* [导出路径](./Derivation%20Paths/Derivation%20Paths.md)（钱包用于组织密钥的常见层次结构。）
 
 ## 链接
 * https://bitcointalk.org/index.php?topic=19137 (Gregory Maxwell)

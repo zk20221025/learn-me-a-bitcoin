@@ -3,7 +3,7 @@
 [BIP 32](https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki)
 ![Extended Keys-1.png](img/Extended%20Keys-1%20(1).png)
 
-扩展密钥是一种*私钥*或*公钥*，您可以在分层确定性钱包中使用它来*派生新的密钥*。
+扩展密钥是一种[私钥](../../Keys/Private%20Key/Private%20Key.md)或[公钥](../../Keys/Public%20Key/Public%20Key.md)，您可以在[分层确定性钱包](../HD%20Wallets.md)中使用它来派生新的密钥。
 
 因此，您可以拥有一个单独的扩展私钥，并将其用作钱包中所有子私钥和公钥的来源。此外，相应的扩展公钥将生成相同的子公钥。
 
@@ -238,7 +238,7 @@ puts "child_public_key:   #{child_public_key}"  #=> 0355cff4a963ce259b08be9a8645
 
 **新的公钥**是原始公钥点加上HMAC结果的前32个字节作为曲线上的点（乘以生成器以将其作为点）。
 
-因此，总之，我们将与生成子扩展私钥时相同的数据和密钥放入HMAC函数中。然后，通过*椭圆曲线点加法*，可以计算出子公钥，其使用与子扩展私钥相同的HMAC结果的前32个字节（这意味着它对应于子扩展私钥中的私钥）。
+因此，总之，我们将与生成子扩展私钥时相同的数据和密钥放入HMAC函数中。然后，通过[椭圆曲线点加法](../../Keys/ECDSA/ECDSA.md)，可以计算出子公钥，其使用与子扩展私钥相同的HMAC结果的前32个字节（这意味着它对应于子扩展私钥中的私钥）。
 
 **代码（Ruby）**
 ```ruby
@@ -418,9 +418,9 @@ puts "calculated:         #{calculated_key}" #=> 081549973bafbba825b31bcc402a3c4
 指纹= 00000000
 子编号= 00000000
 
->在*密钥字段*中，私钥（32字节）以0x00开头，以将其扩展到与公钥（33字节）相同的长度。
+>在密钥字段中，私钥（32字节）以0x00开头，以将其扩展到与公钥（33字节）相同的长度。
 
-然后在此数据中添加校验和（以帮助检测错误），最后将所有内容转换为*Base58*（以创建人类友好的扩展密钥格式）。
+然后在此数据中添加[校验和](../../Keys/Checksum/Checksum.md)（以帮助检测错误），最后将所有内容转换为[Base58](../../Keys/Base58/Base58.md)（以创建人类友好的扩展密钥格式）。
 
 扩展私钥的格式如下：
 ```
@@ -986,7 +986,7 @@ echo "master_extended_private_key: $master_extended_private_key".PHP_EOL;
 ```
 
 ## 相关
-* *ECDSA*——如何使用私钥和公钥签名（和验证）数据。
+* [ECDSA](../../Keys/ECDSA/ECDSA.md)——如何使用私钥和公钥签名（和验证）数据。
 
 ## 链接
 * [BIP 32](https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki)（[Pieter Wuille](https://github.com/sipa)的原始规范。此页面只是原始BIP的重写。）

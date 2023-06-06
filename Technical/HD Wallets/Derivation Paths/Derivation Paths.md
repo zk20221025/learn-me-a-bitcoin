@@ -2,9 +2,9 @@
 HD钱包如何派生密钥。
 [BIP 44](https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki), [BIP 49](https://github.com/bitcoin/bips/blob/master/bip-0049.mediawiki), [BIP 84](https://github.com/bitcoin/bips/blob/master/bip-0084.mediawiki)
 
-扩展密钥的酷处在于它们可以*派生子密钥*，这些子密钥可以再派生更多的子密钥，以此类推。这使您可以创建一个扩展密钥树，每个密钥都有其自己的独特**派生路径**从*主密钥*派生而来。
+[扩展密钥](../Extended%20Keys/Extended%20Keys.md)的酷处在于它们可以派生子密钥，这些子密钥可以再派生更多的子密钥，以此类推。这使您可以创建一个扩展密钥树，每个密钥都有其自己的独特**派生路径**从[主密钥](../Extended%20Keys/Extended%20Keys.md)派生而来。
 
-您可以以任何方式派生密钥。但为了帮助钱包之间的兼容性，我们为*层次确定性钱包*中用于派生密钥的派生路径制定了一组结构。
+您可以以任何方式派生密钥。但为了帮助钱包之间的兼容性，我们为[层次确定性钱包](../HD%20Wallets.md)中用于派生密钥的派生路径制定了一组结构。
 
 最常用的派生路径包括：
 * BIP 44: m/44'/0'/0' (for 1addresses)
@@ -20,13 +20,13 @@ m/0/1/3'
 
 斜杠/表示树中的新级别（新的子级）。数字（例如0）表示从父级的子级编号。
 
-关于符号的唯一其他需要知道的事情是，'或h表示已硬化的*子扩展私钥*（这意味着它创建的公钥无法通过*扩展公钥*派生）：
+关于符号的唯一其他需要知道的事情是，'或h表示[已硬化](../Extended%20Keys/Extended%20Keys.md)的[子扩展私钥](../Extended%20Keys/Extended%20Keys.md)（这意味着它创建的公钥无法通过[扩展公钥](../Extended%20Keys/Extended%20Keys.md)派生）：
 
 * 0-**正常子级**（索引0）
 * 0'-**硬化子级**（索引2147483648）
 这个'只是为了避免我们写出硬化子级的完整索引号。例如，3'表示索引2147483651。
 
->提示：您可以从单个扩展密钥派生多达4294967296个子级。前一半用于普通子级，后一半用于硬化子级。
+>提示：您可以从单个扩展密钥派生多达4294967296个子级。前一半用于[普通子级](../Extended%20Keys/Extended%20Keys.md)，后一半用于[硬化子级](../Extended%20Keys/Extended%20Keys.md)。
 
 >注意：派生硬化子级是默认设置。只有在需要相应的扩展公钥以派生相同的公钥时，才会派生普通子级。
 
@@ -40,7 +40,7 @@ m / purpose' / coin_type' / account' / change / index
 树中的层级有特定的含义。
 
 >m: 主密钥
-主密钥（从种子生成）。
+主密钥（从[种子](../Mnemonic%20Seed/Mnemonic%20Seed.md)生成）。
 >>m/44'：目的（加强）
 这指定了即将使用的钱包结构。
 目前钱包使用的有三种方案：
@@ -93,7 +93,7 @@ m / account' / external / index
 **BIP 44：m/44'/0'/0'/0/0**
 [BIP 44](https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki)基于原始的BIP 32方案，包括一个目的[^1]（类似于版本号，用于识别即将到来的方案）以及一个币种类型，以便可以使用相同的种子生成不同加密货币的密钥。
 
-公钥编码为1地址（P2PKH）。
+公钥编码为1地址（[P2PKH](../../Script/P2PKH/P2PKH.md)）。
 ![derivation-paths-4.png](img/derivation-paths-4%20(1).png)
 
 **BIP 49: m/49'/0'/0'/0/0**
@@ -101,7 +101,7 @@ m / account' / external / index
 ![derivation-paths-5.png](img/derivation-paths-5%20(1).png)
 
 >**BIP 49序列化**
-BIP 49派生路径中的扩展密钥使用版本字节049d7878“yprv”或049d7cb2“ypub”进行序列化。这允许您在扩展密钥是BIP 49方案的一部分时进行识别。
+BIP 49派生路径中的扩展密钥使用版本字节049d7878“yprv”或049d7cb2“ypub”进行序列化。这允许您在[扩展密钥](../Extended%20Keys/Extended%20Keys.md)是BIP 49方案的一部分时进行识别。
 例如：
 ```
 yprvABrGsX5C9jant45o1Au7iHH54A8GXQH9SGhK5vkYKPUBDYsFy6KNUWX24moUE6KxoCh2qtZ8UpLaDWQiqt4aPdvvgjszQ4VrbLpfp5patGg
@@ -112,21 +112,21 @@ yprvABrGsX5C9jant45o1Au7iHH54A8GXQH9SGhK5vkYKPUBDYsFy6KNUWX24moUE6KxoCh2qtZ8UpLa
 ![derivation-paths-6.png](img/derivation-paths-6%20(1).png)
 
 >**BIP 84序列化**
-BIP 84派生路径中的扩展密钥在序列化过程中使用版本字节04b2430c“zprv”或04b24746“zpub”。这使您可以在BIP 84方案的一部分时识别扩展密钥。
+BIP 84派生路径中的扩展密钥在序列化过程中使用版本字节04b2430c“zprv”或04b24746“zpub”。这使您可以在BIP 84方案的一部分时识别[扩展密钥](../Extended%20Keys/Extended%20Keys.md)。
 例如：
 ```
 zprvAWgYBBk7JR8GjMGuqXgjvNNaE8GiU2GeMPDXsKeRhPr4GegVDkUw6aBA5ym4DzytCqoqbN9gwUh86o2HZaUbBscXZ5aQyyKLs4tKCeThpsa
 ```
 
 ## 4. 示例
-它接受一个种子（助记符或十六进制数）和派生路径，并显示该路径中的私有扩展密钥的地址（以及接下来的几个子级）。
+它接受一个种子（助记符或十六进制数）和派生路径，并显示该路径中的私有扩展密钥的[地址](../../Keys/Address/Address.md)（以及接下来的几个子级）。
 
 >**间隙限制**：从种子恢复钱包时，您应仅检查前20个接收地址以查看余额。如果过去没有使用过任何地址，则可以将该账户视为未使用过。
 
 >永远不要将您的实际种子输入到网站中。网站可以保存您输入的内容并使用它来窃取您的货币。
 
 ## 5. 代码
-为了节省代码，这些代码片段使用方便的库（[bitcoin-ruby](https://github.com/lian/bitcoin-ruby)、[hdkeychain](https://github.com/btcsuite/btcutil/tree/master/hdkeychain)）来*派生扩展密钥*。
+为了节省代码，这些代码片段使用方便的库（[bitcoin-ruby](https://github.com/lian/bitcoin-ruby)、[hdkeychain](https://github.com/btcsuite/btcutil/tree/master/hdkeychain)）来派生[扩展密钥](../Extended%20Keys/Extended%20Keys.md)。
 ### Ruby
 ```ruby
 require 'bitcoin' # sum gem install bitcoin-ruby

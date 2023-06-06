@@ -4,11 +4,11 @@
 
 助记符句（“助记码”，“种子短语”，“种子词语”）是一种将大量随机生成的数字表示为一系列单词的方法，使人们更容易存储。
 
-然后使用这些单词创建种子，可用于在分层确定性钱包中生成扩展密钥。
+然后使用这些单词创建种子，可用于在[分层确定性钱包](../HD%20Wallets.md)中生成[扩展密钥](../Extended%20Keys/Extended%20Keys.md)。
 
->**注意**：换句话说，您的钱包需要使用一个大的随机数来生成所有的密钥和地址，而助记符句为我们提供了一种方便的存储方式。
+>**注意**：换句话说，您的[钱包](../../../Beginners/Getting%20Started/getting-started/getting%20started.md)需要使用一个大的随机数来生成所有的密钥和地址，而助记符句为我们提供了一种方便的存储方式。
 
->**不要相信在网站上生成的种子**。创建钱包时，应私下在自己的计算机上生成自己的种子。我建议使用 Electrum。
+>**不要相信在网站上生成的种子**。创建钱包时，应私下在自己的计算机上生成自己的种子。我建议使用 [Electrum](https://electrum.org/)。
 
 ## 如何生成助记句？
 
@@ -103,7 +103,7 @@ puts "mnemonic: #{mnemonic}" #=> "punch shock entire north file identify"
 要创建种子，您需要将助记词通过 PBKDF2 函数。这基本上是将您的助记词（+ 可选的口令）多次哈希，直到产生最终的 64 字节（512 位）结果。
 ![Mnemonic Seed-4.png](img/Mnemonic%20Seed-4%20(1).gif)
 可选的口令短语允许您修改最终种子。
-这个64字节的结果就是您的种子，可以用来创建分层确定性钱包的*主扩展密钥*。
+这个64字节的结果就是您的种子，可以用来创建分层确定性钱包的[主扩展密钥](../Extended%20Keys/Extended%20Keys.md)。
 ```ruby
 # -------------------
 # 3. Mnemonic to Seed
@@ -185,7 +185,7 @@ puts "valid: #{checksum == checksumexpected}" #=> true
 Requires wordlist.txt
 
 BIP39单词列表
-一个助记句中的单词来自一个固定的2048个单词列表（由BIP39指定）。每个单词的前4个字母在列表中是唯一的。
+一个助记句中的单词来自一个固定的2048个单词列表（由[BIP39](https://github.com/bitcoin/bips/blob/master/bip-0039/bip-0039-wordlists.md)指定）。每个单词的前4个字母在列表中是唯一的。
 ```
 abandon
 ability
