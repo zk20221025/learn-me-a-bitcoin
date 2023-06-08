@@ -16,7 +16,7 @@
 但是，如果你把你的私钥放入[交易数据](../../../../../Technical/Transaction/Transaction%20Data/Transaction%20Data.md)中，网络上的每个人都能看到它：
 ![digital_signatures-3.png](img/Digital%20Signatures-3%20(1).png)
 
-如果任何人得到了你的私钥，他们可以使用它来解锁和花费任何其他被锁定到相同地址的输出。
+如果任何人得到了你的私钥，他们可以使用它来解锁和花费任何被锁定到你的私钥相同地址的输出。
 
 那么，我们如何在不泄露私钥的情况下解锁输出？
 
