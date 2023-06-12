@@ -1,11 +1,11 @@
 # 交易费用
-交易的余额。
+交易的手续费。
 ![Fess-1.png](img/Fees-1-svg.png)
 
-**交易费**是比特币交易的余额。
+**交易费**是比特币交易的手续费。
 
 ## 为什么要使用交易费？
-交易费作为矿工将您的交易包含在他们的[候选块](../../Node/Candidate%20Block/Candidate%20Block.md)中的激励。
+交易费作为矿工将你的交易包含在他们的[候选块](../../Node/Candidate%20Block/Candidate%20Block.md)中的收费。
 ![Fess-2.png](img/Fees-2-svg.png)
 如果内存池中的交易数量超过了一个[区块所能容纳的数量](../../Node/Memory%20Pool/Memory%20Pool.md)，矿工将选择具有最高手续费的交易。
 因此，如果有很多比特币交易漂浮在内存池中，而不是所有交易都能放入一个区块中，交易费用可以用作在区块中“购买空间”的一种方式。
@@ -13,7 +13,7 @@
 ## 交易费用去哪里了？
 交易费用通过[coinbase交易](../Coinbase%20Transaction/Coinbase%20Transaction.md)被矿工所领取。
 ![Fess-3.png](img/Fees-3-svg.png)
-矿工有机会获得他们放入[候选块](../../Node/Candidate%20Block/Candidate%20Block.md)的所有交易费用。
+矿工有机会获得交易人员放入[候选块](../../Node/Candidate%20Block/Candidate%20Block.md)的所有交易费用。
 
 ## 每字节费用
 
@@ -34,7 +34,7 @@
 
 ## 备注
 >**任何比特币交易的剩余部分都是交易费用。全部都是。**
-如果您创建一个使用10个BTC[输入](../Transaction/Transaction%20Data/Input/input.md)的比特币交易，并且只创建一个0.1个BTC[输出](../Transaction%20Data/output/output.md)，则剩余的9.9个BTC将被计算为交易费用。
+如果你创建一个使用10个BTC[输入](../Transaction/Transaction%20Data/Input/input.md)的比特币交易，并且只创建一个0.1个BTC[输出](../Transaction%20Data/output/output.md)，则剩余的9.9个BTC将被计算为交易费用。
 
 >>**不幸的例子：**
 >>* 291.2409个BTC交易费用 - （[bitcointalk帖子](https://bitcointalk.org/index.php?topic=1451924.0)）
