@@ -28,7 +28,7 @@
 
 |领域|	尺寸|	数据|
 |---|---|---|
-|版本|	4 bytes|	*Little-endian*|
+|版本|	4 bytes|[Little-endian](../../Other/Little-endian/Little-Endian.md)|
 |前一个区块的哈希值|	32 bytes|	Little-endian|
 |Merkle根|	32 bytes|	Little-endian|
 |时间|	4 bytes|	Little-endian|
