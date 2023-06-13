@@ -6,11 +6,11 @@
 它是更常用的[P2PKH](../P2PKH/P2PKH.md)锁定脚本的简化版本。
 
 ## P2PK如何工作？
-P2PK锁定只包含[公钥](../../Keys/Public%20Key/Public%20Key.md)和CHECKSIG操作码：
+P2PK锁定只包含[公钥](../../Keys/Public%20Key/Public%20Key.md)和**CHECKSIG**操作码：
 |scriptPubKey（脚本公钥）|04ae1a62fe09c5f51b13905f07f06b99a2f7159b2225f374cd378d71302fa28414e7aab37397f554a7df5f142c21c1b7303b8a0626f1baded5c72a704f7e6cd84c OP_CHECKSIG|
 |---|---|
 
-要解锁它，您只需要提供有效的签名：
+要解锁它，你只需要提供有效的签名：
 |scriptSig（脚本签名）|30440220576497b7e6f9b553c0aba0d8929432550e092db9c130aae37b84b545e7f4a36c022066cb982ed80608372c139d7bb9af335423d5280350fe3e06bd510e695480914f01|
 |---|---|
 
@@ -33,9 +33,9 @@ P2PK锁定只包含[公钥](../../Keys/Public%20Key/Public%20Key.md)和CHECKSIG�
 
 不确定。你得问问她/他。
 
-我认为**P2PKH**被用作方便人们进行交易的方式，因为它允许您使用[地址](../../Keys/Address/Address.md)而不是传递您的公钥（长度更长）。然而，矿工不需要地址的便利，因此P2PK成为了更简单的选择。
+我认为**P2PKH**被用作方便人们进行交易的方式，因为它允许你使用[地址](../../Keys/Address/Address.md)而不是传递你的公钥（长度更长）。然而，矿工不需要地址的便利，因此P2PK成为了更简单的选择。
 
-## b为什么我们不经常使用P2PK？
+## 为什么我们不经常使用P2PK？
 
 因为Satoshi设计了[P2PKH](../P2PKH/P2PKH.md)，以便我们可以互相发送较短的**地址**而不是完整的公钥。
 
