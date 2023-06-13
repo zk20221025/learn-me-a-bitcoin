@@ -2,9 +2,9 @@
 一个易于分享的锁定脚本格式。
 ![address-1.png](img/address-1%20(1).png)
 
-**地址**是您提供给人们的信息，以便他们可以“发送”比特币给您。
+**地址**是你提供给人们的信息，以便他们可以“发送”比特币给你。
 
-当有人收到它时，他们可以根据您提供的地址类型创建一个特定的[锁定脚本](../../Transaction/Transaction%20Data/output/scriptPubKey/scriptPubKey.md)。
+当有人收到它时，他们可以根据你提供的地址类型创建一个特定的[锁定脚本](../../Transaction/Transaction%20Data/output/scriptPubKey/scriptPubKey.md)。
 
 ## 你如何创建一个地址？
 
@@ -18,7 +18,7 @@
 最后，所有这些都被转换为[**Base58**](../Base58/Base58.md)，这使它更易于使用。
 
 ## 支付到公钥哈希（P2PKH）
-[**P2PKH**](../../Script/P2PKH/P2PKH.md)：这是一个典型的地址，将比特币锁定到[公钥](../Public%20Key/Public%20Key.md)（或更准确地说：[公钥哈希](../Public%20Key/Public%20Key%20Hash/public-key-hash.md)）。
+[**P2PKH**]这是将比特币锁定到[公钥](../Public%20Key/Public%20Key.md)（或更精确地说：[公钥哈希](../Public%20Key/Public%20Key%20Hash/public-key-hash.md)）的典型地址。
 
 如上所述，我们将一个**前缀**附加到我们的哈希公钥并在前面添加一个**校验和**，然后将其全部编码为base58。
 ![address-2.png](img/address-2%20(1).png)
@@ -41,7 +41,7 @@
 ![address-5.png](img/address-5%20(1).png)
 
 ## 前缀
-如前所述，**您使用的前缀将指示要创建的锁定脚本类型**。
+如前所述，**你使用的前缀将指示要创建的锁定脚本类型**。
 
 以下是常见地址前缀的列表：
 
@@ -71,13 +71,13 @@
 
 >前缀00在编码为base58时不会自然地转换为“1”。这种转换是在代码中手动执行的。
 
->您会注意到[WIF私钥](../../Keys/Private%20Key/WIF%20Private%20Key/WIF%20Private%20Key.md)使用相同的十六进制前缀，但产生不同的前导字符。这是因为如果使用私钥创建压缩的公钥（将生成与非压缩的公钥不同的地址），我们在转换为base58之前还会附加一个01。这个额外的字节会影响base58结果中的前导字符。
+>你会注意到[WIF私钥](../../Keys/Private%20Key/WIF%20Private%20Key/WIF%20Private%20Key.md)使用相同的十六进制前缀，但产生不同的前导字符。这是因为如果使用私钥创建压缩的公钥（将生成与非压缩的公钥不同的地址），我们在转换为base58之前还会附加一个01。这个额外的字节会影响base58结果中的前导字符。
 
 >[扩展密钥包](../../HD%20Wallets/Extended%20Keys/Extended%20Keys.md)含原始公钥和私钥之外的额外元数据，这就是它们的base58字符串要长得多的原因。
 
 https://en.bitcoin.it/wiki/List_of_address_prefixes
 
->前缀还会改变地址的前导字符，因此通过查看地址本身，您可以告诉使用了什么样的锁定脚本。
+>前缀还会改变地址的前导字符，因此你可以通过仅查看地址本身来了解使用了什么类型的锁定脚本。
 
 ## 为什么我们要使用地址？
 >地址是以人类可读的方式简写锁定脚本的方法。- echeveria（在IRC上）
