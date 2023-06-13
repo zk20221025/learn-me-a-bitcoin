@@ -1,15 +1,15 @@
 # 公钥
-一个从私钥数学生成的独特数字。
+一个从私钥中数学生成的独特数字。
 ![Public Key-1.png](img/Public%20Key-1%20(1).png)
 
-公钥就像您用来接收比特币的账号号码。
+公钥就像你用来接收比特币的账号号码。
 
-它是由您的[私钥](../Private%20Key/Private%20Key.md)创建的，私钥就像该账号号码的密码。
+它是由你的[私钥](../Private%20Key/Private%20Key.md)创建的，私钥就像该账号号码的密码。
 
 ## 如何生成公钥？
-您使用您的**私钥**（它只是一个大的随机数）来生成相应的公钥。
+使用你的**私钥**（它只是一个大的随机数）来生成相应的公钥。
 
-您使用您的私钥执行**椭圆曲线乘法**，这将给您一个最终的椭圆曲线上的固定点。该点的*x*和*y*坐标就是您的公钥。
+你使用你的私钥执行**椭圆曲线乘法**，这将给你一个最终的椭圆曲线上的固定点。该点的**x**和**y**坐标就是你的公钥。
 ![Public Key-2.png](img/Public%20Key-2%20(1).png)
 
 ### 代码
@@ -144,10 +144,10 @@ puts public_key_compressed #=> 02b4632d08485ff1df2db55b9dafd23347d1c47a457072a1e
 
 ### 为什么要使用椭圆曲线？
 
-使用椭圆曲线乘法可以为您的私钥和公钥之间建立一个数学连接。它还具有两个重要的特性：
+使用椭圆曲线乘法可以为你的私钥和公钥之间建立一个数学连接。它还具有两个重要的特性：
 
-#### 1. 不知道如何反向计算私钥。
-您可以使用椭圆曲线乘法向前计算，但无法进行反向数学计算。
+#### 1. 不能反向计算私钥。
+你可以使用椭圆曲线乘法正向计算，但无法进行反向数学计算。
 ![Public Key-3.png](img/Public%20Key-3%20(1).png)
 
 这意味着从你的私钥到公钥有一个数学连接，但没有人可以使用你的公钥来找出你的私钥。
@@ -185,7 +185,7 @@ public key (uncompressed) = 04b4632d08485ff1df2db55b9dafd23347d1c47a457072a1e87b
 
 * 如果 y 是偶数，它对应其中一个点。
 * 如果 y 是奇数，它对应另一个点。
-因此，在压缩的公钥格式中，我们只需存储完整的 **x** 坐标，以及一个前缀，指示 **y** 是偶数还是奇数。
+因此，在压缩的公钥格式中，我们只需存储完整的 **x** 坐标，以及指示 y 坐标是偶数还是奇数的前缀。
 ![Public Key-7.png](img/Public%20Key-7%20(1).png)
 我们只需要存储y坐标是偶数还是奇数。
 
@@ -198,9 +198,9 @@ public key (compressed)   = 02b4632d08485ff1df2db55b9dafd23347d1c47a457072a1e87b
 这种压缩格式最终使我们能够计算出完整的**x**和**y**坐标，但在区块链内节省了大量空间（例如当我们创建将[输出](../../Transaction/Transaction%20Data/output/output.md)锁定到特定公钥的交易时）。
 
 #### 如何解压公钥
-您可以通过解决曲线方程y^2 = x^3 + 7来解压缩公钥。
+你可以通过解决曲线方程y^2 = x^3 + 7来解压缩公钥。
 
-这将为您提供未压缩密钥的缺失可能y值。然后，您可以使用压缩密钥的前缀来确定使用哪个y值（因为任何数字的平方根都有两个可能的答案，例如16 = +4或-4）。
+这将为你提供未压缩密钥的可能缺失的y值。然后，你可以使用压缩密钥的前缀来确定使用哪个y值（因为任何数字的平方根都有两个可能的答案，例如16 = +4或-4）。
 ```ruby
 # Compressed public key
 compressed = "02b4632d08485ff1df2db55b9dafd23347d1c47a457072a1e87be26896549a8737"
@@ -239,16 +239,16 @@ puts uncompressed #=> 04b4632d08485ff1df2db55b9dafd23347d1c47a457072a1e87be26896
 
 ## 公钥在比特币中如何使用？
 
-您可以向其他人透露您的公钥，以便他们在创建交易时将其包括在输出的[锁定脚本](../../Transaction/Transaction%20Data/output/scriptPubKey/scriptPubKey.md)中。
+你可以向其他人透露您的公钥，以便他们在创建交易时将其包括在输出的[锁定脚本](../../Transaction/Transaction%20Data/output/scriptPubKey/scriptPubKey.md)中。
 ![Public Key-8.png](img/Public%20Key-8%20(1).png)
 我们可以把我们的公钥给别人，这样他们就可以向我们发送比特币。这被称为Pay-To-Pubkey（[P2PK](../../Script/P2PK/P2PK.md)）。
 
-然而，在比特币中，我们现在更常用的是在公钥之前进行[hash160](../Public%20Key/Public%20Key%20Hash/public-key-hash.md)。然后，在解锁输出时才使用*公钥*。（初始锁定将首先检查公钥是否正确哈希，然后再将其与签名进行比对。）
+然而，在比特币中，我们现在更常用的是在公钥之前进行[hash160](../Public%20Key/Public%20Key%20Hash/public-key-hash.md)。然后，在解锁输出时才使用[公钥](../Public%20Key/Public%20Key%20Hash/public-key-hash.md)。（初始锁定将首先检查公钥的哈希值是否正确,然后再将其与签名进行比对。）
 ![Public Key-9.png](img/Public%20Key-9%20(1).png)
 我们的公钥的Hash160现在存储在锁定中。这被称为支付到公钥哈希（[P2PKH](../../Script/P2PKH/P2PKH.md)）。
 
 ## 在区块链中，公钥在哪里可以找到？
-如果您正在查看[原始区块链数据](../../Blockchain/Blkdat/blkdat.md)，则公钥通常可以在[交易数据](../../Transaction/Transaction%20Data/Transaction%20Data.md)中找到。
+如果你正在查看[原始区块链数据](../../Blockchain/Blkdat/blkdat.md)，则公钥通常可以在[交易数据](../../Transaction/Transaction%20Data/Transaction%20Data.md)中找到。
 例如，在标准的P2PKH交易中：
 公钥哈希位于[输出](../../Transaction/Transaction%20Data/output/output.md)的锁定代码（[scriptPubKey](../../Transaction/Transaction%20Data/output/scriptPubKey/scriptPubKey.md)）中。
 ![Public Key-10.png](img/public-key-10.jpg)
@@ -260,7 +260,7 @@ puts uncompressed #=> 04b4632d08485ff1df2db55b9dafd23347d1c47a457072a1e87be26896
 >正如你所看到的那样，公钥开头的04表示它是一个未压缩的公钥。这使得它几乎是现在通常使用的压缩公钥的两倍长。
 
 ### 库
-今天，在大多数语言中，你可以使用现有的椭圆曲线库来帮助你创建公钥（而不是必须自己编写数学代码）。例如：
+今天大多数语言都可以使用现有的椭圆曲线库来帮助您创建公钥（而不必须自己编写数学代码）。例如：
 ```ruby
 require 'ecdsa' # Use an elliptic curve library
 
