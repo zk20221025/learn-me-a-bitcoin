@@ -5,10 +5,10 @@
 A B C D E F G H   J K L M N   P Q R S T U V W X Y Z
 a b c d e f g h i j k   m n o p q r s t u v w x y z
 ```
-Base58是一组字符，您可以使用它们以更短且更用户友好的格式表示大数字。
+Base58是一组字符，你可以使用它们以更短且更易人看懂的格式表示大数字。
 
 ## “Base58”是什么意思？
-“Base”指的是用于表示一个值所使用的字符数。
+“Base”指的是用于表示一个值所使用的字符数值。
 
 |基础	|描述|
 |---|---|
@@ -27,28 +27,27 @@ base58(9999) = 3yQ
 ```
 所有这些“数字”都具有相同的值-**它们只是使用不同的字符集（基数）来表示它。**
 
->您的基数中拥有的字符越多，您需要使用的字符数量就越少，以表示大数字。因此，您的基数越大，您的“数字”就越短。
+>你的基数中有越多的字符，你就需要使用越少的字符来表示大数。因此，你的基数越大，你的“数字”就可以更短。
 
 ## 为什么是base58？
 
-因为58是当您使用所有字母数字字母表中的所有字符（62）时，您剩余的字符数量，但删除所有易于混淆的字符，如0、O、l和I。
+因为base58是使用字母数字字母表中的所有字符（62个）但删除所有易混淆的字符，如0、O、l和I时，剩余的字符数量。
 ```
 alphanumeric = 0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz
 base58       =  123456789ABCDEFGH JKLMN PQRSTUVWXYZabcdefghijk mnopqrstuvwxyz
 ```
 因此，Base58具有两个优点：
 
-1. 它提供了一个大的字符集，因此您可以用较短的格式表示大的数字。
-
-2. 它略去了尴尬的字符，以避免您在抄写时出错。
+1. 它提供了一组大量的字符，因此可以使用更短的格式表示大数字。 
+2. 它会省略一些难打的字符，以避免你在转录时犯错。
 ![base58-1.png](img/Base58-1-svg.png)
 一个讨厌的O/0
 
 ## Base58编码
 
-将一个整数（base10）转换为base58，您需要使用**模数**[^1]函数。
+将一个整数（十进制）转换为Base58，需要使用**模数**[^1]函数。
 
-基本上，您不断地将数字除以58，在每个步骤中取**余数**以获得base58的下一个**字符索引**，并在没有余数的情况下完成。
+基本上，你不断地将数字除以58，在每个步骤中取**余数**以获得下一个base58的**字符索引**，并在没有余数的情况下完成。
 ```
 base10 = 123456789
 
@@ -99,7 +98,7 @@ puts int_to_base58(123456789) #=> BukQL
 
 ## Base58解码
 
-要将一个Base58值转换为Base10，你需要将每个字符的索引乘以该数字在该位置表示的58的数量。
+要将一个Base58值转换为Base10，需要将每个字符的索引乘以它所在的位置表示的58的数量。
 
 然后将所有这些值加在一起即可。
 ```
@@ -153,7 +152,7 @@ puts base58_to_int("BukQL") #=> 123456789
 ```
 ## Base58在比特币中的应用
 
-当你想把常用数据转换成更易分享的格式时，比特币中使用Base58。例如：
+Base58 在比特币中用于将常用数据转换为更易分享的格式。例如：
 
 1. [WIF私钥](../Private%20Key/WIF%20Private%20Key/WIF%20Private%20Key.md)
    * [私钥](../Private%20Key/Private%20Key.md)就像“主密码”，当你想把比特币导入到新钱包时可以使用它。为此，有一种名为WIF私钥的东西，它基本上是一个以Base58表示的私钥。
@@ -200,11 +199,11 @@ puts base58_to_int("BukQL") #=> 123456789
 |04358394|	tprv|	Extended Private Key|tprv9tuogRdb5YTgcL3P8Waj7REqDuQx4sXcodQaWTtEVFEp6yRKh1CjrWfXChnhgHeLDuXxo2auDZegMiVMGGxwxcrb2PmiGyCngLxvLeGsZRq|
 |043587CF	|tpub	|Extended Public Key|tpub67uA5wAUuv1ypp7rEY7jUZBZmwFSULFUArLBJrHr3amnymkUEYWzQJz13zLacZv33sSuxKVmerpZeFExapBNt8HpAqtTtWqDQRAgyqSKUHu|
 
->如上所述，十六进制前缀00在编码为base58时不会自动转换为“1”。这种转换是在代码中手动执行的。
+>正如提到的，十六进制前缀00在编码为base58时不会自然地转换为“1”。这种转换是在代码中手动执行的。
 
->您会注意到，[WIF私钥](../Private%20Key/WIF%20Private%20Key/WIF%20Private%20Key.md)使用相同的十六进制前缀，但产生不同的前导字符。这是因为如果私钥用于创建压缩的公钥（将产生与未压缩的公钥不同的地址），我们在将其转换为base58之前还会附加一个01。这个额外的字节对base58结果中的前导字符产生影响。
+>你会注意到，[WIF私钥](../Private%20Key/WIF%20Private%20Key/WIF%20Private%20Key.md)使用相同的十六进制前缀，但产生不同的前导字符。这是因为如果私钥用于创建压缩的公钥（将产生与未压缩的公钥不同的地址），我们在将其转换为base58之前还会附加一个01。这个额外的字节对base58结果中的前导字符产生影响。
 
->[扩展密钥包](../../HD%20Wallets/Extended%20Keys/Extended%20Keys.md)含原始公钥和私钥以外的额外元数据，这就是它们的base58字符串更长的原因。
+>[扩展密钥包](../../HD%20Wallets/Extended%20Keys/Extended%20Keys.md)含原始公钥和私钥以外的额外元数据，这就是为什么它们的base58字符串更长的原因。
 
 https://en.bitcoin.it/wiki/List_of_address_prefixes
 
