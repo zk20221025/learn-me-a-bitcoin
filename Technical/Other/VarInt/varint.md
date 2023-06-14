@@ -1,8 +1,8 @@
-VarInt
-一种指示即将到来的数据大小的格式。
+# VarInt
+一种指示即将到来数据大小的格式。
 ![varint-1.png](img/varint-1-svg.png)
 
-可变整数（VarInt）是用于表示即将到来的字段数量或即将到来的字段长度的[交易数据](../../Transaction/Transaction%20Data/Transaction%20Data.md)中的字段。
+VarInt（可变整数）是在[交易数据](../../Transaction/Transaction%20Data/Transaction%20Data.md)中使用的一个字段，用于指示即将到来的字段的数量或即将到来的字段的长度。
 
 示例：
 以下是一个*交易*，其中VarInt字段已突出显示（如果它是指字段长度，则也突出显示该字段的长度）：
@@ -62,9 +62,9 @@ VarInt =   000f3a70
 
 ## 为什么要使用VarInts？
 
-在[交易数据](../../Transaction/Transaction%20Data/Transaction%20Data.md)中，像txid和vout这样的字段具有固定的大小，因此您始终知道它们的起始和结束位置。然而，像scriptSig这样的字段长度可能会有所不同，因此在它之前放置一个VarInt字段，以便您知道它有多少个字节的长度。
+在[交易数据](../../Transaction/Transaction%20Data/Transaction%20Data.md)中，像[txid](../../Transaction/TXID/TXID.md)和[vout](../../Other/VOUT/VOUT.md)这样的字段具有固定的大小，因此始终知道它们的起始位置和结束位置。但是，像scriptSig这样的字段长度可能会有变化，因此在它之前放置一个VarInt字段，以便你知道它有多少个字节的长度。
 
-如果您编写了一个读取交易数据的脚本或程序，这些VarInts是必不可少的，因为没有它们，您就不会知道可变长度字段的结束位置。
+如果你编写了一个读取交易数据的脚本或程序，这些VarInts是必不可少的，因为没有它们，你就不会知道可变长度字段的结束位置。
 
 ## 资源
 * https://bitcoin.org/en/developer-reference#compactsize-unsigned-integers
