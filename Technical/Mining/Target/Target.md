@@ -212,6 +212,6 @@ puts target
 * https://bitcoin.stackexchange.com/questions/1511/gaming-the-off-by-one-bug-difficulty-re-target-based-on-2015-instead-of-2016
 
 ## 谢谢
-感谢[David Harding](https://dtrt.org/)指出，您可以通过bitcoin-cli getblocktemplate直接从bitcoind获取目标。
+感谢[David Harding](https://dtrt.org/)指出，你可以通过bitcoin-cli getblocktemplate直接从bitcoind获取目标。
 
 [^1]:https://github.com/bitcoin/bitcoin/blob/master/src/chainparams.cpp#L106

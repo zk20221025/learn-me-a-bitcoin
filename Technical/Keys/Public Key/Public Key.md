@@ -239,7 +239,7 @@ puts uncompressed #=> 04b4632d08485ff1df2db55b9dafd23347d1c47a457072a1e87be26896
 
 ## 公钥在比特币中如何使用？
 
-你可以向其他人透露您的公钥，以便他们在创建交易时将其包括在输出的[锁定脚本](../../Transaction/Transaction%20Data/output/scriptPubKey/scriptPubKey.md)中。
+你可以向其他人透露你的公钥，以便他们在创建交易时将其包括在输出的[锁定脚本](../../Transaction/Transaction%20Data/output/scriptPubKey/scriptPubKey.md)中。
 ![Public Key-8.png](img/Public%20Key-8%20(1).png)
 我们可以把我们的公钥给别人，这样他们就可以向我们发送比特币。这被称为Pay-To-Pubkey（[P2PK](../../Script/P2PK/P2PK.md)）。
 
@@ -260,7 +260,7 @@ puts uncompressed #=> 04b4632d08485ff1df2db55b9dafd23347d1c47a457072a1e87be26896
 >正如你所看到的那样，公钥开头的04表示它是一个未压缩的公钥。这使得它几乎是现在通常使用的压缩公钥的两倍长。
 
 ### 库
-今天大多数语言都可以使用现有的椭圆曲线库来帮助您创建公钥（而不必须自己编写数学代码）。例如：
+今天大多数语言都可以使用现有的椭圆曲线库来帮助你创建公钥（而不必须自己编写数学代码）。例如：
 ```ruby
 require 'ecdsa' # Use an elliptic curve library
 
