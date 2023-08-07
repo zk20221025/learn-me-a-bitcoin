@@ -131,4 +131,4 @@
 ## 链接
 * https://bitcoin-intro.com/ -另一个使用比特币的良好介绍。此页面顶部引用的来源。 
 
-[^1]:一笔交易可以从区块链中移除，但这并不容易。请参见[*51%攻击*](./Blockchain/51-attack/51-attack.md)。
+[^1]:一笔交易可以从区块链中移除，但这并不容易。请参见[*51%攻击*](../../../Technical/Blockchain/51-attack/51-attack.md)。
