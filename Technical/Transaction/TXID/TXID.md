@@ -1,5 +1,6 @@
-# TXID
-一笔交易数据的哈希值。
+# <center>TXID</center>
+<center>一笔交易数据的哈希值。</center>
+
 ![txid-1.png](img/TXID-1.svg)
 
 TXID（交易ID）基本上是比特币交易的标识号码。
@@ -19,7 +20,7 @@ TXID始终为**32字节**（64个字符）且为[十六进制](../../Other/Hexad
 ![txid-2.png](img/TXID-2.svg)
 169e1e83e930853391bc6f35f605c6754cfead57cf8387639d3b4096c54f18f4 （注意：如果想在区块链中*查找此交易*，请先反转字节顺序...）
 
-###在区块链中搜索交易ID。
+### 在区块链中搜索交易ID。
 >如果你刚刚对一些交易数据进行了哈希，并想在区块链中*搜索TXID*，则必须以相反的字节顺序搜索它。
 ```
 txid (original):  169e1e83e930853391bc6f35f605c6754cfead57cf8387639d3b4096c54f18f4
@@ -27,13 +28,14 @@ txid (searching): f4184fc596403b9d638783cf57adfe4c75c605f6356fbc91338530e9831e9e
 ```
 
 ### 为什么?
-欢迎来到比特币世界。。
+欢迎来到比特币。
 
->由于历史原因，比特币核心使用的交易和块哈希是反转的。我不完全确定为什么。可能是像使用openssl bignum存储哈希等类似的东西，然后将它们作为数字打印出来。- [Wladimir van der Laan](https://github.com/laanwj)（比特币核心开发人员）
+>由于历史原因，比特币核心使用的交易和块哈希是反转的。我不太清楚为什么。可能是像使用openssl bignum存储哈希等类似的东西，然后将它们作为数字打印出来。- [Wladimir van der Laan](https://github.com/laanwj)（比特币核心开发人员）
 
 换句话说，这是比特币早期开发中的一小失误，现在已经成为标准。
 
-## XID在哪里使用？
+## TXID在哪里使用？
+
 ### 1.搜索区块链。
 如果你刚刚进行了交易，你可以使用TXID在区块链中找到它。例如：
 ```
@@ -47,7 +49,7 @@ bitcoin-cli getrawtransaction 0e3e2357e806b6cdb1f70b54c3a3a17b6714ee1f0e68bebb44
 ### 2. 花费输出。
 当你想在新交易中将现有[输出](../Transaction%20Data/output/output.md)用作[输入](../Transaction%20Data/Input/input.md)时，你会使用TXID。
 ![txid-4.png](img/TXID-4.svg)
-要引用现有的输出，你需要使用它所创建的txid以及该交易的vout编。
+<center>要引用现有的输出，你需要使用它所创建的txid以及该交易的vout编号。</center>
 
 因为，TXID是交易的唯一标识符。
 

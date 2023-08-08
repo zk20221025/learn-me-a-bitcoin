@@ -1,5 +1,6 @@
-# 区块哈希
-区块头的哈希值。
+# <center>区块哈希</center>
+<center>区块头的哈希值。</center>
+
 ![block-hash-1.png](img/block-hash-1%20(1).png)
 
 一个**区块哈希**基本上是[区块链](../../../Beginners/How%20Bitcoin%20Works/2.Mining/1.Blockchain/Blockchain.md)中一个[块](../../../Beginners/How%20Bitcoin%20Works/2.Mining/2.Blocks/Blocks.md)的参考编号。
