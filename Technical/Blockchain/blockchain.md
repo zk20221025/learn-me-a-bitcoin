@@ -1,5 +1,6 @@
-# 区块链
-比特币交易记录文件。
+# <center>区块链</center>
+<center>比特币交易记录文件。</center>
+
 ![blockchain-S-1.png](img/blockchain-S-1%20(1).png)
 
 区块链是一个[交易](../../Beginners/How%20Bitcoin%20Works/3.Transactions/Transactions.md)记录文件。它是比特币[节点](../../Beginners/How%20Bitcoin%20Works/1.Network/Nodes/Nodes.md)维护的最重要的文件。
@@ -27,7 +28,7 @@
 
 在将新的交易块添加到区块链之前，必须先[挖掘](../Mining/Mining.md)新的交易块。
 
-简而言之，挖掘的过程包括从[内存池](../Node/Memory%20Pool/Memory%20Pool.md)中收集交易到一个[候选块](../Node/Candidate%20Block/Candidate%20Block.md)中，然后利用处理能力生成一个[块哈希](../Block/block-hash/block-hash.md)，使其低于特定的[目标值](../Mining/Target/Target.md)。这意味着网络上的任何节点都可以挖掘新的块，但需要消耗能量。
+简而言之，挖掘的过程包括从[内存池](../Node/Memory%20Pool/Memory%20Pool.md)中收集交易到一个[候选块](../Node/Candidate%20Block/Candidate%20Block.md)中，然后利用处理能力生成一个[块哈希](../Block/block-hash/block-hash.md)，使其低于特定的[目标值](../Mining/Target/Target.md)。这意味着网络上的任何节点都可以挖掘新的块，但需要消耗能量才能做到。
 
 当一个节点（或“矿工”）成功挖掘出一个新块时，它们将与网络上的其他节点共享。当其他节点收到这个新块时，它们将把它添加到它们的区块链中，并开始尝试在其上挖掘新的块。
 ![blockchain-S-5.png](img/blockchain-S-5%20(1).png)
@@ -52,18 +53,18 @@
 
 因此，尽管在任何给定时间内可能存在关于哪些区块应位于区块链顶部的分歧，但新区块的挖掘和最长链的采用意味着节点将始终达成一致。
 ![blockchain-S-8.png](img/blockchain-S-8%20(1).png)
-节点始终采用最长的区块链作为区块链的接受版本。
+<center>节点始终采用最长的区块链作为区块链的接受版本。</center>
 
 ## 这是否意味着区块链中的块可以被替换？
 是的。
 
-由于节点始终采用最长的链，因此你始终可以尝试构建一个新的更长的区块链以替换现有的区块链，而网络上的每个节点都将采用它。实际上，这将允许你从区块链中“撤消”或撤销比特币交易。
+由于节点始终采用最长的链，因此你始终可以尝试构建一个新的更长的区块链以替换现有的区块链，而网络上的每个节点都将采用它。实际上，这将允许你从区块链中“撤消”或逆转比特币交易。
 ![blockchain-S-9.png](img/blockchain-S-9%20(1).png)
-如果你建立了一个新的最长的区块链，其他节点将会采用它。
+<center>如果你建立了一个新的最长的区块链，其他节点将会采用它。</center>
 
 然而，问题在于所有矿工都有动力始终在最长链上进行构建。这意味着网络上的矿工的综合处理能力将集中在构建一个单一的链上，这条链将比任何你自己构建的链都建得更快。
 ![blockchain-S-10.png](img/blockchain-S-10%20(1).png)
-每个其他的矿工都在努力扩展当前最长的区块链。
+<center>其他所有矿工都在努力扩展当前最长的区块链。</center>
 
 换句话说，网络的联合处理能力有助于保护已经挖掘到区块链上的块（和交易）。
 
