@@ -1,5 +1,6 @@
-# 脚本
-一个小型编程语言。
+# <center>脚本</center>
+<center>一个小型编程语言。</center>
+
 ![Scpipt-1.png](img/Script-1%20(1).png)
 
 脚本是一种小型编程语言，用作[输出](../Transaction/Transaction%20Data/output/output.md)的锁定机制。
@@ -24,14 +25,17 @@
 >**完整的脚本从左到右运行。在运行时，它使用了一个称为“堆栈”的数据结构**。
 
 1. **数据**总是被推到**堆栈**上。
+
 ![Scpipt-3.gif](img/Script-3%20(1).gif)
 
 2. **OPCODES**可以从堆栈中弹出元素，对其进行处理，然后可选择性地将新元素“推”回到**堆栈**中。
+
 ![Scpipt-4.gif](img/Script-4%20(1).gif)
-DUP操作码复制堆栈顶部元素。
+
+<center>DUP操作码复制堆栈顶部元素。</center>
 
 ## 什么使脚本有效？
-一个脚本是有效的，**如果栈顶且唯一剩下的元素是1（或更大）**。
+**如果栈顶且唯一剩下的元素是1（或更大）**,则脚本是有效的，
 ![Scpipt-5.gif](img/Script-5%20(1).gif)
 
 >如果脚本满足以下条件，则无法执行：
@@ -52,8 +56,9 @@ DUP操作码复制堆栈顶部元素。
 
 >**首先运行解锁脚本!**
 尽管解锁脚本是在初始锁定脚本之后提供的，但实际上在运行这两个脚本时，我们将其放在第一位。
+
 ![Scpipt-8.png](img/Script-8%20(1).png)
-当我们运行完整脚本时，解锁脚本会在锁定脚本之前执行。
+<center>当我们运行完整脚本时，解锁脚本会在锁定脚本之前执行。</center>
 
 ## 为什么我们要使用脚本？
 
@@ -65,7 +70,9 @@ DUP操作码复制堆栈顶部元素。
 
 ### 1. 数学谜题
 要使用此输出，你需要提供**两个相加得到8**的数字。
+
 ![Scpipt-9.png](img/Script-9%20(1).png)
+<center>这可能不是世界上最安全的锁定脚本。</center>
 
 ### 2. 哈希拼图
 在这里，你只需要找到一个与锁定脚本**内部相同的哈希结果**。
@@ -103,7 +110,7 @@ DUP操作码复制堆栈顶部元素。
 因此，如果你想将具有非标准脚本的交易添加到区块链中， 你需要将其直接发送给矿工，他们将为你进行挖掘，或者自己将其挖掘到区块链中。
 
 ## 总结
-脚本是比特币中用于提供输出锁定机制的迷你编程语言。
+脚本是比特币中用于提供输出锁定机制的小型编程语言。
 
 * 每个输出都被赋予一个“锁定脚本”。
 * 然后，在想要花费该输出的交易中，必须提供一个“解锁脚本”。
@@ -111,11 +118,11 @@ DUP操作码复制堆栈顶部元素。
 
 >该脚本实际上是一个谓词。它只是一个等式，可以评估为真或假。谓词是一个长而不熟悉的词，所以我称之为脚本。-[中本聪](https://bitcointalk.org/index.php?topic=195.msg1611#msg1611)
 
-##资源
+## 资源
 * https://en.bitcoin.it/wiki/Script
 * http://davidederosa.com/basic-blockchain-programming/bitcoin-script-language-part-one/
 * https://bitcointalk.org/index.php?topic=293382.0
 
 [^1]:[如果堆栈上有多个项目，是否可以花费脚本？](https://bitcoin.stackexchange.com/questions/92039/is-a-script-spendable-if-multiple-items-are-left-on-the-stack)
-[^2]:[isStandard()](https://github.com/bitcoin/bitcoin/blob/master/src/policy/policy.cpp)
+[^2]:[isStandard（）](https://github.com/bitcoin/bitcoin/blob/master/src/policy/policy.cpp)
 [^3]:https://bitcoin.stackexchange.com/questions/73728/why-can-non-standard-transactions-be-mined-but-not-relayed/
