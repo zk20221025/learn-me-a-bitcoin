@@ -1,5 +1,6 @@
-# 交易费用
-交易的手续费。
+# <center>交易费用</center>
+<center>交易的手续费。</center>
+
 ![Fess-1.png](img/Fees-1-svg.png)
 
 **交易费**是比特币交易的手续费。
@@ -7,15 +8,15 @@
 ## 为什么要使用交易费？
 交易费作为矿工将你的交易包含在他们的[候选块](../../Node/Candidate%20Block/Candidate%20Block.md)中的收费。
 ![Fess-2.png](img/Fees-2-svg.png)
-如果内存池中的交易数量超过了一个[区块所能容纳的数量](../../Node/Memory%20Pool/Memory%20Pool.md)，矿工将选择具有最高手续费的交易。
-因此，如果有很多比特币交易漂浮在内存池中，而不是所有交易都能放入一个区块中，交易费用可以用作在区块中“购买空间”的一种方式。
+如果[内存池](../../Node/Memory%20Pool/Memory%20Pool.md)中的交易数量超过了一个区块所能容纳的数量，矿工将选择具有最高手续费的交易。
+因此，如果内存池中存在大量比特币交易，但并非所有所有交易都能放入一个区块中，则可以使用交易费作为“购买区块空间”的一种方式。
 
 ## 交易费用去哪里了？
 交易费用通过[coinbase交易](../Coinbase%20Transaction/Coinbase%20Transaction.md)被矿工所领取。
-![Fess-3.png](img/Fees-3-svg.png)
+![Fees-3.png](img/Fees-3-svg.png)
 矿工有机会获得交易人员放入[候选块](../../Node/Candidate%20Block/Candidate%20Block.md)的所有交易费用。
 
-## 每字节费用
+## 按字节费用
 
 * 比特币区块的大小限制为**1MB**（1,000,000字节）。
 * [交易数据](../Transaction%20Data/Transaction%20Data.md)占用块中的空间（典型小交易大约占用250字节）。
@@ -32,7 +33,7 @@
 |dee09e37ba2e8a51706e71e587bcdb9e13545a3419d93e77bf4d6fcb48a19745|0.00229300|2,290|0.00000100|
 |b1eeb475c72a82745bca1f9cc1bdb5020a1633eec0dd7022962e2a4d162e7e05|0.00011300|225|0.00000050|
 
-## 备注
+## 注释
 >**任何比特币交易的剩余部分都是交易费用。全部都是。**
 如果你创建一个使用10个BTC[输入](../Transaction/Transaction%20Data/Input/input.md)的比特币交易，并且只创建一个0.1个BTC[输出](../Transaction%20Data/output/output.md)，则剩余的9.9个BTC将被计算为交易费用。
 

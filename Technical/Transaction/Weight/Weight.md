@@ -1,5 +1,6 @@
-# 交易权重
-用于衡量交易“规模”的度量标准。
+# <center>交易权重</center>
+<center>用于衡量交易“规模”的度量标准。</center>
+
 ![Weight-1.png](img/Weight-1%20(1).png)
 
 随着[BIP 141](https://github.com/bitcoin/bips/blob/master/bip-0141.mediawiki#transaction-size-calculations)（*隔离见证*）的引入，**交易**获得了一个新的计量单位，称为**权重**。
