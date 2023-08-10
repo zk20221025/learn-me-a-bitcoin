@@ -1,5 +1,6 @@
-# 私钥
-一个随机生成的大数字。
+# <center>私钥</center>
+<center>一个大的随机生成的数字。</center>
+
 ![Private Key-1.png](img/Private%20Key-1%20(1).png)
 
 私钥是一个随机数。它是一个256位的数字。
@@ -11,7 +12,7 @@
 ## 生成私钥
 >**生成私钥所需的只是可靠的随机源。**
 
-Linux计算机上的一个简单的随机源是[/dev/urandom](https://linux.die.net/man/4/urandom)，它提供计算机的随机数据位。你所需要做的就是从中读取：
+Linux计算机上的一个简单的随机源是[/dev/urandom](https://linux.die.net/man/4/urandom)，它提供来自计算机的随机数据位。你所需要做的就是从中读取：
 ```ruby
 # generate 256 bits of random data
 urandom = File.open("/dev/urandom")    # urandom is a "file"
@@ -22,8 +23,8 @@ privatekey = bytes.unpack("H*")[0]     # the data is binary, so unpack it to hex
 puts privatekey
 ```
 
-**一个私钥可以是几乎任何256位的数字。**
-当你创建一个公钥时，你的私钥会经过一个特殊的数学函数，而这个函数只能处理不超过256位的数字。其最大值为：
+**私钥几乎可以是任何256位的数字。**
+当你创建公钥时，你的私钥会经过一个特殊的数学函数，而这个函数只能处理不超过256位的数字。其最大值为：
 ```
 max = 115792089237316195423570985008687907852837564279074904382605163141518161494336
 

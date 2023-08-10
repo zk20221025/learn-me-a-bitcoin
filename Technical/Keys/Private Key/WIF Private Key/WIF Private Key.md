@@ -1,7 +1,7 @@
-# WIF私钥
-一个易于分享的私钥格式。
+# <center>WIF私钥</center>
+<center>一个易于分享的私钥格式。</center>
 
-一个[私钥](../Private%20Key.md)可以被转换成“钱包导入格式”，这基本上使得它更容易复制和移动（因为它更短，并包含用于检测错误的校验和）。
+一个[私钥](../Private%20Key.md)可以被转换成“钱包导入格式”，这基本上使得它**更容易复制和移动**（因为它更短，并包含用于检测错误的校验和）。
 
 >**你永远不应该在网站上输入你的私钥，或使用由网站生成的私钥**。网站可以保存这些私钥，并使用它们来窃取你发送到其地址的任何比特币。
 
@@ -18,9 +18,10 @@ WIF私钥是一个标准的[私钥](../Private%20Key.md)，但加了一些额外
 然后将所有这些内容转换为[Base58](../../Base58/Base58.md)，缩短整个过程并使其更容易转录...
 ![WIF Private Key-1.png](img/WIF%20Private%20Key-1.png)
 
->一个WIF私钥只是另一种表示原始私钥的方式。如果你有一个WIF私钥，你始终可以将其转换回原始格式。
+>WIF私钥只是另一种表示原始私钥的方式。如果你有WIF私钥，你随时可以将其转换回原始格式。
 
-代码
+### 代码
+
 注意：此代码需要[checksum.rb](https://github.com/in3rsha/learnmeabitcoin-code/blob/master/checksum.rb)和[base58_encode.rb](https://github.com/in3rsha/learnmeabitcoin-code/blob/master/base58_encode.rb)函数。
 ```ruby
 # Convert Private Key to WIF
