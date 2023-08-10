@@ -1,22 +1,25 @@
-# HD钱包
-使用单个种子生成密钥树。
+# <center>HD钱包</center>
+<center>使用单个种子生成密钥树。</center>
 
 [BIP 32](https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki)
 
-**分层确定性钱包**（或“HD钱包”）是一种从单个来源生成所有密钥和地址的钱包。
+**分层确定性钱包**（或“HD钱包”）是从单个来源生成所有密钥和地址的钱包。
 
 * **确定性**意味着密钥和地址始终以相同的方式生成。
 * **分层**意味着密钥和地址可以组织成树形结构。
 但是这些钱包最好的地方是，可以在不知道它们的[私钥](../Keys/Private%20Key/Private%20Key.md)的情况下生成新的[公钥](../Keys/Public%20Key/Public%20Key.md)。
 
 ## 为什么使用HD钱包？
+
 ### 1. 单个备份
-在基本钱包中，每当你想接收一些比特币时，都会独立生成私钥和公钥对。
+在基本钱包中，每当你想接收一些比特币时，都会独立生成私钥和公钥配对。
 
 这完全没有问题，但这意味着每次收到新付款时都需要备份的钱包。
+
 ![hd-wallets-1.gif](img/hd-wallets-1%20(1).gif)
 
 但是使用分层确定性钱包，你可以使用单个**种子**创建**主私钥**，并使用它来生成数十亿个“子”私钥和公钥。
+
 ![hd-wallets-2.gif](img/hd-wallets-2%20(1).gif)
 
 现在你只需要备份**种子**，因为你从种子创建的主私钥总是以相同的方式（确定性地）生成钱包的密钥。
@@ -24,13 +27,13 @@
 ### 2. 组织
 分层确定性钱包的另一个酷炫之处在于分层。
 
-钱包中的每个**子密钥**也可以生成**自己的密钥**，这意味着你可以创建一个树形结构（或层次结构）来组织钱包中的密钥。
+钱包中的每个**子密钥**也可以生成**自己的密钥**，这意味着你可以创建一个**树形结构**（或层次结构）来组织钱包中的密钥。
 
 例如，你可以使用树的不同部分来管理不同的“账户”。
 ![hd-wallets-3.gif](img/hd-wallets-3%20(1).gif)
 
 ### 3. 独立生成公钥。
-但是，关于**主私钥**的真正酷炫之处在于它有对应的**主公钥**，而且可以生成相同的子公钥，而不需要知道私钥。
+但是，关于**主私钥**的真正酷炫之处在于它有对应的**主公钥**，并且可以在不知道私钥的情况下生成相同的子公钥。
 ![hd-wallets-4.png](img/hd-wallets-4%20(1).gif)
 
 因此，可以将**主公钥**发送到另一台计算机（例如，Web商店服务器）以生成新的接收地址，而不必担心如果服务器遭到入侵，私钥会被盗窃。
@@ -40,20 +43,26 @@
 这可能看起来像魔法，但这只是数学。
 
 ## HD钱包如何工作？
+
 ### 1.种子
 ![hd-wallets-5.png](img/hd-wallets-5%20(1).png)
 
 **助记句子**
-要启动一个HD钱包，需要生成64个随机字节，我们将把它们用作种子。
-为了获取一个HD钱包，我们可以使用一个更加用户友好的助记句，而不是一个原始的十六进制种子。
+要启动一个HD钱包，需要生成64个随机字节，我们将把它们用作**种子**。
 
+```
+种子：3d08def3b82123f428777b4fd9d9c4dec6eb029839eb0b11fd2fb99e36732c43d919b9be0c2493c3e0057dfbbaf861ecd41346bfacbcd1ecf995e4831d059eaf
+```
+
+为了获取一个HD钱包，我们可以使用一个更加用户友好的助记句，而不是一个原始的十六进制种子。
 例如，上面的种子是从以下助记句创建的：
 ```
-mnemonic: lion lady whisper pulp mix base park program bar stable movie upper
+mnemonic: muffin sheriff judge garment pottery alpha emerge civil stage broken junior know
 ```
 请参阅[助记种子](./Mnemonic%20Seed/Mnemonic%20Seed.md)以获取详细信息。
 
 ### 2.主私钥
+
 ![hd-wallets-6.gif](img/hd-wallets-6%20(1).gif)
 
 “主密钥”是通过将种子输入哈希函数（称为HMAC）来生成另一组64个字节而创建的。
@@ -64,13 +73,22 @@ mnemonic: lion lady whisper pulp mix base park program bar stable movie upper
 * 最后32个字节是链码。
 链码只是额外的32个字节，我们将其与私钥配对以创建所谓的[扩展密钥](./Extended%20Keys/Extended%20Keys.md)。
 
->**为什么要哈希种子？**我们可以直接使用64个字节的种子来创建主扩展私钥。然而，未来的子扩展密钥是使用HMAC创建的，因此保持创建方式一致是很好的。
+>**为什么我们要对种子进行哈希处理**我们可以直接使用64个字节的种子来创建主扩展私钥。然而，未来的子扩展密钥是使用HMAC创建的，因此保持创建方式一致是很好的。
 
+**扩展私钥**
+
+```
+种子：68402660a3b31cf735c533866d9f749078f45fa0433bded3a5c3c080c21bd2364fb6ddabd12450572dd4a0f046bd4302306cad79f7be4bf55457cd3e467a001c
+
+主扩展私钥：私有
+  私钥：17663ce2af7243429017cb1f49a465f02051790f78ca4b352529a706dadea639
+  链码：   2699081c5a668d91fc2ecc7649fa88c1f478f51817bc0d554f4708e19afd9a64
+```
 **公钥**
 嵌入此扩展密钥中的私钥可用于正常创建相应的公钥：
 ```
-  private key: e57db2b938c6dd331df7e37ebd7f231705c8ce17cd6f9cecdee2a374693e88af
-  public key:  02b88091c72d18f4482d2eaec90850b87fb172a72dcfc38a008c4d0b0238ca3352
+  私钥：17663ce2af7243429017cb1f49a465f02051790f78ca4b352529a706dadea639
+  公钥：   03fdd74b988194d4aa79fec227ab8d685b1c37864fb0864603e93cd3295eba629e
 ```
 但实际的主扩展私钥本身只是私钥和链码。
 
@@ -79,9 +97,29 @@ mnemonic: lion lady whisper pulp mix base park program bar stable movie upper
 ![hd-wallets-7.gif](img/hd-wallets-7%20(1).gif)
 通过改变索引，你可以得到一个与哈希函数完全不同的结果。
 
->因此，基本上，通过使用索引号将主扩展私钥哈希化，可以生成新的私钥。
+```
+种子: 68402660a3b31cf735c533866d9f749078f45fa0433bded3a5c3c080c21bd2364fb6ddabd12450572dd4a0f046bd4302306cad79f7be4bf55457cd3e467a001c
 
-一个扩展密钥可以生成2,147,483,648个这样的子密钥。
+master extended private key:
+  private key: 17663ce2af7243429017cb1f49a465f02051790f78ca4b352529a706dadea639
+  chain code:  2699081c5a668d91fc2ecc7649fa88c1f478f51817bc0d554f4708e19afd9a64
+
+  child 0:
+    private key: a8e8f6ce276c4a34d8c29a2e187f311b18f05ba3fac25103827ccc55328f0aa8
+    public key:  03d6377f0c7441f630bbe8c858cc35c6e8f9e5c7ee274f8994431c8ff9742d4dbf
+
+  child 1:
+    private key: 5edd81ce37382ed32c99b75b5786e8470eb97016f2126c78ec5a477573ec7001
+    public key:  039764624f60f132e9fa95e141c5753f0baa2f12fc09d54a1e3f625d4cda7fc9b3
+
+  子2：
+    私钥：ff07d295c693c7480ca2412a7248dc46714309200d1b82b723e561fa3ac9e275 914c
+    公钥：   02ac50ba135a5a1d0e210b4dcfd4bec5732bc18011dec3693360a5b798873e78f4
+```
+
+因此，基本上，通过使用索引号将主扩展私钥哈希化，可以生成新的私钥。
+
+>一个扩展密钥可以生成2,147,483,648个这样的子密钥。
 
 ### 4. 子密钥（高级）
 现在这才是有趣的部分。
@@ -94,7 +132,29 @@ mnemonic: lion lady whisper pulp mix base park program bar stable movie upper
 
 **扩展私钥的子密钥**
 主扩展私钥通过将其对应的扩展公钥的内容通过HMAC函数进行处理，并将结果添加到原始私钥中来创建子私钥。
+
 ![hd-wallets-9.gif](img/hd-wallets-9%20(1).gif)
+
+```
+种子: 68402660a3b31cf735c533866d9f749078f45fa0433bded3a5c3c080c21bd2364fb6ddabd12450572dd4a0f046bd4302306cad79f7be4bf55457cd3e467a001c
+
+master extended private key:
+  private key: 17663ce2af7243429017cb1f49a465f02051790f78ca4b352529a706dadea639
+  public key:  03fdd74b988194d4aa79fec227ab8d685b1c37864fb0864603e93cd3295eba629e
+  chain code:  2699081c5a668d91fc2ecc7649fa88c1f478f51817bc0d554f4708e19afd9a64
+
+  child 0:
+    private key: 78fd1653cfc12fffdfc35f0b29ff6e28ec50ad99e5a0df663b77e282963c6618
+    public key:  027961138b95306d5f320d00fb22516f722f24b1f697ef9cb38dbebd4783c15242
+
+  child 1:
+    private key: d2424ad9d80e5ab19fa58573c860cc65e28bc85382f18c50b070a1db236dc557
+    public key:  028963ec6e4953280f2379f51c9d0ea4267d99f182edcdd68b3d182859612fde94
+
+  child 2:
+    private key: faa8e605af8864903b1031053cf8cf8eaf9e032538b83ad52a9f2487033f95d6
+    public key:  02430c388a56b73135e68856e2ade0e7b2c167aa822c0b842c08bb991d95a59441
+```
 
 **扩展公钥的子密钥**
 主扩展公钥通过将其内容通过HMAC函数进行处理，并将结果添加到原始公钥中来创建新的子公钥。
@@ -102,19 +162,19 @@ mnemonic: lion lady whisper pulp mix base park program bar stable movie upper
 
 ```
 master extended public key:
-  public key: 02b88091c72d18f4482d2eaec90850b87fb172a72dcfc38a008c4d0b0238ca3352
-  chain code: 5a786e807f2bd4455af7dbee0ebb7fec1a4adf9d2c1db3b16e9dc9f6c8eb91f3
+  public key: 03fdd74b988194d4aa79fec227ab8d685b1c37864fb0864603e93cd3295eba629e
+  chain code: 2699081c5a668d91fc2ecc7649fa88c1f478f51817bc0d554f4708e19afd9a64
 
   child 0:
-    public key: 03ad6f9270ffe0765b91b5992884f8ebb136a3c56a8b5b9b3ae7e91e40a4560e6c
+    public key: 027961138b95306d5f320d00fb22516f722f24b1f697ef9cb38dbebd4783c15242
 
   child 1:
-    public key: 03929e5c42a371a311d1c7c62e5db92416b2681a75d23c73d4e01a155d3c28dbe4
+    public key: 028963ec6e4953280f2379f51c9d0ea4267d99f182edcdd68b3d182859612fde94
 
   child 2:
-    public key: 0248f166440c579bc1117d87da6ededd13bcbd9eef98e005f09331bf84bffb60d9
+    public key: 02430c388a56b73135e68856e2ade0e7b2c167aa822c0b842c08bb991d95a59441
 ```
-由于原始私钥和公钥都被同样的值调整了，新的子私钥和公钥相应对应。
+由于原始私钥和公钥都被同样的值调整了，新的子私钥和公钥对应。
 ![hd-wallets-11.gif](img/hd-wallets-11%20(1).gif)
 
 >一个扩展密钥可以生成2,147,483,648个子密钥。
@@ -127,10 +187,13 @@ master extended public key:
 通过向密钥添加链码，意味着子密钥不仅仅是从密钥派生的。
 
 例如，我们可以使用树中的公钥之一来接收付款，这将使其在区块链上可见。如果我们不使用链码，任何人都可以获取此公钥并派生其所有子密钥。
+
 ![hd-wallets-12.png](img/hd-wallets-12%20(1).png)
 
 但是通过使用链码（不会影响区块链），其他人无法从公钥推导出其子密钥。
+
 ![hd-wallets-13.png](img/hd-wallets-13%20(1).png)
+
 换句话说，链码是一些额外的保密数据，用于防止从一个密钥派生出来的子密钥被破解。
 
 >**请记住**：当我们将普通密钥与额外的链码相结合时，我们称之为“扩展密钥”。
@@ -197,6 +260,7 @@ Armory是第一个实现同态派生的钱包，并引入了使用链码的概�
 * [Mycelium](https://wallet.mycelium.com/)
 * [Trezor](https://trezor.io/)
 * [Ledger](https://www.ledger.com/)
+
 它们在创建钱包时为你提供种子，然后用于为其生成所有密钥和地址。
 
 **派生路径**
@@ -209,7 +273,7 @@ m/84'/0'/0'
 ```
 有关更多细节，请参阅[派生路径](./Derivation%20Paths/Derivation%20Paths.md)。
 
-## 摘要
+## 总结
 ![hd-wallets-17.gif](img/hd-wallets-17%20(1).gif)
 
 一个**分层确定性钱包**提供了一个有用的方法来生成新的[私钥](../Keys/Private%20Key/Private%20Key.md)和[公钥](../Keys/Public%20Key/Public%20Key.md)。
