@@ -1,5 +1,6 @@
-# 扩展密钥
-可以从中派生子级的私钥和公钥。
+# <center>扩展密钥</center>
+<center>可以从中派生子级的私钥和公钥。</center>
+
 [BIP 32](https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki)
 ![Extended Keys-1.png](img/Extended%20Keys-1%20(1).png)
 
@@ -8,7 +9,7 @@
 因此，你可以拥有一个单独的扩展私钥，并将其用作钱包中所有子私钥和公钥的来源。此外，相应的扩展公钥将生成相同的子公钥。
 
 ## 1. 主扩展密钥
-你的第一个扩展密钥（主密钥）是通过将种子输入HMAC-SHA512哈希函数创建的。
+你的第一个扩展密钥（主密钥）是通过将[种子](../Mnemonic%20Seed/Mnemonic%20Seed.md)输入HMAC-SHA512哈希函数创建的。
 
 >你可以将HMAC视为一种**哈希函数**，允许你传递数据以及附加的秘密密钥以生成一组新的随机字节。
 
@@ -75,8 +76,11 @@ puts "master_public_key:  #{master_public_key}"  #=> 0252c616d91a2488c1fd1f0f172
 
 * 扩展私钥可以生成具有新私钥和公钥的子密钥。
 * 扩展公钥只能生成具有新公钥的子密钥。
+
 每个子密钥也有一个索引号（最多2 ** 32）。
+
 ![Extended Keys-5.png](img/Extended%20Keys-5%20(1).png)
+
 扩展公钥的酷炫之处在于它们可以生成与扩展私钥相同的公钥。
 
 为了安全起见，你可以从扩展私钥派生出两种类型的子密钥：
@@ -308,14 +312,14 @@ puts "child_public_key:   #{child_public_key}"
 由于椭圆曲线数学的工作方式，子私钥将对应于子公钥。
 ![Extended Keys-9.png](img/Extended%20Keys-9%20(1).png)
 
-**请我再说一遍？**
-首先，记住公钥只是椭圆曲线上的生成点与私钥相乘的结果：
+**再说一遍？**
+首先，记住**公钥**只是椭圆曲线上的**生成点**与**私钥**相乘的结果：
 ![Extended Keys-10.png](img/Extended%20Keys-10%20(1).png)
 
-现在，如果你将这个私钥增加一个数字（即HMAC结果的前32个字节），我们就会得到一个新的私钥。当你将这个新私钥乘以生成点时，我们就会得到新的公钥：
+现在，如果你将这个私钥增加一个**数字**（即HMAC结果的前32个字节），我们就会得到一个新的私钥。当你将这个新私钥乘以生成点时，我们就会得到新的公钥：
 ![Extended Keys-11.png](img/Extended%20Keys-11%20(1).png)
 
-同样地，如果你将原始公钥加上相同的数字（作为曲线上的点），你将得到与上面相同的新公钥。
+同样地，如果你将原始公钥加上相同的**数字**（作为曲线上的点），你将得到与上面相同的新公钥。
 ![Extended Keys-12.png](img/Extended%20Keys-12%20(1).png)
 
 代码（Ruby）
@@ -343,7 +347,9 @@ puts child_public_key1 == child_public_key2 #=> true
 
 **安全提示**
 由于普通子密钥的派生方式，如果你拥有扩展公钥和任何子私钥，则有可能推导出父扩展私钥。
+
 ![Extended Keys-13.png](img/Extended%20Keys-13%20(1).png)
+
 换句话说，如果你的扩展公钥是公开的，一定要非常小心不要泄露子私钥。如果你泄露了，任何人都可以倒推计算出扩展私钥，并从该层级中的**所有子密钥**中窃取比特币。
 
 >提示：这就是为什么硬化子密钥很有用，因为在树的一个层级中丢失一个子私钥永远不会使其他子私钥面临被派生的风险。
@@ -516,7 +522,7 @@ puts "extended_private_key: #{extended_private_key}" #=> xprv9tuogRdb5YTgcL3P8Wa
 ```
 
 ## 代码
-以下是创建、派生和序列化扩展密钥的完整代码片段。
+以下是创建、派生和序列化**扩展密钥**的完整代码片段。
 ### Ruby
 ```require 'openssl' # HMAC
 require 'ecdsa'   # private key to public key
