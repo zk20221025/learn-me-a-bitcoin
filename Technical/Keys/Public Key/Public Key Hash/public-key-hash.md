@@ -1,5 +1,6 @@
-# 公钥哈希
-将公钥的哈希值缩短。
+# <center>公钥哈希</center>
+<center>将公钥的哈希值缩短。</center>
+
 ![public-key-hash-1.png](img/public-key-hash-1%20(1).png)
 
 公钥哈希是你[公钥](../Public%20Key.md)的哈希版本。
@@ -39,7 +40,7 @@ hash160(publickey) = 93ce48570b55c42c2af816aeaba06cfee1224fae
 
 因此，当一个节点来验证这个交易时，它会：
 
-1. 检查所提供的**公钥**是否正确地哈希为**公钥哈希值**上。
+1. 检查**公钥**所提供的**公钥哈希值**是否正确。
 2. 如果检查通过，它们将像往常一样对**公钥**进行验证**签名**。
 因此，与[P2PK](../../../Script/P2PK/P2PK.md)锁定不同，它不仅仅检查**签名**与公钥的匹配性，还会先**检查公钥的哈希值**。
 
@@ -62,24 +63,28 @@ puts hash160 # 93ce48570b55c42c2af816aeaba06cfee1224fae
 ## 常见问题
 ### 为什么我们要对公钥进行哈希处理？
 
-因为这是比特币交易设计时的规定，这是Satoshi开发比特币时设计的方式。
+因为这是Satoshi开发比特币时设计的方式。
 
->关于为什么地址是公钥哈希，这是你需要问Satoshi的原因。-[ Pieter Wuille](https://bitcoin.stackexchange.com/a/72201/24926)
+>关于为什么地址是公钥哈希，你需要问Satoshi。-[ Pieter Wuille](https://bitcoin.stackexchange.com/a/72201/24926)
 
 可能是因为Satoshi当初不知道可以使用压缩公钥（33字节而不是65字节），所以对公钥进行哈希处理是为了创建一个更短的（20字节）版本，以便将其提供给其他人。
 
->为了使比特币地址简短，它们是公钥的哈希值。- [Satoshi Nakamoto](https://satoshi.nakamotoinstitute.org/posts/bitcointalk/threads/134/#7)
+>简而言之，比特币地址是公钥的哈希值。- [Satoshi Nakamoto](https://satoshi.nakamotoinstitute.org/posts/bitcointalk/threads/134/#7)
 ![public-key-hash-6.png](img/public-key-hash-6%20(1).png)
 
 ### 替代理论：额外安全措施
 一种替代理论是使用Hash160提供了额外的安全层。
 
-例如，如果我们在想要接收比特币时立即公开我们的公钥，那么保护你免受攻击者获取私钥的不被攻击者获取的“唯一”措施就是[椭圆曲线](../../ECDSA/ECDSA.md)。
+例如，如果我们在想要接收比特币时立即泄漏我们的公钥，那么保护你免受攻击者获取私钥的不被攻击者获取的“唯一”措施就是[椭圆曲线](../../ECDSA/ECDSA.md)。
+
 ![public-key-hash-7.png](img/public-key-hash-7%20(1).png)
+
 从椭圆曲线乘法逆推出私钥是极其困难的，但你可以尝试。
 
 然而，如果我们提供公钥的哈希版本，攻击者就必须破解RIPEMD160和SHA256哈希函数，同时解决椭圆曲线问题。
+
 ![public-key-hash-8.png](img/public-key-hash-8%20(1).png)
+
 现在你需要破解两种不同的哈希函数。
 
 因此，当你在区块链上拥有比特币时，哈希函数就像是额外的障碍，攻击者必须跨越它们才能尝试获取我们的私钥（并窃取我们的比特币）。

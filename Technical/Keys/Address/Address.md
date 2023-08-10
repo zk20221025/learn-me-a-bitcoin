@@ -1,43 +1,47 @@
-# 地址
-一个易于分享的锁定脚本格式。
+# <center>地址</center>
+<center>一个易于分享的锁定脚本格式。</center>
+
 ![address-1.png](img/address-1%20(1).png)
 
 **地址**是你提供给人们的信息，以便他们可以“发送”比特币给你。
 
 当有人收到它时，他们可以根据你提供的地址类型创建一个特定的[锁定脚本](../../Transaction/Transaction%20Data/output/scriptPubKey/scriptPubKey.md)。
 
-## 你如何创建一个地址？
+## 如何创建地址？
 
-好吧，这取决于你希望你的比特币被锁定的方式。
+好吧，这取决于你希望如何锁定比特币。
 
 但一般来说，一个地址包含：
 
 1. 一些你想包含在锁定中的**特定数据**。例如，你的[公钥哈希](../Public%20Key/Public%20Key%20Hash/public-key-hash.md)。
 2. 一个**前缀**，表示要创建什么样的锁定。
-3. 以及一个[**校验和**](../Checksum/Checksum.md)，用于帮助检查任何拼写错误。
+3. 以及一个[**checksum**](../Checksum/Checksum.md)，用于帮助检查任何拼写错误。
 最后，所有这些都被转换为[**Base58**](../Base58/Base58.md)，这使它更易于使用。
 
 ## 支付到公钥哈希（P2PKH）
 [**P2PKH**]这是将比特币锁定到[公钥](../Public%20Key/Public%20Key.md)（或更精确地说：[公钥哈希](../Public%20Key/Public%20Key%20Hash/public-key-hash.md)）的典型地址。
 
-如上所述，我们将一个**前缀**附加到我们的哈希公钥并在前面添加一个**校验和**，然后将其全部编码为base58。
+如上所述，我们将一个**前缀**附加到我们的哈希公钥并在前面添加一个**checksum**，然后将其全部编码为base58。
 ![address-2.png](img/address-2%20(1).png)
 
 现在我们有一个地址可以给别人。 
 
 ### 解码：
-当有人从这个地址创建一个锁定脚本时，他们只需解码base58以检索其中的hash160，然后创建一个P2PKH锁定脚本，如下所示：
+当有人从这个地址创建一个锁定脚本时，他们只需解码base58以**检索其中的hash160**，然后**创建一个P2PKH锁定脚本**，如下所示：
 ![address-3.png](img/address-3%20(1).png)
 
 **前缀**指示了要创建什么类型的锁定，而**hash160**告诉它们要在其中放什么。
 
 ## 支付到脚本哈希（P2SH）
-[**P2SH**](../../Script/P2SH/P2SH.md)：这个锁定包括[脚本](../../Script/Script.md)的哈希。我们稍后提供实际的锁定脚本（当我们来解锁它时），这允许我们构建复杂的锁定脚本，而不必让其他人担心它的细节。
+[**P2SH**](../../Script/P2SH/P2SH.md)：这个锁定包括[脚本](../../Script/Script.md)的哈希。我们稍后提供实际的锁定脚本（当我们来解锁它时），这使我们可以构建复杂的锁定脚本，而其他人不必担心它的细节。
 
 与之前相同，只是这次我们包括脚本的哈希，并使用前缀05来表示P2SH。
+
 ![address-4.png](img/address-4%20(1).png)
+
 ### 解码后：
 这就是一个P2SH的样子：
+
 ![address-5.png](img/address-5%20(1).png)
 
 ## 前缀
@@ -90,7 +94,7 @@ https://en.bitcoin.it/wiki/List_of_address_prefixes
 ```
 1AKDDsfTh8uY4X3ppy1m7jw1fVMBSMkzjP
 ```
-它们都可以达到相同的效果，但地址为我们提供了更用户友好的格式。更不用说它们**包含一个[校验和](../Checksum/Checksum.md)**，这意味着如果有人错误地编写地址，错误可以被检测到。
+它们都可以达到相同的效果，但地址为我们提供了更用户友好的格式。更不用说它们**包含一个[Checksun](../Checksum/Checksum.md)**，这意味着如果有人错误地编写地址，错误可以被检测到。
 
 ## 代码
 注意：此代码需要[checksum.rb](https://github.com/in3rsha/learnmeabitcoin-code/blob/master/checksum.rb)和[base58_encode.rb](https://github.com/in3rsha/learnmeabitcoin-code/blob/master/base58_encode.rb)函数。
