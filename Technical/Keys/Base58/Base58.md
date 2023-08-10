@@ -1,5 +1,5 @@
-#Base58
-用一组易于分享的字符来表示值。
+# <center>Base58</center>
+<center>用一组易于分享的字符来表示值。</center>
 ```
   1 2 3 4 5 6 7 8 9
 A B C D E F G H   J K L M N   P Q R S T U V W X Y Z
@@ -27,11 +27,11 @@ base58(9999) = 3yQ
 ```
 所有这些“数字”都具有相同的值-**它们只是使用不同的字符集（基数）来表示它。**
 
->你的基数中有越多的字符，你就需要使用越少的字符来表示大数。因此，你的基数越大，你的“数字”就可以更短。
+>你的基数中有越多的字符，你就需要使用越少的字符来表示大数字。因此，你的基数越大，你的“数字”就越短。
 
 ## 为什么是base58？
 
-因为base58是使用字母数字字母表中的所有字符（62个）但删除所有易混淆的字符，如0、O、l和I时，剩余的字符数量。
+因为base58是使用字母数字字母表中的所有字符（62个）剩余的字符数量，但删除所有易混淆的字符，如0、O、l和I。
 ```
 alphanumeric = 0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz
 base58       =  123456789ABCDEFGH JKLMN PQRSTUVWXYZabcdefghijk mnopqrstuvwxyz
@@ -39,7 +39,7 @@ base58       =  123456789ABCDEFGH JKLMN PQRSTUVWXYZabcdefghijk mnopqrstuvwxyz
 因此，Base58具有两个优点：
 
 1. 它提供了一组大量的字符，因此可以使用更短的格式表示大数字。 
-2. 它会省略一些难打的字符，以避免你在转录时犯错。
+2. **它会省略一些难打的字符**，以避免你在转录时犯错。
 ![base58-1.png](img/Base58-1-svg.png)
 一个讨厌的O/0
 
@@ -62,7 +62,8 @@ base58 = BukQL
 ```
 ![base58-2.gif](img/Base58-2%20(1).gif)
 
-Base58编码（简单）
+### Base58编码（简单）
+
 ```ruby
 # A simple function that converts an _integer_ to base58:
 
@@ -115,7 +116,8 @@ base10 = 123456789
 ```
 ![base58-3.gif](img/Base58-3%20(1).gif)
 
-Base58 解码（简单）
+### Base58 解码（简单）
+
 ```ruby
 def base58_to_int(base58)
 
@@ -176,7 +178,7 @@ Base58 在比特币中用于将常用数据转换为更易分享的格式。例�
 我不确定为什么在base58中将开头的零字节转换为1，但这就是比特币的工作方式。
 
 ## 前缀
-在转换为base58之前，将不同的前缀添加到数据中以影响结果的开头字符。然后，该开头字符帮助我们识别每个base58字符串代表什么。
+在转换为base58之前，将不同的前缀添加到数据中以影响结果的前导字符。然后，该前导字符帮助我们识别每个base58字符串代表什么。
 
 段5：这些是比特币中常用的前缀：
 主网:
@@ -210,7 +212,7 @@ https://en.bitcoin.it/wiki/List_of_address_prefixes
 ## 代码
 
 这些代码片段执行Bitcoin中使用的base58转换。它们转换为和从十六进制转换，因为那是我们最常使用的格式。
-### Ruby:
+>### Ruby:
 ```ruby
 module Base58
 
@@ -262,7 +264,7 @@ puts Base58.encode('0093ce48570b55c42c2af816aeaba06cfee1224faebb6127fe') #=> 1EU
 puts Base58.decode('1EUXSxuUVy2PC5enGXR1a3yxbEjNWMHuem') #=> 0093ce48570b55c42c2af816aeaba06cfee1224faebb6127fe
 ```
 
-### PHP
+>### PHP
 ```php
 <?php
 
@@ -336,10 +338,11 @@ echo $result.PHP_EOL; // 00662ad25db00e7bb38bc04831ae48b4b446d1269817d515b6
 
 ## 来源
 [src/base58.cpp](https://github.com/bitcoin/bitcoin/blob/0fea960ca917b73aff853fe88476174c8a313863/src/base58.cpp)
+
 ## 资源
-[github.com - base58.rb](https://gist.github.com/tomtaylor/5457965)
-[bitcoin.it/wiki/Base58Check_encoding](https://en.bitcoin.it/wiki/Base58Check_encoding)
-[darklaunch.com - Base58 Encoder/Decoder](https://www.darklaunch.com/tools/base58-encoder-decoder)
+* [github.com - base58.rb](https://gist.github.com/tomtaylor/5457965)
+* [bitcoin.it/wiki/Base58Check_encoding](https://en.bitcoin.it/wiki/Base58Check_encoding)
+* [darklaunch.com - Base58 Encoder/Decoder](https://www.darklaunch.com/tools/base58-encoder-decoder)
 ## 进一步阅读
 [purplemath.com - Number Bases](http://www.purplemath.com/modules/numbbase.htm)
 ## 感谢
