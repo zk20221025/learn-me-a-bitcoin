@@ -1,11 +1,12 @@
-# VarInt
-一种指示即将到来数据大小的格式。
+# <center>VarInt</center>
+<center>指示即将到来数据大小的格式。</center>
+
 ![varint-1.png](img/varint-1-svg.png)
 
-VarInt（可变整数）是在[交易数据](../../Transaction/Transaction%20Data/Transaction%20Data.md)中使用的一个字段，用于指示即将到来的字段的数量或即将到来的字段的长度。
+VarInt（可变整数）是在[交易数据](../../Transaction/Transaction%20Data/Transaction%20Data.md)中使用的字段，用于指示即将到来的**字段的数量**或**字段的长度**。
 
 示例：
-以下是一个*交易*，其中VarInt字段已突出显示（如果它是指字段长度，则也突出显示该字段的长度）：
+以下是一个*交易*，其中VarInt字段已突出显示（如果它是指字段长度，则也突出显示**该字段的长度**）：
 ```
 01000000017b9c26b765a24997e0f855e5d25e86e6816b213e2bbc67bc918df239bfc20158040000006a47304402200aa5891780e216bf1941b502de29890834a2584eb576657e340d1fa95f2c0268022010712e05b30bfa9a9aaa146927fce1819f2ec6d118d25946256770541a8117b6012103d2305c392cbd5ac36b54d3f23f7305ee024e25000f5277a8c065e12df5035926ffffffff028555a700000000001976a914aca504fd373f5f3ba2774a3643d714d6419463bc88ac9bc0ba01000000001976a9143bbebbd7a3414f9e5afebe79b3b408bada63cde288ac00000000
 ```
@@ -62,9 +63,9 @@ VarInt =   000f3a70
 
 ## 为什么要使用VarInts？
 
-在[交易数据](../../Transaction/Transaction%20Data/Transaction%20Data.md)中，像[txid](../../Transaction/TXID/TXID.md)和[vout](../../Other/VOUT/VOUT.md)这样的字段具有固定的大小，因此始终知道它们的起始位置和结束位置。但是，像scriptSig这样的字段长度可能会有变化，因此在它之前放置一个VarInt字段，以便你知道它有多少个字节的长度。
+在[交易数据](../../Transaction/Transaction%20Data/Transaction%20Data.md)中，像[txid](../../Transaction/TXID/TXID.md)和[vout](../../Other/VOUT/VOUT.md)这样的字段具有固定的大小，因此始终知道它们的起始位置和结束位置。但是，像scriptSig这样的字段长度可能会有变化，因此在它之前放置一个VarInt字段，以便你知道它的长度有多少字节。
 
-如果你编写了一个读取交易数据的脚本或程序，这些VarInts是必不可少的，因为没有它们，你就不会知道可变长度字段的结束位置。
+如果你编写了一个读取交易数据的脚本或程序，这些VarInts是必不可少的，因为没有它们，你将不知道可变长度字段在哪里结束。
 
 ## 资源
 * https://bitcoin.org/en/developer-reference#compactsize-unsigned-integers
