@@ -1,6 +1,8 @@
-# 哈希函数
-一个将数据混淆的小程序。
+# <center>哈希函数</center>
+<center>一个将数据混淆的小程序。</center>
+
 ![hash-function-1.png](img/Hash%20Function-1-svg.png)
+
 >**哈希函数是一个小型计算机程序，它接收数据，对其进行混淆处理，并给出一个唯一的固定长度结果。**
 
 哈希函数的有趣之处在于：
@@ -66,7 +68,7 @@ learnmeabitcoin4    255da46dc8699fffd841b7c66a31eeb4f8eda8e1ca6850c7356376518f52
 * 每个哈希结果都是随机的事实，使得[挖矿](../../Mining/Mining.md)机制成为可能。
 
 ### 3. 地址
->在创建比特币[地址](../../Keys/Address/Address.md)的过程中，使用[公钥](../../Keys/Public%20Key/Public%20Key.md)进行哈希（同时使用SHA256和RIPEMD160）。
+>**在创建比特币[地址](../../Keys/Address/Address.md)的过程中，使用[公钥](../../Keys/Public%20Key/Public%20Key.md)进行哈希（同时使用SHA256和RIPEMD160）。**
 
 * 哈希结果不能被逆推回去的事实，有助于当公钥放置在[锁定脚本](../../Transaction/Transaction%20Data/output/scriptPubKey/scriptPubKey.md)中时提高安全性。
 * RIPEMD-160生成一个比公钥长度短的摘要，从而缩短了生成的地址的长度。
@@ -74,8 +76,8 @@ learnmeabitcoin4    255da46dc8699fffd841b7c66a31eeb4f8eda8e1ca6850c7356376518f52
 ## 如何在比特币中哈希数据？
 在比特币中，有两种主要的哈希数据方法，它们有以下名称：
 
-1. Hash256-双SHA-256
-2. Hash160-SHA-256后跟RIPEMD-160
+1. [Hash256](#1-hash256)-双SHA-256
+2. [Hash160](#2-hash160)-SHA-256后跟RIPEMD-160
 
 ### 1. Hash256
 这涉及将数据通过[SHA-256](https://github.com/in3rsha/sha256-animation/)哈希函数进行处理，然后再次通过SHA-256进行处理。换句话说，这就是“双SHA-256”。我们简称为Hash256。
@@ -136,7 +138,7 @@ puts hash160("aa") #=> 58d179ca6112752d00dc9b89ea4f55a585195e26
 
 例如，假设我们有十六进制字符串ab。
 
-如果我们直接将该字符串插入哈希函数中，你的编程语言实际上将这些字符的ASCII编码发送到哈希函数中，其二进制形式如下：
+如果我们直接将该字符串插入哈希函数中，你的编程语言实际上将这些字符的[ASCII编码](https://www.ascii-code.com/)发送到哈希函数中，其二进制形式如下：
 ```
 "ab" = 01100001 01100010
 sha256(0110000101100010) = fb8e20fc2e4c3f248c60c39bd652f3c1347298bb977b8b4d5903b85055620603
