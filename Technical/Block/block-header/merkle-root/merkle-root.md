@@ -1,5 +1,6 @@
-# 根节点
-一个区块中所有交易的指纹。
+# <center>根节点</center>
+<center>一个区块中所有交易的指纹。</center>
+
 ![merkle-root-1.png](img/merkle-root-1.png)
 
 默克尔根据[TXIDs](../../../Transaction/TXID/TXID.md)的配对进行[哈希](../../../Other/Hash%20Function/Hash%20Function.md)，从而为块中的**所有交易提供一个短而独特的指纹**。
@@ -9,22 +10,28 @@
 ## 为什么要使用Merkle根？
 
 如果我们想为块中的所有交易创建唯一的指纹，我们可以一次性将所有TXIDs哈希在一起。但是，如果稍后想要检查TXID是否是该哈希的一部分，我们还需要知道**所有其他TXID**：
+
 ![merkle-root-2.png](img/merkle-root-2.png)
+
 你需要每隔一个TXID才能重新创建相同的哈希。
 
 但是使用默克尔树，如果我们想要检查一个TXID是否属于默克尔根，我们只需要知道**树的路径上的一些哈希值**：
+
 ![merkle-root-3.png](img/merkle-root-3.png)
+
 你只需要正确的分支（“默克尔证明”）来重构默克尔根。
 
-因此，通过使用merkle根作为块头的指纹，我们可以在不必知道块中的每个TXID的情况下，以后查找是否存在交易。
+因此，通过使用merkle根作为块头的指纹，我们可以在不必知道块中的每个TXID的情况下，在之后查找是否存在交易。
 
 >Merkle树只是一种高效的方法，可以证明某物在集合中，而无需知道完整的集合。
 
 ### 这值得吗？
 
-当一个区块中的交易数量很小的时候，使用默克尔树似乎没有太多好处，但是当你有更多的起始“叶子”节点时，你可以看到巨大的差异。
+当一个区块中的交易数量较少时，使用默克尔树似乎没有太多好处，但当树中的起始“叶子”数量多得多时，你确实可以看到巨大的差异。
+
 ![merkle-root-6.png](img/merkle-root-6.png)
-在这28笔交易中，我们只需要5个其他哈希值，而不是需要27个，来证明一个TXID被用作最终哈希的一部分。
+
+在这个包含 28 个交易的区块中，我们不需要 27 个其他哈希值，而只需要 5 个哈希值来证明 TXID 被用作最终哈希值的一部分。
 
 Merkle树更加高效，特别是在处理有2000多个交易的块时...
 
@@ -32,7 +39,7 @@ Merkle树更加高效，特别是在处理有2000多个交易的块时...
 
 假设我们只有一个包含2352个交易的[块头](../block-header.md)，并且我们想要检查特定的[TXID](../../../Transaction/TXID/TXID.md)是否在该块中。
 
-* **如果没有Merkle根**（即仅为块头中所有txids的简单哈希），我们需要下载75232字节（2351 x 32字节TXIDs）的数据来重新创建块头中的指纹并验证TXID是否存在于块中。
+* **如果没有Merkle根**（即仅为块头中所有txids的简单哈希），我们需要下载**75232字节**（2351 x 32字节TXIDs）的数据来重新创建块头中的指纹并验证TXID是否存在于块中。
 * **使用Merkle根**，我们只需要下载**384字节**（沿着Merkle树路径的12个32字节分支）来重新创建Merkle根并验证TXID是否存在于块中。
 
 这是**Merkle证明**的样子：
@@ -73,7 +80,7 @@ merkle root
 
 这些钱包只需要下载和存储[块头](../block-header.md)，并使用其中的默克尔根（以及它们从完整节点接收到的默克尔证明）来验证交易是否已经包含在区块中。
 ![merkle-root-4.png](img/merkle-root-4.png)
-[区块头](../block-header.md)只有80个字节，而每个区块可以是1000000多个字节。
+[区块头](../block-header.md)只有80个字节，而每个区块可以超过1000000个字节。
 
 我没有经验，但是这里有一些有趣的链接：
 * https://bitcoin.stackexchange.com/questions/32529/what-is-a-thin-client
@@ -82,6 +89,7 @@ merkle root
 ## 你如何创建默克尔根？
 
 以下是一个技术图示，解释了比特币中如何创建默克尔根：
+
 ![merkle-root-5.png](img/merkle-root-5.png)
 
 以下是用Ruby代码创建Merkle根（从TXID数组）的代码。即使你现在不是程序员，阅读它也是值得的。
@@ -141,8 +149,9 @@ puts result.scan(/../).reverse.join('') # f3e94742aca4b5ef85488dc37c06c3282295ff
 ## 为什么它被称为“默克尔根”？
 因为[Ralph Merkle](https://en.wikipedia.org/wiki/Ralph_Merkle)在1979年申请了专利。
 
-常见误解。
+>常见误解。
 ![merkle-root-7.png](img/merkle-root-7.png)
+
 ## 链接
 * https://www.youtube.com/watch?v=gUwXCt1qkBU
 * https://www.codeproject.com/Articles/1176140/Understanding-Merkle-Trees-Why-use-them-who-uses-t
