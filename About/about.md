@@ -17,15 +17,20 @@
 * [Twitter](https://twitter.com/in3rsha)
 * [Github](https://github.com/in3rsha)
 * [Bitcoin Stack Exchange](http://bitcoin.stackexchange.com/users/24926/inersha)
+
 或者你可以给我发电子邮件：
 
 * mylowercasefirstname [at] thiswebsite [dot] com
+
 我目前正在组织[比特币Sheffield](http://bitcoinsheffield.co.uk/)活动。
 
 
-演讲/播客
+## 演讲/播客
+
 2020年5月：[比特币繁荣播客-第12集](https://www.youtube.com/watch?v=UNC0YSqZIJs)（视频播客）
+
 2020年1月：[比特币Sheffield-入门比特币](https://www.youtube.com/watch?v=hRnYKO5CNmc)（演讲）
+
 2017年3月：[比特币播客-第118集](http://thebitcoinpodcast.com/episode-118/)（播客）
 
 ## 关于learnmeabitcoin.com
@@ -36,7 +41,7 @@
 我不知道我的能力到底是什么，但我认为其中之一是：以易于理解的方式解释事物如何工作。我还认为比特币目前是最大的挑战，因为它需要解释如何工作，因此让我们开始吧。
 
 ## 为什么是“learn me a bitcoin”？
-当我坐在淋浴间的时候，这个想法突然冒出来，我忍不住笑了起来。教育网站的严重的语法错误的并置非常令人满意，也提醒我们，严肃并不能帮助你学到什么。
+当我坐在淋浴间的时候，这个想法突然冒出来，我忍不住笑了起来。在一个教育网站上故意犯一个严重的语法错误非常有趣，也提醒我们，严肃并不能帮助你学到什么。
 
 接受这个学术界。
 
