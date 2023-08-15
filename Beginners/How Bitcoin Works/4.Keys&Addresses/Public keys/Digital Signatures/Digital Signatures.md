@@ -59,4 +59,4 @@
 
 >我知道这个过程一开始看起来像是魔术，但实际上它只是数学原理。
 如果你想看看它是如何工作的...
-[数字签名（签名和验证）](./Signing%20%26%20Verifying/Signing%20%26%20Verifying.md)
+>* [数字签名（签名和验证）](./Signing%20%26%20Verifying/Signing%20%26%20Verifying.md)

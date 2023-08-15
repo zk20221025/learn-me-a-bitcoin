@@ -39,8 +39,10 @@
 
 ![Signing & Verifying-6.png](img/Signing%20&%20Verifying-6%20(1).png)
 
-然后，瞧，我们拥有了数字签名中至关重要的“签名”部分。我们简称其为 s。
-![Signing & Verifying-7.png](img/Signing%20&%20Verifying-7%20(1).png)
+然后，瞧，我们拥有了数字签名中至关重要的“签名”部分。我们简称其为 s。  
+
+![Signing & Verifying-7.png](img/Signing%20&%20Verifying-7%20(1).png)  
+
 D先生签名。
 
 现在是有趣的部分……
