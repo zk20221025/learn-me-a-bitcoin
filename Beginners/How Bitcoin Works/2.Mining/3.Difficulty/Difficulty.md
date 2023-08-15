@@ -89,7 +89,7 @@ target = targetmax / difficulty
 因此，我使用难度来控制目标，以此来控制生成获胜号码所需的时间。
 
 ## 2. 比特币示例。
-比特币的难度以完全相同的方式工作——它用于设定一个目标值，而矿工不断产生数字（对候选块进行哈希），希望他们会找到一个比这个目标值更低的数字：
+比特币的难度以完全相同的方式工作——它用于设定一个目标值，而矿工不断产生数字（对候选[块](../2.Blocks/Blocks.md)进行哈希），希望他们会找到一个比这个目标值更低的数字：
 
 ![difficulty-7.png](img/difficulty-7%20(1).png)
 
@@ -130,7 +130,9 @@ target = targetmax / difficulty
 这就是为什么你通常会看到哈希和目标以一堆数字和字母的形式出现 - 它们是十六进制的，而不是人类更熟悉的十进制。但请记住，这两种十进制和十六进制数字具有相同的**值**，并且你可以轻松地在两者之间进行转换。
 
 >尴尬的是，难度通常以十进制格式给出，而哈希和目标以十六进制存储。但正如我所说，它们都是数字，只要将它们转换为相同的格式，你仍然可以使用它们。
-![difficulty-11.png](img/difficulty-11%20(1).png)
+
+![difficulty-11.png](img/difficulty-11%20(1).png)  
+
 区块100,000的头部。目标是十六进制的，但它以紧凑格式存储在块头（称为比特）中。
 
 **例子：利用难度找到目标。**
@@ -200,5 +202,6 @@ hash   = 3BA27AA200B1CECAAD478D2B00432346C3F1F3986DA1AFD33E506
 
 ![difficulty-12](img/difficulty-12%20(1).png)
 
-如果你没有比特币客户端，你可以在这里查找难度：http://chainquery.com/bitcoin-api/getdifficulty
-如果你对难度的变化感兴趣，这是一个带有图表的网站：https://bitcoinwisdom.com/bitcoin/difficulty
+* 如果你没有比特币客户端，你可以在这里查找难度：http://chainquery.com/bitcoin-api/getdifficulty
+
+* 如果你对难度的变化感兴趣，这是一个带有图表的网站：https://bitcoinwisdom.com/bitcoin/difficulty
