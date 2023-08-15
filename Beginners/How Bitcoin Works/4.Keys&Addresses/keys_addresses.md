@@ -6,31 +6,31 @@
 
 在比特币中，我们将它们称为**public key**和**private key**。
 
-![keys addresser-1.png](img/keys_addresses-1%20(1).png)
+![keys addresses-1.png](img/keys_addresses-1%20(1).png)
 
 这是你的账户详情。欢迎使用比特币。
 
 然而，这个“账户号”是一个笨拙的长号码。因此，为了方便起见，我们创建了公钥的压缩版本，并称其为我们的**地址**。
 
-![keys addresser-2.png](img/keys_addresses-2%20(1).png)
+![keys addresses-2.png](img/keys_addresses-2%20(1).png)
 
 你一会儿就会看到公钥是多么长。
 
 这就是私钥、公钥和地址的作用。
 >总结
-1.你的**public key**是你的账号号码。
-2.你的**address**也是你的账号号码，但它是一个缩短的版本，人们在发送比特币时使用。
-3.你的**private key**是防止其他人从你的地址发送比特币的密码。
+1.你的**public key**是你的账号号码。  
+2.你的**address**也是你的账号号码，但它是一个缩短的版本，人们在发送比特币时使用。  
+3.你的**private key**是防止其他人从你的地址发送比特币的密码。  
 
 ## 键和地址来自哪里？
 **Private Key**
 一切都始于**private key**，这只是一个**随机生成的数字**：
 
-![keys addresser-3.png](img/keys_addresses-3%20(1).png)
+![keys addresses-3.png](img/keys_addresses-3%20(1).png)
 
 但是因为这个数字很大，计算机（和比特币）喜欢以十六进制格式处理它：
 
-![keys addresser-4.png](img/keys_addresses-4%20(1).png)
+![keys addresses-4.png](img/keys_addresses-4%20(1).png)
 
 十六进制数比十进制数短，因为它们还使用字母a、b、c、d、e和f。
 
@@ -46,7 +46,7 @@
 
 因为毕竟，私钥保护着我们的比特币。
 
-![keys addresser-5.png](img/keys_addresses-5%20(1).png)
+![keys addresses-5.png](img/keys_addresses-5%20(1).png)
 
 尽管公钥是由私钥生成的，但我们不希望任何人能够逆向推导出私钥。
 
@@ -54,13 +54,13 @@
 
 我们只需将私钥输入其中（毕竟它也是一个数字），函数就会输出一个公钥（一个新的数字）。
 
-![keys addresser-6.png](img/keys_addresses-6%20(1).png)
+![keys addresses-6.png](img/keys_addresses-6%20(1).png)
 
 现在，使用这个特定的函数有两个好处：
 
 1. 该函数返回与我们的私钥**数学上相连**的公钥。当我们想要在交易中发送比特币时，这将非常有用。
 
-![keys addresser-7.png](img/keys_addresses-7%20(1).png)
+![keys addresses-7.png](img/keys_addresses-7%20(1).png)
 
 这就像是从一把钥匙开始并用它创建一个挂锁。
 
@@ -73,9 +73,9 @@
 |Public Key|02b4632d08485ff1df2db55b9dafd23347d1c47a457072a1e87be26896549a8737|
 
 ## 地址
-对啊，那个公钥很难看。没人会喜欢打那么长的东西，所以让我们把它变得更实用，称之为地址。
+对啊，那个公钥太可怕了，不是吗？没有人会喜欢把它写出来，所以让我们让它更实用，并将其称为地址。
 
-![keys addresser-8.png](img/keys_addresses-8%20(1).png)
+![keys addresses-8.png](img/keys_addresses-8%20(1).png)
 
 谢天谢地！
 
@@ -95,7 +95,7 @@
 ## 我必须记住这三个键吗？
 因为公钥和地址是根据私钥计算出来的，**所以你只需要保存你的私钥**。
 
-![keys addresser-9.png](img/keys_addresses-9%20(1).png)
+![keys addresses-9.png](img/keys_addresses-9%20(1).png)
 
 请记住，你的公钥（和地址）是从你的私钥计算出来的。
 
@@ -107,13 +107,14 @@
 
 那么你就彻底没办法了。
 
-**无法从公钥或地址中推导出私钥**，因此如果你丢失了私钥，就无法找回了。
-![keys addresser-10.png](img/keys_addresses-10%20(1).png)
+**无法从公钥或地址中推导出私钥**，因此如果你丢失了私钥，就无法找回了。  
+
+![keys addresses-10.png](img/keys_addresses-10%20(1).png)
 
 如果你没有某个地址的私钥，那么在该地址上的任何比特币都将永远锁定在那里。
 
 这对于安全性来说如何？
->这个系统可能看起来很严苛，因为它确实是。
+>这个系统可能看起来很严苛，因为它确实是。  
 另一方面，让人感到放心的是，你的钱没有后门。你的比特币只有一把钥匙，你是掌管者。
 
-![keys addresser-11.png](img/keys_addresses-11%20(1).png)
+![keys addresses-11.png](img/keys_addresses-11%20(1).png)
