@@ -25,7 +25,9 @@
 当你想将输出用作交易的输入时，只需指定你想要消费哪个输出。
 
 每个交易都有一个唯一的[TXID](../../TXID/TXID.md)，因此通过使用具有特定输出编号（[VOUT](../../../Other/VOUT/VOUT.md)）的TXID，可以引用区块链中的任何输出。
+
 ![input-3.png](img/input-3-svg.png)
+
 你只需要一个[txid](../../TXID/TXID.md)和一个[vout](../../../Other/VOUT/VOUT.md)，就可以选择区块链上的任何输出。
 
 ### 2. 解锁它。
@@ -33,6 +35,7 @@
 选择一个输出后，你需要能够**解锁它**。
 
 每个输出都设置了一个锁定脚本。因此，如果你想花费其中一个输出，你需要提供一个解锁脚本（称为ScriptSig）。
+
 ![input-4.png](img/input-4-svg.png)
 
 >[节点](../../../../Beginners/How%20Bitcoin%20Works/1.Network/Nodes/Nodes.md)会验证它们收到的每个交易。因此，如果你没有提供满足锁定脚本的解锁脚本，你的交易将被拒绝。
