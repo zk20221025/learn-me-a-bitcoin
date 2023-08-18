@@ -27,7 +27,9 @@ Outputs是在比特币[交易](../Transaction%20Data.md)中创建的**比特币�
 
 ### 1. 价值
 每个输出都有一个价值。这个价值以**Satoshis**为单位给出：
+
 ![output-3.png](img/output-3-svg.png)
+
 你可以创建任意数量的输出，只要它们的总和**不超过你要花费的输入的总和**。
 
 ### 2. 锁定
@@ -35,11 +37,14 @@ Outputs是在比特币[交易](../Transaction%20Data.md)中创建的**比特币�
 你还可以在创建输出时对其进行**锁定**。这些锁定脚本可以防止其他人将这些[输出](../Input/input.md)用作另一笔交易的输入（即花费它们）。
 
 这个锁定代码称为ScriptPubKey。
+
 ![output-4.png](img/output-4-svg.png)
+
 只有当你能够解锁输出时，才能将其用作另一笔交易的[输入](../Input/input.md)。
 
 ## 注释
 >我认为输出是不同大小的比特币批次。
+
 ![output-5.png](img/output-5-svg.png)
 
 >一个输出可以为0，如果你喜欢。

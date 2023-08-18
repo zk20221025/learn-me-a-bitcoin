@@ -17,7 +17,9 @@ TXID始终为**32字节**（64个字符）且为[十六进制](../../Other/Hexad
 ```
 0100000001c997a5e56e104102fa209c6a852dd90660a20b2d9c352423edce25857fcd3704000000004847304402204e45e16932b8af514961a1d3a1a25fdf3f4f7732e9d624c6c61548ab5fb8cd410220181522ec8eca07de4860a4acdd12909d831cc56cbbac4622082221a8768d1d0901ffffffff0200ca9a3b00000000434104ae1a62fe09c5f51b13905f07f06b99a2f7159b2225f374cd378d71302fa28414e7aab37397f554a7df5f142c21c1b7303b8a0626f1baded5c72a704f7e6cd84cac00286bee0000000043410411db93e1dcdb8a016b49840f8c53bc1eb68a382e97b1482ecad7b148a6909a5cb2e0eaddfb84ccf9744464f82e160bfa9b8b64f9d4c03f999b8643f656b412a3ac00000000
 ```
+
 ![txid-2.png](img/TXID-2.svg)
+
 169e1e83e930853391bc6f35f605c6754cfead57cf8387639d3b4096c54f18f4 （注意：如果想在区块链中*查找此交易*，请先反转字节顺序...）
 
 ### 在区块链中搜索交易ID。
@@ -41,14 +43,18 @@ txid (searching): f4184fc596403b9d638783cf57adfe4c75c605f6356fbc91338530e9831e9e
 ```
 bitcoin-cli getrawtransaction 0e3e2357e806b6cdb1f70b54c3a3a17b6714ee1f0e68bebb44a74b1efd512098
 ```
+
 ![txid-3.png](img/TXID-3.png)
+
 [比特币核心钱包](https://bitcoin.org/en/download)中的控制台窗口
 
 >如果你的比特币钱包给你一个TXID，它很可能已经是可搜索的格式（反向字节顺序）。
 
 ### 2. 花费输出。
 当你想在新交易中将现有[输出](../Transaction%20Data/output/output.md)用作[输入](../Transaction%20Data/Input/input.md)时，你会使用TXID。
+
 ![txid-4.png](img/TXID-4.svg)
+
 <center>要引用现有的输出，你需要使用它所创建的txid以及该交易的vout编号。</center>
 
 因为，TXID是交易的唯一标识符。
