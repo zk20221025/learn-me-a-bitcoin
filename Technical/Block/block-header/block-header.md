@@ -2,9 +2,11 @@
 <center>一个数据块的摘要。</center>
 
 一个块头就像是一块交易中的元数据。
+
 ![block-header-1.png](img/block-header-1.png)
 
 区块头中的字段提供了整个区块的唯一摘要。
+
 ![block-header-2.png](img/block-header-2.png)
 
 ## 例子
