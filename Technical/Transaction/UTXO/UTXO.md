@@ -39,6 +39,7 @@
 
 ## 注释
 >gettxoutsetinfo
+
 此命令会给你提供有关此UTXO数据库的统计信息:
 ```
 $ bitcoin-cli gettxoutsetinfo

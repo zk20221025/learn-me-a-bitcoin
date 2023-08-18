@@ -2,6 +2,7 @@
 <center>用于领取区块奖励的交易。</center>
 
 ![coinbase-transaction-1.png](img/Coinbase%20Transaction-1-svg.png)
+
 Coinbase交易是一个区块中的第一个交易。矿工使用它来收集**区块奖励**和任何额外的[交易费用](../Fees/Fees.md)。
 
 这就像把你的详细信息放在一个自我寄送的信封上，以便你可以领取奖品。
@@ -10,10 +11,12 @@ Coinbase交易是一个区块中的第一个交易。矿工使用它来收集**�
 当矿工创建一个[候选区块](../../Node/Candidate%20Block/Candidate%20Block.md)时，第一个交易的空间被保留给Coinbase交易。
 
 ![coinbase-transaction-2.png](img/Coinbase%20Transaction-2-svg.png)
+
 <center>每个区块必须有一个coinbase交易。</center>
 
 ## 结构
 一个Coinbase交易与普通[交易数据](../Transaction%20Data/Transaction%20Data.md)略有不同。主要的区别是它只有一个“空白”的[输入](../Transaction%20Data/Input/input.md)，我们称之为Coinbase。
+
 ![coinbase-transaction-3.png](img/Coinbase%20Transaction-3-svg.png)
 
 原始数据（*来源*）

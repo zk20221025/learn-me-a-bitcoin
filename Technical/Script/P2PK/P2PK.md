@@ -23,8 +23,10 @@
 ## 你在哪里可以找到P2PK脚本？
 尽管P2PK是将比特币锁定到某人公钥的最简单脚本，**但它并没有像类似但更复杂的[P2PKH](../P2PKH/P2PKH.md)脚本一样被广泛使用**。
 
-你最常见的**P2PK在区块链中较早的块中的[coinbase交易](../../Transaction/Coinbase%20Transaction/Coinbase%20Transaction.md)**中找到。这是因为原始的[比特币核心](https://bitcoin.org/en/download)矿工在构建[候选块](../../Node/Candidate%20Block/Candidate%20Block.md)时会使用P2PK进行块奖励:[^1]
+你最常见的**P2PK在区块链中较早的块中的[coinbase交易](../../Transaction/Coinbase%20Transaction/Coinbase%20Transaction.md)中找到**。这是因为原始的[比特币核心](https://bitcoin.org/en/download)矿工在构建[候选块](../../Node/Candidate%20Block/Candidate%20Block.md)时会使用P2PK进行块奖励:[^1]
+
 ![P2PK-3.png](img/P2PK-3%20(1).png)
+
 <center>新的挖矿软件通常使用P2PKH，因此现在很少在coinbase交易中看到P2PK脚本。</center>
 
 以下是一些使用P2PK的交易示例：
