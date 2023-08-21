@@ -2,16 +2,18 @@
 <center>付款至公钥哈希
 
 ![P2PKH-1.png](img/P2PKH-1%20(1).png)</center>
+
 这个脚本模式用于“发送”比特币给某个人。它是最常用的将输出锁定到某个人的公钥的脚本。
 
 >它类似于[P2PK](../P2PK/P2PK.md)，但锁定包含**公钥的哈希**（而不是公钥本身）。
 
 ## P2PKH是如何工作的？
-P2PKH脚本模式包含一个被[哈希处理的公钥](../../Keys/Public%20Key/Public%20Key%20Hash/public-key-hash.md)，周围包围着这些操作码：
+P2PKH脚本模式包含一个由这些操作码包围的[哈希处理的公钥](../../Keys/Public%20Key/Public%20Key%20Hash/public-key-hash.md)：
 |criptPubKey(加密公钥)|OP_DUP OP_HASH160 12ab8dc588ca9d5787dde7eb29569da63c3a238c OP_EQUALVERIFY OP_CHECKSIG|
 |---|---|
 
 为了解决这个脚本，上面散列的公钥的所有者需要提供原始的[公钥](../../Keys/Public%20Key/Public%20Key.md)和有效的**签名**。
+
 ![P2PKH-9.png](img/P2pkh-9.png)
 
 简而言之，当这个脚本运行时：
@@ -19,11 +21,14 @@ P2PKH脚本模式包含一个被[哈希处理的公钥](../../Keys/Public%20Key/
 * 原始**公钥**被**复制**并进行**HASH160**处理。
 * 将这个哈希值与scriptPubKey中的**哈希公钥**进行比较，以确保它是**EQUALVERIFY**。
 * 如果匹配，则脚本继续，并且**CHECKSIG**会对**签名**与公钥进行检查（就像P2PK脚本一样）。
+
 ![P2PKH-2.gif](img/P2PKH-2%20(1).gif)
 
 ## 你可以在哪里找到P2PKH脚本？
 当你想要“发送”比特币给某人时，P2PKH是钱包使用的默认脚本，因此你可以在*区块链的大多数块中找到它*。
+
 ![P2PKH-3.png](img/P2PKH-3%20(1).png)
+
 每次你向以1开头的[地址](../../Keys/Address/Address.md)发送比特币时，你都会创建一个P2PKH锁定脚本。
 
 以下是一些使用P2PKH的有趣交易：
@@ -42,11 +47,13 @@ P2PKH脚本模式包含一个被[哈希处理的公钥](../../Keys/Public%20Key/
 * 将公钥转换为[base58](../../Keys/Base58/Base58.md)后使其更短
 
 然而，结果仍然相当大：
+
 ![P2PKH-4.png](img/P2PKH-4%20(1).png)
 
 Satoshi可能在当时不知道[压缩公钥](../../Keys/Public%20Key/Public%20Key.md)。这意味着使用公钥（和P2PK锁定脚本）不是很方便。
 
 因此，获取更短的结果的解决方案是先对公钥进行哈希：
+
 ![P2PKH-5.png](img/P2PKH-5%20(1).png)
 
 [哈希函数](../../Other/Hash%20Function/Hash%20Function.md)是缩短任何东西的好方法。Hash160产生一个160位的结果，长度为40个字符。
@@ -60,6 +67,7 @@ Satoshi可能在当时不知道[压缩公钥](../../Keys/Public%20Key/Public%20K
 
 现在，我们只需要改变锁定机制，使其将输出锁定到公钥的哈希上。然后，我们提供原始的公钥来解锁它，并在进行签名检查之前检查该哈希是否匹配：
 <center>
+
 ![P2PKH-7.png](img/P2PKH-7%20(1).png)
 
 它的执行方式与P2PK非常相似-它只是先检查公钥哈希是否与scriptPubKey中的匹配。</center>
@@ -75,6 +83,7 @@ Satoshi可能在当时不知道[压缩公钥](../../Keys/Public%20Key/Public%20K
 <center>
 
 ![P2PKH-8.png](img/P2PKH-8%20(1).png)
+
 51个字符对于传递来说并不算太多。</center>
 
 然而，到此时为止P2PKH已经成为比特币发送和接收的标准，这就是为什么我们一直使用它的原因。
