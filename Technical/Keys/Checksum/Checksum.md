@@ -9,13 +9,17 @@
 
 ## 它们是如何工作的？
 在比特币中，校验和是通过两次使用*SHA256*[哈希数据](../../Other/Hash%20Function/Hash%20Function.md)，然后取结果的前4个字节来创建的。
+
 ![Checksum-2.png](img/checksum-2.png)
+
 这为你提供了一小段可靠且相当独特的数据片段。有点像指纹。
 
 然后将数据和校验和一起保留，以便在下次使用时检查整个内容是否已经正确输入。
+
 ![Checksum-3.png](img/checksum-3.png)
 
 如果你犯了一个小错误（在任何部分），数据将不再与校验和匹配。
+
 ![Checksum-4.png](img/checksum-4.png)
 
 因此，基本上，校验和是一种方便的错误检查工具。
@@ -139,7 +143,7 @@ puts verify #=> true
 所以这种情况的概率非常小。
 
 ## 感谢
-[Gregory Maxwell](https://github.com/gmaxwell)，为我们提供有关校验和的快速计算机科学课程以及历史背景。
+* [Gregory Maxwell](https://github.com/gmaxwell)，为我们提供有关校验和的快速计算机科学课程以及历史背景。
 
 ## 工具
 *校验和*

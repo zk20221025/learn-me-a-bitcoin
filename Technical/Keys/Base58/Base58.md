@@ -1,10 +1,12 @@
 # <center>Base58</center>
 <center>用一组易于分享的字符来表示值。</center>
+
 ```
   1 2 3 4 5 6 7 8 9
 A B C D E F G H   J K L M N   P Q R S T U V W X Y Z
 a b c d e f g h i j k   m n o p q r s t u v w x y z
 ```
+
 Base58是一组字符，你可以使用它们以更短且更易人看懂的格式表示大数字。
 
 ## “Base58”是什么意思？
@@ -20,11 +22,13 @@ Base58是一组字符，你可以使用它们以更短且更易人看懂的格�
 因此，在日常生活中，我们习惯于使用**基数为10**的数字（使用数字0-9）。
 
 但如果你是一台计算机，使用额外的字符来表示值就很容易：
+
 ```
 base10(9999) = 9999
 base16(9999) = 270f
 base58(9999) = 3yQ
 ```
+
 所有这些“数字”都具有相同的值-**它们只是使用不同的字符集（基数）来表示它。**
 
 >你的基数中有越多的字符，你就需要使用越少的字符来表示大数字。因此，你的基数越大，你的“数字”就越短。
@@ -40,7 +44,9 @@ base58       =  123456789ABCDEFGH JKLMN PQRSTUVWXYZabcdefghijk mnopqrstuvwxyz
 
 1. 它提供了一组大量的字符，因此可以使用更短的格式表示大数字。 
 2. **它会省略一些难打的字符**，以避免你在转录时犯错。
+
 ![base58-1.png](img/Base58-1-svg.png)
+
 一个讨厌的O/0
 
 ## Base58编码
@@ -60,6 +66,7 @@ base10 = 123456789
 base58 = [10][52][43][23][19]
 base58 = BukQL
 ```
+
 ![base58-2.gif](img/Base58-2%20(1).gif)
 
 ### Base58编码（简单）
@@ -114,6 +121,7 @@ B = 10 * 58^4 = 113164960
 base10 = 19 + 1334 + 144652 + 10145824 + 113164960
 base10 = 123456789
 ```
+
 ![base58-3.gif](img/Base58-3%20(1).gif)
 
 ### Base58 解码（简单）
@@ -211,7 +219,7 @@ https://en.bitcoin.it/wiki/List_of_address_prefixes
 
 ## 代码
 
-这些代码片段执行Bitcoin中使用的base58转换。它们转换为和从十六进制转换，因为那是我们最常使用的格式。
+这些代码片段执行**Bitcoin中使用的base58转换**。它们转换为和从十六进制转换，因为那是我们最常使用的格式。
 >### Ruby:
 ```ruby
 module Base58
@@ -326,9 +334,11 @@ $leading = str_repeat("00", $count);
 $result = $leading.$hex;
 echo $result.PHP_EOL; // 00662ad25db00e7bb38bc04831ae48b4b446d1269817d515b6
 ```
+## 注释
 
-## 模数（%）
+### 模数（%）
 模数（%）函数是除法（/）函数的姐妹函数。它给出**除法的余数**：
+
 ```
 7 % 6 = 1
 7 % 5 = 2
@@ -337,13 +347,13 @@ echo $result.PHP_EOL; // 00662ad25db00e7bb38bc04831ae48b4b446d1269817d515b6
 ```
 
 ## 来源
-[src/base58.cpp](https://github.com/bitcoin/bitcoin/blob/0fea960ca917b73aff853fe88476174c8a313863/src/base58.cpp)
+* [src/base58.cpp](https://github.com/bitcoin/bitcoin/blob/0fea960ca917b73aff853fe88476174c8a313863/src/base58.cpp)
 
 ## 资源
 * [github.com - base58.rb](https://gist.github.com/tomtaylor/5457965)
 * [bitcoin.it/wiki/Base58Check_encoding](https://en.bitcoin.it/wiki/Base58Check_encoding)
 * [darklaunch.com - Base58 Encoder/Decoder](https://www.darklaunch.com/tools/base58-encoder-decoder)
 ## 进一步阅读
-[purplemath.com - Number Bases](http://www.purplemath.com/modules/numbbase.htm)
+* [purplemath.com - Number Bases](http://www.purplemath.com/modules/numbbase.htm)
 ## 感谢
-[TheSeven](https://github.com/TheSeven) - 在IRC上交流。帮助我理解比特币中如何实现Base58。
+* [TheSeven](https://github.com/TheSeven) - 在IRC上交流。帮助我理解比特币中如何实现Base58。

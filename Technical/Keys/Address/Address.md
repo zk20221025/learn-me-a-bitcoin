@@ -15,19 +15,21 @@
 
 1. 一些你想包含在锁定中的**特定数据**。例如，你的[公钥哈希](../Public%20Key/Public%20Key%20Hash/public-key-hash.md)。
 2. 一个**前缀**，表示要创建什么样的锁定。
-3. 以及一个[**checksum**](../Checksum/Checksum.md)，用于帮助检查任何拼写错误。
+3. 以及一个[**校验和**](../Checksum/Checksum.md)，用于帮助检查任何拼写错误。
+
 最后，所有这些都被转换为[**Base58**](../Base58/Base58.md)，这使它更易于使用。
 
 ## 支付到公钥哈希（P2PKH）
-[**P2PKH**]这是将比特币锁定到[公钥](../Public%20Key/Public%20Key.md)（或更精确地说：[公钥哈希](../Public%20Key/Public%20Key%20Hash/public-key-hash.md)）的典型地址。
+[**P2PKH**](../../Script/P2PKH/P2PKH.md)这是将比特币锁定到[公钥](../Public%20Key/Public%20Key.md)（或更精确地说：[公钥哈希](../Public%20Key/Public%20Key%20Hash/public-key-hash.md)）的典型地址。
 
-如上所述，我们将一个**前缀**附加到我们的哈希公钥并在前面添加一个**checksum**，然后将其全部编码为base58。
+如上所述，我们将一个**前缀**附加到我们的哈希公钥并在前面添加一个**校验和**，然后将其全部编码为base58。
 ![address-2.png](img/address-2%20(1).png)
 
 现在我们有一个地址可以给别人。 
 
 ### 解码：
-当有人从这个地址创建一个锁定脚本时，他们只需解码base58以**检索其中的hash160**，然后**创建一个P2PKH锁定脚本**，如下所示：
+当有人从这个地址创建锁定脚本时，他们只需解码base58以**检索其中的hash160**，然后**创建一个P2PKH锁定脚本**，如下所示：
+
 ![address-3.png](img/address-3%20(1).png)
 
 **前缀**指示了要创建什么类型的锁定，而**hash160**告诉它们要在其中放什么。
@@ -94,7 +96,7 @@ https://en.bitcoin.it/wiki/List_of_address_prefixes
 ```
 1AKDDsfTh8uY4X3ppy1m7jw1fVMBSMkzjP
 ```
-它们都可以达到相同的效果，但地址为我们提供了更用户友好的格式。更不用说它们**包含一个[Checksun](../Checksum/Checksum.md)**，这意味着如果有人错误地编写地址，错误可以被检测到。
+它们都可以达到相同的效果，但地址为我们提供了更用户友好的格式。更不用说它们**包含一个[校验和](../Checksum/Checksum.md)**，这意味着如果有人错误地编写地址，错误可以被检测到。
 
 ## 代码
 注意：此代码需要[checksum.rb](https://github.com/in3rsha/learnmeabitcoin-code/blob/master/checksum.rb)和[base58_encode.rb](https://github.com/in3rsha/learnmeabitcoin-code/blob/master/base58_encode.rb)函数。
