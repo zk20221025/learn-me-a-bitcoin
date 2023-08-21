@@ -11,7 +11,9 @@
 
 ## 如何创建公钥哈希？
 只需将你的公钥通过*SHA256*和*RIPEMD160*[哈希函数](../../../Other/Hash%20Function/Hash%20Function.md)处理即可：
+
 ![public-key-hash-2.png](img/public-key-hash-2%20(1).png)
+
 有时它被称为HASH160（公钥），因为这比写RIPEMD160（SHA256（公钥））更简单。
 就是这样。
 
@@ -23,6 +25,7 @@ hash160(publickey) = 93ce48570b55c42c2af816aeaba06cfee1224fae
 ### 为什么我们使用RIPEMD160？
 
 因为[RIPEMD160](https://en.wikipedia.org/wiki/RIPEMD)生成160位（20字节）摘要，比原始公钥（65字节[未压缩](../Public%20Key.md)，33字节[压缩](../Public%20Key.md)）更小。
+
 ![public-key-hash-3.png](img/public-key-hash-3%20(1).png)
 
 这意味着我们最终创建的[地址](../../../Keys/Address/Address.md)将比完整的公钥包含更少的字符，更容易传递。
@@ -33,15 +36,18 @@ hash160(publickey) = 93ce48570b55c42c2af816aeaba06cfee1224fae
 当你想要接收比特币时，你会把你的公钥哈希给别人。然后，他们将把它放入交易[输出](../../../Transaction/Transaction%20Data/output/output.md)的[锁定代码](../../../Transaction/Transaction%20Data/output/scriptPubKey/scriptPubKey.md)中。
 
 这将创建一个[P2PKH](../../../Script/P2PKH/P2PKH.md)锁定脚本。
+
 ![public-key-hash-4.png](img/public-key-hash-4%20(1).png)
 
 当你想要解锁这些比特币（将它们发送给新的交易对象）时，你只需将原始公钥以及数字签名放入[输入](../../../Transaction/Transaction%20Data/Input/input.md)的解锁代码中。
+
 ![public-key-hash-5.png](img/public-key-hash-5%20(1).png)
 
 因此，当一个节点来验证这个交易时，它会：
 
 1. 检查**公钥**所提供的**公钥哈希值**是否正确。
 2. 如果检查通过，它们将像往常一样对**公钥**进行验证**签名**。
+
 因此，与[P2PK](../../../Script/P2PK/P2PK.md)锁定不同，它不仅仅检查**签名**与公钥的匹配性，还会先**检查公钥的哈希值**。
 
 这就是为什么这种锁定系统被称为[P2PKH](../../../Script/P2PKH/P2PKH.md)的原因。
@@ -70,10 +76,11 @@ puts hash160 # 93ce48570b55c42c2af816aeaba06cfee1224fae
 可能是因为Satoshi当初不知道可以使用压缩公钥（33字节而不是65字节），所以对公钥进行哈希处理是为了创建一个更短的（20字节）版本，以便将其提供给其他人。
 
 >简而言之，比特币地址是公钥的哈希值。- [Satoshi Nakamoto](https://satoshi.nakamotoinstitute.org/posts/bitcointalk/threads/134/#7)
+
 ![public-key-hash-6.png](img/public-key-hash-6%20(1).png)
 
-### 替代理论：额外安全措施
-一种替代理论是使用Hash160提供了额外的安全层。
+### 另一种理论：额外的安全性
+另一种理论是使用Hash160提供了额外的安全层。
 
 例如，如果我们在想要接收比特币时立即泄漏我们的公钥，那么保护你免受攻击者获取私钥的不被攻击者获取的“唯一”措施就是[椭圆曲线](../../ECDSA/ECDSA.md)。
 
@@ -90,6 +97,7 @@ puts hash160 # 93ce48570b55c42c2af816aeaba06cfee1224fae
 因此，当你在区块链上拥有比特币时，哈希函数就像是额外的障碍，攻击者必须跨越它们才能尝试获取我们的私钥（并窃取我们的比特币）。
 
 **那么椭圆曲线不够保护吗？**
+
 这实际上是很好的保护
 
 由于椭圆曲线乘法的特性，从公钥到私钥的反向计算是不可能的。这被称为“椭圆曲线离散对数问题”。
@@ -97,6 +105,7 @@ puts hash160 # 93ce48570b55c42c2af816aeaba06cfee1224fae
 然而，如果通过某种数学奇迹解决了这个问题，仍然有两个不同的哈希函数可以保护我们的私钥。
 
 **但是你不是仍然会公开你的公钥吗？**
+
 是的。但在这个系统中，你的公钥只在最后一刻（当你来花费你的比特币时）才会被公开。
 
 理论上，如果有人想推导出你的私钥，在你的交易传播到网络并被挖掘到一个块之前，他们将有一小段时间来完成。因此，这比一开始就暴露你的公钥更加安全。
