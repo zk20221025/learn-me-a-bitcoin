@@ -7,6 +7,7 @@
 
 * **确定性**意味着密钥和地址始终以相同的方式生成。
 * **分层**意味着密钥和地址可以组织成树形结构。
+
 但是这些钱包最好的地方是，可以在不知道它们的[私钥](../Keys/Private%20Key/Private%20Key.md)的情况下生成新的[公钥](../Keys/Public%20Key/Public%20Key.md)。
 
 ## 为什么使用HD钱包？
@@ -30,10 +31,12 @@
 钱包中的每个**子密钥**也可以生成**自己的密钥**，这意味着你可以创建一个**树形结构**（或层次结构）来组织钱包中的密钥。
 
 例如，你可以使用树的不同部分来管理不同的“账户”。
+
 ![hd-wallets-3.gif](img/hd-wallets-3%20(1).gif)
 
 ### 3. 独立生成公钥。
 但是，关于**主私钥**的真正酷炫之处在于它有对应的**主公钥**，并且可以在不知道私钥的情况下生成相同的子公钥。
+
 ![hd-wallets-4.png](img/hd-wallets-4%20(1).gif)
 
 因此，可以将**主公钥**发送到另一台计算机（例如，Web商店服务器）以生成新的接收地址，而不必担心如果服务器遭到入侵，私钥会被盗窃。
@@ -45,6 +48,7 @@
 ## HD钱包如何工作？
 
 ### 1.种子
+
 ![hd-wallets-5.png](img/hd-wallets-5%20(1).png)
 
 **助记句子**
@@ -80,11 +84,12 @@ mnemonic: muffin sheriff judge garment pottery alpha emerge civil stage broken j
 ```
 种子：68402660a3b31cf735c533866d9f749078f45fa0433bded3a5c3c080c21bd2364fb6ddabd12450572dd4a0f046bd4302306cad79f7be4bf55457cd3e467a001c
 
-主扩展私钥：私有
+主扩展私钥：
   私钥：17663ce2af7243429017cb1f49a465f02051790f78ca4b352529a706dadea639
   链码：   2699081c5a668d91fc2ecc7649fa88c1f478f51817bc0d554f4708e19afd9a64
 ```
 **公钥**
+
 嵌入此扩展密钥中的私钥可用于正常创建相应的公钥：
 ```
   私钥：17663ce2af7243429017cb1f49a465f02051790f78ca4b352529a706dadea639
@@ -94,7 +99,9 @@ mnemonic: muffin sheriff judge garment pottery alpha emerge civil stage broken j
 
 ### 3. 子密钥(基本)
 通过将扩展私钥的内容（私钥和链码）通过HMAC函数进行处理，可以生成新的子私钥。我们每次还包括一个索引号，这使得我们可以从单个主密钥创建多个子密钥。
+
 ![hd-wallets-7.gif](img/hd-wallets-7%20(1).gif)
+
 通过改变索引，你可以得到一个与哈希函数完全不同的结果。
 
 ```
@@ -128,6 +135,7 @@ master extended private key:
 
 **扩展公钥**
 首先，我们需要构建扩展公钥。这只是从扩展私钥中获取的公钥，再加上相同的链码：
+
 ![hd-wallets-8.gif](img/hd-wallets-8%20(1).gif)
 
 **扩展私钥的子密钥**
@@ -158,6 +166,7 @@ master extended private key:
 
 **扩展公钥的子密钥**
 主扩展公钥通过将其内容通过HMAC函数进行处理，并将结果添加到原始公钥中来创建新的子公钥。
+
 ![hd-wallets-10.gif](img/hd-wallets-10%20(1).gif)
 
 ```
@@ -175,6 +184,7 @@ master extended public key:
     public key: 02430c388a56b73135e68856e2ade0e7b2c167aa822c0b842c08bb991d95a59441
 ```
 由于原始私钥和公钥都被同样的值调整了，新的子私钥和公钥对应。
+
 ![hd-wallets-11.gif](img/hd-wallets-11%20(1).gif)
 
 >一个扩展密钥可以生成2,147,483,648个子密钥。
@@ -182,7 +192,7 @@ master extended public key:
 
 有关更多详细信息，请参见[扩展密钥](./Extended%20Keys/Extended%20Keys.md)。
 
-**为什么要使用链码扩展密钥？**
+>**为什么要使用链码扩展密钥？**
 
 通过向密钥添加链码，意味着子密钥不仅仅是从密钥派生的。
 
@@ -198,22 +208,25 @@ master extended public key:
 
 >**请记住**：当我们将普通密钥与额外的链码相结合时，我们称之为“扩展密钥”。
 
-**HD钱包中的密钥是否连接在一起？**
+>**HD钱包中的密钥是否连接在一起？**
+
 不是的，你无法知道树中的任何两个公钥（或地址）是否属于同一个钱包（即派生自相同的主扩展密钥）。
 
 尽管子密钥是以特定方式从主扩展密钥派生的，但实际的公钥本身并没有任何相似之处。就好像它们完全独立生成一样。
 ![hd-wallets-14.png](img/hd-wallets-14%20(1).png)
 
-**HD钱包中的密钥是否安全？**
+>**HD钱包中的密钥是否安全？**
 
 是的，从HD钱包获得的所有私钥和公钥与传统方式生成的一样安全。
 
 但是，应该**特别注意保护使用的扩展密钥**，因为任何拥有它们的人都可以派生它们的所有子密钥。
 
 例如，如果你透露了你的主扩展公钥，其他人将能够查看你钱包中的地址。他们不能偷取任何东西，因为他们无法生成私钥，但他们仍然可以看到你拥有多少比特币。
+
 ![hd-wallets-15.png](img/hd-wallets-15%20(1).png)
 
 此外，泄露主扩展公钥**和**任何子私钥允许某人计算主扩展私钥。如果他们能够这样做，他们就可以**生成钱包中的所有私钥**：
+
 ![hd-wallets-16.png](img/hd-wallets-16%20(1).png)
 
 简而言之，尽量不要公开你的主扩展公钥。如果你这样做，其他人可以找到你钱包中的所有地址。但是，如果你公开了子私钥，那么这与公开主扩展私钥一样糟糕。
@@ -290,9 +303,11 @@ m/84'/0'/0'
 * https://bitcointalk.org/index.php?topic=19137 (Gregory Maxwell)
 * https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki (Pieter Wuille)
 
+
 * https://iancoleman.io/bip39/ (一个令人惊叹的网络工具)
 * https://github.com/lian/bitcoin-ruby/blob/master/lib/bitcoin/ext_key.rb (Ruby中的干净实现)
 * https://www.youtube.com/watch?v=OVvue2dXkJo (James Chiang的演讲)
+
 
 * https://www.cs.cornell.edu/~iddo/detwal.pdf (Gregory Maxwell关于确定性钱包的幻灯片)
 * https://eprint.iacr.org/2014/998.pdf (Gus Gutoski和Douglas Stebila的有趣论文)
