@@ -20,15 +20,18 @@
 ### 1.你无法从结果推断出原始数据。
 
 加密哈希函数产生的结果是随机的（没有模式），因此无法通过反向计算哈希函数来确定原始数据是什么。
+
 ![hash-function-2.png](img/Hash%20Function-2-svg.png)
 
 >这是加密哈希函数的特性。你可能能够通过“基本”哈希函数的结果重构出原始数据，但加密哈希函数的任务是尽可能地使这一过程难以实现。
 
 ### 2.相同的数据总是会返回相同的结果。
 哈希函数会系统地对数据进行混淆，使得相同的输入总是会产生相同的结果。
+
 ![hash-function-3.png](img/Hash%20Function-3-svg.png)
 
 如果你将一些数据输入到哈希函数中，你可以确信这些数据每次都会产生相同的结果。
+
 例如：
 ```
 data                sha256(data)
@@ -40,9 +43,11 @@ learnmeabitcoin     ef235aacf90d9f4aadd8c92e4b2562e1d9eb97f0df9ba3b508258739cb01
 
 ### 3.不同的数据会产生不同的结果。
 如果将唯一的数据输入哈希函数，哈希函数将给出一个唯一的结果。
+
 ![hash-function-4.png](img/Hash%20Function-4-svg.png)
 
 即使是最小的数据变化也会返回完全不同的结果。
+
 例如：
 ```
 data                sha256(data)
@@ -59,7 +64,7 @@ learnmeabitcoin4    255da46dc8699fffd841b7c66a31eeb4f8eda8e1ca6850c7356376518f52
 ### 1. 交易哈希
 >**将[交易数据](../../Transaction/Transaction%20Data/Transaction%20Data.md)哈希为[TXID](../../Transaction/TXID/TXID.md)（交易ID，交易哈希）。**
 
-* 哈希长字符串的能力可以为每个交易创建一个唯一的标识符。
+* 将长字符串的交易数据哈希到一个短且唯一的字符串的能力，使你能够为每一笔交易创建一个独特的标识符。
 
 ### 2. 区块哈希（和挖矿）
 >**将[区块头哈希](../../Block/block-header/block-header.md)为[区块哈希](../../Block/block-hash/block-hash.md)。**

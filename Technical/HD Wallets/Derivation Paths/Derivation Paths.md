@@ -38,6 +38,7 @@ m/0/1/3'
 m / purpose' / coin_type' / account' / change / index
 ```
 ![derivation-paths-2.png](img/derivation-paths-2%20(1).png)
+
 树中的层级有特定的含义。
 
 >m: **主密钥**
@@ -45,10 +46,12 @@ m / purpose' / coin_type' / account' / change / index
 >>m/44'：**目的**（加强）
 这指定了即将使用的钱包结构。
 目前钱包使用的有三种方案：
-1.[BIP 44](#bip-44m440000)
-2.[BIP 49](#bip-49-m490000)
-3.[BIP 84](#bip-84-m840000)
-提示：数字反映了BIP的编号。新方案可以使用不同的BIP编号。
+
+>>1. [BIP 44](#bip-44m440000)
+>>2. [BIP 49](#bip-49-m490000)
+>>3. [BIP 84](#bip-84-m840000)
+
+>>提示：数字反映了BIP的编号。新方案可以使用不同的BIP编号。
 >>>m/44'/0'：**币种类型**（加强）
 密钥将用于的加密货币。
 不同的加密货币可以使用从种子派生的相同私钥和公钥。因此，我们可以使用相同的种子和不同的派生路径而不是为不同的货币创建单独的种子（或在不同的链上使用相同的公钥）。
@@ -65,9 +68,11 @@ m / purpose' / coin_type' / account' / change / index
 提示：可以在此级别的各种索引中显然创建许多不同的帐户。但为了简化恢复过程，钱包应按顺序创建帐户，并且如果之前的帐户未被使用，则不创建新帐户。
 >>>>>m/44'/0'/0'/0：**更改**
 我们使用的密钥和地址分为“接收”和“更改”。
-1.**接收** = 0 - 我们将给人们用于接收付款的地址。
-2.**更改** = 1 - 我们用于在进行交易时将找零发送回自己的地址。
-这意味着你始终能够识别来自外部付款的硬币。
+
+>>>>>1.**接收** = 0 - 我们将给人们用于接收付款的地址。
+>>>>>2.**更改** = 1 - 我们用于在进行交易时将找零发送回自己的地址。
+
+>>>>>这意味着你始终能够识别来自外部付款的硬币。
 >>>>>>m/44'/0'/0'/0/0：**索引**
 这些是你在钱包中实际使用的私钥和公钥的扩展密钥。
 
@@ -95,14 +100,17 @@ m / account' / external / index
 [BIP 44](https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki)基于原始的BIP 32方案，包括一个目的[^1]（类似于版本号，用于识别即将到来的方案）以及一个币种类型，以便可以使用相同的种子生成不同加密货币的密钥。
 
 公钥编码为1地址（[P2PKH](../../Script/P2PKH/P2PKH.md)）。
+
 ![derivation-paths-4.png](img/derivation-paths-4%20(1).png)
 
 ### **BIP 49: m/49'/0'/0'/0/0**
 [BIP 49](https://github.com/bitcoin/bips/blob/master/bip-0049.mediawiki)使用与BIP 44相同的结构，但用于指示公钥应编码为3地址（P2WPKH-P2SH）。
+
 ![derivation-paths-5.png](img/derivation-paths-5%20(1).png)
 
 ### **BIP 49序列化**
 BIP 49派生路径中的扩展密钥使用版本字节049d7878“yprv”或049d7cb2“ypub”进行序列化。这允许你在[扩展密钥](../Extended%20Keys/Extended%20Keys.md)是BIP 49方案的一部分时进行识别。
+
 例如：
 ```
 yprvABrGsX5C9jant45o1Au7iHH54A8GXQH9SGhK5vkYKPUBDYsFy6KNUWX24moUE6KxoCh2qtZ8UpLaDWQiqt4aPdvvgjszQ4VrbLpfp5patGg
@@ -110,10 +118,12 @@ yprvABrGsX5C9jant45o1Au7iHH54A8GXQH9SGhK5vkYKPUBDYsFy6KNUWX24moUE6KxoCh2qtZ8UpLa
 
 ### **BIP 84: m/84'/0'/0'/0/0**
 [BIP 84](https://github.com/bitcoin/bips/blob/master/bip-0084.mediawiki)使用与BIP 44相同的结构，但用于指示公钥应编码为bc1地址（P2WPKH）。
+
 ![derivation-paths-6.png](img/derivation-paths-6%20(1).png)
 
 >**BIP 84序列化**
 BIP 84派生路径中的扩展密钥在序列化过程中使用版本字节04b2430c“zprv”或04b24746“zpub”。这可以在BIP 84方案的一部分时识别[扩展密钥](../Extended%20Keys/Extended%20Keys.md)。
+
 例如：
 ```
 zprvAWgYBBk7JR8GjMGuqXgjvNNaE8GiU2GeMPDXsKeRhPr4GegVDkUw6aBA5ym4DzytCqoqbN9gwUh86o2HZaUbBscXZ5aQyyKLs4tKCeThpsa
