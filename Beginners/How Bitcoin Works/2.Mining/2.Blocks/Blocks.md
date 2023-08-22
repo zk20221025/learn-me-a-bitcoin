@@ -39,7 +39,7 @@
 **上一个块**
 上一个区块的识别号码。我们正在尝试为当前候选区块获取其中一个。
 
-[**Merkle根**](../../../../Technical/Block/block-header/merkle-root/merkle-root.md)
+[**默克尔根**](../../../../Technical/Block/block-header/merkle-root/merkle-root.md)
 将块内所有交易哈希在一起形成一条单独的文本行。所有字段都是唯一的，但可以认为这是区块头的最重要部分。
 
 **时间**
