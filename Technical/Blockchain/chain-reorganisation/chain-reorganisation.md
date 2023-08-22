@@ -60,11 +60,11 @@
 **提示**：在考虑交易是否完成时，等待交易在区块链中深入超过一个块可能是值得的。总有可能被重新组织，并需要等待/希望它重新被挖掘到最长的链中。
 
 ### 孤块的视觉示例
-在区块高度578141处，我们可以看到区块链进行了重新组织，一些孤立区块中的交易被重新挖掘回到了链中。
+在区块高度[578141](https://learnmeabitcoin.com/explorer/blockchain/578141)处，我们可以看到区块链进行了重新组织，一些孤立区块中的交易被重新挖掘回到了链中。
 
 ![chain-reorganisation-9.png](img/chain-reorganisation-9.png)
 
-在[比特币Neo4j]图数据库中看到的块578141。
+在[比特币Neo4j](../../../Neo4j/Neo4j.md)图数据库中看到的块578141。
 
 ## 常见问题
 
@@ -79,19 +79,20 @@
 然而，“自然”的链重组（由于同时挖掘两个区块而发生的）**很少涉及你链顶部以上的区块**。
 
 以下是我*节点***最近经历**的链重组：
-|Height|Length|Date|
+|高度|长度|日期|
 |---|---|---|
-|*789147*|	1	|10 May 2023|
-|*788837*|	1	|08 May 2023|
-|*788805*|	1	|08 May 2023|
-|*781487*|	1	|19 March 2023|
-|*781277*|	1	|18 March 2023|
-|*730848*|  1	|07 April 2022|
-|*685135*|	1	|27 May 2021|
-|*675407*|	1	|20 March 2021|
-|*675392*|	1	|20 March 2021|
+|[803389](https://learnmeabitcoin.com/explorer/blockchain/803389)|	1	|2023 年 8 月 16 日|
+|[800786](https://learnmeabitcoin.com/explorer/blockchain/800786)|	1	|2023 年 7 月 29 日|
+|[792379](https://learnmeabitcoin.com/explorer/blockchain/792379)|	1	|2023 年 6 月 1 日|
+|[789147](https://learnmeabitcoin.com/explorer/blockchain/789147)|	1	|2023 年 5 月 10 日|
+|[788837](https://learnmeabitcoin.com/explorer/blockchain/788837)|	1	|2023 年 5 月 8 日|
+|[788805](https://learnmeabitcoin.com/explorer/blockchain/788805)|  1	|2023 年 5 月 8 日|
+|[781487](https://learnmeabitcoin.com/explorer/blockchain/781487)|	1	|2023 年 3 月 19 日|
+|[781277](https://learnmeabitcoin.com/explorer/blockchain/781277)|	1	|2023 年 3 月 18 日|
+|[730848](https://learnmeabitcoin.com/explorer/blockchain/730848)|	1	|2022 年 4 月 7 日|
+|[685135](https://learnmeabitcoin.com/explorer/blockchain/685135)|	1	|2021 年 5 月 27 日|
 
-|Length	|Height	|Date|
+|长度	|高度	|日期|
 |---|---|---|
 |2| -|-|
 
@@ -102,7 +103,7 @@
 1. 同时挖掘了两个块。
 2. 你的节点首先收到其中一个块，但另一个块最终被挖掘在其上并成为新的最长链。
 
-我不知道这个的数学概率是多少，所以以下是基于我的比特币*节点*的数据显示的链重新组织的频率（该节点自**2016年12月17日**以来一直在连续运行）：
+我不知道这个的数学概率是多少，所以以下是基于我的比特币*节点*的数据显示的链重新组织的频率（该[节点](https://learnmeabitcoin.com/explorer)自**2016年12月17日**以来一直在连续运行）：
 
 * **实际重新组织：11次[^1]**（每32580个块/220.5天一次）
 * **避免重新组织：187次[^2]**（每1,916个块/13天一次）

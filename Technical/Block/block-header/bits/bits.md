@@ -5,7 +5,7 @@
 
 Bits字段是在[区块头](../../block-header/block-header.md)中紧凑存储[目标值](../../../Mining/Target/Target.md)的一种方式。
 ## 例子
-以下是在挖掘*块406,800*时的目标：
+以下是在挖掘[块406,800](https://learnmeabitcoin.com/explorer/block/000000000000000001C31935B6B49FBFE1C44CBAA31A7875D59A22B09B99D380)时的目标：
 ```
 Target: 0x00000000000000000696f4000000000000000000000000000000000000000000
 ```
@@ -25,11 +25,11 @@ Bits是目标的简写。
 
 因此，如果你想找出在一个块被挖掘时的目标是什么，Bits字段将帮助你计算出它的（稍微舍入）值。
 
->*Bits -> Target*
+>[Bits -> Target](https://learnmeabitcoin.com/tools/bitstarget)
 
 >请记住指数是[十六进制数](../../../Other/Hexadecimal/hexadecimal.md)，因此0x18表示十进制下的24字节。
 
->系数部分取自原始目标总是向上取整。以下是*当前目标*。
+>系数部分取自原始目标总是向上取整。以下是[当前目标](https://learnmeabitcoin.com/explorer/node/difficulty)。
 
 >完整的目标通常显示为32个字节的长度，其中包括所有前导的零。但实际上，以下所有内容都是相同的数字：
 ```
