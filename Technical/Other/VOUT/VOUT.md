@@ -10,6 +10,7 @@
 你可以使用txid和vout来唯一选择一个输出，在新交易中用作[输入](../../Transaction/Transaction%20Data/Input/input.md)。
 
 ![VOUT-2.png](img/VOUT-2%20(1).png)
+
 输出编号2。
 
 ## 注释
