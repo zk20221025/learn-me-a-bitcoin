@@ -36,15 +36,15 @@
 ## 例子
 |TXID|费用（BTC）|大小（字节）|费用/字节|
 |---|---|---|---|
-|bf09e5531c0b1a4189b5a8e571007f7711b8d17f2d2afb1e6489bfa377e18542|0.00067868|226|0.00000300|
-|dee09e37ba2e8a51706e71e587bcdb9e13545a3419d93e77bf4d6fcb48a19745|0.00229300|2,290|0.00000100|
-|b1eeb475c72a82745bca1f9cc1bdb5020a1633eec0dd7022962e2a4d162e7e05|0.00011300|225|0.00000050|
+|[bf09e5531c0b1a4189b5a8e571007f7711b8d17f2d2afb1e6489bfa377e18542](https://learnmeabitcoin.com/explorer/transaction/bf09e5531c0b1a4189b5a8e571007f7711b8d17f2d2afb1e6489bfa377e18542)|0.00067868|226|0.00000300|
+|[dee09e37ba2e8a51706e71e587bcdb9e13545a3419d93e77bf4d6fcb48a19745](https://learnmeabitcoin.com/explorer/transaction/dee09e37ba2e8a51706e71e587bcdb9e13545a3419d93e77bf4d6fcb48a19745)|0.00229300|2,290|0.00000100|
+|[b1eeb475c72a82745bca1f9cc1bdb5020a1633eec0dd7022962e2a4d162e7e05](https://learnmeabitcoin.com/explorer/transaction/b1eeb475c72a82745bca1f9cc1bdb5020a1633eec0dd7022962e2a4d162e7e05)|0.00011300|225|0.00000050|
 
 ## 注释
 >**任何比特币交易的剩余部分都是交易费用。全部都是。**
 如果你创建一个使用10个BTC[输入](../Transaction/Transaction%20Data/Input/input.md)的比特币交易，并且只创建一个0.1个BTC[输出](../Transaction%20Data/output/output.md)，则剩余的9.9个BTC将被计算为交易费用。
 
 >>**不幸的例子：**
->>* 291.2409个BTC交易费用 - （[bitcointalk帖子](https://bitcointalk.org/index.php?topic=1451924.0)）
->>* 30个BTC交易费用 - （[Reddit帖子](https://www.reddit.com/r/Bitcoin/comments/1eh57i/messed_up_transaction_feeplease_help/)）
->>* 7个BTC交易费用 - （当时只有约85美元，但仍然是不必要的）
+>>* [291.2409个BTC交易费用](https://learnmeabitcoin.com/explorer/transaction/cc455ae816e6cdafdb58d54e35d4f46d860047458eacf1c7405dc634631c570d) - （[bitcointalk帖子](https://bitcointalk.org/index.php?topic=1451924.0)）
+>>* [30个BTC交易费用](https://learnmeabitcoin.com/explorer/transaction/7e8fce9686572d8308d8c40fa3cb96fdbf96c0787c147d3159c893fd560aabc7) - ([Reddit帖子](https://www.reddit.com/r/Bitcoin/comments/1eh57i/messed_up_transaction_feeplease_help/)）
+>>* [7个BTC交易费用](https://learnmeabitcoin.com/explorer/transaction/891af6431550ece772e2e2ebee13e856b971402763533babb2c49475ec260445) - （当时只有约85美元，但仍然是不必要的）

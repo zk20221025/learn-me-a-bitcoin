@@ -11,11 +11,13 @@ Outputs是在比特币[交易](../Transaction%20Data.md)中创建的**比特币�
 ```
 01000000017967a5185e907a25225574544c31f7b059c1a191d65b53dcc1554d339c4f9efc010000006a47304402206a2eb16b7b92051d0fa38c133e67684ed064effada1d7f925c842da401d4f22702201f196b10e6e4b4a9fff948e5c5d71ec5da53e90529c8dbd122bff2b1d21dc8a90121039b7bcd0824b9a9164f7ba098408e63e5b7e3cf90835cceb19868f54f8961a825ffffffff014baf2100000000001976a914db4d1141d0048b1ed15839d0b7a4c488cd368b0e88ac00000000
 ```
+Transaction: [c1b4e695098210a31fe02abffe9005cffc051bbe86ff33e173155bcbdc5821e3](https://learnmeabitcoin.com/explorer/transaction/c1b4e695098210a31fe02abffe9005cffc051bbe86ff33e173155bcbdc5821e3)
+
 
 ## 领域
 ![output-2.png](img/output.png)
 
->如果想解码输出的值，只需要*交换字节顺序*，然后将其从十六进制转换为十进制。这将给你提供以**Satoshis**为单位的价值。
+>如果想解码输出的值，只需要[交换字节顺序](https://learnmeabitcoin.com/tools/swapendian)，然后将其从[十六进制转换为十进制](https://learnmeabitcoin.com/tools/hexdec)。这将给你提供以**Satoshis**为单位的价值。
 
 ## 输出如何工作？
 在选择要使用的[输入](../Input/input.md)后，你可以从中创建任意数量的输出。
@@ -49,5 +51,5 @@ Outputs是在比特币[交易](../Transaction%20Data.md)中创建的**比特币�
 
 >一个输出可以为0，如果你喜欢。
 例子：
->>* *1f22ec55dda438860ca4c284ddc69e0aba40308a4bed572bd2f6416b7623aa96*
->>* *44a0d9fe1aee1704a127c1345e4deea2ef4384fbbd3c289b46cc4b584acdf42a*
+>>* [1f22ec55dda438860ca4c284ddc69e0aba40308a4bed572bd2f6416b7623aa96](https://learnmeabitcoin.com/explorer/transaction/1f22ec55dda438860ca4c284ddc69e0aba40308a4bed572bd2f6416b7623aa96)
+>>* [44a0d9fe1aee1704a127c1345e4deea2ef4384fbbd3c289b46cc4b584acdf42a](https://learnmeabitcoin.com/explorer/transaction/44a0d9fe1aee1704a127c1345e4deea2ef4384fbbd3c289b46cc4b584acdf42a)

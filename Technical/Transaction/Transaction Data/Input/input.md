@@ -9,11 +9,13 @@
 ```
 01000000017967a5185e907a25225574544c31f7b059c1a191d65b53dcc1554d339c4f9efc010000006a47304402206a2eb16b7b92051d0fa38c133e67684ed064effada1d7f925c842da401d4f22702201f196b10e6e4b4a9fff948e5c5d71ec5da53e90529c8dbd122bff2b1d21dc8a90121039b7bcd0824b9a9164f7ba098408e63e5b7e3cf90835cceb19868f54f8961a825ffffffff014baf2100000000001976a914db4d1141d0048b1ed15839d0b7a4c488cd368b0e88ac00000000
 ```
+Transaction: [c1b4e695098210a31fe02abffe9005cffc051bbe86ff33e173155bcbdc5821e3](https://learnmeabitcoin.com/explorer/transaction/c1b4e695098210a31fe02abffe9005cffc051bbe86ff33e173155bcbdc5821e3)
+
 
 ## 领域
 ![input-2.png](img/input.png)
 
->**TXID字节顺序**：在[交易数据](../Transaction%20Data.md)中引用TXID时，必须反转字节顺序才能将其恢复为原始格式。搜索TXID时使用的字节顺序是反向的（由于原始比特币客户端工作方式中存在历史错误）。
+>**TXID字节顺序**：在[交易数据](../Transaction%20Data.md)中引用TXID时，必须[反转字节顺序](https://learnmeabitcoin.com/tools/swapendian)才能将其恢复为原始格式。搜索TXID时使用的反向字节顺序是的（由于原始比特币客户端工作方式中存在历史错误）。
 
 ## 输入如何工作？
 “输入”有两个任务：
