@@ -46,6 +46,7 @@
 ![digital_signatures-6.png](img/Digital%20Signatures-6%20(1).png)
 
 因此，如果有人试图在不同的交易中使用此数字签名，交易将与数字签名的内存中的交易数据发生冲突，比特币网络上的节点将不会接受它。
+
 ![digital_signatures-7.png](img/Digital%20Signatures-7%20(1).png)
 
 >数字签名还将防止任何人篡改正在使用的交易。

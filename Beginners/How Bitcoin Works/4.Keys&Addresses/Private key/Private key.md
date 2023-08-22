@@ -100,7 +100,7 @@ random.SystemRandom().randint(1, 11579208923731619542357098500868790785283756427
 ```
 这将为你提供一个十进制的私钥。
 
-**3. 使用SHA256哈希函数对一些数据进行[哈希处理](../../../../Technical/Other/Hash%20Function/Hash%20Function.md)。（*尝试一下*）**
+**3. 使用SHA256哈希函数对一些数据进行[哈希处理](../../../../Technical/Other/Hash%20Function/Hash%20Function.md)。（[尝试一下](https://learnmeabitcoin.com/tools/sha256)）**
 
 ![private_keys-8.png](img/private_keys-8%20(1).png)
 

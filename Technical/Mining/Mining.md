@@ -142,7 +142,7 @@
 >除非一个单独的矿工获得了[大部分的挖矿算力](../../Technical/Blockchain/51-attack/51-attack.md)...
 
 ## 6.你如何挖掘一个区块？
-你首先要构建一个区块的[区块头](../Block/block-header/block-header.md)用于你的块。例如，这是*第100,000个区块*的区块头的开头：
+你首先要构建一个区块的[区块头](../Block/block-header/block-header.md)用于你的块。例如，这是[第100,000个区块](https://learnmeabitcoin.com/explorer/block/000000000003ba27aa200b1cecaad478d2b00432346c3f1f3986da1afd33e506)的区块头的开头：
 ```
 0100000050120119172a610421a6c3011dd330d9df07b63616c2cc1f1cd00200000000006657a9252aacd5c0b2940996ecff952228c3067cc38d4885efb5a4ac4247e9f337221b4d4c86041b00000000
 ```

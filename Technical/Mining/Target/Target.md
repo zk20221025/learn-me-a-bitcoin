@@ -158,7 +158,7 @@ $ bitcoin-cli getblockheader 000000000000000002e9533a4fe03bb251b3fdb30ffaa384aad
 >>**注意**：这将为你提供该块的目标值，而不一定是用于下一个块的当前目标值。
 
 ## **代码**
-这是用于计算新目标值的Ruby代码示例。该代码使用*401,184*和*403,199*块的时间戳来计算*403,200*块的新目标值。
+这是用于计算新目标值的Ruby代码示例。该代码使用[401,184](https://learnmeabitcoin.com/explorer/blockchain/401184)和[403,199](https://learnmeabitcoin.com/explorer/blockchain/403199)块的时间戳来计算[403,200](https://learnmeabitcoin.com/explorer/blockchain/403200)块的新目标值。
 ```ruby
 # 403,200 - NEW TARGET
 # 403,199              | last block
