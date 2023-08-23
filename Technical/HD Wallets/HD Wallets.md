@@ -295,7 +295,7 @@ m/84'/0'/0'
 
 如果你对HD钱包的详细信息感兴趣，这里有一些更技术性的解释：
 
-* [助记符种子](./Mnemonic%20Seed/Mnemonic%20Seed.md)（为你的HD钱包生成用户友好的种子。）
+* [助记词种子](./Mnemonic%20Seed/Mnemonic%20Seed.md)（为你的HD钱包生成用户友好的种子。）
 * [扩展密钥](./Extended%20Keys/Extended%20Keys.md)（创建主扩展密钥，并从中派生子密钥。）
 * [导出路径](./Derivation%20Paths/Derivation%20Paths.md)（钱包用于组织密钥的常见层次结构。）
 

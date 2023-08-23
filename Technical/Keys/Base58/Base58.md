@@ -16,7 +16,7 @@ Base58是一组字符，你可以使用它们以更短且更易人看懂的格�
 |---|---|
 |2 (二进制)	|01|
 |10 (十进制)	|0123456789|
-|16 (十六进制)	|0123456789abcdef|
+|16 ([十六进制](../../Other/Hexadecimal/hexadecimal.md))	|0123456789abcdef|
 |58	|123456789ABCDEFGH JKLMN PQRSTUVWXYZabcdefghijk mnopqrstuvwxyz|
 
 因此，在日常生活中，我们习惯于使用**基数为10**的数字（使用数字0-9）。

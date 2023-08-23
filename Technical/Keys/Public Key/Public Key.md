@@ -271,11 +271,16 @@ puts uncompressed #=> 04b4632d08485ff1df2db55b9dafd23347d1c47a457072a1e87be26896
 
 ![Public Key-10.png](img/public-key-10.jpg)
 
+Transaction: [24c1f77de7c580eccd46c41d4c708da4ace04880559ee6bce97a67217466d7f7](https://learnmeabitcoin.com/explorer/transaction/24c1f77de7c580eccd46c41d4c708da4ace04880559ee6bce97a67217466d7f7)
+
+
 接下来，在下一笔花费比特币的交易中...
 
 原始公钥可以在[输入](../../Transaction/Transaction%20Data/Input/input.md)的解锁代码（scriptSig）中找到。
 
 ![Public Key-11.png](img/public-key-11.jpg)
+
+Transaction: [33ab606c34dce6e43673d20c1a72c7b0bce314d9d21e227c04092bbdaf8aaed5](https://learnmeabitcoin.com/explorer/transaction/33ab606c34dce6e43673d20c1a72c7b0bce314d9d21e227c04092bbdaf8aaed5)
 
 >正如你所看到的那样，公钥开头的04表示它是一个未压缩的公钥。这使得它几乎是现在通常使用的压缩公钥的两倍长。
 

@@ -10,7 +10,7 @@
 它基本上也是一个地址的“原始”版本。
 
 ## 如何创建公钥哈希？
-只需将你的公钥通过*SHA256*和*RIPEMD160*[哈希函数](../../../Other/Hash%20Function/Hash%20Function.md)处理即可：
+只需将你的公钥通过[SHA256](https://learnmeabitcoin.com/tools/sha256)和[RIPEMD160](https://learnmeabitcoin.com/tools/ripemd160)[哈希函数](../../../Other/Hash%20Function/Hash%20Function.md)处理即可：
 
 ![public-key-hash-2.png](img/public-key-hash-2%20(1).png)
 
@@ -18,6 +18,7 @@
 就是这样。
 
 例子：
+
 ```
 publickey          = 02b4632d08485ff1df2db55b9dafd23347d1c47a457072a1e87be26896549a8737
 hash160(publickey) = 93ce48570b55c42c2af816aeaba06cfee1224fae

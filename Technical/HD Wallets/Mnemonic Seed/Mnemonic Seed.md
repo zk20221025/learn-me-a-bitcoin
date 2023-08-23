@@ -15,9 +15,9 @@
 
 三个步骤：
 
-1. 生成熵
-2. 将熵转换为助记句
-3. 将助记句转换为种子
+1. [生成熵](#1生成熵)
+2. [熵到助记词](#2-熵到助记词)
+3. [从助记词到种子](#3-从助记词到种子)
 
 ### 1.生成熵
 
@@ -58,7 +58,7 @@ puts entropy #=> "10101101110110001100100100101110010010110010010101100010111000
 
 ![Mnemonic Seed-3.png](img/Mnemonic%20Seed-3%20(1).png)
 
-这个单词列表中有2048个单词。
+这个[单词列表](#bip39单词列表)中有2048个单词。
 这就是我们的助记句。
 
 提示：11位数字可以存储0-2047之间的小数（这就是为什么[单词列表](#bip39单词列表)中有2048个单词）。
@@ -102,6 +102,7 @@ end
 mnemonic = sentence.join(" ")
 puts "mnemonic: #{mnemonic}" #=> "punch shock entire north file identify"
 ```
+需要[wordlist.txt](https://learnmeabitcoin.com/technical/files/mnemonic/wordlist.txt)
 
 ### 3. 从助记词到种子
 现在我们有了助记词，我们可以将其转换成最终的种子。
@@ -193,7 +194,7 @@ puts "checksum: #{checksum}"
 puts "expected: #{checksumexpected}"
 puts "valid: #{checksum == checksumexpected}" #=> true
 ```
-Requires wordlist.txt
+需要[wordlist.txt](https://learnmeabitcoin.com/technical/files/mnemonic/wordlist.txt)
 
 ### BIP39单词列表
 一个助记句中的单词来自一个固定的2048个单词列表（由[BIP39](https://github.com/bitcoin/bips/blob/master/bip-0039/bip-0039-wordlists.md)指定）。每个单词的前4个字母在列表中是唯一的。
@@ -2253,7 +2254,7 @@ zoo
 ![Mnemonic Seed-6](img/Mnemonic%20Seed-6%20(1).png)
 
 ## 代码
-以下代码片段需要这个wordlist.txt文件。
+以下代码片段需要这个[wordlist.txt](https://learnmeabitcoin.com/technical/files/mnemonic/wordlist.txt)文件。
 ### Ruby:
 ```ruby
 require 'securerandom'

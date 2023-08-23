@@ -8,7 +8,7 @@
 例如，在比特币中，[地址](../Address/Address.md)包括校验和，以便可以检查它们是否已正确输入。
 
 ## 它们是如何工作的？
-在比特币中，校验和是通过两次使用*SHA256*[哈希数据](../../Other/Hash%20Function/Hash%20Function.md)，然后取结果的前4个字节来创建的。
+在比特币中，校验和是通过两次使用[SHA256](https://learnmeabitcoin.com/tools/sha256)[哈希数据](../../Other/Hash%20Function/Hash%20Function.md)，然后取结果的前4个字节来创建的。
 
 ![Checksum-2.png](img/checksum-2.png)
 
