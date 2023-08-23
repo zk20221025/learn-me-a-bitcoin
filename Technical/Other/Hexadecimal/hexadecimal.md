@@ -68,8 +68,8 @@
 
 或者如果我想要得到正确的答案，我会使用这些工具：
 
-* *十进制->十六进制*
-* *十六进制->十进制*
+* [十进制->十六进制](https://learnmeabitcoin.com/tools/dechex)
+* [十六进制->十进制](https://learnmeabitcoin.com/tools/hexdec)
 
 有时我喜欢使用命令行：
 ```

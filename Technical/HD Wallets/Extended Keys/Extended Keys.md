@@ -90,8 +90,11 @@ puts "master_public_key:  #{master_public_key}"  #=> 0252c616d91a2488c1fd1f0f172
 为了安全起见，你可以从扩展私钥派生出两种类型的子密钥：
 
 1. 普通子密钥-扩展私钥和扩展公钥可以生成相同的公钥。
+
 索引0到2147483647（所有可能的子密钥的前一半）
+
 2. 硬化子密钥-只有扩展私钥可以生成公钥。
+
 索引2147483648到4294967295（所有可能的子密钥的后一半）
 
 换句话说，硬化子密钥为你提供了创建“秘密”或“内部”公钥的选项，因为扩展公钥无法派生它们。
@@ -175,12 +178,13 @@ puts "child_public_key:   #{child_public_key}"  #=> 030204d3503024160e8303c00429
 
 ### 2. 硬化子扩展私钥
 
-![Extended Keys-7.png](img/Extended%20Keys-7%20(1).png)
+![Extended Keys-7.png](img/Extended%20Keys-7%20\(1）.png)
 
 1. **使用介于2147483647和4294967295之间的索引**。这些索引被指定为强化子扩展密钥。
 2. **通过HMAC将数据和密钥传递。**
    * 数据=私钥+索引（连接）
    * 密钥=链码
+
 **新链码**是HMAC结果的最后32个字节。
 
 **新的私钥**是从HMAC结果的前32个字节中添加到原始私钥中的结果。这只是将原始私钥增加一个随机的32字节数。
@@ -250,7 +254,7 @@ puts "child_public_key:   #{child_public_key}"  #=> 0355cff4a963ce259b08be9a8645
 
 **新的公钥**是原始公钥点加上HMAC结果的前32个字节作为曲线上的点（乘以生成器以将其作为点）。
 
-因此，我们将与生成子扩展私钥时相同的数据和密钥放入HMAC函数中。然后，通过[椭圆曲线点加法](../../Keys/ECDSA/ECDSA.md)，可以计算出子公钥，其使用与子扩展私钥相同的HMAC结果的前32个字节（这意味着它对应于子扩展私钥中的私钥）。
+因此，我们将与生成子扩展私钥时相同的数据和密钥放入HMAC函数中。然后，通过[椭圆曲线点加法](../../Keys/ECDSA/ECDSA.md#相加)，可以计算出子公钥，其使用与子扩展私钥相同的HMAC结果的前32个字节（这意味着它对应于子扩展私钥中的私钥）。
 
 **代码（Ruby）**
 ```ruby
@@ -424,19 +428,23 @@ puts "calculated:         #{calculated_key}" #=> 081549973bafbba825b31bcc402a3c4
 |32 bytes|	Chain Code	|The extra 32 byte secret. This prevents others from deriving child keys without it.|
 |33 bytes|	Key	|The private key (prepend 0x00) or public key.|
 注意事项：
->版本字节：
+>
+```
+版本字节：
 0488ade4 = xprv
 0488b21e = xpub
-049d7878 = yprv（用于BIP 49派生路径中的扩展密钥）
+049d7878 = yprv（用于[BIP 49](../Derivation%20Paths/Derivation%20Paths.md)派生路径中的扩展密钥）
 049d7cb2 = ypub
-04b2430c = zprv（用于BIP 84派生路径中的扩展密钥）
+04b2430c = zprv（用于[BIP 84](../Derivation%20Paths/Derivation%20Paths.md)派生路径中的扩展密钥）
 04b24746 = zpub
-
->主扩展密钥：
+```
+>
+```
+主扩展密钥：
 深度= 00
 指纹= 00000000
 子编号= 00000000
-
+```
 >在密钥字段中，私钥（32字节）以0x00开头，以将其扩展到与公钥（33字节）相同的长度。
 
 然后在此数据中添加[校验和](../../Keys/Checksum/Checksum.md)（以帮助检测错误），最后将所有内容转换为[Base58](../../Keys/Base58/Base58.md)（以创建人类友好观看的扩展密钥格式）。
