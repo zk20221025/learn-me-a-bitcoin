@@ -33,8 +33,8 @@ P2PKH脚本模式包含一个由这些操作码包围的[哈希处理的公钥](
 
 以下是一些使用P2PKH的有趣交易：
 
-* 6f7cf9580f1c2dfb3c4d5d043cdbb128c640e3f20161245aa7372e9666168516 - 第一笔P2PKH交易（2009年1月16日）
-* a1075db55d416d3ca199f55b6084e2115b9345e16c5cf302fc80e9d5fbf5d48d - 披萨交易（10,000 BTC）
+* [6f7cf9580f1c2dfb3c4d5d043cdbb128c640e3f20161245aa7372e9666168516](https://learnmeabitcoin.com/explorer/transaction/6f7cf9580f1c2dfb3c4d5d043cdbb128c640e3f20161245aa7372e9666168516) - 第一笔P2PKH交易（2009年1月16日）
+* [a1075db55d416d3ca199f55b6084e2115b9345e16c5cf302fc80e9d5fbf5d48d](https://learnmeabitcoin.com/explorer/transaction/a1075db55d416d3ca199f55b6084e2115b9345e16c5cf302fc80e9d5fbf5d48d) - 披萨交易（10,000 BTC）
   
 ## 为什么我们既有P2PKH又有P2PK？
 >如果P2PK可以很好地将比特币锁定到公钥上，为什么我们还需要更复杂的P2PKH脚本？
@@ -79,7 +79,7 @@ Satoshi可能在当时不知道[压缩公钥](../../Keys/Public%20Key/Public%20K
 ### 如果Satoshi知道压缩公钥，我们仍会使用P2PKH吗？
 也许会，也许不会。这是个好问题。
 
-如果你将一个[压缩的公钥](../../Keys/Public%20Key/Public%20Key.md)进行base58编码，你会得到一个长度为**51个字符**的地址（相比之下，你在哈希之前得到的地址只有**34个字符**），因此在创建地址之前进行哈希可能没有太大的激励：
+如果你将一个[压缩公钥](../../Keys/Public%20Key/Public%20Key.md)进行base58编码，你会得到一个长度为**51个字符**的地址（相比之下，你在哈希之前得到的地址只有**34个字符**），因此在创建地址之前进行哈希可能没有太大的激励：
 <center>
 
 ![P2PKH-8.png](img/P2PKH-8%20(1).png)

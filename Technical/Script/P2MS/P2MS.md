@@ -56,13 +56,14 @@
 
 尽管如此，以下是一些具有P2MS锁定脚本的交易示例：
 
-* *60a20bd93aa49ab4b28d514ec10b06e1829ce6818ec06cd3aabd013ebcdc4bb1* - 第一笔P2MS交易。（2012年1月30日）
-* *2daea775df11a98646c475c04247b998bbed053dc0c72db162dd6b0a99a59c26* - 第二笔P2MS交易。（2012年2月3日）
-* *14237b92d26850730ffab1bfb138121e487ddde444734ef195eb7928102bc939* - 第三笔P2MS交易。（2012年2月3日）
+* [60a20bd93aa49ab4b28d514ec10b06e1829ce6818ec06cd3aabd013ebcdc4bb1](https://learnmeabitcoin.com/explorer/transaction/60a20bd93aa49ab4b28d514ec10b06e1829ce6818ec06cd3aabd013ebcdc4bb1) - 第一笔P2MS交易。（2012年1月30日）
+* [2daea775df11a98646c475c04247b998bbed053dc0c72db162dd6b0a99a59c26](https://learnmeabitcoin.com/explorer/transaction/2daea775df11a98646c475c04247b998bbed053dc0c72db162dd6b0a99a59c26) - 第二笔P2MS交易。（2012年2月3日）
+* [14237b92d26850730ffab1bfb138121e487ddde444734ef195eb7928102bc939](https://learnmeabitcoin.com/explorer/transaction/14237b92d26850730ffab1bfb138121e487ddde444734ef195eb7928102bc939) - 第三笔P2MS交易。（2012年2月3日）
 
-* *ac1d9ed701af32ea52fabd0834acfb1ba4e3584cf0553551f1b61b3d7fb05ee7* - 1-of-1多重签名
-* *78b28d3c2324da8c2f01840021addbcabb68f7ce1d4da870cabe5e9df6afe63d* - 1-of-2多重签名
-* *581d30e2a73a2db683ac2f15d53590bd0cd72de52555c2722d9d6a78e9fea510* - 2-of-3多重签名
+
+* [ac1d9ed701af32ea52fabd0834acfb1ba4e3584cf0553551f1b61b3d7fb05ee7](https://learnmeabitcoin.com/explorer/transaction/ac1d9ed701af32ea52fabd0834acfb1ba4e3584cf0553551f1b61b3d7fb05ee7) - 1-of-1多重签名
+* [78b28d3c2324da8c2f01840021addbcabb68f7ce1d4da870cabe5e9df6afe63d](https://learnmeabitcoin.com/explorer/transaction/78b28d3c2324da8c2f01840021addbcabb68f7ce1d4da870cabe5e9df6afe63d) - 1-of-2多重签名
+* [581d30e2a73a2db683ac2f15d53590bd0cd72de52555c2722d9d6a78e9fea510](https://learnmeabitcoin.com/explorer/transaction/581d30e2a73a2db683ac2f15d53590bd0cd72de52555c2722d9d6a78e9fea510) - 2-of-3多重签名
 
 >你将不会在上面的交易中看到P2MS锁定脚本的任何地址，因为**P2MS没有自己的[地址](../../Keys/Address/Address.md)格式**（就像[P2PKH](../P2PKH/P2PKH.md)和[P2SH](../P2SH/P2SH.md)一样）。
 

@@ -129,19 +129,20 @@ P2SH地址以3开头（由于在转换为[base58](../../Keys/Base58/Base58.md)�
 >寻找带有[3地址](../../Keys/Address/Address.md#支付到脚本哈希p2sh)的输出。通过查看scriptSig中的**赎回脚本**的内容，可以确定它是什么类型的锁定（例如多重签名）。
 
 以下是已解锁的具有P2SH输出的第一笔交易：[^1]
-* a0f1aaa2fb4582c89e0511df0374a5a2833bf95f7314f4a51b55b7b71e90ce0f - 1-of-2 Multisig
+* [a0f1aaa2fb4582c89e0511df0374a5a2833bf95f7314f4a51b55b7b71e90ce0f](https://learnmeabitcoin.com/explorer/transaction/a0f1aaa2fb4582c89e0511df0374a5a2833bf95f7314f4a51b55b7b71e90ce0f) - 1-of-2 Multisig
+
 以下是P2SH用于多重签名的更多示例：
 
-* 40eee3ae1760e3a8532263678cdf64569e6ad06abc133af64f735e52562bccc8 - 1-of-1 多重签名
-* 450c309b70fb3f71b63b10ce60af17499bd21b1db39aa47b19bf22166ee67144 - 1-of-2 多重签名
-* d3adb18d5e118bb856fbea4b1af936602454b44a98fc6c823aedc858b491fc13 - 2-of-3 多重签名
+* [40eee3ae1760e3a8532263678cdf64569e6ad06abc133af64f735e52562bccc8](https://learnmeabitcoin.com/explorer/transaction/40eee3ae1760e3a8532263678cdf64569e6ad06abc133af64f735e52562bccc8) - 1-of-1 多重签名
+* [450c309b70fb3f71b63b10ce60af17499bd21b1db39aa47b19bf22166ee67144](https://learnmeabitcoin.com/explorer/transaction/450c309b70fb3f71b63b10ce60af17499bd21b1db39aa47b19bf22166ee67144) - 1-of-2 多重签名
+* [d3adb18d5e118bb856fbea4b1af936602454b44a98fc6c823aedc858b491fc13](https://learnmeabitcoin.com/explorer/transaction/d3adb18d5e118bb856fbea4b1af936602454b44a98fc6c823aedc858b491fc13) - 2-of-3 多重签名
   
 以下是P2SH用于自定义（非标准）赎回脚本的示例：
 
-* bd60553862497ea33fb98f4086308740ed1e5637d5740b36271f7fca2ce7d8f1
-* 7d46745463a28049cb93d2c964320912d9c296c1038cb24cc3716255c397a87f
-* e901419693926c897f16e4f14e48f51489207b2a087435b8e82801c00c7ab121
-* 2c6c3a1319c3e42b4801dab62e3d3d59c51c3535b8dad20e9580650f114c7026 - [Peter Todd SHA1哈希碰撞脚本](https://bitcointalk.org/index.php?topic=293382.0)
+* [bd60553862497ea33fb98f4086308740ed1e5637d5740b36271f7fca2ce7d8f1](https://learnmeabitcoin.com/explorer/transaction/bd60553862497ea33fb98f4086308740ed1e5637d5740b36271f7fca2ce7d8f1)
+* [7d46745463a28049cb93d2c964320912d9c296c1038cb24cc3716255c397a87f](https://learnmeabitcoin.com/explorer/transaction/7d46745463a28049cb93d2c964320912d9c296c1038cb24cc3716255c397a87f)
+* [e901419693926c897f16e4f14e48f51489207b2a087435b8e82801c00c7ab121]()
+* [2c6c3a1319c3e42b4801dab62e3d3d59c51c3535b8dad20e9580650f114c7026](https://learnmeabitcoin.com/explorer/transaction/2c6c3a1319c3e42b4801dab62e3d3d59c51c3535b8dad20e9580650f114c7026) - [Peter Todd SHA1哈希碰撞脚本](https://bitcointalk.org/index.php?topic=293382.0)
 
 ## 你可以在赎回脚本中放置哪种类型的脚本？
 你可以在赎回脚本中放置几乎任何自定义的**锁定脚本**。

@@ -18,7 +18,7 @@
 你无法解锁此锁定脚本。
 
 ## 那么 NULL DATA 锁定脚本有什么用途呢？
-你可以使用 NULL DATA 进行**数据存储**，因为[标准脚本](../Script.md)允许在末尾进行数据推送。
+你可以使用 NULL DATA 进行**数据存储**，因为[标准脚本](../Script.md#标准脚本)允许在末尾进行数据推送。
 
 因此，如果你想向交易中添加添加一些任意数据，可以包含一个额外的（空）输出，并在其上放置一个 NULL DATA 锁定脚本：
 
@@ -53,15 +53,15 @@ ASCII字符代码表:
 
 以下是一些人使用脚本存储文本字符串的示例（将鼠标悬停在数据推送上即可查看ASCII文本）：
 
-Example 1 - “hello world”
+[Example 1](https://learnmeabitcoin.com/explorer/transaction/6dfb16dd580698242bcfd8e433d557ed8c642272a368894de27292a8844a4e75) - “hello world”
 |scriptPubKey|OP_RETURN 636861726c6579206c6f766573206865696469<!--hello world-->|
 |---|---|
 
-Example 2 - “charley loves heidi”
+[Example 2](https://learnmeabitcoin.com/explorer/transaction/8bae12b5f4c088d940733dcd1455efc6a3a69cf9340e17a981286d3778615684) - “charley loves heidi”
 |scriptPubKey|OP_RETURN 636861726c6579206c6f766573206865696469<!--charley loves heidi-->|
 |---|---|
 
-Example 3 - “家族も友達もみんなが笑顔の毎日がほしい”
+[Example 3](https://learnmeabitcoin.com/explorer/transaction/67e93f47a5370124798e26980a3190759b682bdb4e9456350cf39141d41633bf) - “家族も友達もみんなが笑顔の毎日がほしい”
 | scriptPubKey|OP_RETURN e5aeb6e6978fe38282e58f8be98194e38282e381bfe38293e381aae3818ce7ac91e9a194e381aee6af8ee697a5e3818ce381bbe38197e38184<!--家族も友達もみんなが笑顔の毎日がほしい-->|
 |---|---|
 
@@ -74,7 +74,7 @@ Example 3 - “家族も友達もみんなが笑顔の毎日がほしい”
 |scriptPubKey|OP_DUP OP_HASH160 00000000006c6561726e6d6561626974636f696e<!--learnmeabitcoin--> OP_EQUALVERIFY OP_CHECKSIG|
 |---|---|
 
-然而，这种方法的问题在于它看起来像一个标准的锁定脚本，因此输出将存储在[UTXO数据库](../../Transaction/UTXO/UTXO.md)中，这会浪费RAM，因为输出实际上是**不可花费**的。
+然而，这种方法的问题在于它看起来像一个标准的锁定脚本，因此输出将存储在[UTXO数据库](../../Transaction/UTXO/UTXO.md#utxo数据库)中，这会浪费RAM，因为输出实际上是**不可花费**的。
 
 因此，这就是NULL DATA的作用所在：
 
@@ -96,7 +96,7 @@ Example 3 - “家族も友達もみんなが笑顔の毎日がほしい”
 
 ![nulldata-5.png](img/nulldata-5.png)
 
-你可以在此处查看此脚本在[P2SH](../P2SH/P2SH.md)中的*示例*。
+你可以在此处查看此脚本在[P2SH](../P2SH/P2SH.md)中的[示例](https://learnmeabitcoin.com/explorer/transaction/7aabb1beb1fe7019fb3a4f3aeb4dbb1fd1917ada16df09c0517652cd918707ea/output/0)。
 
 感谢[Vincenzo Iovino](https://sites.google.com/site/vincenzoiovinoit)指出这一点。
 

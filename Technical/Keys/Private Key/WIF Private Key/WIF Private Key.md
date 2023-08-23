@@ -16,6 +16,7 @@ WIF私钥是一个标准的[私钥](../Private%20Key.md)，但加了一些额外
 3. **[校验和](../../Checksum/Checksum.md)** - 有助于检测输入私钥时的错误/打字错误。
 
 然后将所有这些内容转换为[Base58](../../Base58/Base58.md)，缩短整个过程并使其更容易转录...
+
 ![WIF Private Key-1.png](img/WIF%20Private%20Key-1.png)
 
 >WIF私钥只是另一种表示原始私钥的方式。如果你有WIF私钥，你随时可以将其转换回原始格式。
