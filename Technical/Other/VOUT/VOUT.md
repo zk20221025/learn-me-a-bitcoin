@@ -1,5 +1,5 @@
 # <center>VOUT</center>
-<center>比特币交易中输出的向量。<center>
+<center>比特币交易中输出的向量。</center>
 
 ![VOUT-1.png](img/VOUT-1.png)
 
