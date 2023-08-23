@@ -19,7 +19,7 @@ Coinbase交易是一个区块中的第一个交易。矿工使用它来收集**�
 
 ![coinbase-transaction-3.png](img/Coinbase%20Transaction-3-svg.png)
 
-原始数据（*来源*）
+原始数据（[来源](https://learnmeabitcoin.com/explorer/transaction/d0ec21e1d73d06be76c2b5b1e5ec486085bda8264229046c11b95f66f2eded83)）
 ```
 01000000010000000000000000000000000000000000000000000000000000000000000000ffffffff4503ec59062f48616f4254432f53756e204368756e2059753a205a6875616e67205975616e2c2077696c6c20796f75206d61727279206d653f2f06fcc9cacc19c5f278560300ffffffff01529c6d98000000001976a914bfd3ebb5485b49a6cf1657824623ead693b5a45888ac00000000
 ```
@@ -37,17 +37,17 @@ Coinbase交易是一个区块中的第一个交易。矿工使用它来收集**�
 
 在上面的交易数据中，03给我们推送的[字节数](https://en.bitcoin.it/wiki/Script#Constants)，因此接下来的3个字节ec5906表示块的高度。
 
->当你*交换字节顺序*并转换为*十进制*时，ec5906是416236。
+>当你[交换字节顺序](https://learnmeabitcoin.com/tools/swapendian)并转换为[十进制](https://learnmeabitcoin.com/tools/hexdec)时，ec5906是416236。
 
 >### **Coinbase交易中的信息。**
->矿工们经常使用scriptSig来存储文本字符串。你只需要将它们解码（从十六进制到ASCII）即可阅读。
+>矿工们经常使用scriptSig来存储文本字符串。你只需要将它们解码（[从十六进制到ASCII](https://learnmeabitcoin.com/tools/hex2ascii)）即可阅读。
 以下是一些有趣的信息：
 
 |Coinbase交易|scriptSig（解码后）|注释|
 |---|---|---|
-|8b50f51b49f27e7bb0efb0b3bf38d12ce4f7e6258b90a75802a394cb585c879d|BitFury/BIP100/|矿工通常会包括他们所在的矿池的名称。|
-|d0ec21e1d73d06be76c2b5b1e5ec486085bda8264229046c11b95f66f2eded83|/HaoBTC/Sun Chun Yu: Zhuang Yuan, will you marry me?/|你可以把任何文本字符串放进去。|
-|4a5e1e4baab89f3a32518a88c31bc87f618f76673e2cc77ab2127b7afdeda33b|The Times 03/Jan/2009 Chancellor on brink of second bailout for banks|这是由中本聪挖掘的第一个Coinbase交易。|
+|[8b50f51b49f27e7bb0efb0b3bf38d12ce4f7e6258b90a75802a394cb585c879d](https://learnmeabitcoin.com/explorer/transaction/8b50f51b49f27e7bb0efb0b3bf38d12ce4f7e6258b90a75802a394cb585c879d)|BitFury/BIP100/|矿工通常会包括他们所在的矿池的名称。|
+|[d0ec21e1d73d06be76c2b5b1e5ec486085bda8264229046c11b95f66f2eded83](https://learnmeabitcoin.com/explorer/transaction/d0ec21e1d73d06be76c2b5b1e5ec486085bda8264229046c11b95f66f2eded83)|/HaoBTC/Sun Chun Yu: Zhuang Yuan, will you marry me?/|你可以把任何文本字符串放进去。|
+|[4a5e1e4baab89f3a32518a88c31bc87f618f76673e2cc77ab2127b7afdeda33b](https://learnmeabitcoin.com/explorer/transaction/4a5e1e4baab89f3a32518a88c31bc87f618f76673e2cc77ab2127b7afdeda33b)|The Times 03/Jan/2009 Chancellor on brink of second bailout for banks|这是由中本聪挖掘的第一个Coinbase交易。|
 
 >**一笔 Coinbase 交易必须经过 100 个区块的确认，才能花费它的输出。**
 这是一种安全措施，防止来自coinbase交易的输出变得无法花费（如果挖掘的块因分叉而移出活动链）。

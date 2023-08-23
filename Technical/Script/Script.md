@@ -92,7 +92,7 @@
 
 ![Scpipt-11.png](img/Script-11%20(1).png)
 
-这个脚本锁定的比特币可以在**35Snmmy3uhaer2gTboc81ayCip4m9DT4ko**找到。然而，该脚本已经被包装在一个P2SH锁定脚本中，因此你无法实际查看原始锁定脚本（除非有人解锁它们）。
+这个脚本锁定的比特币可以在[**35Snmmy3uhaer2gTboc81ayCip4m9DT4ko**](https://learnmeabitcoin.com/explorer/address/35Snmmy3uhaer2gTboc81ayCip4m9DT4ko)找到。然而，该脚本已经被包装在一个P2SH锁定脚本中，因此你无法实际查看原始锁定脚本（除非有人解锁它们）。
 
 >**这些锁定脚本不是标准的。**[^2]。虽然这些脚本是有效的（并且可以开采到区块链上），但典型的比特币核心节点不会从其内存池中中继它们，这使得它们很难在第一时间被挖掘。
 

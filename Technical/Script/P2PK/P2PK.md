@@ -31,8 +31,8 @@
 
 以下是一些使用P2PK的交易示例：
 
-* 4a5e1e4baab89f3a32518a88c31bc87f618f76673e2cc77ab2127b7afdeda33b-创世块中的coinbase交易。（2009年1月3日）
-* f4184fc596403b9d638783cf57adfe4c75c605f6356fbc91338530e9831e9e16-从Satoshi到 Hal Finney 的第一笔比特币交易实际上使用了 P2PK（区块 170，2009 年 1 月 12 日）
+* [4a5e1e4baab89f3a32518a88c31bc87f618f76673e2cc77ab2127b7afdeda33b](https://learnmeabitcoin.com/explorer/transaction/4a5e1e4baab89f3a32518a88c31bc87f618f76673e2cc77ab2127b7afdeda33b)-创世块中的coinbase交易。（2009年1月3日）
+* [f4184fc596403b9d638783cf57adfe4c75c605f6356fbc91338530e9831e9e16](https://learnmeabitcoin.com/explorer/transaction/f4184fc596403b9d638783cf57adfe4c75c605f6356fbc91338530e9831e9e16)-从Satoshi到 Hal Finney 的第一笔比特币交易实际上使用了 P2PK（区块 170，2009 年 1 月 12 日）
 
 ## 为什么Satoshi在比特币核心矿工中使用P2PK？
 
@@ -44,6 +44,6 @@
 
 因为Satoshi设计了[P2PKH](../P2PKH/P2PKH.md)，以便我们可以互相发送较短的**地址**而不是完整的公钥。
 
-参见：[为什么我们既有P2PKH又有P2PK？](../P2PKH/P2PKH.md)
+参见：[为什么我们既有P2PKH又有P2PK？](../P2PKH/P2PKH.md#为什么我们既有p2pkh又有p2pk)
 
 [^1]:https://bitcoin.stackexchange.com/questions/73563/how-did-pay-to-pubkey-hash-come-about-what-is-its-history
