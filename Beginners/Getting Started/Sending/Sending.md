@@ -182,6 +182,7 @@ Within 432 Blocks: 1 sat/byte
 * **1个确认**通常足够。
 * **2个确认**，如果你想要额外的保险，以防自然的[链重组](../../../Technical/Blockchain/chain-reorganisation/chain-reorganisation.md)。
 * **3个或以上的确认**，如果你担心网络规模的[攻击](../../../Technical/Blockchain/51-attack/51-attack.md)会逆转你的交易。
+
 “确认”是指你的交易被挖掘到一个区块中。如果在包含你的交易的区块上继续挖掘其他区块，就会出现额外的确认。
 
 ![Sending-14.gif](img/Sending-14%20(1).gif)
@@ -197,7 +198,7 @@ Within 432 Blocks: 1 sat/byte
 ![Sending-15.png](img/Sending-15%20(1).png)
 
 <center>随着交易在区块链中的深入，矿工要移除它的难度呈指数级增加。</center>
-
+  
 因此，通常建议等待**6个确认**（或更多）以确保交易无法被撤销，因为此时矿工无法替换该数量的区块。然而，除非你正在保护自己免受整个网络的恶意矿工攻击，否则这是过度保护。
 
 等待**2个确认**来确保交易不会被撤销是更合理的时间。这是因为区块链中的顶部块往往会在自然[链重组](../../../Technical/Blockchain/chain-reorganisation/chain-reorganisation.md)期间与另一个块交换位置。
@@ -219,7 +220,7 @@ Within 432 Blocks: 1 sat/byte
 * [learnmeabitcoin.com/explorer](https://learnmeabitcoin.com/explorer) - 我制作的一个浏览器。我设计它是为了快速简单。
 * [blockstream.info](https://blockstream.info/) - 另一个流行的浏览器，虽然更专注于技术细节。
 
-现在，区块链浏览器基本上只是一个作为比特币节点窗口的网站。因此，通过输入你的TXID，你只是要求浏览器查看其已收到的区块链（或内存池）中的交易，并向你显示交易的详细信息。
+现在，区块链浏览器基本上只是一个作为比特币节点窗口的网站。因此，通过输入你的TXID，你只需要求浏览器查看其已收到的区块链（或内存池）中的交易，并向你显示交易的详细信息。
 
 ![Sending-17.png](img/Sending-17%20(1).png)
 
@@ -245,9 +246,9 @@ Within 432 Blocks: 1 sat/byte
     * 如果你想在极少数的自然[链重组](../../../Technical/Blockchain/chain-reorganisation/chain-reorganisation.md)的情况下更加确保，2次确认是更好的选择。
     * 除非你担心有人会策划一场[网络规模的攻击](../../../Technical/Blockchain/51-attack/51-attack.md)来撤销你的交易，否则3次以上的确认就是多余的。
 
-在你的前几次交易后，你会逐渐熟悉它。
+经过最初的几次交易后，你会逐渐熟悉它。
 
-这是一份非常好的指南（不用谢），但是经验是最好的老师。
+这是一份非常好的指南（不用谢），但经验是最好的老师。
 
 [^1]:一个区块过去只能容纳1MB的数据，但是由于[隔离见证]()技术的出现，计算区块可以容纳多少数据的方法已经在2017年7月发生了变化。因此，一个区块现在可以容纳大约1.7MB的交易数据。
 
