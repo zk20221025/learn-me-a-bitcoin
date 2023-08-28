@@ -9,11 +9,13 @@
 你的节点接收到的每个区块都会被追加到blk.dat文件中。
 
 此外，它们不是存储在一个巨大的文件中，而是分成多个blk * .dat文件。
+```
 ~/.bitcoin/blocks
     blk00000.dat
     blk00001.dat
     blk00002.dat
-    …
+    ......
+```
 你的节点首先将块添加到blk00000.dat中，当它填满时，它会继续移动到blk00001.dat，然后是blk00002.dat……以此类推。
 
 ### 例如
@@ -45,7 +47,7 @@ f9beb4d91d0100000100000000000000000000000000000000000000000000000000000000000000
 大小被给定为1d010000，因此将其换成人类格式：  
 1.[交换字节序](https://learnmeabitcoin.com/tools/swapendian)以获得0000011d  
 2.[转换为十进制](https://learnmeabitcoin.com/tools/hexdec)以获得285  
-因此，除了magic bytes+size的初始8个字节外，我知道即将到来的块数据的大小将是**285字节**。
+因此，除了魔术字节和大小的初始8个字节外，我知道即将到来的块数据的大小将是**285个字节**。
 
 ### 注释
 #### 1. 区块不会按顺序下载。
@@ -54,8 +56,8 @@ f9beb4d91d0100000100000000000000000000000000000000000000000000000000000000000000
 A B C E F D
 ```
 
->这是因为你的比特币节点会并行下载区块来尽快下载区块链。当节点下载区块时，它会下载比当前区块更靠前的区块，而不是等待按顺序接收每个区块。
-你的节点将从最大的[BLOCK_DOWNLOAD_WINDOW](https://github.com/bitcoin/bitcoin/search?q=BLOCK_DOWNLOAD_WINDOW)控制的最大无序度距离处获取。
+>这是因为你的比特币节点会并行下载区块来尽快下载区块链。当节点下载区块时，它会下载比当前区块更靠前的区块，而不是等待按顺序接收每个区块。  
+在比特币源代码中，您的节点将从其中获取的最大距离（或者说“最大的无序度”）由[BLOCK_DOWNLOAD_WINDOW](https://github.com/bitcoin/bitcoin/search?q=BLOCK_DOWNLOAD_WINDOW)控制。
 
 #### 2. 最大blk.dat文件大小为128MiB（134,217,728字节）
 此限制由[MAX_BLOCKFILE_SIZE](https://github.com/bitcoin/bitcoin/search?q=MAX_BLOCKFILE_SIZE)设置
@@ -72,7 +74,8 @@ od -x --endian=big -N 293 -An blk00000.dat
 *  -endian = big <- 以大端方式显示字节
 *  -N 293 <- 要读取的字节数
 *  -An <- 不显示文件偏移量
-“od”代表八进制转储，但你可以以其他格式转储数据。
+
+>“od”代表八进制转储，但你可以以其他格式转储数据。
 
 #### 2. hexdump
 这类似于od，但它还提供了显示数据中的ascii文本的选项（这对于查看包含在交易数据中的消息很有用）。
