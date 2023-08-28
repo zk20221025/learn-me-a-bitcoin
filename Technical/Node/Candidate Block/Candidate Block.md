@@ -5,8 +5,11 @@
 
 ![Candidate Block-1.png](img/Candidate%20Block-1%20(1).png)
 
+任何正在挖矿的人都可以选择将哪些交易包含在其候选区块中。
+
+
 每个节点都尝试通过[挖矿](../../Mining/Mining.md)的过程将其候选区块添加到[区块链](../../../Beginners/How%20Bitcoin%20Works/2.Mining/1.Blockchain/Blockchain.md)中。
 
 ![Candidate Block-2.png](img/Candidate%20Block-2%20(1).png)
 
-每个区块都是作为候选区块开始生命周期的，但只有成功挖掘的区块才会被添加到区块链中。
+每个区块开始时都是候选区块，但只有成功开采的区块才会添加到区块链中。
