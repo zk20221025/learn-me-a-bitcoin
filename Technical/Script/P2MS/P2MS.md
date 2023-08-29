@@ -3,7 +3,7 @@
 
 ![P2MS-1.png](img/P2MS-1%20(1).png)</center>
 
-**P2MS**是一种脚本模式，允许你将比特币锁定到**多个**公钥，并要求某些（或全部）公钥的**签名**才能解锁它。
+**P2MS**是一种脚本模式，允许你将比特币锁定到**多个**公钥，并要求**一些**（或全部）公钥的**签名**才能解锁它。
 
 例如，你可以创建一个包括**3个不同人**的公钥的P2MS脚本，但只有**其中的2个人**需要提供他们的签名才能花费比特币。
 
@@ -28,15 +28,15 @@
 |scriptSig|OP_0 304402203f16c6f40162ab686621ef3000b04e75418a0c0cb2d8aebeac894ae360ac1e780220ddc15ecdfc3507ac48e1681a33eb60996631bf6bf5bc0a0682c4db743ce7ca2b01|
 |---|---|
 
->**CHECKMULTISIG Bug** 操作码存在一个 bug，它会从堆栈中弹出比它需要的多一个元素（[偏移错误](https://stackoverflow.com/questions/2939869/what-is-exactly-the-off-by-one-errors-in-the-while-loop)）。因此，为了避免错误，在 scriptSig 的开头添加一个虚拟值（通常是 **OP_0**）。
+>**CHECKMULTISIG Bug** 操作码存在一个 bug，它会从堆栈中弹出超出需要的额外元素（[偏移错误](https://stackoverflow.com/questions/2939869/what-is-exactly-the-off-by-one-errors-in-the-while-loop)）。因此，为了避免错误，在 scriptSig 的开头添加一个虚拟值（通常是 **OP_0**）。
 
 ## 执行
 当这个脚本执行时，所有的**签名**和**公钥**都被推到栈上。
 
 然后我们来到 **CHECKMULTISIG** 操作码：
 
-1. 弹出 **N**，然后从栈上弹出该数量的公钥。
-2. 弹出 **M**，然后从栈上弹出该数量的签名。
+1. 弹出 **N**，然后从堆栈弹出该数量的公钥。
+2. 弹出 **M**，然后从堆栈弹出该数量的签名。
 
 在弹出所有公钥和签名后，它将每个**签名**与每个**公钥**进行比较：
 
@@ -48,11 +48,11 @@
 ![P2MS-4.gif](img/P2PMS-4%20(1).gif)
 
 ## 你可以在哪里找到P2MS脚本？
-在区块链中很少能找到P2MS脚本，因为大多数多重签名交易使用更新的[P2SH](../P2SH/P2SH.md)脚本。
+在区块链中很少能找到P2MS脚本，因为**大多数多重签名交易使用较新的[P2SH](../P2SH/P2SH.md)脚本。**
 
 ![P2MS-5.png](img/P2MS-5%20(1).png)
 
-根据这个很酷的[区块链浏览器](https://webbtc.com/stats)，只有1%的锁定脚本是P2MS，所以它们可能很难找到。
+根据这个很酷的[区块链浏览器](https://webbtc.com/stats)，只有1%的锁定脚本是P2MS，因此很难找到它们。
 
 尽管如此，以下是一些具有P2MS锁定脚本的交易示例：
 
@@ -87,11 +87,11 @@
 
 它可以被删除作为标准脚本，但是…
 
->我们不能只是引入一个破坏现有功能的策略。- [Pieter Wuille](https://twitter.com/pwuille)
+>我们不能只是引入破坏现有功能的策略。- [Pieter Wuille](https://twitter.com/pwuille)
 
-因此，P2MS仍然是P2SH存在之前的一个遗物。
+因此，P2MS仍然是P2SH存在之前的遗物。
 
-链接
+## 链接
 * https://medium.com/@alcio/the-state-of-bitcoin-multisig-82b3bf09b1ca
 
 [^1]:https://bitcoin.stackexchange.com/questions/23893/what-are-the-limits-of-m-and-n-in-m-of-n-multisig-addresses
