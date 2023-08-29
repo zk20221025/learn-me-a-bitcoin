@@ -23,13 +23,13 @@ Bits是目标的简写。
 2. **系数**：这给出了目标的最初3个字节。
 ![bits-2.png](img/bits-2%20(1).png)
 
-因此，如果你想找出在一个块被挖掘时的目标是什么，Bits字段将帮助你计算出它的（稍微舍入）值。
+因此，如果你想找出在块被挖掘时的目标是什么，Bits字段将帮助你计算出它的（稍微舍入）值。
 
 >[Bits -> Target](https://learnmeabitcoin.com/tools/bitstarget)
 
 >请记住指数是[十六进制数](../../../Other/Hexadecimal/hexadecimal.md)，因此0x18表示十进制下的24字节。
 
->系数部分取自原始目标总是向上取整。以下是[当前目标](https://learnmeabitcoin.com/explorer/node/difficulty)。
+>系数部分取自原始目标总是向上取整。这是[当前目标](https://learnmeabitcoin.com/explorer/node/difficulty)。
 
 >完整的目标通常显示为32个字节的长度，其中包括所有前导的零。但实际上，以下所有内容都是相同的数字：
 ```

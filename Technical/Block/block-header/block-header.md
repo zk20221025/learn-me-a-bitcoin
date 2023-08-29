@@ -1,7 +1,7 @@
 # <center>块头</center>
 <center>一个数据块的摘要。</center>
 
-一个块头就像是一块交易中的元数据。
+块头就像是交易块顶部的元数据。
 
 ![block-header-1.png](img/block-header-1.png)
 
@@ -21,21 +21,21 @@
 |---|---|
 |版本 |	块的版本|
 |前一个块的哈希值| 这个块正在构建的块的[区块哈希](../block-hash/block-hash.md)。这就是将这些块“链接”在一起的方式。|
-|[Merkle根](./merkle-root/merkle-root.md)|将该区块中的所有交易一起哈希。基本上提供了该区块中所有交易的单行摘要。|
+|[默克尔根](./merkle-root/merkle-root.md)|将该区块中的所有交易一起哈希。基本上提供了该区块中所有交易的单行摘要。|
 |时间 | 当矿工尝试挖掘此区块时，该区块头正在进行哈希运算的Unix时间会在区块头本身中被记录。|
-|[Bits](../block-header/bits/bits.md) |	目标的简化版本.|
-|[Nonce](./Nonce/Nonce.md) |矿工改变的领域，以尝试获得低于目标值的区块头哈希（区块哈希）。|
+|[位](../block-header/bits/bits.md) |	目标的简化版本.|
+|[随机数](./Nonce/Nonce.md) |矿工改变的领域，以尝试获得低于目标值的区块头哈希（区块哈希）。|
 
 ## 数据结构
 
 |领域|	大小|	数据|
 |---|---|---|
-|版本|	4 bytes|[Little-endian](../../Other/Little-endian/Little-Endian.md)|
-|前一个区块的哈希值|	32 bytes|	Little-endian|
-|Merkle根|	32 bytes|	Little-endian|
-|时间|	4 bytes|	Little-endian|
-|Bits|	4 bytes|	Little-endian|
-|Nonce|	4 bytes|	Little-endian|
+|版本|	4 bytes|[小端序](../../Other/Little-endian/Little-Endian.md)|
+|前一个区块的哈希值|	32 bytes|	小端序|
+|默克尔根|	32 bytes|	小端序|
+|时间|	4 bytes|	小端序|
+|位|	4 bytes|	小端序|
+|随机数|	4 bytes|	小端序|
 
 ## 工具
 * [哈希块头](https://learnmeabitcoin.com/tools/hashblockheader/) - 插入单个块头字段，获取序列化块头和块哈希。
