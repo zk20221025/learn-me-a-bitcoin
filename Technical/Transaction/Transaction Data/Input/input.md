@@ -1,9 +1,9 @@
 # <center>输入</center>
-<center>一批比特币被用于比特币交易。</center>
+<center>在比特币交易中使用的一批比特币。。</center>
 
 ![input-1.png](img/input-1-svg.png)
 
-当你在交易中使用[输出](../output/output.md)时，你所称呼的是输入。
+输入就是您在交易中花费时所说的[输出](../output/output.md)。
 
 ## 结构
 ```
@@ -36,7 +36,7 @@ Transaction: [c1b4e695098210a31fe02abffe9005cffc051bbe86ff33e173155bcbdc5821e3](
 
 选择一个输出后，你需要能够**解锁它**。
 
-每个输出都设置了一个锁定脚本。因此，如果你想花费其中一个输出，你需要提供一个解锁脚本（称为ScriptSig）。
+每个输出都设置有锁定脚本。因此，如果你想花费其中一个输出，你需要提供一个解锁脚本（称为ScriptSig）。
 
 ![input-4.png](img/input-4-svg.png)
 
