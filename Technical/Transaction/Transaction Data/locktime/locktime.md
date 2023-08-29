@@ -29,8 +29,8 @@
 |0xede80600	|452845 |这个交易只能在区块链达到高度452,845之后在网络上传递。（[tx](https://learnmeabitcoin.com/explorer/transaction/a28a01703beeba8e9f067cdb8c19127ef72bdb65ec894b9488b2e571e7717347)）|
 |0x06241559	|1494557702 |这是Unix时间中的Fri，12 May 2017 02:55:02。只有在最后11个块的中位时间（根据它们[块头](../../../Block/block-header/block-header.md)中的时间字段）大于此时间时，交易才能在网络上中继。([tx](https://learnmeabitcoin.com/explorer/transaction/207c356380d11efd88e1189ba2769fdbace39e2eedb8651a411cbfd4a344c06f))|
 |0xb154c233	|868373681| 这是Unix时间中的Tue，08 Jul 1997 14:54:41。这实际上就像将锁定时间设置为0x00000000一样，因为*第一个区块*是在2011年2月2日23:16:42挖掘出来的。([tx](https://learnmeabitcoin.com/explorer/transaction/207c356380d11efd88e1189ba2769fdbace39e2eedb8651a411cbfd4a344c06f))|
-* [swapendian](https://learnmeabitcoin.com/tools/swapendian)
-* [hexdec](https://learnmeabitcoin.com/tools/hexdec)
+* [交换字节序](https://learnmeabitcoin.com/tools/swapendian)
+* [十六进制](https://learnmeabitcoin.com/tools/hexdec)
   
 ## 注释
 >为了使锁定时间生效，你需要将交易数据中的[输入](../Input/input.md)之一的[序列值](../Transaction%20Data.md)设置为默认最大值（0xffffffff）以下的任何值。

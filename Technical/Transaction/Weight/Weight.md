@@ -3,7 +3,7 @@
 
 ![Weight-1.png](img/Weight-1%20(1).png)
 
-随着[BIP 141](https://github.com/bitcoin/bips/blob/master/bip-0141.mediawiki#transaction-size-calculations)（*隔离见证*）的引入，**交易**获得了一个新的计量单位，称为**权重**。
+随着[BIP 141](https://github.com/bitcoin/bips/blob/master/bip-0141.mediawiki#transaction-size-calculations)（[隔离见证](../../../FAQ/Segregated%20Witness/Segregated%20Witness.md)）的引入，**交易**获得了一个新的计量单位，称为**权重**。
 
 这种权重测量基本上给交易的验证部分（签名数据）提供了折扣，所以它不会占用区块内部的太多“空间”。换句话说，**签名数据比其他交易数据更便宜**。
 
@@ -44,9 +44,9 @@
 
 ![Weight-3.png](img/Weight-3%20(1).png)
 
-通过使用新的权重指标，创建输出的成本和支出输出的成本之间更加平衡。
+通过使用新的权重指标，花费一项产出的“成本”与创建一项产出的“成本”大致相同。
 
-因此，这种方式创造了更加平衡的支出激励，这有助于减少未花费交易输出集[UTXO](../UTXO/UTXO.md)的大小（在运行完整节点的计算机的RAM中占用宝贵的空间）。
+因此，这种方式创造了更加平衡的支出激励，这有助于减少未花费交易输出[UTXO](../UTXO/UTXO.md)集的大小（在运行完整节点的计算机的RAM中占用宝贵的空间）。
 
 ## 感谢
 
