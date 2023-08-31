@@ -34,7 +34,7 @@
 
 >**这是一个文本字符串吗？**
 
-[交易数据](../../Transaction/Transaction%20Data/Transaction%20Data.md)通常以[十六进制](../../Other/Hexadecimal/hexadecimal.md)格式表示，因此仅凭外观并不总是能立即确定数据的含义。
+[交易数据](../../Transaction/Transaction%20Data/Transaction%20Data.md)通常以[十六进制](../../Other/Hexadecimal/hexadecimal.md)格式表示，因此通过查看数据并不总是能立即确定数据的含义。  
 但如果它是文本，则可以通过将每个字节从十六进制转换为[ASCII字符代码](http://www.asciitable.com/)来读取它：
 ```
 hexadecimal = 68656c6c6f20776f726c64
@@ -47,9 +47,9 @@ ASCII字符代码表:
 当然，你可以存储多达80个字节的任何数据（不仅仅是ASCII字符代码形式的文本）。你只需要知道如何解码它即可了解它是什么。
 
 ## 你在哪里可以找到NULL DATA脚本？
-任何人都可以使用NULL DATA脚本向交易中添加一些任意数据，因此你可以在区块链中找到它们散落在各处。
+任何人都可以使用NULL DATA脚本向交易中添加一些任意数据，因此你可以发现它们分散在区块链中。
 
->在浏览区块链时，寻找空输出，因为NULL DATA脚本几乎总是放置在空输出上（因为锁定使输出无法花费）。
+>在浏览区块链时，寻找**空输出**，因为NULL DATA脚本几乎总是放置在空输出上（因为锁定使输出无法花费）。
 
 以下是一些人使用脚本存储文本字符串的示例（将鼠标悬停在数据推送上即可查看ASCII文本）：
 
@@ -74,7 +74,7 @@ ASCII字符代码表:
 |scriptPubKey|OP_DUP OP_HASH160 00000000006c6561726e6d6561626974636f696e<!--learnmeabitcoin--> OP_EQUALVERIFY OP_CHECKSIG|
 |---|---|
 
-然而，这种方法的问题在于它看起来像一个标准的锁定脚本，因此输出将存储在[UTXO数据库](../../Transaction/UTXO/UTXO.md#utxo数据库)中，这会浪费RAM，因为输出实际上是**不可花费**的。
+然而，这种方法的问题在于，它看起来像一个标准的锁定脚本，因此输出将存储在[UTXO数据库](../../Transaction/UTXO/UTXO.md#utxo数据库)中，这会浪费RAM，因为输出实际上是**不可花费**的。
 
 因此，这就是NULL DATA的作用所在：
 
