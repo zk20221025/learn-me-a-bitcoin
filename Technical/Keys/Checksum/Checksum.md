@@ -8,7 +8,7 @@
 例如，在比特币中，[地址](../Address/Address.md)包括校验和，以便可以检查它们是否已正确输入。
 
 ## 它们是如何工作的？
-在比特币中，校验和是通过两次使用[SHA256](https://learnmeabitcoin.com/tools/sha256)[哈希数据](../../Other/Hash%20Function/Hash%20Function.md)，然后取结果的前4个字节来创建的。
+在比特币中，校验和是将数据通过[SHA256](https://learnmeabitcoin.com/tools/sha256)[哈希](../../Other/Hash%20Function/Hash%20Function.md)两次，然后取结果的前4个字节来创建的。
 
 ![Checksum-2.png](img/checksum-2.png)
 
@@ -37,7 +37,7 @@
 ## 创建校验和。
 如前所述，比特币中的校验和是将数据通过 **SHA256 哈希两次并取前 4 个字节来创建的**。
 
-可以将比特币中的校验和称为“截断的 SHA256 哈希”。
+可以将比特币中的校验和称为“截断的 SHA256 哈希值”。
 
 示例。
 ```
@@ -47,7 +47,7 @@ checksum             = 05c4de7c
 ```
 >1字节=2个字符
 
->在执行sha256（sha256（data））之前，请不要忘记将数据转换为字节序列。换句话说，你不是对数据的字符串表示形式进行散列，而是对其表示的字节。
+>在执行sha256（sha256（data））之前，请不要忘记将数据转换为字节序列。换句话说，你不是对数据的字符串表示形式进行哈希，而是对其表示的字节进行。
 
 ## 代码。
 这是你能在Ruby中计算校验和的方法：
@@ -81,7 +81,7 @@ puts checksum("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa") #=> 05c4de7c
 
 常见的情况是检查给定[地址](../Address/Address.md)是否有效（所有地址都附带有内部校验和）。
 
-为此，首先需要从[base58](../Base58/Base58.md)解码地址。然后，将**校验和中分离出数据部分**，并验证从数据中计算出的校验和是否与给定的校验和相匹配。
+为此，首先需要从[base58](../Base58/Base58.md)解码地址。然后，将**数据部分与校验和分开**，并验证从数据中计算出的校验和是否与给定的校验和相匹配。
 ```
 address        = "1AKDDsfTh8uY4X3ppy1m7jw1fVMBSMkzjP" # typical P2PKH address
 base58_decoded = "00662ad25db00e7bb38bc04831ae48b4b446d1269817d515b6" # (base58 decoding not shown here)
@@ -92,7 +92,7 @@ checksum       = "17d515b6" # 4-byte checksum
 data_checksum  = checksum("00662ad25db00e7bb38bc04831ae48b4b446d1269817d515b6") # calculate the checksum
                = "17d515b6" # check it matches the one given
 ```
->一个**Base58解码的地址**包含：一个前缀，某物的hash160（例如[公钥哈希](../Public%20Key/Public%20Key%20Hash/public-key-hash.md)）和一个校验和。但是在这里你真正需要知道的是校验和是最后4个字节。
+>**Base58解码的地址**包含：前缀，某个内容的hash160（例如[公钥哈希](../Public%20Key/Public%20Key%20Hash/public-key-hash.md)）以及校验和。但是在这里你真正需要知道的校验和是最后4个字节。
 
 ## 代码
 这个Ruby代码使用了上面相同的checksum()函数。
@@ -135,7 +135,7 @@ puts verify #=> true
 ### 为什么只使用前4个字节？
 使用完整的哈希结果作为校验和会更安全可靠。虽然这会使地址变得更长，因为整个32字节的哈希值都必须包含在内。
 
-取前4个字节足以提供足够的“唯一性”，以确保原始数据是正确的，同时也不会使最终地址过长。这只是可靠性和方便性之间的平衡。
+取前4个字节足以提供足够的“唯一性”，可以确保原始数据是正确的，同时也不会使最终地址过长。这只是可靠性和方便性之间的平衡。
 
 ### 出错但仍得到相同的校验和结果的机会有多大？
 校验和是一个随机的4字节[十六进制数](../../Other/Hexadecimal/hexadecimal.md)，因此发生这种情况的概率是**0xFFFFFFFF**中的1。用十进制表示，这是**4,294,967,295分之1**。
@@ -146,4 +146,4 @@ puts verify #=> true
 * [Gregory Maxwell](https://github.com/gmaxwell)，为我们提供有关校验和的快速计算机科学课程以及历史背景。
 
 ## 工具
-*校验和*
+[校验和](https://learnmeabitcoin.com/tools/checksum)
