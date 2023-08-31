@@ -28,7 +28,7 @@
 ### 2. 组织
 分层确定性钱包的另一个酷炫之处在于分层。
 
-钱包中的每个**子密钥**也可以生成**自己的密钥**，这意味着你可以创建一个**树形结构**（或层次结构）来组织钱包中的密钥。
+钱包中的每个**子密钥**也可以生成**自己的密钥**，这意味着你可以创建**树形结构**（或层次结构）来组织钱包中的密钥。
 
 例如，你可以使用树的不同部分来管理不同的“账户”。
 
@@ -52,13 +52,13 @@
 ![hd-wallets-5.png](img/hd-wallets-5%20(1).png)
 
 **助记句子**
-要启动一个HD钱包，需要生成64个随机字节，我们将把它们用作**种子**。
+要启动HD钱包，需要生成64个随机字节，我们将把它们用作**种子**。
 
 ```
 种子：3d08def3b82123f428777b4fd9d9c4dec6eb029839eb0b11fd2fb99e36732c43d919b9be0c2493c3e0057dfbbaf861ecd41346bfacbcd1ecf995e4831d059eaf
 ```
 
-为了获取一个HD钱包，我们可以使用一个更加用户友好的助记句，而不是一个原始的十六进制种子。
+为了获取HD钱包，我们可以使用对用户更加友好的助记句，而不是原始的十六进制种子。
 例如，上面的种子是从以下助记句创建的：
 ```
 mnemonic: muffin sheriff judge garment pottery alpha emerge civil stage broken junior know
@@ -75,9 +75,10 @@ mnemonic: muffin sheriff judge garment pottery alpha emerge civil stage broken j
 
 * 前32个字节是私钥。
 * 最后32个字节是链码。
+
 链码只是额外的32个字节，我们将其与私钥配对以创建所谓的[扩展密钥](./Extended%20Keys/Extended%20Keys.md)。
 
->**为什么我们要对种子进行哈希处理**我们可以直接使用64个字节的种子来创建主扩展私钥。然而，未来的子扩展密钥是使用HMAC创建的，因此保持创建方式一致是很好的。
+>**为什么我们要对种子进行哈希处理**？我们可以直接使用64个字节的种子来创建主扩展私钥。然而，未来的子扩展密钥是使用HMAC创建的，因此最好保持创建方式一致。
 
 **扩展私钥**
 
@@ -102,7 +103,7 @@ mnemonic: muffin sheriff judge garment pottery alpha emerge civil stage broken j
 
 ![hd-wallets-7.gif](img/hd-wallets-7%20(1).gif)
 
-通过改变索引，你可以得到一个与哈希函数完全不同的结果。
+通过改变索引，你可以得到与哈希函数完全不同的结果。
 
 ```
 种子: 68402660a3b31cf735c533866d9f749078f45fa0433bded3a5c3c080c21bd2364fb6ddabd12450572dd4a0f046bd4302306cad79f7be4bf55457cd3e467a001c
@@ -124,9 +125,9 @@ master extended private key:
     公钥：   02ac50ba135a5a1d0e210b4dcfd4bec5732bc18011dec3693360a5b798873e78f4
 ```
 
-因此，基本上，通过使用索引号将主扩展私钥哈希化，可以生成新的私钥。
+因此，基本上，通过使用**索引号**将主扩展私钥哈希化，可以生成新的私钥。
 
->一个扩展密钥可以生成2,147,483,648个这样的子密钥。
+>扩展密钥可以生成2,147,483,648个这样的子密钥。
 
 ### 4. 子密钥（高级）
 现在这才是有趣的部分。
@@ -138,6 +139,18 @@ master extended private key:
 
 ![hd-wallets-8.gif](img/hd-wallets-8%20(1).gif)
 
+种子
+```
+seed: b1680c7a6ea6ed5ac9bf3bc3b43869a4c77098e60195bae51a94159333820e125c3409b8c8d74b4489f28ce71b06799b1126c1d9620767c2dadf642cf787cf36
+
+master extended private key:
+  private key: 081549973bafbba825b31bcc402a3c4ed8e3185c2f3a31c75e55f423e9629aa3
+  chain code:  1d7d2a4c940be028b945302ad79dd2ce2afe5ed55e1a2937a5af57f8401e73dd
+
+master extended public key:
+  public key: 0343b337dec65a47b3362c9620a6e6ff39a1ddfa908abab1666c8a30a3f8a7cccc
+  chain code: 1d7d2a4c940be028b945302ad79dd2ce2afe5ed55e1a2937a5af57f8401e73dd
+```
 **扩展私钥的子密钥**
 主扩展私钥通过将其对应的扩展公钥的内容通过HMAC函数进行处理，并将结果添加到原始私钥中来创建子私钥。
 
@@ -187,8 +200,8 @@ master extended public key:
 
 ![hd-wallets-11.gif](img/hd-wallets-11%20(1).gif)
 
->一个扩展密钥可以生成2,147,483,648个子密钥。
-因此，一个扩展密钥总共可以派生4,294,967,296个子密钥（2,147,483,648个高级子密钥和2,147,483,648个基本子密钥）。
+>扩展密钥可以生成2,147,483,648个子密钥。  
+因此，扩展密钥总共可以派生4,294,967,296个子密钥（2,147,483,648个高级子密钥和2,147,483,648个基本子密钥）。
 
 有关更多详细信息，请参见[扩展密钥](./Extended%20Keys/Extended%20Keys.md)。
 
@@ -196,7 +209,7 @@ master extended public key:
 
 通过向密钥添加链码，意味着子密钥不仅仅是从密钥派生的。
 
-例如，我们可以使用树中的公钥之一来接收付款，这将使其在区块链上可见。如果我们不使用链码，任何人都可以获取此公钥并派生其所有子密钥。
+例如，我们可以使用树中的公钥之一来接收付款，这将使其在[区块链](../Blockchain/blockchain.md)上可见。如果我们不使用链码，任何人都可以获取此公钥并派生其所有子密钥。
 
 ![hd-wallets-12.png](img/hd-wallets-12%20(1).png)
 
@@ -204,7 +217,7 @@ master extended public key:
 
 ![hd-wallets-13.png](img/hd-wallets-13%20(1).png)
 
-换句话说，链码是一些额外的保密数据，用于防止从一个密钥派生出来的子密钥被破解。
+换句话说，链码是一些额外的保密数据，用于防止从密钥派生出来的子密钥被破解。
 
 >**请记住**：当我们将普通密钥与额外的链码相结合时，我们称之为“扩展密钥”。
 
@@ -213,6 +226,7 @@ master extended public key:
 不是的，你无法知道树中的任何两个公钥（或地址）是否属于同一个钱包（即派生自相同的主扩展密钥）。
 
 尽管子密钥是以特定方式从主扩展密钥派生的，但实际的公钥本身并没有任何相似之处。就好像它们完全独立生成一样。
+
 ![hd-wallets-14.png](img/hd-wallets-14%20(1).png)
 
 >**HD钱包中的密钥是否安全？**
@@ -225,7 +239,7 @@ master extended public key:
 
 ![hd-wallets-15.png](img/hd-wallets-15%20(1).png)
 
-此外，泄露主扩展公钥**和**任何子私钥允许某人计算主扩展私钥。如果他们能够这样做，他们就可以**生成钱包中的所有私钥**：
+此外，泄露主扩展公钥**和**任何子私钥会允许其他人计算主扩展私钥。如果他们能够这样做，他们就可以**生成钱包中的所有私钥**：
 
 ![hd-wallets-16.png](img/hd-wallets-16%20(1).png)
 
@@ -245,13 +259,13 @@ key:         00389bb0ee8f01c94f7c94594e813ae2eccb67b0a64bc44c32a2663a7c012edcb1 
 
 serialized: 0488ade400000000000000000092c022d5b43ed7ecf65ebe37c5754cae1583bb4559a894291ed58529885651e500389bb0ee8f01c94f7c94594e813ae2eccb67b0a64bc44c32a2663a7c012edcb1
 ```
-我们可以通过将其转换为[base58](../Keys/Base58/Base58.md)（包括[校验和](../Keys/Checksum/Checksum.md)）来使其更方便：
+可以通过将其转换为[base58](../Keys/Base58/Base58.md)（包括[校验和](../Keys/Checksum/Checksum.md)）来使其更方便：
 ```
 xprv9s21ZrQH143K3X6emxCTwJs3G4wQW2qJUnJKEZPBUkbR6auSitdSzEcVjR47uUH7cqnuq7CTCDABsYcmNJfCZcVWeGti616FnkgBfXyDEtx
 ```
-这是我们扩展密钥的更有用的格式。它更容易在计算机之间共享并导入到钱包中。
+这是对于扩展密钥来说更有用的格式。它更容易在计算机之间共享并导入到钱包中。
 
-有关详细信息，请参阅[扩展密钥](./Extended%20Keys/Extended%20Keys.md)序列化。
+有关详细信息，请参阅[扩展密钥序列化](./Extended%20Keys/Extended%20Keys.md)。
 
 ## 谁提出了HD钱包的概念？
 
@@ -289,7 +303,7 @@ m/84'/0'/0'
 ## 总结
 ![hd-wallets-17.gif](img/hd-wallets-17%20(1).gif)
 
-一个**分层确定性钱包**提供了一个有用的方法来生成新的[私钥](../Keys/Private%20Key/Private%20Key.md)和[公钥](../Keys/Public%20Key/Public%20Key.md)。
+**分层确定性钱包**提供了一个有用的方法来生成新的[私钥](../Keys/Private%20Key/Private%20Key.md)和[公钥](../Keys/Public%20Key/Public%20Key.md)。
 
 它是确定性的，因为每次都从种子以相同的方式生成所有子密钥，而且它是分层的，因为可以将密钥组织成树形结构（或层次结构）。额外的好处是可以在不知道私钥的情况下派生钱包中的公钥。
 
