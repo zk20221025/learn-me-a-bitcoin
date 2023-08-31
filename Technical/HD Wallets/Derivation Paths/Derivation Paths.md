@@ -3,17 +3,18 @@
 
 [BIP 44](https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki), [BIP 49](https://github.com/bitcoin/bips/blob/master/bip-0049.mediawiki), [BIP 84](https://github.com/bitcoin/bips/blob/master/bip-0084.mediawiki)
 
-[扩展密钥](../Extended%20Keys/Extended%20Keys.md)的酷处在于它们可以派生子密钥，这些子密钥可以再派生更多的子密钥，以此类推。这使你可以创建一个扩展密钥树，每个密钥都有其自己的独特**派生路径**从[主密钥](../Extended%20Keys/Extended%20Keys.md)派生而来。
+[扩展密钥](../Extended%20Keys/Extended%20Keys.md)有一个很酷的地方在于它们可以派生子密钥，这些子密钥可以再派生更多的子密钥，以此类推。这使你可以创建扩展密钥树，每个密钥都有其自己唯一的来自[主密钥](../Extended%20Keys/Extended%20Keys.md)的**派生路径**。
 
 可以以任何方式派生密钥。但为了帮助钱包之间的兼容性，我们为[层次确定性钱包](../HD%20Wallets.md)中用于派生密钥的派生路径设置了一组结构。
 
 最常用的派生路径包括：
+
 * [BIP 44](#bip-44m440000): m/44'/0'/0' (for 1addresses)
 * [BIP 49](#bip-49-m490000): m/49'/0'/0' (for 3addresses)
 * [BIP 84](#bip-84-m840000): m/84'/0'/0' (for bc1addresses)
 
 ## 1. 符号
-首先，我们有一种基本的符号表示法来描述特定扩展密钥的派生路径。例如：
+首先，我们有一种基本的符号表示法来描述特定扩展密钥的**派生路径**。例如：
 ```
 m/0/1/3'
 ```
@@ -54,27 +55,27 @@ m / purpose' / coin_type' / account' / change / index
 
 >>提示：数字反映了BIP的编号。新方案可以使用不同的BIP编号。
 >>>m/44'/0'：**币种类型**（加强）
-密钥将用于的加密货币。
-不同的加密货币可以使用从种子派生的相同私钥和公钥。因此，我们可以使用相同的种子和不同的派生路径而不是为不同的货币创建单独的种子（或在不同的链上使用相同的公钥）。
+密钥将用于的加密货币。  
+不同的加密货币可以使用从种子派生的相同私钥和公钥。因此可以使用相同的种子和不同的派生路径而不是为不同的货币创建单独的种子（或在不同的链上使用相同的公钥）。
 0' = 比特币
 1' = 比特币（测试网）
 2' = 莱特币
 3' = 狗狗币
 ...
-完整列表：https://github.com/satoshilabs/slips/blob/master/slip-0044.md
+完整列表：https://github.com/satoshilabs/slips/blob/master/slip-0044.md  
 这在硬件钱包中非常有用，可以使用单个种子并将其用于持有各种不同的硬币。
 >>>>m/44'/0'/0'：**账户**（加强）
-这允许你为资金创建单独的账户。默认帐户为0'。
-例如，可以使用相同的种子，但仍然创建单独的“账户”来接收付款。这些单独的账户中的硬币永远不会混合在一起。
+这允许你为资金创建单独的账户。默认帐户为0'。  
+例如，可以使用相同的种子，但仍然创建单独的“账户”来接收付款。这些单独的账户中的硬币永远不会混合在一起。  
 提示：可以在此级别的各种索引中显然创建许多不同的帐户。但为了简化恢复过程，钱包应按顺序创建帐户，并且如果之前的帐户未被使用，则不创建新帐户。
 >>>>>m/44'/0'/0'/0：**更改**
 我们使用的密钥和地址分为“接收”和“更改”。
 
->>>>>1.**接收** = 0 - 我们将给人们用于接收付款的地址。
->>>>>2.**更改** = 1 - 我们用于在进行交易时将找零发送回自己的地址。
+>>>>>* **接收** = 0 - 我们将给人们用于接收付款的地址。
+>>>>>* **更改** = 1 - 我们用于在进行交易时将找零发送回自己的地址。
 
 >>>>>这意味着你始终能够识别来自外部付款的硬币。
->>>>>>m/44'/0'/0'/0/0：**索引**
+>>>>>>m/44'/0'/0'/0/0：**索引**  
 这些是你在钱包中实际使用的私钥和公钥的扩展密钥。
 
 正如你所看到的，路径中的前几个级别只是用于以实用的方式构建分层确定性钱包。
@@ -98,7 +99,7 @@ m / account' / external / index
 这就是BIP 44、BIP 49和BIP 84的作用。
 
 ### **BIP 44：m/44'/0'/0'/0/0**
-[BIP 44](https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki)基于原始的BIP 32方案，包括一个目的[^1]（类似于版本号，用于识别即将到来的方案）以及一个币种类型，以便可以使用相同的种子生成不同加密货币的密钥。
+[BIP 44](https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki)基于原始的BIP 32方案，包括一个目的[^1]（类似于版本号，用于识别即将到来的方案）以及币种类型，以便可以使用相同的种子生成不同加密货币的密钥。
 
 公钥编码为1地址（[P2PKH](../../Script/P2PKH/P2PKH.md)）。
 
@@ -110,7 +111,7 @@ m / account' / external / index
 ![derivation-paths-5.png](img/derivation-paths-5%20(1).png)
 
 ### **BIP 49序列化**
-BIP 49派生路径中的扩展密钥使用版本字节049d7878“yprv”或049d7cb2“ypub”进行序列化。这允许你在[扩展密钥](../Extended%20Keys/Extended%20Keys.md)是BIP 49方案的一部分时进行识别。
+BIP 49派生路径中的扩展密钥使用版本字节049d7878“yprv”或049d7cb2“ypub”进行[序列化](../Extended%20Keys/Extended%20Keys.md)。这允许你识别属于 BIP 49 方案一部分的扩展密钥。
 
 例如：
 ```
@@ -123,7 +124,7 @@ yprvABrGsX5C9jant45o1Au7iHH54A8GXQH9SGhK5vkYKPUBDYsFy6KNUWX24moUE6KxoCh2qtZ8UpLa
 ![derivation-paths-6.png](img/derivation-paths-6%20(1).png)
 
 >**BIP 84序列化**
-BIP 84派生路径中的扩展密钥在序列化过程中使用版本字节04b2430c“zprv”或04b24746“zpub”。这可以在BIP 84方案的一部分时识别[扩展密钥](../Extended%20Keys/Extended%20Keys.md)。
+BIP 84派生路径中的扩展密钥在[序列化](../Extended%20Keys/Extended%20Keys.md)。过程中使用版本字节04b2430c“zprv”或04b24746“zpub”。这可以在BIP 84方案的一部分时识别扩展密钥
 
 例如：
 ```
@@ -131,9 +132,9 @@ zprvAWgYBBk7JR8GjMGuqXgjvNNaE8GiU2GeMPDXsKeRhPr4GegVDkUw6aBA5ym4DzytCqoqbN9gwUh8
 ```
 
 ## 4. 示例
-它接受一个[种子](../Mnemonic%20Seed/Mnemonic%20Seed.md)（助记符或十六进制数）和派生路径，并显示该路径中的私有扩展密钥的[地址](../../Keys/Address/Address.md)（以及接下来的几个子级）。
+它接受[种子](../Mnemonic%20Seed/Mnemonic%20Seed.md)（助记符或十六进制数）和派生路径，并显示该路径中的私有扩展密钥的[地址](../../Keys/Address/Address.md)（以及接下来的几个子级）。
 
->**间隙限制**：从种子恢复钱包时，应仅检查前20个接收地址是否有余额。如果过去没有使用过任何地址，则可以将该账户视为未使用过。
+>**间隙限制**：从种子恢复钱包时，应仅检查**前20个**接收地址是否有余额。如果过去没有使用过任何地址，则可以将该账户视为未使用过。
 
 >永远不要将你的实际种子输入到网站中。网站可以保存你输入的内容并使用它来窃取你的货币。
 
