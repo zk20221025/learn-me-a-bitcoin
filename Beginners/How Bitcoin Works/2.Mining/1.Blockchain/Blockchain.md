@@ -4,12 +4,12 @@
 ## 什么是区块链？
 >**区块链是一个包含有关每个比特币交易的列表的文件。**
 
-
 ![blockchain-1.png](img/blockchain-1.png)
   
 区块链
 
 [比特币网络](../../1.Network/Network.md)上的每个人都共享这个文件的副本，并且它会定期更新最新的交易。
+
 ![blockchain-2.png](img/blockchain-2.png)  
 
 比特币网络：每个人共享交易文件（称为区块链）。
@@ -37,9 +37,8 @@
 
 交易链是一项安全功能。它使得在没有被任何人发现的情况下篡改区块链会变得非常困难。
 
-
 ## 区块链是如何共享的？
-区块链由[比特币网络](../../1.Network/Network.md)上的节点共享，就像一个完全合法且未受版权保护的视频文件可能在[BitTorrent网络](https://en.wikipedia.org/wiki/BitTorrent)上共享一样。
+区块链由[比特币网络](../../1.Network/Network.md)上的节点共享，就像完全合法且未受版权保护的视频文件可能在[BitTorrent网络](https://en.wikipedia.org/wiki/BitTorrent)上共享一样。
 
 ![blockchain-4.png](img/blockchain-4%20(1).png)  
 
