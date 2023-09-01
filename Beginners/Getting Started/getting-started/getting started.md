@@ -9,20 +9,27 @@
 
 ## Bitcoin Core
 真正开始使用比特币的最佳方式是下载[Bitcoin Core](https://bitcoin.org/en/download)。
+
 ![getting-started-1.png](img/getting-started-1%20(1).png)
+
 <center>Bitcoin Core是由Satoshi Nakamoto于2009年创建的原始程序。</center>
 
 当你运行该程序时，它将连接到运行相同程序的其他人，创建一个相互通信的计算[网络](../../How%20Bitcoin%20Works/1.Network/Network.md)。
+
 ![getting-started-2.png](img/getting-started-2%20(1).png)
+
 <center>网络上的计算机被称为节点。</center>
 
 第一次运行Bitcoin Core时，你将开始从网络上的其他节点下载一个文件。该文件称为[区块链](../../../Technical/Blockchain/blockchain.md)，它是一个包含**所有交易**的大文件。
+
 ![getting-started-3.gif](img/getting-started-3%20(1).gif)
+
 <center>该文件由单独的块组成，每个块包含交易。</center>
 
 一旦你下载并验证了完整的区块链（目前为0.00 GB），你就可以开始进行自己的[交易](../../How%20Bitcoin%20Works/3.Transactions/Transactions.md)，这些交易会在网络中传播，并写入每个人计算机上的区块链。  
 
 ![getting-started-4.gif](img/getting-started-4%20(1).gif)
+
 <center>区块链是交易的永久存储。</center>
   
 这就是比特币的基础知识。
@@ -34,7 +41,9 @@
 然而，并非每个人都有足够的硬盘空间来存储自己的区块链副本。
 
 因此，你可以使用称为比特币“钱包”的东西，而不是运行Bitcoin Core。钱包允许你发送和接收比特币，但不需要你自己的区块链副本。
+
 ![getting-started-5.png](img/getting-started-5%20(1).png)
+
 <center>钱包与节点进行交互。</center>
 
 如果你不想运行完整节点，比特币钱包是开始使用比特币最简单的方法。
@@ -56,6 +65,7 @@
 * **桌面**：[Electrum](https://electrum.org/)
 * **安卓**：[Samourai](https://samouraiwallet.com/)
 * **iOS**：[Green](https://blockstream.com/green/)或[Mycelium](https://wallet.mycelium.com/)
+
 但是，正如我所说，任何人都可以创建比特币钱包，因此请确保你使用的钱包可靠（而不仅仅是外观最好的）。
 
 >提示：如果你不认识或不信任制作钱包的人，你就无法相信你的比特币会得到安全保护。
@@ -63,14 +73,18 @@
 ## 钱包是做什么的?
 
 钱包是用于存储和管理比特币的工具。当你首次开始使用比特币钱包时，它会为你生成一个**种子**。这个种子是一个随机生成的12-24个单词的列表，世界上没有其他人见过。
+
 ![getting-started-6.png](img/getting-started-6%20(1).png)
+
 <center>老实说，没有人看过你的种子。</center>
 
 你的种子是独一无二的，它用于创建你钱包中的每个**地址**。
 
 * [地址](../../../Technical/Keys/Address/Address.md)是你提供给别人的，以便你可以接收比特币。
 * 每个地址都有它自己的[私钥](../../../Technical/Keys/Private%20Key/Private%20Key.md)，当你向别人发送比特币时使用它。
+
 ![getting-started-7.gif](img/getting-started-7%20(1).gif)
+
 <center>你可以将地址视为你的帐户号码，将私钥视为其密码。</center>
 
 简而言之，**比特币钱包管理你的密钥和地址**，以便你可以发送和接收比特币。
@@ -84,28 +98,36 @@
 比特币是一个计算机网络，它们一起工作来共享一个名为区块链的文件。
 
 你可以将区块链想象为一个巨大的保险箱房间，其中每个保险箱都包含一定数量的比特币和一个锁。
+
 ![getting-started-8.png](img/getting-started-8%20(1).png)
+
 <center>这些盒子被称为输出。它们可以包含任意数量的比特币，并可以在其上放置各种锁定。</center>
 
 当你进行[交易](../../How%20Bitcoin%20Works/3.Transactions/Transactions.md)时，你的钱包会从区块链中选择属于你的一箱比特币，并为你要发送比特币的人创建一箱新的比特币。
 
 你的钱包将另一个人的地址放入新盒子上的锁中，并使用必要的私钥解锁当前锁定在你地址上的比特币盒子。
+
 ![getting-started-9.gif](img/getting-started-9%20(1).gif)
+
 <center>私钥和地址负责解锁和锁定。</center>
 
 换句话说，你正在打开你的保险箱，并为其他人创建一个新的保险箱。
 
-无论如何，这个交易（只是一些数据）被发送到网络上的一台计算机，从计算机到计算机中继，直到网络上的每个人都有你的交易副本。
+无论如何，这个交易（只是一些数据）被发送到网络上的一台计算机，从一台计算机转发到另一台计算机，直到网络上的每个人都有你的交易副本。
+
 ![getting-started-10.png](img/getting-started-10%20(1).png)
+
 <center>节点在网络中传播信息。</center>
 
 最终，这笔交易将出现在每个人的区块链中。
 
 这是因为网络中的一个节点将它们收到的最新交易收集到一个区块中，然后将该区块[挖掘](../../../Technical/Mining/Mining.md)到区块链上（这需要能源）。然后，他们与网络上的其他节点共享这个挖掘的区块，并将其添加到他们的区块链中。
+
 ![getting-started-11.gif](img/getting-started-11%20(1).gif)
+
 <center>大约每10分钟，一个新的交易块被挖掘添加到区块链上。</center>
 
-所以在规定的时间间隔内，网络上的每个节点都会用最新的交易信息更新他们的区块链。这个过程会不断重复，所以区块链会不断地因为新的交易而增长。
+网络上的每个节点都会使定期用最新的交易信息更新他们的区块链。这个过程会不断重复，所以区块链会不断地因为新的交易而增长。
 
 无论如何，一旦交易进入区块链，它就无法被删除[^1]，这意味着交易完成，比特币已经转移。
 
@@ -121,6 +143,7 @@
 * **桌面**：[Electrum](https://electrum.org/)
 * **安卓**：[Samourai](https://samouraiwallet.com/)
 * **iOS**：[Green](https://blockstream.com/green/)或[Mycelium](https://wallet.mycelium.com/)
+
 就我个人而言，我在家里的电脑上运行一个节点（因为我喜欢学习比特币并想要支持网络），但我在日常发送和接收比特币时使用钱包。我建议先下载一个钱包开始使用，如果你决定想要了解更多，再考虑运行节点。
 
 >**注意**：本网站致力于与Bitcoin Core节点进行交互并了解其工作原理，但为了简单起见，本“入门指南”的其余部分将只关注如何使用钱包。
@@ -132,4 +155,4 @@
 ## 链接
 * https://bitcoin-intro.com/ -另一个使用比特币的良好介绍。此页面顶部引用的来源。 
 
-[^1]:一笔交易可以从区块链中移除，但这并不容易。请参见[*51%攻击*](../../../Technical/Blockchain/51-attack/51-attack.md)。
+[^1]:交易可以从区块链中移除，但这并不容易。请参见[*51%攻击*](../../../Technical/Blockchain/51-attack/51-attack.md)。
