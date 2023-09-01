@@ -8,9 +8,9 @@
 
 ## 浏览器
 
-您可以在此处使用 Neo4j 浏览器探索比特币图形数据库：
-* 浏览器： http: //neo4j.learnmeabitcoin.com
-* 用户名/密码：联系我
+你可以在此处使用 Neo4j 浏览器探索比特币图形数据库：
+* **浏览器**： http: //neo4j.learnmeabitcoin.com
+* **用户名/密码**：联系我
 
 ![browser.gif](img/browser.gif)
 

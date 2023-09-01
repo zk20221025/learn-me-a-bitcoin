@@ -50,13 +50,13 @@ Pieter是一位比特币核心开发者，他在[比特币stackexchange论坛](h
 
 ## 开发
 * [Linux Mint](https://linuxmint.com/) / [Ubuntu Server](https://www.ubuntu.com/server)
-* [[比特币核心](https://bitcoin.org/en/download)
+* [比特币核心](https://bitcoin.org/en/download)
 * [Apache2](https://httpd.apache.org/)
 * [Neo4j](https://neo4j.com/) - [Michael Hunger](https://twitter.com/mesirii)教我如何使用Neo4j。
 * [Redis](https://redis.io/)
 * [PHP](http://php.net/)
     * [EasyBitcoin-PHP](https://github.com/aceat64/EasyBitcoin-PHP)
-    * [neo4j-php-client]https://github.com/graphaware/neo4j-php-client() - 感谢[Christophe Willemsen](https://twitter.com/ikwattro)。如果没有这个（以及你给我所有的帮助），我可能不会使用Neo4j。
+    * [neo4j-php-client](https://github.com/graphaware/neo4j-php-client()) - 感谢[Christophe Willemsen](https://twitter.com/ikwattro)。如果没有这个（以及你给我所有的帮助），我可能不会使用Neo4j。
     * [phpredis](https://github.com/phpredis/phpredis)
 * [jQuery](http://jquery.com/)
     * [Tipped](http://tippedjs.com/) - 感谢Nick Stackenburg创造了这个。额外的感谢所有的支持。
