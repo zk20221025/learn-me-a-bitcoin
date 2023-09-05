@@ -105,7 +105,7 @@ Block [0](https://learnmeabitcoin.com/explorer/blockchain/0)
 ## 5.为什么区块之间要间隔10分钟？
 我认为除了Satoshi之外，没有人知道为什么会选择**10分钟**的时间。
 
-我猜测这个时间足够长，可以让区块在网络中传播（以最小化[链重组](../../Blockchain/chain-reorganisation/chain-reorganisation.md)），同时又不必等待太长时间才能将新交易挖掘到区块链上。而10是一个漂亮的整数。
+我猜测这个时间足够长，可以让区块在网络中传播（以最小化[链重组](../../Blockchain/chain-reorganisation/chain-reorganisation.md)），同时又不必等待太长时间才能将新交易挖掘到区块链上。10是一个很好的整数。
 
 ## 6. 你可以在哪里找到目标值？
 目标值被存储在每个[区块头](../../Block/block-header/block-header.md)中的[比特](../../Block/block-header/bits/bits.md)字段中。
