@@ -15,7 +15,7 @@ Transaction: [c1b4e695098210a31fe02abffe9005cffc051bbe86ff33e173155bcbdc5821e3](
 ## 领域
 ![input-2.png](img/input.png)
 
->**TXID字节顺序**：在[交易数据](../Transaction%20Data.md)中引用TXID时，必须[反转字节顺序](https://learnmeabitcoin.com/tools/swapendian)才能将其恢复为原始格式。搜索TXID时使用的反向字节顺序是的（由于原始比特币客户端工作方式中存在历史错误）。
+>**TXID字节顺序**：在[交易数据](../Transaction%20Data.md)中引用TXID时，必须[反转字节顺序](https://learnmeabitcoin.com/tools/swapendian)才能将其恢复为原始格式。搜索TXID时使用的字节顺序是反向的（由于原始比特币客户端工作方式中存在历史错误）。
 
 ## 输入如何工作？
 “输入”有两个任务：
@@ -24,19 +24,19 @@ Transaction: [c1b4e695098210a31fe02abffe9005cffc051bbe86ff33e173155bcbdc5821e3](
 2. 解锁它。
    
 ### 1. 选择一个输出。
-当你想将输出用作交易的输入时，只需指定你想要消费哪个输出。
+当你想将输出用作交易的输入时，只需指定想要消费哪个输出。
 
 每个交易都有一个唯一的[TXID](../../TXID/TXID.md)，因此通过使用具有特定输出编号（[VOUT](../../../Other/VOUT/VOUT.md)）的TXID，可以引用区块链中的任何输出。
 
 ![input-3.png](img/input-3-svg.png)
 
-你只需要一个[txid](../../TXID/TXID.md)和一个[vout](../../../Other/VOUT/VOUT.md)，就可以选择区块链上的任何输出。
+只需要一个[txid](../../TXID/TXID.md)和一个[vout](../../../Other/VOUT/VOUT.md)，就可以选择区块链上的任何输出。
 
 ### 2. 解锁它。
 
 选择一个输出后，你需要能够**解锁它**。
 
-每个输出都设置有锁定脚本。因此，如果你想花费其中一个输出，你需要提供一个解锁脚本（称为ScriptSig）。
+每个输出都设置有锁定脚本。因此，如果想花费其中一个输出，需要提供一个解锁脚本（称为ScriptSig）。
 
 ![input-4.png](img/input-4-svg.png)
 

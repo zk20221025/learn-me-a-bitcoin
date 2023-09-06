@@ -1,12 +1,12 @@
 # <center>TXID</center>
-<center>一笔交易数据的哈希值。</center>
+<center>交易数据的哈希值。</center>
 
 ![txid-1.png](img/TXID-1.svg)
 
 TXID（交易ID）基本上是比特币交易的标识号码。
 
 ## 例子：
-* [f4184fc596403b9d638783cf57adfe4c75c605f6356fbc91338530e9831e9e16](https://learnmeabitcoin.com/explorer/transaction/f4184fc596403b9d638783cf57adfe4c75c605f6356fbc91338530e9831e9e16) - 2010年向Hal Finney进行的第一笔比特币交易。
+* [f4184fc596403b9d638783cf57adfe4c75c605f6356fbc91338530e9831e9e16](https://learnmeabitcoin.com/explorer/transaction/f4184fc596403b9d638783cf57adfe4c75c605f6356fbc91338530e9831e9e16) - 2010年，Hal Finney进行的第一笔比特币交易。
 * [a1075db55d416d3ca199f55b6084e2115b9345e16c5cf302fc80e9d5fbf5d48d](https://learnmeabitcoin.com/explorer/transaction/a1075db55d416d3ca199f55b6084e2115b9345e16c5cf302fc80e9d5fbf5d48d) - 2010年进行了一笔以1万个BTC为交易额的披萨交易。
 * [4ce18f49ba153a51bcda9bb80d7f978e3de6e81b5fc326f00465464530c052f4](https://learnmeabitcoin.com/explorer/transaction/4ce18f49ba153a51bcda9bb80d7f978e3de6e81b5fc326f00465464530c052f4) - 包含我为此网站收到的第一笔捐款的交易。  
 TXID始终为**32字节**（64个字符）且为[十六进制](../../Other/Hexadecimal/hexadecimal.md)。
@@ -23,7 +23,7 @@ TXID始终为**32字节**（64个字符）且为[十六进制](../../Other/Hexad
 169e1e83e930853391bc6f35f605c6754cfead57cf8387639d3b4096c54f18f4 （注意：如果想在区块链中查找此交易，请先[反转字节顺序](https://learnmeabitcoin.com/tools/swapendian)...）
 
 ### 在区块链中搜索交易ID。
->如果你刚刚对一些交易数据进行了哈希，并想在区块链中[搜索TXID](https://learnmeabitcoin.com/explorer/transaction)，则必须以**反向字节顺序**搜索它。
+>如果你刚刚对一些交易数据进行了哈希处理，并想在区块链中[搜索TXID](https://learnmeabitcoin.com/explorer/transaction)，则必须以**反向字节顺序**搜索它。
 ```
 txid (original):  169e1e83e930853391bc6f35f605c6754cfead57cf8387639d3b4096c54f18f4
 txid (searching): f4184fc596403b9d638783cf57adfe4c75c605f6356fbc91338530e9831e9e16
@@ -39,7 +39,7 @@ txid (searching): f4184fc596403b9d638783cf57adfe4c75c605f6356fbc91338530e9831e9e
 ## TXID在哪里使用？
 
 ### 1.搜索区块链。
-如果你刚刚进行了交易，你可以使用TXID在区块链中找到它。例如：
+如果你刚刚进行了交易，可以使用TXID在区块链中找到它。例如：
 ```
 bitcoin-cli getrawtransaction 0e3e2357e806b6cdb1f70b54c3a3a17b6714ee1f0e68bebb44a74b1efd512098
 ```
@@ -48,14 +48,14 @@ bitcoin-cli getrawtransaction 0e3e2357e806b6cdb1f70b54c3a3a17b6714ee1f0e68bebb44
 
 [比特币核心钱包](https://bitcoin.org/en/download)中的控制台窗口
 
->如果你的比特币钱包给你提供了TXID，它很可能已经是可搜索的格式（反向字节顺序）。
+>如果你的比特币钱包提供了TXID，它很可能已经是可搜索的格式（反向字节顺序）。
 
 ### 2. 花费输出。
 当你想在新交易中将现有[输出](../Transaction%20Data/output/output.md)用作[输入](../Transaction%20Data/Input/input.md)时，你会使用TXID。
 
 ![txid-4.png](img/TXID-4.svg)
 
-<center>要引用现有的输出，你需要使用它所创建的txid以及该交易的vout编号。</center>
+<center>要引用现有的输出，需要使用它所创建的txid以及该交易的vout编号。</center>
 
 因为，TXID是交易的唯一标识符[1](#coinbase交易具有相同的txid)。
 
