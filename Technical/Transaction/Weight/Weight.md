@@ -5,7 +5,7 @@
 
 随着[BIP 141](https://github.com/bitcoin/bips/blob/master/bip-0141.mediawiki#transaction-size-calculations)（[隔离见证](../../../FAQ/Segregated%20Witness/Segregated%20Witness.md)）的引入，**交易**获得了一个新的计量单位，称为**权重**。
 
-这种权重测量基本上给交易的验证部分（签名数据）提供了折扣，所以它不会占用区块内部的太多“空间”。换句话说，**签名数据比其他交易数据更便宜**。
+这种权重测量基本上给交易的验证部分（签名数据）提供了折扣，所以它不会占用区块内部太多的“空间”。换句话说，**签名数据比其他交易数据更便宜**。
 
 ## 计算
 交易的权重是通过将[交易数据](../Transaction%20Data/Transaction%20Data.md)的不同部分的大小（以字节为单位）乘以不同的值来计算的：
