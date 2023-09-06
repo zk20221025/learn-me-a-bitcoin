@@ -12,7 +12,7 @@
 |scriptPubKey（脚本公钥）|04ae1a62fe09c5f51b13905f07f06b99a2f7159b2225f374cd378d71302fa28414e7aab37397f554a7df5f142c21c1b7303b8a0626f1baded5c72a704f7e6cd84c OP_CHECKSIG|
 |---|---|
 
-要解锁它，你只需要提供有效的签名：
+要解锁它只需要提供有效的签名：
 |scriptSig（脚本签名）|30440220576497b7e6f9b553c0aba0d8929432550e092db9c130aae37b84b545e7f4a36c022066cb982ed80608372c139d7bb9af335423d5280350fe3e06bd510e695480914f01|
 |---|---|
 
@@ -20,8 +20,8 @@
 
 ![P2PK-2.png](img/P2PK-2%20(1).gif)
 
-## 你在哪里可以找到P2PK脚本？
-尽管P2PK是将比特币锁定到某人公钥的最简单脚本，**但它并没有像类似但更复杂的[P2PKH](../P2PKH/P2PKH.md)脚本一样被广泛使用**。
+## 在哪里可以找到P2PK脚本？
+尽管P2PK是将比特币锁定到某人公钥的最简单脚本，**但其使用频率并不如类似却更复杂的[P2PKH](../P2PKH/P2PKH.md)脚本**。
 
 你最常**在区块链中较早的块中的[coinbase交易](../../Transaction/Coinbase%20Transaction/Coinbase%20Transaction.md)中找到P2PK**。这是因为原始的[比特币核心](https://bitcoin.org/en/download)矿工在构建[候选块](../../Node/Candidate%20Block/Candidate%20Block.md)时会使用P2PK进行块奖励:[^1]
 
@@ -38,7 +38,7 @@
 
 不确定。你得问问她/他。
 
-我认为**P2PKH**被用作方便人们进行交易的方式，因为它允许你使用[地址](../../Keys/Address/Address.md)而不是传递你的公钥（长度更长）。然而，矿工不需要地址的便利，因此P2PK成为了更简单的选择。
+我认为**P2PKH**被用作一种便利的交易方式，因为它允许你使用[地址](../../Keys/Address/Address.md)而不是传递你的公钥（长度更长）。然而，矿工并不需要地址的便利性，所以P2PK成为了一个更简单的选择。
 
 ## 为什么我们不经常使用P2PK？
 
