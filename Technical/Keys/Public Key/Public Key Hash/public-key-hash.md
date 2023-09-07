@@ -3,14 +3,14 @@
 
 ![public-key-hash-1.png](img/public-key-hash-1%20(1).png)
 
-公钥哈希是你[公钥](../Public%20Key.md)的哈希版本。
+公钥哈希是[公钥](../Public%20Key.md)的哈希版本。
 
-这是你向他人提供的公钥版本，以便他们向你发送比特币。它比原始公钥**短**，与直接提供公钥相比，可以为你的比特币提供额外的**安全层**。
+这是你向他人提供的公钥版本，以便他们向你发送比特币。它比原始公钥**短**，与直接提供公钥相比，可以为你的比特币提供额外的**安全保障**。
 
 它基本上也是[地址](../../Address/Address.md)的“原始”版本。
 
 ## 如何创建公钥哈希？
-只需将你的公钥通过[SHA256](https://learnmeabitcoin.com/tools/sha256)和[RIPEMD160](https://learnmeabitcoin.com/tools/ripemd160)[哈希函数](../../../Other/Hash%20Function/Hash%20Function.md)处理即可：
+只需将公钥通过[SHA256](https://learnmeabitcoin.com/tools/sha256)和[RIPEMD160](https://learnmeabitcoin.com/tools/ripemd160)[哈希函数](../../../Other/Hash%20Function/Hash%20Function.md)处理即可：
 
 ![public-key-hash-2.png](img/public-key-hash-2%20(1).png)
 
@@ -23,15 +23,15 @@
 publickey          = 02b4632d08485ff1df2db55b9dafd23347d1c47a457072a1e87be26896549a8737
 hash160(publickey) = 93ce48570b55c42c2af816aeaba06cfee1224fae
 ```
-### 为什么我们使用RIPEMD160？
+### 为什么使用RIPEMD160？
 
 因为[RIPEMD160](https://en.wikipedia.org/wiki/RIPEMD)生成160位（20字节）摘要，比原始公钥（65字节[未压缩](../Public%20Key.md)，33字节[压缩](../Public%20Key.md)）更小。
 
 ![public-key-hash-3.png](img/public-key-hash-3%20(1).png)
 
-这意味着我们最终创建的[地址](../../../Keys/Address/Address.md)将比完整的公钥包含更少的字符，更容易传递。
+这意味着最终创建的[地址](../../../Keys/Address/Address.md)将比完整的公钥包含更少的字符，从而更容易传递。
 
->我们与SHA256一起使用它的原因是因为RIPEMD160本身不是最强大的哈希函数。
+>之所以将其与SHA256一起使用，是因为RIPEMD160本身并不是最强大的哈希函数。
 
 ## 比特币中如何使用公钥哈希？
 当你想要接收比特币时，你会把你的公钥哈希给别人。然后，他们将把它放入交易[输出](../../../Transaction/Transaction%20Data/output/output.md)的[锁定代码](../../../Transaction/Transaction%20Data/output/scriptPubKey/scriptPubKey.md)中。
@@ -68,7 +68,7 @@ puts hash160 # 93ce48570b55c42c2af816aeaba06cfee1224fae
 ```
 
 ## 常见问题
-### 为什么我们要对公钥进行哈希处理？
+### 为什么要对公钥进行哈希处理？
 
 因为这是Satoshi开发比特币时设计的交易方式。
 
@@ -81,15 +81,15 @@ puts hash160 # 93ce48570b55c42c2af816aeaba06cfee1224fae
 ![public-key-hash-6.png](img/public-key-hash-6%20(1).png)
 
 ### 另一种理论：额外的安全性
-另一种理论是使用Hash160提供了额外的安全层。
+另一种理论是使用Hash160提供了额外的安全保障。
 
-例如，如果我们在想要接收比特币时公开了我们的公钥，那么保护你免受攻击者试图获取你的私钥的“唯一”措施就是[椭圆曲线](../../ECDSA/ECDSA.md)。
+例如，如果在想要接收比特币时公开了我们的公钥，那么保护你免受攻击者试图获取你的私钥的“唯一”措施就是[椭圆曲线](../../ECDSA/ECDSA.md)。
 
 ![public-key-hash-7.png](img/public-key-hash-7%20(1).png)
 
 从椭圆曲线乘法逆推出私钥是极其困难的，但你可以尝试。
 
-然而，如果我们提供公钥的哈希版本，攻击者就必须破解RIPEMD160和SHA256哈希函数，同时解决椭圆曲线问题。
+然而，如果我提供公钥的哈希版本，攻击者就必须破解RIPEMD160和SHA256哈希函数，同时解决椭圆曲线问题。
 
 ![public-key-hash-8.png](img/public-key-hash-8%20(1).png)
 
@@ -103,13 +103,13 @@ puts hash160 # 93ce48570b55c42c2af816aeaba06cfee1224fae
 
 由于椭圆曲线乘法的特性，从公钥到私钥的反向计算是不可能的。这被称为“椭圆曲线离散对数问题”。
 
-然而，如果通过某种数学奇迹解决了这个问题，仍然有两个不同的哈希函数可以保护我们的私钥。
+然而，如果通过某种数学奇迹解决了这个问题，仍然有两个不同的哈希函数可以保护私钥。
 
-**但是你不是仍然会公开你的公钥吗？**
+**但是不是仍然会公开公钥吗？**
 
-是的。但在这个系统中，你的公钥只在最后一刻（当你来花费你的比特币时）才会被公开。
+是的。但在这个系统中，公钥只在最后一刻（当你来花费你的比特币时）才会被公开。
 
-理论上，如果有人想推导出你的私钥，在你的交易传播到网络并被挖掘到区块前，他们只有很少的时间来完成。因此，这比一开始就暴露你的公钥更加安全。
+理论上，如果有人想推导出你的私钥，在你的交易传播到网络并被挖掘到区块前，他们只有很少的时间来完成。因此，这比一开始就暴露公钥更加安全。
 
 ## 感谢
 感谢[Pieter Wuille](https://twitter.com/pwuille)解释[为什么我们使用公钥的哈希值](https://bitcoin.stackexchange.com/a/72201/24926)而不是原始公钥。
