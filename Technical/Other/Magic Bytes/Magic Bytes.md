@@ -4,9 +4,9 @@
 
 ![Magic Bytes-1.png](img/Magic%20Bytes-1-svg.png)
 
-**魔术字节**被用作在[比特币网络](../../../Beginners/How%20Bitcoin%20Works/1.Network/Network.md)中[节点](../../../Beginners/How%20Bitcoin%20Works/1.Network/Nodes/Nodes.md)之间识别不同消息的方式。
+**魔术字节**被用于识别在[比特币网络](../../../Beginners/How%20Bitcoin%20Works/1.Network/Network.md)中[节点](../../../Beginners/How%20Bitcoin%20Works/1.Network/Nodes/Nodes.md)之间发送的独立消息。
 
-例如，如果你正在尝试使用自己的代码连接到节点，则摸发送到该节点的每个消息都应该以f9beb4d9开头，从该节点接收到的每个消息也将以相同的魔术字节开头。
+例如，如果你正在尝试使用自己的代码连接到节点，则发送到该节点的每个消息都应该以f9beb4d9开头，从该节点接收到的每个消息也将以相同的魔术字节开头。
 
 ## 魔术字节。
 魔术字节长度为**4个字节**，根据所在的网络不同，它们将不同。
@@ -44,7 +44,7 @@ https://github.com/in3rsha/php-simple-bitcoin-node
 ## 为什么特别选择这些字节？
 这些字节没有特定的含义，除了：
 
->消息起始字符串的设计目的在正常数据中不太可能出现。字符很少使用上ASCII码，不是有效的UTF-8，并且会产生一个大的32位整数，具有任何对齐方式。-[chainparams.cpp](https://github.com/bitcoin/bitcoin/blob/master/src/chainparams.cpp)
+>消息起始字符串的设计目的在正常数据中不太可能出现。字符很少使用上ASCII码，与 UTF-8 一样无效，并且会产生任意对齐的大型 32 位整数。-[chainparams.cpp](https://github.com/bitcoin/bitcoin/blob/master/src/chainparams.cpp)
 
 它们可能是不同的，但这只是4个字节，具有使比特币网络有魔法字节的属性。
 
