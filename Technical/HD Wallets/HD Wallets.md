@@ -3,7 +3,7 @@
 
 [BIP 32](https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki)
 
-**分层确定性钱包**（或“HD钱包”）是从单个来源生成所有密钥和地址的钱包。
+**分层确定性钱包**（或“HD钱包”）是从单一来源生成所有密钥和地址的钱包。
 
 * **确定性**意味着密钥和地址始终以相同的方式生成。
 * **分层**意味着密钥和地址可以组织成树形结构。
@@ -12,10 +12,10 @@
 
 ## 为什么使用HD钱包？
 
-### 1. 单个备份
+### 1. 单一备份
 在基本钱包中，每当你想接收一些比特币时，都会独立生成私钥和公钥配对。
 
-这完全没有问题，但这意味着每次收到新付款时都需要备份的钱包。
+这完全没有问题，但这意味着每次收到新付款时都需要备份钱包。
 
 ![hd-wallets-1.gif](img/hd-wallets-1%20(1).gif)
 
@@ -51,19 +51,19 @@
 
 ![hd-wallets-5.png](img/hd-wallets-5%20(1).png)
 
-**助记句子**
 要启动HD钱包，需要生成64个随机字节，我们将把它们用作**种子**。
 
 ```
 种子：3d08def3b82123f428777b4fd9d9c4dec6eb029839eb0b11fd2fb99e36732c43d919b9be0c2493c3e0057dfbbaf861ecd41346bfacbcd1ecf995e4831d059eaf
 ```
 
-为了获取HD钱包，我们可以使用对用户更加友好的助记句，而不是原始的十六进制种子。
+>助记词句子  
+为了获取HD钱包，我们可以使用对用户更加友好的**助记词句子**，而不是原始的十六进制种子。
 例如，上面的种子是从以下助记句创建的：
 ```
 mnemonic: muffin sheriff judge garment pottery alpha emerge civil stage broken junior know
 ```
-请参阅[助记种子](./Mnemonic%20Seed/Mnemonic%20Seed.md)以获取详细信息。
+请参阅[助记词种子](./Mnemonic%20Seed/Mnemonic%20Seed.md)以获取详细信息。
 
 ### 2.主私钥
 
@@ -78,7 +78,7 @@ mnemonic: muffin sheriff judge garment pottery alpha emerge civil stage broken j
 
 链码只是额外的32个字节，我们将其与私钥配对以创建所谓的[扩展密钥](./Extended%20Keys/Extended%20Keys.md)。
 
->**为什么我们要对种子进行哈希处理**？我们可以直接使用64个字节的种子来创建主扩展私钥。然而，未来的子扩展密钥是使用HMAC创建的，因此最好保持创建方式一致。
+>**为什么要对种子进行哈希处理**？虽然可以直接使用64个字节的种子来创建主扩展私钥。然而，未来的子扩展密钥是使用HMAC创建的，因此最好保持创建方式一致。
 
 **扩展私钥**
 
@@ -99,7 +99,7 @@ mnemonic: muffin sheriff judge garment pottery alpha emerge civil stage broken j
 但实际的主扩展私钥本身只是私钥和链码。
 
 ### 3. 子密钥(基本)
-通过将扩展私钥的内容（私钥和链码）通过HMAC函数进行处理，可以生成新的子私钥。我们每次还包括一个索引号，这使得我们可以从单个主密钥创建多个子密钥。
+新的子私钥是通过将扩展私钥的内容（私钥和链码）通过HMAC函数生成的。每次还包含一个索引号，这使我们能够从一个主密钥创建多个子密钥。
 
 ![hd-wallets-7.gif](img/hd-wallets-7%20(1).gif)
 
@@ -125,14 +125,14 @@ master extended private key:
     公钥：   02ac50ba135a5a1d0e210b4dcfd4bec5732bc18011dec3693360a5b798873e78f4
 ```
 
-因此，基本上，通过使用**索引号**将主扩展私钥哈希化，可以生成新的私钥。
+因此，通过使用**索引号**将主扩展私钥哈希化，可以生成新的私钥。
 
 >扩展密钥可以生成2,147,483,648个这样的子密钥。
 
 ### 4. 子密钥（高级）
 现在这才是有趣的部分。
 
-假设我们想要一个扩展私钥来创建子私钥和公钥，但同时还想要相应的扩展公钥，它可以生成相同的子公钥怎么办？
+假设我们想要一个扩展私钥来创建子私钥和公钥，同时还想要相应的扩展公钥，它可以生成相同的子公钥，该怎么办？
 
 **扩展公钥**
 首先，我们需要构建扩展公钥。这只是从扩展私钥中获取的公钥，再加上相同的链码：
@@ -196,7 +196,7 @@ master extended public key:
   child 2:
     public key: 02430c388a56b73135e68856e2ade0e7b2c167aa822c0b842c08bb991d95a59441
 ```
-由于原始私钥和公钥都被同样的值调整了，新的子私钥和公钥对应。
+由于原始私钥和公钥都被同样的值调整了，新的子私钥和公钥是对应的。
 
 ![hd-wallets-11.gif](img/hd-wallets-11%20(1).gif)
 
@@ -209,7 +209,7 @@ master extended public key:
 
 通过向密钥添加链码，意味着子密钥不仅仅是从密钥派生的。
 
-例如，我们可以使用树中的公钥之一来接收付款，这将使其在[区块链](../Blockchain/blockchain.md)上可见。如果我们不使用链码，任何人都可以获取此公钥并派生其所有子密钥。
+例如，可以使用树中的公钥之一来接收付款，这将使其在[区块链](../Blockchain/blockchain.md)上可见。如果不使用链码，任何人都可以获取此公钥并派生其所有子密钥。
 
 ![hd-wallets-12.png](img/hd-wallets-12%20(1).png)
 
@@ -248,7 +248,7 @@ master extended public key:
 ## 扩展密钥是什么样子的？
 为了使扩展密钥更易传递，我们将它们与一些附加数据一起序列化。
 
-例如，这是我们的主扩展私钥在序列化时的样子：
+例如，这是主扩展私钥在序列化时的样子：
 ```
 version:     0488ade4     # puts "xprv" or "xpub" at the start after encoding to base58
 depth:       00           # how deep we are in the key tree
