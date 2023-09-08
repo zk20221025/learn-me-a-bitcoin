@@ -1,5 +1,5 @@
 # <center>交易</center>
-<center>选择一批比特币，从中创建新的比特币交易。</center>
+<center>选择一批比特币并从中创建新的比特币交易。</center>
 
 ## 什么是比特币交易？
 
@@ -84,7 +84,7 @@
 
 ![transactions-13.png](img/Transactions-13%20(1).png)
 
-如果你想发送比特币，你需要使用此私钥解锁位于你地址上的输出。
+如果你想发送比特币，需要使用此私钥解锁位于你地址上的输出。
 
 ![transactions-14.png](img/Transactions-14%20(1).png)
 
