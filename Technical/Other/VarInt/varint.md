@@ -19,14 +19,14 @@ VarInt通常是一个1字节的[十六进制](../Hexadecimal/hexadecimal.md)值�
 6a47304402200aa5891780e216bf1941b502de29 ... 926
 ```
 
-然而，如果VarInt大于0xfc（所以你要表达的数字不能适应两个十六进制字符），那么你可以按照以下方式扩展字段：
+然而，如果VarInt大于0xfc（你要表达的数字无法容纳在两个十六进制字符内），那么可以按照以下方式扩展字段：
 
 |大小	|示例	|描述|
 |---|---|---|
 |<= 0xfc|	12|---|	
-|<= 0xffff	|fd1234|	Prefix with fd, and the next 2 bytes is the VarInt (in little-endian).|
-|<= 0xffffffff|	fe12345678|	Prefix with fe, and the next 4 bytes is the VarInt (in little-endian).|
-|<= 0xffffffffffffffff|	ff1234567890abcdef|	Prefix with ff, and the next 8 bytes is the VarInt (in little-endian).|
+|<= 0xffff	|fd1234|	以fd为前缀，接下来的2个字节是VarInt (in little-endian).|
+|<= 0xffffffff|	fe12345678|	以fe为前缀，接下来的4个字节是VarInt(in little-endian).|
+|<= 0xffffffffffffffff|	ff1234567890abcdef|	以ff为前缀，接下来的8个字节是VarInt (in little-endian).|
 
 >1字节= 2个字符
 
@@ -58,12 +58,11 @@ VarInt = fe703a0f00
 VarInt =   703a0f00
 VarInt =   000f3a70
        =   998000 bytes
-
 ```
 
 ## 为什么要使用VarInts？
 
-在[交易数据](../../Transaction/Transaction%20Data/Transaction%20Data.md)中，像[txid](../../Transaction/TXID/TXID.md)和[vout](../../Other/VOUT/VOUT.md)这样的字段具有固定的大小，因此始终知道它们的起始位置和结束位置。但是，像scriptSig这样的字段长度可能会有变化，因此在它之前放置一个VarInt字段，以便你知道它的长度有多少字节。
+在[交易数据](../../Transaction/Transaction%20Data/Transaction%20Data.md)中，像[txid](../../Transaction/TXID/TXID.md)和[vout](../../Other/VOUT/VOUT.md)这样的字段具有固定的大小，因此始终知道它们的起始位置和结束位置。但是，像scriptSig这样的字段可以变化长度，因此在它之前放置一个VarInt字段，以便知道它的长度有多少字节。
 
 如果你编写了读取交易数据的脚本或程序，这些VarInts是必不可少的，因为没有它们，你将不知道可变长度字段在哪里结束。
 

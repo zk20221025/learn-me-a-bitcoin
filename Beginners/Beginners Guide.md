@@ -2,7 +2,7 @@
 比特币介绍。
 
 ## 入门指南。
-对比特币不熟悉并希望快速入门？这应该可以帮到你。它不涉及技术和基础，但这就是你需要开始的全部。
+对比特币不熟悉并希望快速入门？这应该可以帮到你。它不涉及技术和基础，但它是你开始操作所需的全部。
 
 1. [开始](./Getting%20Started/getting-started/getting%20started.md)
 2. [购买](./Getting%20Started/Buying/Buying.md)
