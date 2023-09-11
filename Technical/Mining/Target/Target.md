@@ -3,9 +3,9 @@
 
 ![target-1.png](img/target-1%20(1).png)
 
-目标值是在[挖掘](../Mining.md)中使用的数字，[区块哈希](../../Block/block-hash/block-hash.md)必须低于该数字才能将该区块添加到[区块链](../../Blockchain/blockchain.md)中。
+目标值是在[挖掘](../Mining.md)中使用的数字，[区块哈希值](../../Block/block-hash/block-hash.md)必须低于该数字才能将该区块添加到[区块链](../../Blockchain/blockchain.md)中。
 
-目标值每2016个区块（大约两周）进行一次调整，以尝试确保**平均每10分钟**挖掘一个区块。因此，它创建了区块之间的一致时间和新比特币的一致发行（通过区块奖励）。
+目标值每2016个区块（大约两周）进行一次调整，以尝试确保**平均每10分钟**挖掘一个区块。因此，它创建了区块之间的一致时间，并通过区块奖励，将新的比特币一致地发放到网络中。。
 >为了弥补硬件速度的增加和随时间变化的节点运行兴趣的差异，工作证明的难度是通过移动平均值来确定的，以达到每小时平均区块数量的目标值。如果区块生成过快，难度会增加。-[中本聪](https://nakamotoinstitute.org/bitcoin/)
 
 **当前目标值**:
@@ -28,7 +28,7 @@
 ```
 Block [0](https://learnmeabitcoin.com/explorer/blockchain/0)
 
->这个初始（和最大）目标值是编写每个比特币节点源代码的硬编码[^1]。这可能是Satoshi Nakamoto对于一个足够困难的目标值的最佳猜测，这个目标值会导致新块之间的10分钟间隔。
+>这个初始（和最大）目标值是编写每个比特币节点源代码的硬编码[^1]。这可能是Satoshi Nakamoto对于一个足够困难的起始点的最佳猜测，这将导致新块之间的10分钟间隔。
 
 ![target-2.png](img/target-2%20(1).png)
 
@@ -46,14 +46,14 @@ Block [0](https://learnmeabitcoin.com/explorer/blockchain/0)
 
 ![target-5.png](img/target-5%20(1).png)
 
-因此，每个节点定期重新计算目标值，以在矿工随时间加入和离开网络的情况下强制执行新块之间的10分钟间隔。
+因此，每个节点定期重新计算目标值，即使在矿工随时间加入和离开网络的情况下也强制实施新块之间的10分钟间隔。
 
 请见本页底部的[^代码](#代码)，这是一个真实的示例。
 
 ### 是什么导致区块的挖掘速度比每10分钟快或慢？
 首先，[挖矿](../Mining.md)是不可预测的，因此你永远不知道矿工何时会找到下一个区块哈希小于当前目标值的区块。
 
-其次（也是最重要的），矿工可以随时加入和离开网络，这会影响在10分钟内挖掘新区块的可能性。网络上有更多的矿工，就会有更多的哈希运算，新区块在10分钟内被挖掘的可能性就越大。
+其次（也是最重要的），矿工可以随时加入和离开网络，这会影响在10分钟内挖掘新区块的可能性。网络上的矿工越多，进行的哈希运算就越多，新区块在10分钟内被挖掘的可能性就越大。
 
 ## 3. 所有节点共享同一个目标值吗？
 网络上的每个节点都独立运作，因此没有“单一目标值”在网络中传递。
@@ -64,7 +64,7 @@ Block [0](https://learnmeabitcoin.com/explorer/blockchain/0)
 
 ![target-6.png](img/target-6%20(1).png)
 
-此外，所有节点持续共享区块链的相同视图（因为它们始终采用[可用的最长区块链](../../Blockchain/longest-chain/longest-chain.md)）。因此，随着每个新块的挖掘，节点也将不断计算相同的目标值。
+此外，所有节点持续共享区块链的相同视图（因为它们始终采用[可用的最长区块链](../../Blockchain/longest-chain/longest-chain.md)）。因此，在每个新区块被挖掘出来时，每个节点会持续计算出相同的目标值。
 
 ![target-7.png](img/target-7%20(1).png)
 
@@ -83,7 +83,7 @@ Block [0](https://learnmeabitcoin.com/explorer/blockchain/0)
 
 ![target-8.png](img/target-8%20(1).png)
 
-如果挖掘出的区块比它们在网络中传播的速度更快，那么将导致矿工经常建立竞争链。其中只有一个将成为[最长的链](../../Blockchain/longest-chain/longest-chain.md)，因此一些矿工将浪费能源努力在竞争链上进行建设，最终由于[链重新组织](../../Blockchain/chain-reorganisation/chain-reorganisation.md)而被抛弃。
+如果区块被挖掘得比它们在网络上广播的速度更快，那么将导致矿工经常建立竞争链。其中只有一个将成为[最长的链](../../Blockchain/longest-chain/longest-chain.md)，因此一些矿工将浪费能源努力在竞争链上进行建设，最终由于[链重新组织](../../Blockchain/chain-reorganisation/chain-reorganisation.md)而被抛弃。
 
 ![target-9.png](img/target-9%20(1).png)
 
@@ -105,10 +105,10 @@ Block [0](https://learnmeabitcoin.com/explorer/blockchain/0)
 ## 5.为什么区块之间要间隔10分钟？
 我认为除了Satoshi之外，没有人知道为什么会选择**10分钟**的时间。
 
-我猜测这个时间足够长，可以让区块在网络中传播（以最小化[链重组](../../Blockchain/chain-reorganisation/chain-reorganisation.md)），同时又不必等待太长时间才能将新交易挖掘到区块链上。10是一个很好的整数。
+我猜测这看起来是一个足够长的时间，可以让区块在网络中传播（以最小化[链重组](../../Blockchain/chain-reorganisation/chain-reorganisation.md)），同时又不必等待太长时间才能将新交易挖掘到区块链上。10是一个很好的整数。
 
 ## 6. 你可以在哪里找到目标值？
-目标值被存储在每个[区块头](../../Block/block-header/block-header.md)中的[比特](../../Block/block-header/bits/bits.md)字段中。
+目标值被存储在每个[区块头](../../Block/block-header/block-header.md)中的[bits](../../Block/block-header/bits/bits.md)字段中。
 
 ![target-11.png](img/target-12%20(1).png)
 
