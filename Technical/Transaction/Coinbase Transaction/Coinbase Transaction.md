@@ -5,7 +5,7 @@
 
 Coinbase交易是区块中的第一个交易。矿工使用它来收集**区块奖励**和任何额外的[**交易费用**](../Fees/Fees.md)。
 
-这就像把你的详细信息放在一个自我寄送的信封上，以便你可以领取奖品。
+这就像把你的详细信息放在一个写有你地址的信封上，以便你可以领取奖金。
 
 ## 用法
 当矿工创建[候选区块](../../Node/Candidate%20Block/Candidate%20Block.md)时，第一个交易的空间被保留给Coinbase交易。
@@ -35,13 +35,13 @@ Coinbase交易与普通[交易数据](../Transaction%20Data/Transaction%20Data.m
 
 **例如**。
 
-在上面的交易数据中，03给我们推送的[字节数](https://en.bitcoin.it/wiki/Script#Constants)，因此接下来的3个字节ec5906表示块的高度。
+在上面的交易数据中，03表示被推送的[字节数](https://en.bitcoin.it/wiki/Script#Constants)，因此接下来的3个字节ec5906表示块的高度。
 
 >当你[交换字节顺序](https://learnmeabitcoin.com/tools/swapendian)并转换为[十进制](https://learnmeabitcoin.com/tools/hexdec)时，ec5906是416236。
 
 >### **Coinbase交易中的信息。**
 >矿工们经常使用scriptSig来存储文本字符串。你只需要将它们解码（[从十六进制到ASCII](https://learnmeabitcoin.com/tools/hex2ascii)）即可阅读。  
-以下是一些有趣的信息：
+以下是一些有趣的例子：
 
 |Coinbase交易|scriptSig（解码后）|注释|
 |---|---|---|
@@ -49,7 +49,7 @@ Coinbase交易与普通[交易数据](../Transaction%20Data/Transaction%20Data.m
 |[d0ec21e1d73d06be76c2b5b1e5ec486085bda8264229046c11b95f66f2eded83](https://learnmeabitcoin.com/explorer/transaction/d0ec21e1d73d06be76c2b5b1e5ec486085bda8264229046c11b95f66f2eded83)|/HaoBTC/Sun Chun Yu: Zhuang Yuan, will you marry me?/|你可以把任何文本字符串放进去。|
 |[4a5e1e4baab89f3a32518a88c31bc87f618f76673e2cc77ab2127b7afdeda33b](https://learnmeabitcoin.com/explorer/transaction/4a5e1e4baab89f3a32518a88c31bc87f618f76673e2cc77ab2127b7afdeda33b)|The Times 03/Jan/2009 Chancellor on brink of second bailout for banks|这是由中本聪挖掘的第一个Coinbase交易。|
 
->**一笔 Coinbase 交易必须经过 100 个区块的确认，才能花费它的输出。**
+>**Coinbase 交易必须经过 100 个区块的确认，才能花费它的输出。**
 这是一种安全措施，防止来自coinbase交易的输出变得无法使用（如果挖掘的块因分叉而移出活动链）。
 * [COINBASE_MATURITY](https://github.com/bitcoin/bitcoin/search?q=COINBASE_MATURITY)
 * http://bitcoin.stackexchange.com/questions/1991/what-is-the-block-maturation-time
