@@ -1,14 +1,14 @@
 # <center>区块数据文件</center>
 <center>原始的区块链数据文件。</center>
 
-~/.bitcoin/blocks/目录下的**blk.dat**文件包含[比特币核心](https://bitcoin.org/en/download)节点接收到的原始块数据。
+~/.bitcoin/blocks/目录下的**blk.dat**文件包含[比特币核心](https://bitcoin.org/en/download)节点接收到的原始区块数据。
 
 这些blk.dat文件存储着“[区块链](../../../Beginners/How%20Bitcoin%20Works/2.Mining/1.Blockchain/Blockchain.md)”。
 
 ## 它们是如何工作的呢？
 节点接收到的每个区块都会被追加到blk.dat文件中。
 
-此外，它们不是存储在一个巨大的文件中，而是分成多个blk * .dat文件。
+此外，它们并没有存储在一个巨大的文件中，而是分成多个blk * .dat文件。
 ```
 ~/.bitcoin/blocks
     blk00000.dat
@@ -16,7 +16,7 @@
     blk00002.dat
     ......
 ```
-节点首先将块添加到blk00000.dat中，当它填满时，它会继续移动到blk00001.dat，然后是blk00002.dat……以此类推。
+节点首先将区块添加到blk00000.dat中，当它填满后，它会继续移动到blk00001.dat，然后是blk00002.dat……以此类推。
 
 ### 例如
 
@@ -34,44 +34,44 @@ f9beb4d91d0100000100000000000000000000000000000000000000000000000000000000000000
 
 ![blkdat-1.svg](img/blkdat-1-svg.png)
 
-* 魔术字节和大小允许你确定每个块的数据从哪里开始和结束。
-* 块头。
-* 交易计数（[可变整数](../../Other/VarInt/varint.md)），随后是每个交易的交易数据。
+* 魔术字节和大小可以帮助你确定每个块的数据开始和结束的位置。
+* 区块头。
+* 交易数量（[可变整数](../../Other/VarInt/varint.md)），随后是每个交易的交易数据。
 
 ### 数据
 ```
 [ magic bytes ][    size     ][        block header        ][  tx count  ][          transaction data          ]
  <- 4 bytes ->  <- 4 bytes ->  <-        80 bytes        ->  <- varint ->  <-            remainder           ->
 ```
->该size字段能让人知道需要读取293字节才能获取整个块的关键。  
-大小为1d010000，因此将其换成人类格式：  
-1.[交换字节序](https://learnmeabitcoin.com/tools/swapendian)以获得0000011d  
+>该size字段能让人知道需要读取293字节才能获取整个区块。  
+大小为1d010000，因此将其转换成人类可以理解的格式：  
+1.[交换字节顺序](https://learnmeabitcoin.com/tools/swapendian)以获得0000011d  
 2.[转换为十进制](https://learnmeabitcoin.com/tools/hexdec)以获得285  
-因此，除了魔术字节和大小的初始8个字节外，即将到来的块数据的大小将是**285个字节**。
+因此，除了初始的8个字节用于魔术字节 + size 外，接下来的块数据的大小将是**285个字节**。
 
 ### 注释
 #### 1. 区块不会按顺序下载。
-如果你正在解析blk.dat文件，请注意区块不会按顺序出现。例如，当你浏览文件时，你可能会遇到以下顺序的区块：
+如果你正在解析blk.dat文件，请注意区块不会按顺序排列。例如，当你浏览文件时，你可能会遇到以下顺序的区块：
 ```
 A B C E F D
 ```
 
->这是因为比特币节点会并行下载区块来尽快下载区块链。当节点下载区块时，它会下载比当前区块更靠前的区块，而不是等待按顺序接收每个区块。  
-在比特币源代码中，您的节点将从其中获取的最大距离（或者说“最大的无序度”）由[BLOCK_DOWNLOAD_WINDOW](https://github.com/bitcoin/bitcoin/search?q=BLOCK_DOWNLOAD_WINDOW)控制。
+>这是因为比特币节点会并行下载区块来尽快下载区块链。节点在下载时会提前下载更多的区块，而不是等待按顺序接收每一个区块。  
+在比特币源代码中，您的节点将提前获取的最大距离（（或者说“最大的无序度”）由[BLOCK_DOWNLOAD_WINDOW](https://github.com/bitcoin/bitcoin/search?q=BLOCK_DOWNLOAD_WINDOW)控制。
 
 #### 2. 最大blk.dat文件大小为128MiB（134,217,728字节）
 此限制由[MAX_BLOCKFILE_SIZE](https://github.com/bitcoin/bitcoin/search?q=MAX_BLOCKFILE_SIZE)设置
 
 ### Linux工具
-如上所述，blk.dat文件中的数据是二进制的，因此如果你在文本编辑器中打开一个文件，你可能看不到什么意义。但是没有关系，因为二进制数据可以轻松转换为[十六进制](../../Other/Hexadecimal/hexadecimal.md)，有两个命令可以完成此任务：
+如上所述，blk.dat文件中的数据是二进制的，因此如果你在文本编辑器中打开一个文件，可能看不到多少有意义的内容。但是没有关系，因为二进制数据可以轻松转换为[十六进制](../../Other/Hexadecimal/hexadecimal.md)，有两个命令可以完成此任务：
 
 #### 1. od
-这是一个简单的命令。它会以你选择的格式转储文件的内容。
+这是一个简单的命令。它会以你选择的格式显示文件的内容。
 ```
 od -x --endian=big -N 293 -An blk00000.dat
 ```
 *  -x <- 显示十六进制
-*  -endian = big <- 以大端方式显示字节
+*  -endian = big <- 以大端字节序显示字节
 *  -N 293 <- 要读取的字节数
 *  -An <- 不显示文件偏移量
 
@@ -107,7 +107,7 @@ $ hexdump -C -s 8 -n 285 blk00000.dat
 * -n <- 要读取的字节数
 
 >**仅显示十六进制数据。**
-你可以将一些命令链接在一起，以便只获取原始十六进制数据输出：
+你可以将一些命令串联起来，以便只获取原始十六进制数据输出：
 ```
 hexdump -C -s 8 -n 285 blk00000.dat | cut -c 11-58 | tr '\n' ' ' | tr -d ' '
 ```
