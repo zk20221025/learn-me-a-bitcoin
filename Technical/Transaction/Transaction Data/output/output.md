@@ -5,7 +5,7 @@
 
 输出是在比特币[交易](../Transaction%20Data.md)中创建的**比特币批次**。 
 
-每个输出都有一个**锁**，这意味着只有能够解锁它们的人才能将它们用作未来交易中的[输入](../Input/input.md)。 
+每个输出都有一个**锁**，这意味着只有能够解锁它们的人才能在未来的交易中将它们用作[输入](../Input/input.md)。 
 
 ## 结构
 ```
@@ -19,16 +19,16 @@ Transaction: [c1b4e695098210a31fe02abffe9005cffc051bbe86ff33e173155bcbdc5821e3](
 
 >如果想解码输出的值，只需要[交换字节顺序](https://learnmeabitcoin.com/tools/swapendian)，然后将其从[十六进制转换为十进制](https://learnmeabitcoin.com/tools/hexdec)。这你就可以得到以**Satoshis**为单位的值。
 
-## 输出如何工作？
+## 输出是如何工作的？
 在选择要使用的[输入](../Input/input.md)后，你可以从中创建任意数量的输出。
 
 对于每个输出，只需：
 
-1. 赋予它一个价值。
-2. 给它一个锁。
+1. 赋予它一个值。
+2. 设定一个锁。
 
-### 1. 价值
-每个输出都有一个价值。这个价值以**Satoshis**为单位给出：
+### 1. 值
+每个输出都有一个值。这个值以**Satoshis**为单位给出：
 
 ![output-3.png](img/output-3-svg.png)
 
