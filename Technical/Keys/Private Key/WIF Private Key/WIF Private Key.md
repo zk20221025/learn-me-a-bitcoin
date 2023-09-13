@@ -13,9 +13,9 @@ WIF私钥是标准[私钥](../Private%20Key.md)，但加了一些额外的东西
     * 0xEF = 测试网
 2. **压缩字节**后缀（可选）- 表示私钥是否用于创建[压缩公钥](../../Public%20Key/Public%20Key.md)。
    * 0x01
-3. **[校验和](../../Checksum/Checksum.md)** - 有助于检测输入私钥时的错误/打字错误。
+3. **[校验和](../../Checksum/Checksum.md)** - 在你键入私钥时，用于检测错误输入或者打字错误。
 
-然后将所有这些内容转换为[Base58](../../Base58/Base58.md)，缩短整个过程并使其更容易转录...
+然后将所有这些内容转换为[Base58](../../Base58/Base58.md)，这样就缩短了整个内容，并使其更容易转录...
 
 ![WIF Private Key-1.png](img/WIF%20Private%20Key-1.png)
 
