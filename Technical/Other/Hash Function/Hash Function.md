@@ -3,7 +3,7 @@
 
 ![hash-function-1.png](img/Hash%20Function-1-svg.png)
 
->**哈希函数是一个小型计算机程序，它接收数据，对其进行混淆处理，并给出唯一的固定长度结果。**
+>**哈希函数是一种能将数据混淆并输出固定长度结果的小型计算机程序。**
 
 哈希函数的有趣之处在于：
 
@@ -63,7 +63,7 @@ learnmeabitcoin4    255da46dc8699fffd841b7c66a31eeb4f8eda8e1ca6850c7356376518f52
 
 ## 比特币中哈希函数的使用在哪里？
 ### 1. 交易哈希
->**将[交易数据](../../Transaction/Transaction%20Data/Transaction%20Data.md)哈希为[TXID](../../Transaction/TXID/TXID.md)（交易ID，交易哈希）。**
+>**将[交易数据](../../Transaction/Transaction%20Data/Transaction%20Data.md)哈希处理为[TXID](../../Transaction/TXID/TXID.md)（交易ID，交易哈希）。**
 
 * 将长字符串的交易数据哈希为短且唯一的字符串的能力，使你能够为每一笔交易创建唯一的标识符。
 
@@ -74,7 +74,7 @@ learnmeabitcoin4    255da46dc8699fffd841b7c66a31eeb4f8eda8e1ca6850c7356376518f52
 * 每个哈希结果都是随机的事实，使得[挖矿](../../Mining/Mining.md)机制成为可能。
 
 ### 3. 地址
->**在创建比特币[地址](../../Keys/Address/Address.md)的过程中，使用[公钥](../../Keys/Public%20Key/Public%20Key.md)进行哈希（同时使用SHA256和RIPEMD160）。**
+>**在创建比特币[地址](../../Keys/Address/Address.md)的过程中，使用[公钥](../../Keys/Public%20Key/Public%20Key.md)进行哈希处理（同时使用SHA256和RIPEMD160）。**
 
 * 你不能从哈希结果反向推导的事实，有助于提高将公钥放入[锁定脚本](../../Transaction/Transaction%20Data/output/scriptPubKey/scriptPubKey.md)时的安全性。
 * RIPEMD-160生成一个比公钥长度短的摘要，从而缩短了生成的地址的长度。
@@ -88,7 +88,7 @@ learnmeabitcoin4    255da46dc8699fffd841b7c66a31eeb4f8eda8e1ca6850c7356376518f52
 ### 1. Hash256
 这涉及将数据通过[SHA-256](https://github.com/in3rsha/sha256-animation/)哈希函数进行处理，然后再次通过SHA-256进行处理。换句话说，这就是“双SHA-256”。我们简称为Hash256。
 
-这是比特币中最常用的哈希数据方法。它用于在创建[TXIDs](../../Transaction/TXID/TXID.md)时哈希处理[交易数据](../../Transaction/Transaction%20Data/Transaction%20Data.md)，以及[挖掘](../../Mining/Mining.md)期间的[哈希处理块头](../../Block/block-header/block-header.md)。
+这是比特币中最常用的哈希数据方法。它用于在创建[TXIDs](../../Transaction/TXID/TXID.md)时哈希处理[交易数据](../../Transaction/Transaction%20Data/Transaction%20Data.md)，以及[挖掘](../../Mining/Mining.md)期间的[区块头哈希](../../Block/block-header/block-header.md)。
 ```ruby
 require 'digest'
 
@@ -140,7 +140,7 @@ puts hash160("aa") #=> 58d179ca6112752d00dc9b89ea4f55a585195e26
 ```
 
 ## 常见的哈希错误
-在比特币中哈希数据的常见错误是将字符串插入到哈希函数中，而不是这些字符串实际表示的底层字节序列。
+在比特币中哈希数据的常见错误是将字符串插入到哈希函数中，而不是将字符串实际代表的字节序列插入。
 
 例如，假设我们有十六进制字符串ab。
 
