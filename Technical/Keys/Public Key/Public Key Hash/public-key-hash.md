@@ -25,7 +25,7 @@ hash160(publickey) = 93ce48570b55c42c2af816aeaba06cfee1224fae
 ```
 ### 为什么使用RIPEMD160？
 
-因为[RIPEMD160](https://en.wikipedia.org/wiki/RIPEMD)生成160位（20字节）摘要，比原始公钥（65字节[未压缩](../Public%20Key.md)，33字节[压缩](../Public%20Key.md)）更小。
+因为[RIPEMD160](https://en.wikipedia.org/wiki/RIPEMD)生成的是160位（20字节）摘要，比原始公钥（[未压缩](../Public%20Key.md)的是65字节，[压缩](../Public%20Key.md)的是33字节）更小。
 
 ![public-key-hash-3.png](img/public-key-hash-3%20(1).png)
 
@@ -47,7 +47,7 @@ hash160(publickey) = 93ce48570b55c42c2af816aeaba06cfee1224fae
 因此，当节点来验证这个交易时，它会：
 
 1. 检查**公钥**所提供的**公钥哈希值**是否正确。  
-2. 如果检查通过，它们将像往常一样对**公钥**进行验证**签名**。
+2. 如果检查通过，它们将像往常一样对**公钥**和**签名**进行验证。
 
 因此，与[P2PK](../../../Script/P2PK/P2PK.md)锁定不同，它不仅仅检查**签名**与公钥的匹配性，还会先**检查公钥的哈希值**。
 
@@ -70,7 +70,7 @@ puts hash160 # 93ce48570b55c42c2af816aeaba06cfee1224fae
 ## 常见问题
 ### 为什么要对公钥进行哈希处理？
 
-因为这是Satoshi开发比特币时设计的交易方式。
+这是因为比特币的发明者Satoshi在设计比特币交易时就是这样规定的。。
 
 >关于为什么地址是公钥哈希，你需要问Satoshi。-[ Pieter Wuille](https://bitcoin.stackexchange.com/a/72201/24926)
 
@@ -89,7 +89,7 @@ puts hash160 # 93ce48570b55c42c2af816aeaba06cfee1224fae
 
 从椭圆曲线乘法逆推出私钥是极其困难的，但你可以尝试。
 
-然而，如果我提供公钥的哈希版本，攻击者就必须破解RIPEMD160和SHA256哈希函数，同时解决椭圆曲线问题。
+然而，如果我提供的是公钥的哈希版本，攻击者就必须破解RIPEMD160和SHA256哈希函数，同时解决椭圆曲线问题。
 
 ![public-key-hash-8.png](img/public-key-hash-8%20(1).png)
 
@@ -99,7 +99,7 @@ puts hash160 # 93ce48570b55c42c2af816aeaba06cfee1224fae
 
 **那么椭圆曲线的保护力度还不够吗？**
 
-这实际上是很好的保护
+实际上，它提供了极好的保护。
 
 由于椭圆曲线乘法的特性，从公钥到私钥的反向计算是不可能的。这被称为“椭圆曲线离散对数问题”。
 
