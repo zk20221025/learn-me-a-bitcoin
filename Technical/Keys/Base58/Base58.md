@@ -10,7 +10,7 @@ a b c d e f g h i j k   m n o p q r s t u v w x y z
 Base58是一组字符，可用于以更短且更易人看懂的格式表示大数字。
 
 ## “Base58”是什么意思？
-“Base”指的是用于表示值的字符数量。
+“Base”指的是用于表示数值的字符数量。
 
 |基础	|描述|
 |---|---|
@@ -31,11 +31,11 @@ base58(9999) = 3yQ
 
 所有这些“数字”都具有相同的值——**它们只是使用不同的字符集（基数）来表示它。**
 
->基数中有越多的字符，就需要使用越少的字符来表示大数字。因此，基数越大，“数字”就越短。
+>基数中有越多的字符，需要用来表示大数值的字符就越少。因此，基数越大，“数字”就越短。
 
 ## 为什么是base58？
 
-因为base58是使用字母数字字母表中的所有字符（62个）剩余的字符数量，但删除所有易混淆的字符，如0、O、l和I。
+因为58是当你使用字母数字字母表（62）中的所有字符，但是去掉所有容易混淆的字符，如0，O，l和I后剩下的字符数量。
 ```
 alphanumeric = 0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz
 base58       =  123456789ABCDEFGH JKLMN PQRSTUVWXYZabcdefghijk mnopqrstuvwxyz
@@ -43,7 +43,7 @@ base58       =  123456789ABCDEFGH JKLMN PQRSTUVWXYZabcdefghijk mnopqrstuvwxyz
 因此，Base58具有两个优点：
 
 1. 它提供了大量的字符，因此可以使用更短的格式表示大数字。 
-2. **它会省略一些难打的字符**，以避免你在转录时犯错。
+2. **它会省略了容易混淆的字符**，以避免你在转录时犯错。
 
 ![base58-1.png](img/Base58-1-svg.png)
 
@@ -219,7 +219,7 @@ https://en.bitcoin.it/wiki/List_of_address_prefixes
 
 ## 代码
 
-这些代码片段执行**Bitcoin中使用的base58转换**。它们转换为和从十六进制转换，因为那是我们最常使用的格式。
+这些代码片段执行**比特币中使用的base58转换**。它们可以在十六进制和base58之间转换，因为这是我们最常用的格式。
 >### Ruby:
 ```ruby
 module Base58
