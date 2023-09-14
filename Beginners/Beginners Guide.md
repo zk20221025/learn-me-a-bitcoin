@@ -9,9 +9,9 @@
 3. [发送](./Getting%20Started/Sending/Sending.md)
 
 ## 比特币如何工作。
-我在2015年写了这篇指南，当时我第一次了解比特币。我认为如果我完全忘记了它的工作原理并需要快速刷新指南，这将会很有帮助。
+我在2015年学习比特币时写下了这份指南，想着如果有一天我完全忘记了比特币的运作方式，这份指南能帮我快速复习。
 
-解释是简单的，图画很糟糕，但仍然是一篇有趣的阅读材料。
+虽然里面的解释很简单，画的图也很糟糕，但阅读起来还是很有趣的。
 
 ### 1. [The Bitcoin Network](./How%20Bitcoin%20Works/1.Network/Network.md)
 * [Nodes](./How%20Bitcoin%20Works/1.Network/Nodes/Nodes.md)
