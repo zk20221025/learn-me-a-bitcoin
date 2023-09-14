@@ -7,7 +7,7 @@
 
 ## 用途
 
-你可以使用txid和vout来唯一**选择一个输出**以用作新交易中的[输入](../../Transaction/Transaction%20Data/Input/input.md)。
+你可以使用txid和vout来唯一**确定一个输出**以用作新交易中的[输入](../../Transaction/Transaction%20Data/Input/input.md)。
 
 ![VOUT-2.png](img/VOUT-2%20(1).png)
 
