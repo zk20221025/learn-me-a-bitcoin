@@ -1,4 +1,4 @@
-# <center>助记词种子</center>
+# <center>助记词句子</center>
 <center>将随机数字编码成单词，并使用它们创建种子。</center>
 
 [BIP 39](https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki)
