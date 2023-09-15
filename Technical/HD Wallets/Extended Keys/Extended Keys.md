@@ -449,7 +449,7 @@ puts "calculated:         #{calculated_key}" #=> 081549973bafbba825b31bcc402a3c4
 ```
 >在密钥字段中，私钥（32字节）以0x00开头，以将其扩展到与公钥（33字节）相同的长度。
 
-然后在此数据中添加[校验和](../../Keys/Checksum/Checksum.md)（以帮助检测错误），最后将所有内容转换为[Base58](../../Keys/Base58/Base58.md)（以创建对人类更友好的扩展密钥格式）。
+然后在此数据中添加[校验和](../../Keys/Checksum/Checksum.md)（以帮助检测错误输入），最后将所有内容转换为[Base58](../../Keys/Base58/Base58.md)（以创建对人类更友好的扩展密钥格式）。
 
 扩展私钥的格式如下：
 ```
