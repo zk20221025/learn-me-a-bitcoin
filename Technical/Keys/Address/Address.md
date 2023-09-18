@@ -11,7 +11,7 @@
 
 好吧，这取决于你希望如何锁定比特币。
 
-但一般来说，一个地址包含：
+一般来说，一个地址包含：
 
 1. 一些你想包含在锁定中的**特定数据**。例如，你的[公钥哈希](../Public%20Key/Public%20Key%20Hash/public-key-hash.md)。
 2. [**前缀**](#前缀)，表示要创建什么样的锁定。
@@ -20,13 +20,13 @@
 最后，所有这些都被转换为[**Base58**](../Base58/Base58.md)，这使它更易于使用。
 
 ## 支付到公钥哈希（P2PKH）
-[**P2PKH**](../../Script/P2PKH/P2PKH.md)这是一个典型的将比特币锁定到[公钥](../Public%20Key/Public%20Key.md)（或更精确地说：[公钥哈希](../Public%20Key/Public%20Key%20Hash/public-key-hash.md)）的地址。
+[**P2PKH**](../../Script/P2PKH/P2PKH.md)这是一个典型的将比特币锁定到[公钥](../Public%20Key/Public%20Key.md)（或更准确的说法：[公钥哈希](../Public%20Key/Public%20Key%20Hash/public-key-hash.md)）的地址。
 
 如上所述，在哈希公钥前后分别添加**前缀**和**校验和**，然后将其全部编码为base58。
 
 ![address-2.png](img/address-2%20(1).png)
 
-现在我们有一个地址可以给别人。 
+现在我们有一个地址可以提供给别人。 
 
 ### 解码：
 当有人从这个地址创建锁定脚本时，他们只需解码base58以**检索其中的hash160**，然后**创建一个P2PKH锁定脚本**，如下所示：
