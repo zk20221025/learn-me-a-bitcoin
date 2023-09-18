@@ -86,7 +86,7 @@ Ta da.
 
 因为比特币是这样设计的。
 
-这可能不是对用户最友好（或最受欢迎[^1]）的选择，但现代计算机几乎总是在内部使用小端序，因此这个决定是为了提高处理速度。[^2]
+这可能不是对用户最友好（或最受欢迎[^1]）的选择，但现代计算机几乎总是在内部使用小端序格式，因此这个决定是为了提高处理速度。[^2]
 
 ## 比特币中的小端序示例。
 
@@ -107,7 +107,7 @@ Ta da.
 ## 代码
 
 ### Bash
-以下是如何在命令行上交换字节序（使用[grep](https://linux.die.net/man/1/grep)匹配每2个字符，[tac](https://linux.die.net/man/1/tac)反转顺序，然后使用[tr](https://linux.die.net/man/1/tr)去除换行符以给出字符串）：
+以下是如何在命令行上交换字节序（使用[grep](https://linux.die.net/man/1/grep)匹配每2个字符，[tac](https://linux.die.net/man/1/tac)反转顺序，然后使用[tr](https://linux.die.net/man/1/tr)删除换行符以得到字符串）：
 ```
 echo 12345678 | grep -o .. | tac | echo $(tr -d '\n')
 ```
