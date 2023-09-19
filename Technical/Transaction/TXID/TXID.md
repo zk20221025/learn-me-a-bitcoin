@@ -20,10 +20,10 @@ TXID始终为**32字节**（64个字符）且为[十六进制](../../Other/Hexad
 
 ![txid-2.png](img/TXID-2.svg)
 
-169e1e83e930853391bc6f35f605c6754cfead57cf8387639d3b4096c54f18f4 （注意：如果想在区块链中查找此交易，请先[反向字节顺序](https://learnmeabitcoin.com/tools/swapendian)...）
+169e1e83e930853391bc6f35f605c6754cfead57cf8387639d3b4096c54f18f4 （注意：如果想在区块链中查找此交易，请先[交换字节顺序](https://learnmeabitcoin.com/tools/swapendian)...）
 
 ### 在区块链中搜索交易ID。
->如果你刚刚对一些交易数据进行了哈希处理，并想在区块链中[搜索TXID](https://learnmeabitcoin.com/explorer/transaction)，则必须以**反向字节顺序**搜索它。
+>如果你刚刚对一些交易数据进行了哈希处理，并想在区块链中[搜索TXID](https://learnmeabitcoin.com/explorer/transaction)，则必须以**交换字节顺序**搜索它。
 ```
 txid (original):  169e1e83e930853391bc6f35f605c6754cfead57cf8387639d3b4096c54f18f4
 txid (searching): f4184fc596403b9d638783cf57adfe4c75c605f6356fbc91338530e9831e9e16
@@ -48,7 +48,7 @@ bitcoin-cli getrawtransaction 0e3e2357e806b6cdb1f70b54c3a3a17b6714ee1f0e68bebb44
 
 [比特币核心钱包](https://bitcoin.org/en/download)中的控制台窗口
 
->如果你的比特币钱包提供了TXID，它很可能已经是可搜索的格式（反向字节顺序）。
+>如果你的比特币钱包提供了TXID，它很可能已经是可搜索的格式（交换字节顺序）。
 
 ### 2. 花费输出。
 当你想在新交易中将现有[输出](../Transaction%20Data/output/output.md)用作[输入](../Transaction%20Data/Input/input.md)时，你会使用TXID。
@@ -57,7 +57,7 @@ bitcoin-cli getrawtransaction 0e3e2357e806b6cdb1f70b54c3a3a17b6714ee1f0e68bebb44
 
 <center>要引用现有的输出，需要使用它所创建的txid以及该交易的vout编号。</center>
 
-因为，TXID是交易的唯一标识符[1](#coinbase交易具有相同的txid)。
+TXID是交易的唯一标识符[1](#coinbase交易具有相同的txid)。
 
 ## 注释
 ### 为什么要进行两次哈希？为什么不只进行一次？
