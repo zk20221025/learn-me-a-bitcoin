@@ -27,7 +27,7 @@ Coinbase交易与普通[交易数据](../Transaction%20Data/Transaction%20Data.m
 * **VOUT**全部是f（这个字段的[十六进制](../../Other/Hexadecimal/hexadecimal.md)最大值）。 （同样，因为不想引用任何现有输出）。
 * **scriptSig**实际上可以包含任何你喜欢的数据。[1](#bip34),[2](#coinbase交易中的信息)（因为不需要解锁任何东西）。
   
-除此之外，你只需要确保你的输出值的总和不超过你所收取的区块奖励和交易手续费。
+除此之外，你只需要确保你的输出值的总和不超过你从区块奖励和交易手续费中获得的比特币数量。
 
 ## 注释
 ### [BIP34](https://github.com/bitcoin/bips/blob/master/bip-0034.mediawiki)
@@ -40,7 +40,7 @@ Coinbase交易与普通[交易数据](../Transaction%20Data/Transaction%20Data.m
 >当你[交换字节顺序](https://learnmeabitcoin.com/tools/swapendian)并转换为[十进制](https://learnmeabitcoin.com/tools/hexdec)时，ec5906是416236。
 
 >### **Coinbase交易中的信息。**
->矿工们经常使用scriptSig来存储文本字符串。你只需要将它们解码（[从十六进制到ASCII](https://learnmeabitcoin.com/tools/hex2ascii)）即可阅读。  
+>矿工们经常使用scriptSig来存储文本字符串。你只需要将它们解码（[从十六进制转换为ASCII](https://learnmeabitcoin.com/tools/hex2ascii)）即可阅读。  
 以下是一些有趣的例子：
 
 |Coinbase交易|scriptSig（解码后）|注释|
