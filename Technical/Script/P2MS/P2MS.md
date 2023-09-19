@@ -3,7 +3,7 @@
 
 ![P2MS-1.png](img/P2MS-1%20(1).png)</center>
 
-**P2MS**是一种脚本模式，允许你将比特币锁定到**多个**公钥，并要求**一些**（或全部）公钥的**签名**才能解锁它。
+**P2MS**是一种脚本模式，允许你将比特币锁定到**多个**公钥，并要求解锁时需要**一些**（或全部）公钥的**签名**。
 
 例如，你可以创建一个包括**3个不同的人**的公钥的P2MS脚本，但只需要**其中的2个人**提供他们的签名就可以花费比特币。
 
@@ -23,12 +23,12 @@
 
 ![P2MS-3.png](img/P2MS-3.png)
 
-要解锁P2MS脚本，你只需要提供所需的**签名**数量。在这种情况下，**M**是1：
+要解锁P2MS脚本，你只需要提供所需的**签名**数量。在这种情况下，**M**是1，只需一个签名：
 
 |脚本签名|OP_0 304402203f16c6f40162ab686621ef3000b04e75418a0c0cb2d8aebeac894ae360ac1e780220ddc15ecdfc3507ac48e1681a33eb60996631bf6bf5bc0a0682c4db743ce7ca2b01|
 |---|---|
 
->**CHECKMULTISIG Bug** 操作码存在一个 bug，它比需要的多弹出一个元素（[偏移一错误](https://stackoverflow.com/questions/2939869/what-is-exactly-the-off-by-one-errors-in-the-while-loop)）。所以为了避免错误，我们在scriptSig的开始处添加一个虚拟值（通常是**OP_0**）。
+>**CHECKMULTISIG Bug** 操作码存在一个 bug，它比需要的多弹出一个元素（[边界溢出错误](https://stackoverflow.com/questions/2939869/what-is-exactly-the-off-by-one-errors-in-the-while-loop)）。所以为了避免错误，我们在scriptSig的开始处添加一个虚拟值（通常是**OP_0**）。
 
 ## 执行
 当这个脚本执行时，所有的**签名**和**公钥**都被推到栈上。
@@ -89,7 +89,7 @@
 
 >我们不能只是引入破坏现有功能的策略。- [Pieter Wuille](https://twitter.com/pwuille)
 
-因此，P2MS仍然是P2SH存在之前的遗物。
+因此，P2MS仍然是存在P2SH出现之前的时代的遗留。
 
 ## 链接
 * https://medium.com/@alcio/the-state-of-bitcoin-multisig-82b3bf09b1ca
