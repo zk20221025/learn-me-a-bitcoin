@@ -10,7 +10,7 @@ Pieter是一位比特币核心开发者，他在[比特币stackexchange论坛](h
 
 [Christian Decker](https://github.com/cdecker)
 
-他激励我使用Neo4j作为区块链的图数据库。否则我可能不会认为这是可能的。
+他激励我使用Neo4j作为区块链的图数据库。否则我可能不会尝试这个做法。
 
 [Luke-jr](https://github.com/luke-jr)
 
@@ -18,11 +18,11 @@ Pieter是一位比特币核心开发者，他在[比特币stackexchange论坛](h
 
 [Gregory Maxwell](https://github.com/gmaxwell)
 
-在IRC上非常有帮助。他的回答精确，且深入地使用了英语。
+在IRC上极其乐于助人。他给出的回复十分精确，而且他的英语运用得很深入，令人印象深刻。
 
 [Wladimir J. van der Laan](https://github.com/laanwj)
 
-在IRC上拥有很好的技术知识，并愿意分享。我也喜欢他在那里的用户名。
+在IRC上拥有很好的技术知识，并乐于在IRC上分享。我也喜欢他在那里的用户名。
 
 其他值得一提的有帮助的人包括：[Nate Eldredge](http://bitcoin.stackexchange.com/users/5757/nate-eldredge), [Nick O’Dell](http://bitcoin.stackexchange.com/users/2306/nick-odell), [Thomas Kerin](https://github.com/afk11), [Christopher Gurnee](http://bitcoin.stackexchange.com/users/25088/christopher-gurnee), 和 [theymos](http://theymos.com/)。
 
