@@ -116,7 +116,7 @@
 
 ## 你如何拥有比特币？
 
-要能够“接收”比特币，你需要拥有自己的一组[密钥](../Beginners/How%20Bitcoin%20Works/4.Keys%26Addresses/keys_addresses.md)。这组密钥就像你的帐号号码和密码，但在比特币中，它们被称为你的[公钥](../Technical/Keys/Public%20Key/Public%20Key.md)和[私钥](../Technical/Keys/Private%20Key/Private%20Key.md)。
+要能够“接收”比特币，你需要拥有自己的一组[密钥](../Beginners/How%20Bitcoin%20Works/4.Keys%26Addresses/keys_addresses.md)。这组密钥就像你的账号号码和密码，但在比特币中，它们被称为你的[公钥](../Technical/Keys/Public%20Key/Public%20Key.md)和[私钥](../Technical/Keys/Private%20Key/Private%20Key.md)。
 
 例如，如果我想给你发送一些比特币，你首先需要给我你的**公钥**。当我创建交易时，我会把你的公钥放在输出（保险箱）上的锁里。当你想把比特币发送给其他人时，你需要使用你的**私钥**来解锁这个输出。
 

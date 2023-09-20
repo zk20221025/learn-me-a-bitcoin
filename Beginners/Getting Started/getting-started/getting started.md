@@ -85,7 +85,7 @@
 
 ![getting-started-7.gif](img/getting-started-7%20(1).gif)
 
-<center>你可以将地址视为你的帐户号码，将私钥视为其密码。</center>
+<center>你可以将地址视为你的账号，将私钥视为其密码。</center>
 
 简而言之，**比特币钱包管理你的密钥和地址**，以便你可以发送和接收比特币。
 
