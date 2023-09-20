@@ -5,9 +5,9 @@
 
 我认为你可能也会发现它们很有用。
 
-## 比特币实施
-* [Bitcoin Core](https://github.com/bitcoin/bitcoin) (C++) - 原始且最流行的比特币实现。
-* [btcd](https://github.com/btcsuite/btcd) (Go) - 稳健的实现，带有出色的注释和文档。
+## 比特币实现
+* [Bitcoin Core](https://github.com/bitcoin/bitcoin) (C++) - 原始且最受欢迎的比特币实现。
+* [btcd](https://github.com/btcsuite/btcd) (Go) - 有着出色的注释和文档的实现。
 
 ## 库
 
@@ -16,13 +16,13 @@
 ## 钱包
 
 * [Electrum](https://electrum.org/) (桌面) - 直接且值得信赖的钱包。
-* [Green](https://blockstream.com/green/) (Android/iOS) - 流畅，经过打磨，由Blockstream开发。
+* [Green](https://blockstream.com/green/) (Android/iOS) - 流畅，精致，由Blockstream开发。
 * [Mycelium](https://wallet.mycelium.com/) (Android/iOS) - 不那么漂亮，但经受住了时间的考验。
 
 ## 区块链浏览器
 
 * [Learn Me A Bitcoin](https://learnmeabitcoin.com/explorer) - 我用它来查看原始交易数据。
-* [mempool.space](https://mempool.space/) - 到目前为止最好的区块链浏览器。如果我有设计技能，我会这样设计我的区块链浏览器。
+* [mempool.space](https://mempool.space/) - 到目前为止最好的区块链浏览器。如果我有设计技能，我会像这样设计我的区块链浏览器。
 * [Yogh](https://yogh.io/) - 时尚的区块链浏览器。美丽的数据高亮显示。
 
 ## 可视化

@@ -4,7 +4,7 @@
 
 >“这有什么用？”- [bitcointalk.org](https://bitcointalk.org/index.php?topic=1508136.msg15197190#msg15197190)
 
->“learnmeabitcoin.com需要不像是1995年建造的”- thebitcoinpodcast.slack.com用户
+>“learnmeabitcoin.com看起来不像是1995年建造的”- thebitcoinpodcast.slack.com用户
 
 >“那可能是我见过的最丑的区块链浏览器”- IRC用户
 
