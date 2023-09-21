@@ -5,8 +5,8 @@
 
 目标值是在[挖掘](../Mining.md)中使用的数字，[区块哈希值](../../Block/block-hash/block-hash.md)必须低于该数字才能将该区块添加到[区块链](../../Blockchain/blockchain.md)中。
 
-目标值每2016个区块（大约两周）进行一次调整，以尝试确保**平均每10分钟**挖掘一个区块。因此，这样可以保证区块产生的时间一致，并通过区块奖励，将新的比特币一致地发放到网络中。
->为了弥补硬件速度的增加和随时间变化的节点运行兴趣的差异，工作证明的难度是通过移动平均值来确定的，以达到每小时平均区块数量的目标值。如果区块生成过快，难度会增加。-[中本聪](https://nakamotoinstitute.org/bitcoin/)
+目标值每2016个区块（大约两周）进行一次调整，以尝试确保**平均每10分钟**挖掘一个区块。这样可以保证区块产生的时间一致，并使新比特币的发行量保持稳定。
+>为了弥补硬件速度的增加和随时间变化的节点运行兴趣的差异，工作量证明的难度是通过移动平均值来确定的，以达到每小时平均区块数量的目标值。如果区块生成过快，难度会增加。-[中本聪](https://nakamotoinstitute.org/bitcoin/)
 
 **当前目标值**:
 ```
@@ -17,9 +17,6 @@
 
 ## 1. 目标值什么时候调整?
 目标值**每2016个区块**进行一次调整。这大约是每两周一次（因为两周内有20160分钟）。
-
-以下是比特币历史上每次目标调整的日期和目标值：
->比特币目标历史
 
 ## 2. 目标值如何计算？
 第一个区块的目标值已设定为：
@@ -64,11 +61,11 @@ Block [0](https://learnmeabitcoin.com/explorer/blockchain/0)
 
 ![target-6.png](img/target-6%20(1).png)
 
-此外，所有节点持续共享区块链的相同视图（因为它们始终采用[可用的最长区块链](../../Blockchain/longest-chain/longest-chain.md)）。因此，在每个新区块被挖掘出来时，每个节点会持续计算出相同的目标值。
+此外，所有节点持续共享区块链的相同视图（因为它们始终采用[可用的最长区块链](../../Blockchain/longest-chain/longest-chain.md)）。因此，在每个新区块被挖掘出来时，每个节点会重新计算出相同的目标值。
 
 ![target-7.png](img/target-7%20(1).png)
 
-因此，尽管节点独立计算目标值，但它们每个节点都共享相同的区块链，并计算相同的目标值。
+尽管节点独立计算目标值，但它们每个节点都共享相同的区块链，并计算相同的目标值。
 
 >每个人都使用相同的链数据进行相同的计算，因此他们在链中的相同链接处获得相同的结果。-[中本聪](https://satoshi.nakamotoinstitute.org/emails/cryptography/10/#selection-73.260-73.383)
 
@@ -79,15 +76,15 @@ Block [0](https://learnmeabitcoin.com/explorer/blockchain/0)
 
 ### **i. 它给区块提供了在网络中传播的时间。**
 
-理想的情况是矿工尽可能地在扩展相同的区块链上工作。为了实现这一点，我们需要在下一个块被开采之前留出时间让新区块在网络上传播。
+理想的情况是矿工尽可能地在为扩展相同的区块链而工作。为了实现这一点，我们需要在下一个块被开采之前留出时间让新区块在网络上传播。
 
 ![target-8.png](img/target-8%20(1).png)
 
-如果区块的挖出速度比它们在网络上广播的速度更快，那么将导致矿工经常建立竞争链。其中只有一个将成为[最长的链](../../Blockchain/longest-chain/longest-chain.md)，因此一些矿工将浪费能源努力在竞争链上进行建设，最终由于[链重新组织](../../Blockchain/chain-reorganisation/chain-reorganisation.md)而被抛弃。
+如果区块的挖出速度比它们在网络上广播的速度更快，那么将导致矿工经常建立竞争链。其中只有一个将成为[最长的链](../../Blockchain/longest-chain/longest-chain.md)，因此一些矿工将浪费能源在竞争链上进行建设，最终由于[链重新组织](../../Blockchain/chain-reorganisation/chain-reorganisation.md)而被抛弃。
 
 ![target-9.png](img/target-9%20(1).png)
 
-因此，区块之间的时间延迟使它们能够在网络中传播，以便更多的矿工可以采用最长可用的区块链，从而将网络的挖矿能力集中在扩展相同的区块链上。
+区块之间的时间延迟使它们能够在网络中传播，以便更多的矿工可以采用最长可用的区块链，从而将网络的挖矿能力集中在扩展相同的区块链上。
 
 ![target-10.png](img/target-10%20(1).png)
 
@@ -116,21 +113,21 @@ Block [0](https://learnmeabitcoin.com/explorer/blockchain/0)
 
 ## **命令**
 >bitcoin-cli getblocktemplate
-这是获取当前目标值的最简单方法。当你请求一个[挖掘](../Mining.md)的区块模板时，它也会返回当前目标值：
+这是获取当前目标值的最简单方法。当你请求用于[挖掘](../Mining.md)的区块模板时，它也会返回当前目标值：
 ```
 $ bitcoin-cli getblocktemplate '{"rules": ["segwit"]}' | grep target
   "target": "00000000000000000005dd010000000000000000000000000000000000000000",
 ```
 
 >bitcoin-cli getdifficulty
-同样，你可以询问当前的[难度](../../../Beginners/How%20Bitcoin%20Works/2.Mining/3.Difficulty/Difficulty.md)，然后将其转换为目标难度：
+同样，你可以询问当前的[难度](../../../Beginners/How%20Bitcoin%20Works/2.Mining/3.Difficulty/Difficulty.md)，然后将其转换为目标值：
 ```
 $ bitcoin-cli getdifficulty
 49549703178593
 ```
 
 >bitcoin-cli getblockheader
-另外，正如之前提到的，在挖掘时的目标值存储在每个[块头](../../Block/block-header/block-header.md)中的[比特](../../Block/block-header/bits/bits.md)格式中（你可以将其转换为完整的目标值）。
+另外，正如之前提到的，在挖掘时的目标值以[bits](../../Block/block-header/bits/bits.md)格式存储在每个[块头](../../Block/block-header/block-header.md)中（你可以将其转换为完整的目标值）。
 
 ```
 $ bitcoin-cli getblockheader 000000000000000002e9533a4fe03bb251b3fdb30ffaa384aad133b7fae594cf
@@ -153,9 +150,9 @@ $ bitcoin-cli getblockheader 000000000000000002e9533a4fe03bb251b3fdb30ffaa384aad
 }
 ```
 
->>**提示**：你可以使用以下命令获取链中顶部块的目标值：\$ bitcoin-cli getblockheader \$(bitcoin-cli getblockhash \$(bitcoin-cli getblockcount))
+>>**提示**：你可以使用以下命令获取链中顶部区块的目标值：\$ bitcoin-cli getblockheader \$(bitcoin-cli getblockhash \$(bitcoin-cli getblockcount))
 
->>**注意**：这将为你提供该块的目标值，而不一定是用于下一个块的当前目标值。
+>>**注意**：这将为你提供该区块的目标值，而不一定是用于下一个块的当前目标值。
 
 ## **代码**
 这是用于计算新目标值的Ruby代码示例。该代码使用[401,184](https://learnmeabitcoin.com/explorer/blockchain/401184)和[403,199](https://learnmeabitcoin.com/explorer/blockchain/403199)块的时间戳来计算[403,200](https://learnmeabitcoin.com/explorer/blockchain/403200)块的新目标值。
