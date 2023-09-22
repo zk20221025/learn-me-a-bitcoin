@@ -14,7 +14,7 @@
 Transaction: [c1b4e695098210a31fe02abffe9005cffc051bbe86ff33e173155bcbdc5821e3](https://learnmeabitcoin.com/explorer/transaction/c1b4e695098210a31fe02abffe9005cffc051bbe86ff33e173155bcbdc5821e3)
 
 
-## 领域
+## 字段
 ![output-2.png](img/output.png)
 
 >如果想解码输出的值，只需要[交换字节顺序](https://learnmeabitcoin.com/tools/swapendian)，然后将其从[十六进制转换为十进制](https://learnmeabitcoin.com/tools/hexdec)。这你就可以得到以**Satoshis**为单位的值。

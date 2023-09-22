@@ -12,7 +12,7 @@
 Transaction: [c1b4e695098210a31fe02abffe9005cffc051bbe86ff33e173155bcbdc5821e3](https://learnmeabitcoin.com/explorer/transaction/c1b4e695098210a31fe02abffe9005cffc051bbe86ff33e173155bcbdc5821e3)
 
 
-## 领域
+## 字段
 ![input-2.png](img/input.png)
 
 >**TXID字节顺序**：在[交易数据](../Transaction%20Data.md)中引用TXID时，必须[反转字节顺序](https://learnmeabitcoin.com/tools/swapendian)才能将其恢复为原始格式。搜索TXID时使用的字节顺序是反向的（由于原始比特币客户端工作方式中存在历史错误）。
