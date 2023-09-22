@@ -6,11 +6,11 @@
 "Bits"字段是一种紧凑的格式，用于在[区块头](../../block-header/block-header.md)中存储[目标值](../../../Mining/Target/Target.md)。
 
 ## 例子
-以下是在挖掘[块406,800](https://learnmeabitcoin.com/explorer/block/000000000000000001C31935B6B49FBFE1C44CBAA31A7875D59A22B09B99D380)时的目标：
+以下是在挖掘[区块406,800](https://learnmeabitcoin.com/explorer/block/000000000000000001C31935B6B49FBFE1C44CBAA31A7875D59A22B09B99D380)时的目标：
 ```
 Target: 0x00000000000000000696f4000000000000000000000000000000000000000000
 ```
-这是它的块头中你会发现的 Bits 字段：
+这是它的区块头中你会发现的 Bits 字段：
 ```
 Bits: 0x180696f4
 ```
@@ -27,13 +27,13 @@ Bits是目标的简写。
 
 我将其理解为使用指数来计算要写下多少个零，然后用系数替换前3个字节。
 
-因此，如果想找出在块被挖掘时的目标是什么，Bits字段将计算出它的（稍微向上取整的）值。
+如果想找出在区块被挖掘时的目标是什么，Bits字段将计算出它的（稍微向上取整的）值。
 
 >[Bits -> Target](https://learnmeabitcoin.com/tools/bitstarget)
 
 >请记住指数是[十六进制数](../../../Other/Hexadecimal/hexadecimal.md)，因此0x18表示十进制下的24字节。
 
->系数部分取自原始目标总是向上取整。这是[当前目标](https://learnmeabitcoin.com/explorer/node/difficulty)。
+>从原始目标获取的系数部分总是向上取整。这是[当前目标](https://learnmeabitcoin.com/explorer/node/difficulty)。
 
 >完整的目标通常显示为32个字节的长度，这就是前面那些零的来源。但实际上，以下所有内容都是相同的数字：
 ```
