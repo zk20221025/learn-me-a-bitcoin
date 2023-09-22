@@ -26,7 +26,7 @@ Transaction: [c1b4e695098210a31fe02abffe9005cffc051bbe86ff33e173155bcbdc5821e3](
 ### 1. 选择一个输出。
 当你想将输出用作交易的输入时，只需指定想要消费哪个输出。
 
-每个交易都有一个唯一的[TXID](../../TXID/TXID.md)，因此通过使用具有特定输出编号（[VOUT](../../../Other/VOUT/VOUT.md)）和TXID，可以引用区块链中的任何输出。
+每个交易都有一个唯一的[TXID](../../TXID/TXID.md)，因此通过使用特定的输出编号（[VOUT](../../../Other/VOUT/VOUT.md)）和TXID，可以引用区块链中的任何输出。
 
 ![input-3.png](img/input-3-svg.png)
 

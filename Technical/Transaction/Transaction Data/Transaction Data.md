@@ -11,7 +11,7 @@
 ```
 Transaction: [c1b4e695098210a31fe02abffe9005cffc051bbe86ff33e173155bcbdc5821e3](https://learnmeabitcoin.com/explorer/transaction/c1b4e695098210a31fe02abffe9005cffc051bbe86ff33e173155bcbdc5821e3)
 
-## 领域
+## 字段
 
 ![Transaction Data-3.png](img/Transaction%20Data-3.png)
 
@@ -32,7 +32,7 @@ Transaction: [c1b4e695098210a31fe02abffe9005cffc051bbe86ff33e173155bcbdc5821e3](
 >**字段大小**
 比特币网络上的节点期望每个字段具有特定的长度。这种结构化格式使它们能够遍历交易数据并确定每个字段的开头和结尾。  
 这就是为什么即使版本号为**1**，它也存储为**01000000**，因为比特币节点需要一个4字节大小的字段。  
->>如果你将字节数翻倍，它将为你提供该字段中的字符数。
+>>如果你将字节数翻倍，你就能得到这个字段中字符的数量。
 >>>输入数量（和签名）和输出数量（和锁定脚本）的长度可以变化，这就是为什么使用特殊的[VarInt](../../Other/VarInt/varint.md)字段来指定它们即将出现的大小的原因。
 
 ## 链接
