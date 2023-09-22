@@ -10,7 +10,7 @@
 
 ## 它有什么用处？
 
-挖矿者通过调整Nonce来使区块头的[哈希值](../../../Other/Hash%20Function/Hash%20Function.md)低于[目标值](../../../Mining/Target/Target.md)，即获得有效的[区块哈希](../../block-hash/block-hash.md)。
+挖矿者通过调整Nonce来尝试使区块头的[哈希值](../../../Other/Hash%20Function/Hash%20Function.md)低于[目标值](../../../Mining/Target/Target.md)，即获得有效的[区块哈希](../../block-hash/block-hash.md)。
 
 ![nonce-1.png](img/Nonce-1.gif)
 
