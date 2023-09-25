@@ -1,5 +1,5 @@
 # <center>P2PKH</center>
-<center>付款至公钥哈希
+<center>Pay To Pubkey Hash
 
 ![P2PKH-1.png](img/P2PKH-1%20(1).png)</center>
 
@@ -25,7 +25,7 @@ P2PKH脚本模式包含由这些操作码包围的[哈希公钥](../../Keys/Publ
 ![P2PKH-2.gif](img/P2PKH-2%20(1).gif)
 
 ## 在哪里可以找到P2PKH脚本？
-P2PKH是当你想要“发送”比特币给某人时钱包使用的默认脚本，因此你可以在[区块链的大多数块中找到它](https://learnmeabitcoin.com/explorer/blockchain)。
+P2PKH是当你想要“发送”比特币给某人时钱包使用的默认脚本，因此你可以在[区块链的大多数区块中找到它](https://learnmeabitcoin.com/explorer/blockchain)。
 
 ![P2PKH-3.png](img/P2PKH-3%20(1).png)
 
@@ -58,7 +58,7 @@ Satoshi可能在当时不知道[压缩公钥](../../Keys/Public%20Key/Public%20K
 
 [哈希函数](../../Other/Hash%20Function/Hash%20Function.md)是缩短任何东西的好方法。Hash160产生一个160位的结果，长度为40个字符。
 
-因此，得到了更短的公钥版本（称之为[地址](../../Keys/Address/Address.md)），这可以轻松地与其他人共享。任何钱包软件都可以接受此地址，并将其从base58解码以获取[公钥哈希](../../Keys/Public%20Key/Public%20Key%20Hash/public-key-hash.md)，然后可以将其设置在锁定脚本中。
+因此，我们得到了更短的公钥版本（称之为[地址](../../Keys/Address/Address.md)），这可以轻松地与其他人共享。任何钱包软件都可以接受此地址，并将其从base58解码以获取[公钥哈希](../../Keys/Public%20Key/Public%20Key%20Hash/public-key-hash.md)，然后可以将其设置在锁定脚本中。
 <center>
 
 ![P2PKH-6.png](img/P2PKH-6%20(1).png)
@@ -74,12 +74,12 @@ P2PKH的执行方式与P2PK非常相似-不同的是P2PKH先检查公钥哈希�
 
 从编程角度来看，这有点复杂，但P2PKH确实可以使用更短、更方便的地址来发送和接收比特币。
 
-我认为，Satoshi 在设计比特币时最终考虑到了可用性，这就是为什么我们有了P2PKH。
+我认为，Satoshi 在设计比特币时主要考虑的是如何让用户更方便地使用它，这也是为什么我们现在使用的是P2PKH。
 
 ### 如果Satoshi知道压缩公钥，我们仍会使用P2PKH吗？
 也许会，也许不会。这是个好问题。
 
-如果你将[压缩公钥](../../Keys/Public%20Key/Public%20Key.md)进行base58编码，你会得到一个**51个字符长**的地址（与之前哈希得到的**34个字符**相比），所以在创建地址之前进行哈希的动机可能并不强烈：
+如果你对[压缩公钥](../../Keys/Public%20Key/Public%20Key.md)进行base58编码，你会得到一个长度为**51个字符**的地址（而提前进行哈希处理只会生成**34字符**的地址），所以在创建地址之前进行哈希处理并不那么必要。：
 <center>
 
 ![P2PKH-8.png](img/P2PKH-8%20(1).png)

@@ -1,5 +1,5 @@
 # <center>P2MS</center>
-<center>支付到多重签名
+<center>Pay To Multisig
 
 ![P2MS-1.png](img/P2MS-1%20(1).png)</center>
 
@@ -16,9 +16,9 @@
 ## P2MS如何工作？
 多重签名脚本很容易创建。对于锁定脚本：
 
-1. 包括一个操作码**M**，表示需要多少个签名。
+1. 包括一个操作码**M**来表示需要多少个签名。
 2. 包括**公钥**。
-3. 包括另一个操作码**N**，表示有多少个公钥。
+3. 包括另一个操作码**N**来表示有多少个公钥。
 4. 在末尾放置**CHECKMULTISIG**操作码。
 
 ![P2MS-3.png](img/P2MS-3.png)
@@ -28,12 +28,12 @@
 |脚本签名|OP_0 304402203f16c6f40162ab686621ef3000b04e75418a0c0cb2d8aebeac894ae360ac1e780220ddc15ecdfc3507ac48e1681a33eb60996631bf6bf5bc0a0682c4db743ce7ca2b01|
 |---|---|
 
->**CHECKMULTISIG Bug** 操作码存在一个 bug，它比需要的多弹出一个元素（[边界溢出错误](https://stackoverflow.com/questions/2939869/what-is-exactly-the-off-by-one-errors-in-the-while-loop)）。所以为了避免错误，我们在scriptSig的开始处添加一个虚拟值（通常是**OP_0**）。
+>**CHECKMULTISIG Bug** 操作码存在一个 bug，它会多弹出一个元素（[边界溢出错误](https://stackoverflow.com/questions/2939869/what-is-exactly-the-off-by-one-errors-in-the-while-loop)）。所以为了避免错误，我们在scriptSig的开始处添加一个虚拟值（通常是**OP_0**）。
 
 ## 执行
 当这个脚本执行时，所有的**签名**和**公钥**都被推到栈上。
 
-然后我们来到 **CHECKMULTISIG** 操作码：
+然后我们得到 **CHECKMULTISIG** 操作码：
 
 1. 弹出 **N**，然后从堆栈弹出该数量的公钥。
 2. 弹出 **M**，然后从堆栈弹出该数量的签名。
@@ -71,7 +71,7 @@
 
 因为通过使用[P2SH](../P2SH/P2SH.md)，你可以避免使用“原始”P2MS脚本时出现的缺点：
 
-1. **P2MS没有[地址](../../Keys/Address/Address.md)格式**。因此，如果你想要让某人在你的比特币上放置P2MS锁定，你将需要自己构建和发送原始锁定脚本。更糟糕的是，他们可能无法为你创建此交易，因为大多数钱包仅在进行交易时允许你使用地址（而不是原始脚本）。
+1. **P2MS没有[地址](../../Keys/Address/Address.md)格式**。因此，如果你想要让某人在你的比特币上放置P2MS锁定，你将需要自己构建和发送原始锁定脚本。更糟糕的是，他们可能无法为你创建此交易，因为大多数钱包仅允许你在进行交易时使用地址（而不是原始脚本）。
 2. **P2MS仅限于3个公钥**[^1]。P2MS的锁定脚本可以通过所有的公钥变得相当大，因此它仅限于3个（以防止在UTXO集中存储过多数据）。但是，使用P2SH，你可以使用多达**15个**公钥的多重签名锁定。
    
 因此，如果你想，仍然可以使用P2MS，但是使用P2SH来实现相同的事情会更方便。
