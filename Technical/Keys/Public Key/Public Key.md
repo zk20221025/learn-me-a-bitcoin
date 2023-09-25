@@ -1,5 +1,5 @@
 # <center>公钥</center>
-<center>从私钥中数学生成的唯一数字。</center>
+<center>从私钥中以数学方式生成的唯一数字。</center>
 
 ![Public Key-1.png](img/Public%20Key-1%20(1).png)
 
@@ -7,7 +7,7 @@
 
 它是由你的[私钥](../Private%20Key/Private%20Key.md)创建的，私钥就像该账号的密码。
 
->**你永远不应该在网站上输入你的私钥，或使用由网站生成的私钥**。网站可以保存这些私钥，并使用它们来窃取你发送到其地址的任何比特币。
+>**你永远不应该在网站上输入你的私钥，或使用由网站生成的私钥**。网站可以保存这些私钥并使用它们来窃取你发送到其地址的任何比特币。
 
 ## 如何生成公钥？
 使用你的**私钥**（它只是一个大的随机数）来生成相应的公钥。
@@ -157,10 +157,10 @@ puts public_key_compressed #=> 02b4632d08485ff1df2db55b9dafd23347d1c47a457072a1e
 
 这意味着从私钥到公钥之间存在数学联系，但没有人可以使用你的公钥来找出你的私钥。
 
-因此，你可以公开公钥，同时保持私钥保密。
+因此，你可以公开公钥，同时使私钥保密。
 
 #### 2. 可以证明你拥有私钥而无需公开它。
-基本上，可以使用椭圆曲线数学和你的私钥来生成一个数字签名，然后任何人都可以使用与你的私钥对应的公钥来验证这个签名。这样，你就可以证明你拥有这个私钥，而无需透露它，从而保护了你的私钥不被他人知晓。
+可以使用椭圆曲线数学和你的私钥来生成一个数字签名，然后任何人都可以使用与你的私钥对应的公钥来验证这个签名。这样，你就可以证明你拥有这个私钥，而无需透露它，从而保护了你的私钥不被他人知晓。
 
 就像你有一个账户的密码，但你不必向任何人展示你的实际密码来证明它。
 
@@ -174,7 +174,7 @@ puts public_key_compressed #=> 02b4632d08485ff1df2db55b9dafd23347d1c47a457072a1e
 有两种公钥格式：
 
 ### 1. 未压缩
->这是旧格式。通常已停止使用，而更短的压缩格式更受欢迎。
+>这是旧格式。通常已经没人使用，取而代之的是更短的压缩格式。
 
 比特币最初使用**x**和**y**坐标来存储公钥。
 
@@ -193,10 +193,10 @@ public key (uncompressed) = 04b4632d08485ff1df2db55b9dafd23347d1c47a457072a1e87b
 
 这里有个技巧...
 
-* 如果 y 是偶数，它对应其中一个点。
-* 如果 y 是奇数，它对应另一个点。
+* 如果 y 是偶数，则它对应其中一个点。
+* 如果 y 是奇数，则它对应另一个点。
 
-因此，在压缩的公钥格式中，只需存储完整的 **x** 坐标，以及指示 **y** 坐标是偶数还是奇数的前缀。
+因此，在压缩的公钥格式中，只需存储完整的 **x** 坐标以及指示 **y** 坐标是偶数还是奇数的前缀。
 
 ![Public Key-7.png](img/Public%20Key-7%20(1).png)
 
@@ -213,7 +213,7 @@ public key (compressed)   = 02b4632d08485ff1df2db55b9dafd23347d1c47a457072a1e87b
 #### 如何解压公钥
 你可以通过解决曲线方程y^2 = x^3 + 7来解压缩公钥。
 
-这将为你提供未压缩密钥的可能缺失的y值。然后可以使用压缩密钥的前缀来确定使用哪个y值（因为任何数字的平方根都有两个可能的答案，例如16的平方根可以是+4或-4）。
+这将为你提供未压缩密钥的可能缺失的y值。然后可以通过使用压缩密钥不同的前缀来确定使用哪个y值（因为任何数字的平方根都有两个可能的答案，例如16的平方根可以是+4或-4）。
 ```ruby
 # Compressed public key
 compressed = "02b4632d08485ff1df2db55b9dafd23347d1c47a457072a1e87be26896549a8737"
@@ -258,7 +258,7 @@ puts uncompressed #=> 04b4632d08485ff1df2db55b9dafd23347d1c47a457072a1e87be26896
 
 我们可以把我们的公钥给别人，这样他们就可以向我们发送比特币。这被称为Pay-To-Pubkey（[P2PK](../../Script/P2PK/P2PK.md)）。
 
-然而，在比特币中，现在更常见的是在公钥之前进行[哈希处理](../Public%20Key/Public%20Key%20Hash/public-key-hash.md)。在解锁输出时才使用[公钥](../Public%20Key/Public%20Key%20Hash/public-key-hash.md)。（初始锁定将首先检查公钥的哈希值是否正确,然后再将其与签名进行检查。）
+然而，在比特币中，现在更常见的是在公钥之前进行[哈希处理](../Public%20Key/Public%20Key%20Hash/public-key-hash.md)。只有在解锁输出时才使用[公钥](../Public%20Key/Public%20Key%20Hash/public-key-hash.md)。（初始锁定将首先检查公钥的哈希值是否正确,然后再将其与签名进行检查。）
 
 ![Public Key-9.png](img/Public%20Key-9%20(1).png)
 
@@ -273,7 +273,7 @@ puts uncompressed #=> 04b4632d08485ff1df2db55b9dafd23347d1c47a457072a1e87be26896
 
 ![Public Key-10.png](img/public-key-10.jpg)
 
-Transaction: [24c1f77de7c580eccd46c41d4c708da4ace04880559ee6bce97a67217466d7f7](https://learnmeabitcoin.com/explorer/transaction/24c1f77de7c580eccd46c41d4c708da4ace04880559ee6bce97a67217466d7f7)
+交易: [24c1f77de7c580eccd46c41d4c708da4ace04880559ee6bce97a67217466d7f7](https://learnmeabitcoin.com/explorer/transaction/24c1f77de7c580eccd46c41d4c708da4ace04880559ee6bce97a67217466d7f7)
 
 接下来，在下一笔花费比特币的交易中...
 
@@ -281,7 +281,7 @@ Transaction: [24c1f77de7c580eccd46c41d4c708da4ace04880559ee6bce97a67217466d7f7](
 
 ![Public Key-11.png](img/public-key-11.jpg)
 
-Transaction: [33ab606c34dce6e43673d20c1a72c7b0bce314d9d21e227c04092bbdaf8aaed5](https://learnmeabitcoin.com/explorer/transaction/33ab606c34dce6e43673d20c1a72c7b0bce314d9d21e227c04092bbdaf8aaed5)
+交易： [33ab606c34dce6e43673d20c1a72c7b0bce314d9d21e227c04092bbdaf8aaed5](https://learnmeabitcoin.com/explorer/transaction/33ab606c34dce6e43673d20c1a72c7b0bce314d9d21e227c04092bbdaf8aaed5)
 
 >正如你所看到的，公钥开头的04表示它是未压缩的公钥。这使得它几乎是现在通常使用的压缩公钥的两倍长。
 
