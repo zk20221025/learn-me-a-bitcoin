@@ -27,8 +27,8 @@
 
 ## 可视化
 
-* [Johoe’s Mempool Statistics](https://jochen-hoenicke.de/queue/#0,24h) - 方便的内存池可视化，用于确定要使用的交易费用。
-* [Bitcoin Transaction Monitor](https://mempool.observer/monitor/) - 由[0xB10C](https://b10c.me/)提供的交易费用图表。
+* [Johoe’s Mempool Statistics](https://jochen-hoenicke.de/queue/#0,24h) - 方便的内存池可视化，用于确定要使用的交易手续费。
+* [Bitcoin Transaction Monitor](https://mempool.observer/monitor/) - 由[0xB10C](https://b10c.me/)提供的交易手续费图表。
 * [Bitcoin Rain](http://bitcoinrain.io/) - 非常酷，如果我自己来说的话。
 
 ## 工具

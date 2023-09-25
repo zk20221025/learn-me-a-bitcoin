@@ -3,7 +3,7 @@
 
 ![coinbase-transaction-1.png](img/Coinbase%20Transaction-1-svg.png)
 
-Coinbase交易是区块中的第一个交易。矿工使用它来收集**区块奖励**和任何额外的[**交易费用**](../Fees/Fees.md)。
+Coinbase交易是区块中的第一个交易。矿工使用它来收集**区块奖励**和任何额外的[**交易手续费**](../Fees/Fees.md)。
 
 这就像把你的详细信息放在一个写有你地址的信封上，以便你可以领取奖金。
 

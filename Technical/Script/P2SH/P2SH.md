@@ -1,5 +1,5 @@
 # <center>P2SH</center>
-<center>支付脚本哈希
+<center>Pay To Script Hash
 
 ![P2SH-1.png](img/P2SH-1%20(1).png)
 </center>
@@ -8,7 +8,7 @@ P2SH是在**2012年4月**引入的标准脚本。它使你能够将比特币锁�
 
 它使你能够**创建自己的自定义“赎回脚本”**，**且仍然可以轻松地与其他人共享**。
 
->BIP 16：[脚本哈希支付](https://github.com/bitcoin/bips/blob/master/bip-0016.mediawiki)（2012年1月3日）
+>BIP 16：[Pay To Script Hash](https://github.com/bitcoin/bips/blob/master/bip-0016.mediawiki)（2012年1月3日）
 
 ## P2SH的工作原理是什么？
 锁定脚本包含另一个锁定脚本的哈希值（“**脚本哈希**”），被**HASH160**和**EQUAL**操作码包围：
@@ -27,7 +27,7 @@ P2SH是在**2012年4月**引入的标准脚本。它使你能够将比特币锁�
 
 P2SH脚本分为两个部分执行：
 
-1. **标准执行**——首先对赎回脚本进行哈希，然后检查它是否等于锁定脚本中的脚本哈希值。
+1. **标准执行**——首先对赎回脚本进行哈希处理，然后检查它是否等于锁定脚本中的脚本哈希值。
 2. **赎回脚本执行**——这是特殊部分。赎回脚本被反序列化并像锁定脚本一样运行。
 
 ### 1.标准执行
@@ -68,7 +68,7 @@ P2SH脚本分为两个部分执行：
 
 ![P2SH-7.png](img/P2SH-7%20(1).png)
 
-当你之后解锁比特币时，你提供你的原始脚本。</center>
+当你之后解锁比特币时，你需要提供原始脚本。</center>
 
 因此，发送方不再需要承担锁定脚本的大小（或细节）。
 
@@ -80,7 +80,7 @@ P2SH带来了一些好处：
 
 ![P2SH-8.png](img/P2SH-8%20(1).png)
 
-更大的锁定脚本会增加交易数据的大小，因此发送方将不得不支付更多的[交易费用](../../Transaction/Fees/Fees.md)来容纳你的脚本。
+更大的锁定脚本会增加交易数据的大小，因此发送方将不得不支付更多的[交易手续费](../../Transaction/Fees/Fees.md)来容纳你的脚本。
 
 但是，使用P2SH，他们可以使用你的脚本的哈希创建锁定，这比完整脚本要小得多。
 
@@ -94,9 +94,9 @@ P2SH带来了一些好处：
 
 ![P2SH-10.png](img/P2SH-10%20(1).png)
 
-P2SH地址以3开头（由于在转换为[base58](../../Keys/Base58/Base58.md)之前添加了0x05前缀）。</center>
+P2SH地址以3开头（由于在转换为[base58](../../Keys/Base58/Base58.md)之前P2SH地址添加了0x05前缀）。</center>
 
-因此，不必传递实际的P2SH锁定脚本，可以将其转换为地址并缩短它（再次缩短），从而更容易共享。
+不必传递实际的P2SH锁定脚本，而是可以将其转换为地址并缩短它（再次缩短），从而更容易共享。
 
 ![P2SH-11.png](img/P2SH-11%20(1).png)
 
@@ -126,7 +126,7 @@ P2SH地址以3开头（由于在转换为[base58](../../Keys/Base58/Base58.md)�
 如果无法将整个UTXO集放入RAM中，节点在验证交易时会变得更慢。
 
 ## 在哪里可以找到P2SH脚本？
->寻找带有[3address](../../Keys/Address/Address.md#pay-to-script-hashp2sh)开头的输出。通过查看**脚本签名**中的**赎回脚本**的内容，可以确定它是什么类型的锁定（例如多重签名）。
+>寻找带有[3address](../../Keys/Address/Address.md#pay-to-script-hashp2sh)开头的输出。通过查看**脚本签名**中**赎回脚本**的内容，可以确定它是什么类型的锁定（例如多重签名）。
 
 以下是已解锁的具有P2SH输出的第一笔交易：[^1]
 * [a0f1aaa2fb4582c89e0511df0374a5a2833bf95f7314f4a51b55b7b71e90ce0f](https://learnmeabitcoin.com/explorer/transaction/a0f1aaa2fb4582c89e0511df0374a5a2833bf95f7314f4a51b55b7b71e90ce0f) - 1-of-2 Multisig
