@@ -31,7 +31,7 @@ Coinbase交易与普通[交易数据](../Transaction%20Data/Transaction%20Data.m
 
 ## 注释
 ### [BIP34](https://github.com/bitcoin/bips/blob/master/bip-0034.mediawiki)
-从BIP 34开始，scriptSig必须从推动块的高度开始。这个改变是为了[防止coinbase交易具有相同的TXID](../TXID/TXID.md)。
+从BIP 34开始，必须在scriptSig的开头加入当前区块的高度。这个改变是为了[防止不同的coinbase交易产生相同的TXID](../TXID/TXID.md)。
 
 **例如**。
 
