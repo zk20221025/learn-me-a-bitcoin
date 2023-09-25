@@ -19,7 +19,7 @@
 
 最后，所有这些都被转换为[**Base58**](../Base58/Base58.md)，这使它更易于使用。
 
-## 支付到公钥哈希（P2PKH）
+## Pay To Pubkey Hash（P2PKH）
 [**P2PKH**](../../Script/P2PKH/P2PKH.md)这是一个典型的将比特币锁定到[公钥](../Public%20Key/Public%20Key.md)（或更准确的说法：[公钥哈希](../Public%20Key/Public%20Key%20Hash/public-key-hash.md)）的地址。
 
 如上所述，在哈希公钥前后分别添加**前缀**和**校验和**，然后将其全部编码为base58。

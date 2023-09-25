@@ -1,9 +1,9 @@
 # <center>P2PK</center>
-<center>支付到公钥
+<center>Pay To Pubkey
 
 ![P2PK-1.png](img/P2PK-1%20(1).png)</center>
 
-**P2PK**（支付到公钥）是一种将[输出](../../Transaction/Transaction%20Data/output/output.md)锁定到[公钥](../../Keys/Public%20Key/Public%20Key.md)的[脚本](../Script.md)模式。
+**P2PK**（Pay To Pubkey）是一种将[输出](../../Transaction/Transaction%20Data/output/output.md)锁定到[公钥](../../Keys/Public%20Key/Public%20Key.md)的[脚本](../Script.md)模式。
 
 它是更常用的[P2PKH](../P2PKH/P2PKH.md)锁定脚本的简化版本。
 
@@ -23,7 +23,7 @@ P2PK锁定只包含一个[公钥](../../Keys/Public%20Key/Public%20Key.md)和一
 ## 在哪里可以找到P2PK脚本？
 尽管P2PK是将比特币锁定到某人公钥的最简单脚本，**但其使用频率并不如类似却更复杂的[P2PKH](../P2PKH/P2PKH.md)脚本**。
 
-**P2PK基本上出现在区块链中较早的块中的[coinbase交易](../../Transaction/Coinbase%20Transaction/Coinbase%20Transaction.md)**。这是因为原始的[比特币核心](https://bitcoin.org/en/download)矿工在构建[候选块](../../Node/Candidate%20Block/Candidate%20Block.md)时会使用P2PK进行区块奖励:[^1]
+**P2PK最常出现在区块链中较早的块中的[coinbase交易](../../Transaction/Coinbase%20Transaction/Coinbase%20Transaction.md)**。这是因为原始的[比特币核心](https://bitcoin.org/en/download)矿工在构建[候选块](../../Node/Candidate%20Block/Candidate%20Block.md)时会使用P2PK进行区块奖励:[^1]
 
 ![P2PK-3.png](img/P2PK-3%20(1).png)
 
