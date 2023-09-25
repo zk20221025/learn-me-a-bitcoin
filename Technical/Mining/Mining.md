@@ -22,7 +22,7 @@
 
 ![Mining-S-3.png](img/Mining-S-3%20(1).png)
 
-接下来为这个[候选块](../Block/block-header/block-header.md)构建一个区块头。这基本上是块内所有数据的简短总结，其中包括我们想要在其上构建的区块链中现有区块的引用。
+接下来为这个[候选块](../Block/block-header/block-header.md)构建一个区块头。这是块内所有数据的简短总结，其中包括我们想要在其上构建的区块链中现有区块的引用。
 
 ![Mining-S-4.png](img/Mining-S-4%20(1).png)
 
@@ -31,7 +31,7 @@
 现在准备开始“挖掘”这个块。为了做到这一点，将这个块的块头放入[SHA256](https://en.wikipedia.org/wiki/SHA-2)[哈希函数](../Other/Hash%20Function/Hash%20Function.md)中，并希望它输出的数字低于当前[目标](../Mining/Target/Target.md)。
 
 尝试一下！- SHA256  
-哈希函数基本上是一个小型计算机程序，它接收任意数量的数据，将其混淆，并产生一个不可预测的结果。不同的数据块产生不同的结果。
+哈希函数是一个小型计算机程序，它接收任意数量的数据，将其混淆，并产生一个不可预测的结果。不同的数据块产生不同的结果。
 
 ![sha256.png](img/sha256.png)
 

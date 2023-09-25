@@ -21,7 +21,7 @@
 
 来吧，[试试](https://bitcoin.org/en/download)
 
-当你运行该程序时，它将连接到其他也在运行该程序的计算机，并且它们将开始与你共享文件。这个文件被称为[区块链](../Technical/Blockchain/blockchain.md)，它基本上是一份[交易清单](../Technical/Transaction/Transaction%20Data/Transaction%20Data.md)。
+当你运行该程序时，它将连接到其他也在运行该程序的计算机，并且它们将开始与你共享文件。这个文件被称为[区块链](../Technical/Blockchain/blockchain.md)，它是一份[交易清单](../Technical/Transaction/Transaction%20Data/Transaction%20Data.md)。
 
 ![Home-3.png](img/Home-3%20(1).png)
 
@@ -44,7 +44,7 @@
 更新后的文件将与网络共享，节点将接受更新文件中“正确”的交易，从其内存中删除任何冲突的交易。因此，不会将任何双重支付交易写入文件中，所有节点都可以在彼此达成一致的情况下更新其文件。
 ![Home-7.png](img/Home-7%20(1).png)
 
-将交易添加到文件的过程称为[挖矿](../Technical/Mining/Mining.md)，它基本上是一个网络范围内的竞争，不能由网络上的单个节点控制。
+将交易添加到文件的过程称为[挖矿](../Technical/Mining/Mining.md)，它是一个网络范围内的竞争，不能由网络上的单个节点控制。
 
 ## 挖矿是如何工作的？
 首先，每个节点会将他们收到的最新[交易](../Technical/Transaction/Transaction%20Data/Transaction%20Data.md)存储在[内存池](../Technical/Node/Memory%20Pool/Memory%20Pool.md)，这只是计算机上的临时存储空间。任何节点都可以尝试将内存池中的交易挖掘到[区块链](../Technical/Blockchain/blockchain.md)文件中。
@@ -52,7 +52,7 @@
 
 ![Home-8.png](img/Home-8%20(1).png)
 
-那么这个处理能力从哪里得来呢？要将这个区块添加到区块链中，你必须将你的交易区块输入到一个叫做[哈希函数](../Technical/Other/Hash%20Function/Hash%20Function.md)的东西中。哈希函数基本上是一个小型计算机程序，可以接受任何数量的数据，将其混淆，然后输出一个完全随机（但唯一）的数字。
+那么这个处理能力从哪里得来呢？要将这个区块添加到区块链中，你必须将你的交易区块输入到一个叫做[哈希函数](../Technical/Other/Hash%20Function/Hash%20Function.md)的东西中。哈希函数是一个小型计算机程序，可以接受任何数量的数据，将其混淆，然后输出一个完全随机（但唯一）的数字。
 
 ![Home-9.png](img/Home-9%20(1).png)
 

@@ -71,7 +71,7 @@
 
 块Nonce
 
-这个数字被称为[随机数](../../../../Technical/Block/block-header/Nonce/Nonce.md)，它基本上是矿工用来帮助他们得到区块哈希值低于目标值的虚拟字段。
+这个数字被称为[随机数](../../../../Technical/Block/block-header/Nonce/Nonce.md)，它是矿工用来帮助他们得到区块哈希值低于目标值的虚拟字段。
 
 >**随机数**——在加密通信中仅使用一次的任意数字。
 

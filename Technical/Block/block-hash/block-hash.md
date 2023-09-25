@@ -3,7 +3,7 @@
 
 ![block-hash-1.png](img/block-hash-1%20(1).png)
 
-**区块哈希值**基本上是[区块链](../../../Beginners/How%20Bitcoin%20Works/2.Mining/1.Blockchain/Blockchain.md)中[区块](../../../Beginners/How%20Bitcoin%20Works/2.Mining/2.Blocks/Blocks.md)的参考编号。
+**区块哈希值**是[区块链](../../../Beginners/How%20Bitcoin%20Works/2.Mining/1.Blockchain/Blockchain.md)中[区块](../../../Beginners/How%20Bitcoin%20Works/2.Mining/2.Blocks/Blocks.md)的参考编号。
 
 ## 如何获得区块哈希值？
 可以通过对[区块头](../block-header/block-header.md)进行两次SHA256[哈希](../../Other/Hash%20Function/Hash%20Function.md)运算来获得区块哈希值。

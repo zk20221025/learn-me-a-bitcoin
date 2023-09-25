@@ -7,7 +7,7 @@
 
 这是你向他人提供的公钥版本，以便他们向你发送比特币。它比原始公钥**短**，与直接提供公钥相比，可以为你的比特币提供额外的**安全保障**。
 
-它基本上也是[地址](../../Address/Address.md)的“原始”版本。
+它也是[地址](../../Address/Address.md)的“原始”版本。
 
 ## 如何创建公钥哈希？
 只需将公钥通过[SHA256](https://learnmeabitcoin.com/tools/sha256)和[RIPEMD160](https://learnmeabitcoin.com/tools/ripemd160)[哈希函数](../../../Other/Hash%20Function/Hash%20Function.md)处理即可：

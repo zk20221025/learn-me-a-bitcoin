@@ -19,7 +19,7 @@ Transaction: [c1b4e695098210a31fe02abffe9005cffc051bbe86ff33e173155bcbdc5821e3](
 * 以下图标表示数据是[反向字节顺序](../../Other/Little-endian/Little-Endian.md)：⟲
 
 ## 图表
-比特币交易基本上是**一系列**的[输入](../Transaction%20Data/Input/input.md)和[输出](../Transaction%20Data/output/output.md)。
+比特币交易是**一系列**的[输入](../Transaction%20Data/Input/input.md)和[输出](../Transaction%20Data/output/output.md)。
 
 ![Transaction Data-2.png](img/Transaction%20Data-2%20(1).gif)
 

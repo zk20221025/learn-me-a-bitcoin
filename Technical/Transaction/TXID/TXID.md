@@ -3,7 +3,7 @@
 
 ![txid-1.png](img/TXID-1.svg)
 
-TXID（交易ID）基本上是比特币交易的标识号码。
+TXID（交易ID）是比特币交易的标识号码。
 
 ## 例子：
 * [f4184fc596403b9d638783cf57adfe4c75c605f6356fbc91338530e9831e9e16](https://learnmeabitcoin.com/explorer/transaction/f4184fc596403b9d638783cf57adfe4c75c605f6356fbc91338530e9831e9e16) - 2010年，Hal Finney进行的第一笔比特币交易。
