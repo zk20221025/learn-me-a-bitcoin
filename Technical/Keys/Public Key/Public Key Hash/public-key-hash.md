@@ -1,5 +1,5 @@
 # <center>公钥哈希</center>
-<center>将公钥的哈希值缩短。</center>
+<center>将公钥进行哈希处理来缩短它。</center>
 
 ![public-key-hash-1.png](img/public-key-hash-1%20(1).png)
 
@@ -31,10 +31,10 @@ hash160(publickey) = 93ce48570b55c42c2af816aeaba06cfee1224fae
 
 这意味着最终创建的[地址](../../../Keys/Address/Address.md)将比完整的公钥包含更少的字符，从而更容易传递。
 
->之所以将其与SHA256一起使用，是因为RIPEMD160本身并不是最强大的哈希函数。
+>之所以将其与SHA256一起使用，是因为RIPEMD160本身并不是安全性最强的哈希函数。
 
 ## 比特币中如何使用公钥哈希？
-当你想要接收比特币时，你会把你的公钥哈希给别人。然后，他们将把它放入交易[输出](../../../Transaction/Transaction%20Data/output/output.md)的[锁定代码](../../../Transaction/Transaction%20Data/output/scriptPubKey/scriptPubKey.md)中。
+当你想要接收比特币时，你可以提供你的公钥哈希。然后·他们将把它放入交易[输出](../../../Transaction/Transaction%20Data/output/output.md)的[锁定代码](../../../Transaction/Transaction%20Data/output/scriptPubKey/scriptPubKey.md)中。
 
 这将创建一个[P2PKH](../../../Script/P2PKH/P2PKH.md)锁定脚本。
 
@@ -49,7 +49,7 @@ hash160(publickey) = 93ce48570b55c42c2af816aeaba06cfee1224fae
 1. 检查**公钥**所提供的**公钥哈希值**是否正确。  
 2. 如果检查通过，它们将像往常一样对**公钥**和**签名**进行验证。
 
-因此，与[P2PK](../../../Script/P2PK/P2PK.md)锁定不同，它不仅仅检查**签名**与公钥的匹配性，还会先**检查公钥的哈希值**。
+因此，与[P2PK](../../../Script/P2PK/P2PK.md)锁定不同，它不仅仅检查**签名**与公钥的匹配性，还会额外先**检查公钥的哈希值**。
 
 这就是为什么这种锁定系统被称为[P2PKH](../../../Script/P2PKH/P2PKH.md)的原因。
 
@@ -83,17 +83,17 @@ puts hash160 # 93ce48570b55c42c2af816aeaba06cfee1224fae
 ### 另一种理论：额外的安全性
 另一种理论是使用Hash160提供了额外的安全保障。
 
-如果在想要接收比特币时公开了我们的公钥，那么保护你免受攻击者试图获取你的私钥的“唯一”措施就是[椭圆曲线](../../ECDSA/ECDSA.md)。
+如果我们在想要接收比特币时公开了我们的公钥，那么保护你免受攻击者试图获取你的私钥的“唯一”措施就是[椭圆曲线](../../ECDSA/ECDSA.md)。
 
 ![public-key-hash-7.png](img/public-key-hash-7%20(1).png)
 
 从椭圆曲线乘法逆推出私钥是极其困难的，但你可以尝试。
 
-如果我提供的是公钥的哈希版本，攻击者就必须破解RIPEMD160和SHA256哈希函数，同时解决椭圆曲线问题。
+如果我提供的是公钥的哈希版本，攻击者就必须破解RIPEMD160和SHA256哈希函数，并解决椭圆曲线问题。
 
 ![public-key-hash-8.png](img/public-key-hash-8%20(1).png)
 
-现在你需要破解两种不同的哈希函数。
+现在你还需要破解两种不同的哈希函数。
 
 当你在区块链上拥有比特币时，哈希函数就像是额外的障碍，攻击者必须跨越它们才能尝试获取我们的私钥（并窃取我们的比特币）。
 

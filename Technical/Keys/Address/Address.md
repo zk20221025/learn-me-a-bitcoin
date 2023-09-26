@@ -33,17 +33,17 @@
 
 ![address-3.png](img/address-3%20(1).png)
 
-**前缀**指示了要创建什么类型的锁定，而**hash160**告诉它们要在其中放什么。
+**前缀**指示了要创建什么类型的锁定，而**hash160**决定了其中的具体内容。
 
 ## Pay To Script Hash（P2SH）
 [**P2SH**](../../Script/P2SH/P2SH.md)：这个锁定包括[脚本](../../Script/Script.md)的哈希值。我们之后提供实际的锁定脚本（当我们解锁它时），这使我们可以构建复杂的锁定脚本，而无需让其他人担心它的细节。
 
-与之前相同，只是这次包含了脚本的哈希，并使用前缀05来表示P2SH。
+与之前相同，只是这次包含了脚本的哈希，并使用**前缀05**来表示P2SH。
 
 ![address-4.png](img/address-4%20(1).png)
 
 ### 解码后：
-这就是P2SH的样子：
+这就是P2SH：
 
 ![address-5.png](img/address-5%20(1).png)
 
@@ -76,9 +76,9 @@
 |04358394|	tprv|	Extended Private Key|tprv9tuogRdb5YTgcL3P8Waj7REqDuQx4sXcodQaWTtEVFEp6yRKh1CjrWfXChnhgHeLDuXxo2auDZegMiVMGGxwxcrb2PmiGyCngLxvLeGsZRq|
 |043587CF	|tpub	|Extended Public Key|tpub67uA5wAUuv1ypp7rEY7jUZBZmwFSULFUArLBJrHr3amnymkUEYWzQJz13zLacZv33sSuxKVmerpZeFExapBNt8HpAqtTtWqDQRAgyqSKUHu|
 
->当编码为base58时，前缀00不会自然地转换为“1”。这种转换是在代码中手动执行的。
+>当编码为base58时，十六进制前缀00并不会自然地转换为“1”。这种转换是在代码中手动执行的。
 
->你会注意到[WIF私钥](../../Keys/Private%20Key/WIF%20Private%20Key/WIF%20Private%20Key.md)使用相同的十六进制前缀，但产生不同的前导字符。这是因为如果使用私钥创建压缩的公钥（将生成与未压缩公钥不同的地址），在转换为base58之前还会附加一个01。这个额外的字节会影响base58结果中的前导字符。
+>你会注意到[WIF私钥](../../Keys/Private%20Key/WIF%20Private%20Key/WIF%20Private%20Key.md)使用相同的十六进制前缀，但产生不同的前导字符。这是因为如果使用私钥创建压缩的公钥（将生成与未压缩公钥不同的地址），我们还会在转换为base58之前还会附加一个**01**。这个额外的字节会影响base58结果中的前导字符。
 
 >[扩展密钥](../../HD%20Wallets/Extended%20Keys/Extended%20Keys.md)包含原始公钥和私钥之外的额外元数据，这就是它们的base58字符串要长得多的原因。
 
@@ -93,11 +93,11 @@ https://en.bitcoin.it/wiki/List_of_address_prefixes
 ```
 76a914662ad25db00e7bb38bc04831ae48b4b446d1269888ac # P2PKH脚本
 ```
-但是通过使用地址，可以只发送类似于以下内容：
+但是通过使用地址可以发送以下内容：
 ```
 1AKDDsfTh8uY4X3ppy1m7jw1fVMBSMkzjP
 ```
-它们都可以达到相同的效果，但地址提供了对用户更友好的格式。更不用说它们**包含[校验和](../Checksum/Checksum.md)**，这意味着如果有人错误地编写地址，错误可以被检测到。
+它们都可以达到相同的效果，但地址提供了对用户更友好的格式。更不用说它们**包含[校验和](../Checksum/Checksum.md)**，这意味着如果有人错误地写入地址，错误可以被检测到。
 
 ## 代码
 注意：此代码需要[checksum.rb](https://github.com/in3rsha/learnmeabitcoin-code/blob/master/checksum.rb)和[base58_encode.rb](https://github.com/in3rsha/learnmeabitcoin-code/blob/master/base58_encode.rb)函数。
