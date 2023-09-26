@@ -3,7 +3,7 @@
 
 ![VOUT-1.png](img/VOUT-1.png)
 
-**vout**是交易[输出](../../Transaction/Transaction%20Data/output/output.md)的索引号码。
+**vout**是交易[输出](../../Transaction/Transaction%20Data/output/output.md)的索引编号码。
 
 ## 用途
 

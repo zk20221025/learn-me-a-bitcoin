@@ -3,9 +3,9 @@
 
 [BIP 44](https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki), [BIP 49](https://github.com/bitcoin/bips/blob/master/bip-0049.mediawiki), [BIP 84](https://github.com/bitcoin/bips/blob/master/bip-0084.mediawiki)
 
-[扩展密钥](../Extended%20Keys/Extended%20Keys.md)有一个很酷的地方在于它们可以派生子密钥，这些子密钥可以再派生更多的子密钥，以此类推。这使你可以创建扩展密钥树，每个密钥都有自己来自[主密钥](../Extended%20Keys/Extended%20Keys.md)的唯一**派生路径**。
+[扩展密钥](../Extended%20Keys/Extended%20Keys.md)有一个很酷的地方在于它们可以派生子密钥，这些子密钥可以再派生更多的子密钥，以此类推。这使你可以创建扩展密钥**树**，每个密钥都有自己来自[主密钥](../Extended%20Keys/Extended%20Keys.md)的唯一**派生路径**。
 
-可以以任何方式派生密钥。但为了帮助钱包之间的兼容性，我们为[分层确定性钱包](../HD%20Wallets.md)中用于派生密钥的派生路径设置了一组结构。
+你可以以任何方式派生密钥。但为了帮助钱包之间的兼容性，我们为[分层确定性钱包](../HD%20Wallets.md)中用于派生密钥的派生路径设置了一组结构。
 
 最常用的派生路径包括：
 
@@ -20,18 +20,18 @@ m/0/1/3'
 ```
 ![derivation-paths-1.png](img/derivation-paths-1%20(1).png)
 
-斜杠/表示树中的新级别（新的子级）。数字（例如0）表示从父级开始的子级编号。
+斜杠/表示树中的新级别（新的子级）。数字（例如**0**）表示从父级开始的子级编号。
 
 关于符号的唯一需要知道的事情是，'或h表示[已强化](../Extended%20Keys/Extended%20Keys.md)的[子扩展私钥](../Extended%20Keys/Extended%20Keys.md)（这意味着它创建的公钥无法通过[扩展公钥](../Extended%20Keys/Extended%20Keys.md)派生）：
 
-* 0-**正常子级**（索引0）
-* 0'-**强化子级**（索引2147483648）
+* **0**-**正常子级**（索引**0**）
+* **0'**-**强化子级**（索引**2147483648**）
 
-这个'只是为了避免我们写出强化子级的完整索引号。例如，3'表示索引2147483651。
+这个'只是为了避免我们写出强化子级的完整索引编号。例如，**3'**表示索引**2147483651**。
 
->提示：可以从单个扩展密钥派生多达4294967296个子级。前一半用于[普通子级](../Extended%20Keys/Extended%20Keys.md)，后一半用于[强化子级](../Extended%20Keys/Extended%20Keys.md)。
+>提示：可以从单个扩展密钥派生多达**4294967296**个子级。前一半用于[普通子级](../Extended%20Keys/Extended%20Keys.md)，后一半用于[强化子级](../Extended%20Keys/Extended%20Keys.md)。
 
->注意：派生强化子级是默认设置。只有在需要相应的扩展公钥以派生相同的公钥时，才会派生普通子级。
+>**注意**：派生**强化**子级是**默认**设置。只有在需要相应的扩展公钥以派生相同的公钥时，才会派生普通子级。
 
 ## 2.钱包结构
 
@@ -53,26 +53,26 @@ m / purpose' / coin_type' / account' / change / index
 >>2. [BIP 49](#bip-49-m490000)
 >>3. [BIP 84](#bip-84-m840000)
 
->>提示：数字反映了BIP的编号。新方案可以使用不同的BIP编号。
+>>**提示**：数字反映了BIP（比特币改进提案）的编号。新方案可以使用不同的BIP编号。
 >>>m/44'/0'：**币种类型**（加强）
 表示这些密钥将用于哪种加密货币。    
-不同的加密货币可以使用从种子派生的相同私钥和公钥。因此可以使用相同的种子和不同的派生路径，而不是为不同的货币创建不同的种子（或在不同的链上使用相同的公钥）。
-0' = 比特币
-1' = 比特币（测试网）
-2' = 莱特币
-3' = 狗狗币
-...
+不同的加密货币可以使用从种子派生的相同私钥和公钥。因此可以使用相同的种子和不同的派生路径，而不是为不同的货币创建单独的种子（或在不同的链上使用相同的公钥）。  
+0' = 比特币  
+1' = 比特币（测试网）  
+2' = 莱特币  
+3' = 狗狗币  
+...  
 完整列表：https://github.com/satoshilabs/slips/blob/master/slip-0044.md  
 这在硬件钱包中非常有用，可以使用一个种子并将其用于持有各种不同的硬币。
 >>>>m/44'/0'/0'：**账户**（加强）
-这允许你为资金创建单独的账户。默认账户为0'。  
+这允许你为资金创建单独的账户。默认账户为**0'**。  
 例如，可以使用相同的种子，但仍然创建单独的“账户”来接收付款。这些单独的账户中的硬币永远不会混淆。  
-提示：可以在此级别的各种索引中创建许多不同的账户。但为了简化恢复过程，钱包应按顺序创建账户，并且如果之前的账户未被使用，则不创建新账户。
+**提示**：可以在此级别的各种索引中创建许多不同的账户。但为了简化恢复过程，钱包应按顺序创建账户，并且如果之前的账户未被使用，则不应创建新账户。
 >>>>>m/44'/0'/0'/0：**找零**
 我们使用的密钥和地址分为“接收”和“找零”。
 
->>>>>* **接收** = 0 - 我们将给人们用于接收付款的地址。
->>>>>* **找零** = 1 - 我们用于在进行交易时将找零发送回自己的地址。
+>>>>>* **接收** = **0** - 我们将给人们用于接收付款的地址。
+>>>>>* **找零** = **1** - 我们用于在进行交易时将找零发送回自己的地址。
 
 >>>>>这意味着你始终能够识别来自外部付款的硬币。
 >>>>>>m/44'/0'/0'/0/0：**索引**  
@@ -88,7 +88,7 @@ m / purpose' / coin_type' / account' / change / index
 ### **BIP 32: m/0'/0/0（已弃用）**
 这是[BIP 32](https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki#specification-wallet-structure)中最初的派生路径规范。
 
-它只使用第一个**子级**来表示账户，下面的两个子级用于分离**外部**和**内部**地址。这些子级的子级用于生成实际的私钥和公钥以创建地址。
+它只使用第一个**子级**来表示**账户**，下面的两个子级用于分离**外部**和**内部**地址。这些子级的子级用于生成实际的私钥和公钥以创建地址。
 ```
 m / account' / external / index
 ```
@@ -99,19 +99,19 @@ m / account' / external / index
 这就是BIP 44、BIP 49和BIP 84的作用。
 
 ### **BIP 44：m/44'/0'/0'/0/0**
-[BIP 44](https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki)基于原始的BIP 32方案，包括一个目的[^1]（类似于版本号，用于识别即将到来的方案）以及币种类型，以便可以使用相同的种子生成不同加密货币的密钥。
+[BIP 44](https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki)基于原始的BIP 32方案上，包括一个**目的**[^1]（类似于版本号，用于识别即将到来的方案）以及**币种类型**，以便可以使用相同的种子生成不同加密货币的密钥。
 
-公钥编码为1地址（[P2PKH](../../Script/P2PKH/P2PKH.md)）。
+公钥编码为1地址（[P2PKH](../../Script/P2PKH/P2PKH.md)（Pay To Pubkey Hash））。
 
 ![derivation-paths-4.png](img/derivation-paths-4%20(1).png)
 
 ### **BIP 49: m/49'/0'/0'/0/0**
-[BIP 49](https://github.com/bitcoin/bips/blob/master/bip-0049.mediawiki)使用与BIP 44相同的结构，但用于表示公钥应编码为3地址（P2WPKH-P2SH）。
+[BIP 49](https://github.com/bitcoin/bips/blob/master/bip-0049.mediawiki)使用与BIP 44相同的结构，但用于表示公钥应编码为3地址（P2WPKH-P2SH（付费见证公钥哈希（嵌套在付费脚本哈希中）））。
 
 ![derivation-paths-5.png](img/derivation-paths-5%20(1).png)
 
 ### **BIP 49序列化**
-BIP 49派生路径中的扩展密钥使用版本字节049d7878“yprv”或049d7cb2“ypub”进行[序列化](../Extended%20Keys/Extended%20Keys.md)。这允许你识别属于 BIP 49 方案一部分的扩展密钥。
+BIP 49派生路径中的扩展密钥使用版本字节**049d7878**“yprv”或**049d7cb2**“ypub”进行[序列化](../Extended%20Keys/Extended%20Keys.md)。这允许你识别属于 BIP 49 方案一部分的扩展密钥。
 
 例如：
 ```
@@ -119,12 +119,12 @@ yprvABrGsX5C9jant45o1Au7iHH54A8GXQH9SGhK5vkYKPUBDYsFy6KNUWX24moUE6KxoCh2qtZ8UpLa
 ```
 
 ### **BIP 84: m/84'/0'/0'/0/0**
-[BIP 84](https://github.com/bitcoin/bips/blob/master/bip-0084.mediawiki)使用与BIP 44相同的结构，但用于指示公钥应编码为bc1地址（P2WPKH）。
+[BIP 84](https://github.com/bitcoin/bips/blob/master/bip-0084.mediawiki)使用与BIP 44相同的结构，但用于指示公钥应编码为bc1地址（P2WPKH（付费见证公钥哈希））。
 
 ![derivation-paths-6.png](img/derivation-paths-6%20(1).png)
 
 >**BIP 84序列化**
-BIP 84派生路径中的扩展密钥在[序列化](../Extended%20Keys/Extended%20Keys.md)过程中使用版本字节04b2430c“zprv”或04b24746“zpub”。这可以识别BIP 84方案一部分的扩展密钥。
+BIP 84派生路径中的扩展密钥在[序列化](../Extended%20Keys/Extended%20Keys.md)过程中使用版本字节**04b2430c**“zprv”或**04b24746**“zpub”。这使你可以识别BIP 84方案一部分的扩展密钥。
 
 例如：
 ```
