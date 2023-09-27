@@ -3,18 +3,18 @@
 
 ![VOUT-1.png](img/VOUT-1.png)
 
-**vout**是交易[输出](../../Transaction/Transaction%20Data/output/output.md)的索引编号码。
+**vout**是交易[输出](../../Transaction/Transaction%20Data/output/output.md)的索引编号。
 
 ## 用途
 
-你可以使用txid和vout来唯一**确定一个输出**以用作新交易中的[输入](../../Transaction/Transaction%20Data/Input/input.md)。
+你可以使用**txid**和**vout**来唯一**确定一个输出**以用作新交易中的[输入](../../Transaction/Transaction%20Data/Input/input.md)。
 
 ![VOUT-2.png](img/VOUT-2%20(1).png)
 
 输出编号2。
 
 ## 注释
->在编程中，计数从0开始。所有，如果想使用现有交易的第一个输出，我们将vout设置为0。（第二个输出将为1。）
+>在编程中，计数从0开始。所有，如果想使用现有交易的第一个输出，我们将vout设置为**0**。（第二个输出将为1。）
 
 >**vout**中的“v”代表**向量**，因为比特币源代码中的输出存储在[向量](http://www.cplusplus.com/reference/vector/vector/)数据结构中（是一个[数组](https://www.go4expert.com/articles/array-vector-stack-data-structures-t27921/)）。
 
