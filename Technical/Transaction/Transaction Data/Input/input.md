@@ -3,7 +3,7 @@
 
 ![input-1.png](img/input-1-svg.png)
 
-输入就是您在交易中花费时所说的[输出](../output/output.md)。
+输入就是你在交易中花费时所说的[输出](../output/output.md)。
 
 ## 结构
 ```

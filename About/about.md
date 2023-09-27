@@ -11,7 +11,7 @@
 * [AFI](https://www.youtube.com/watch?v=myEu6CTZN3E), [HIM](https://www.youtube.com/watch?v=ldHjBgsed7I), [Shania Twain](https://www.youtube.com/watch?v=ZJL4UGSbeFg), [Lamb of God](https://www.youtube.com/watch?v=dulxbKkj9Wg), [Funeral For a Friend](https://www.youtube.com/watch?v=qsaamq0E964).
   
 ## 更多关于我。
-我在互联网上使用用户名inersha（如果已被使用，则使用in3rsha）。这只是惯性的音标拼写，当时我们在物理课上讨论的主题就是惯性。
+我在互联网上使用用户名**inersha**（如果已被使用，则使用**in3rsha**）。这只是惯性的音标拼写，当时我们在物理课上讨论的主题就是惯性。
 
 这里是我的一些账户：
 * [Twitter](https://twitter.com/in3rsha)
@@ -27,11 +27,11 @@
 
 ## 演讲/播客
 
-2020年5月：[比特币繁荣播客-第12集](https://www.youtube.com/watch?v=UNC0YSqZIJs)（视频播客）
+**2020年5月**：[比特币繁荣播客-第12集](https://www.youtube.com/watch?v=UNC0YSqZIJs)（视频播客）
 
-2020年1月：[比特币Sheffield-入门比特币](https://www.youtube.com/watch?v=hRnYKO5CNmc)（演讲）
+**2020年1月**：[比特币Sheffield-入门比特币](https://www.youtube.com/watch?v=hRnYKO5CNmc)（演讲）
 
-2017年3月：[比特币播客-第118集](http://thebitcoinpodcast.com/episode-118/)（播客）
+**2017年3月**：[比特币播客-第118集](http://thebitcoinpodcast.com/episode-118/)（播客）
 
 ## 关于learnmeabitcoin.com
 当我18岁的时候，我开始了一个[扑克策略网站](https://www.thepokerbank.com/)。这是我的第一个大型项目，但到了23岁的时候，我开始对扑克失去了兴趣。所以我有一段时间没有制作网站了。

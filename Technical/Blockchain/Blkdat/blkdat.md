@@ -57,7 +57,7 @@ A B C E F D
 ```
 
 >这是因为比特币节点会并行下载区块来尽快下载区块链。节点在下载时会提前下载更多的区块，而不是等待按顺序接收每一个区块。  
-在比特币源代码中，您的节点将提前获取的最大距离（（或者说“最大的无序度”）由[BLOCK_DOWNLOAD_WINDOW](https://github.com/bitcoin/bitcoin/search?q=BLOCK_DOWNLOAD_WINDOW)控制。
+在比特币源代码中，你的节点将提前获取的最大距离（（或者说“最大的无序度”）由[BLOCK_DOWNLOAD_WINDOW](https://github.com/bitcoin/bitcoin/search?q=BLOCK_DOWNLOAD_WINDOW)控制。
 
 #### 2. 最大blk.dat文件大小为128MiB（134,217,728字节）
 此限制由[MAX_BLOCKFILE_SIZE](https://github.com/bitcoin/bitcoin/search?q=MAX_BLOCKFILE_SIZE)设置

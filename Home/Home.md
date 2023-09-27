@@ -2,9 +2,9 @@
 
 ![Home-1.png](img/Home-1.png)
 
-比特币是一种于**2009年创建的电子支付系统**。它允许你向世界上任何人发送资金，而且无需任何人的许可来创建账户。
+比特币是**2009年创建的电子支付系统**。它允许你向世界上任何人发送资金，而且无需任何人的许可来创建账户。
 
-它是作为现代金融体系的解决方案而创建的，在现代金融体系中，少数几家大银行控制着谁可以开户，哪些交易可以处理。这意味着对货币的控制是集中的，我们必须相信银行会负责任地行事。
+它是作为现代金融体系的解决方案而创建的，在现代金融体系中，少数几家大银行控制着谁可以开户以及处理哪些交易。这意味着对货币的控制是集中的，我们必须相信银行会负责任地行事。
 
 >我们必须信任银行来保管我们的钱，并以电子方式转账，但是他们在几乎没有储备的情况下将资金借出，形成了信贷泡沫。-[中本聪](https://satoshi.nakamotoinstitute.org/posts/p2pfoundation/1/)
 
@@ -25,20 +25,23 @@
 
 ![Home-3.png](img/Home-3%20(1).png)
 
-当一笔新的交易进入网络时，它会从一台计算机转发到另一台计算机，直到每个人都有一份交易的副本。每隔大约10分钟，网络上的一个随机计算机([节点](../Beginners/How%20Bitcoin%20Works/1.Network/Nodes/Nodes.md))将最新接收到的交易添加到区块链上，并与网络上的其他人分享更新。
+当一笔新的交易进入网络时，它会从一台计算机转发到另一台计算机，直到每个人都有一份交易的副本。每隔大约10分钟，网络上的一台随机计算机([节点](../Beginners/How%20Bitcoin%20Works/1.Network/Nodes/Nodes.md))会被选中，将最新接收到的交易打包成一个“区块”并添加到区块链上，然后与网络上的其他人分享更新。
 
 ![Home-4.png](img/Home-4%20(1).png)
 
 因此，比特币程序创建了一个庞大的计算机[网络](../Beginners/How%20Bitcoin%20Works/1.Network/Network.md)，这些计算机相互通信、**共享文件并更新其中的新交易。**。
 
 ## 比特币解决了什么问题？
-在比特币出现之前，已经可以在计算机网络中转发交易了。但问题是**你可以将冲突的交易插入到计算机网络中**。例如，你可以创建两笔分别花费同一数字货币的交易，并将这两笔交易同时发送到网络中。
+在比特币出现之前就已经可以在计算机网络中转发交易了。但问题是**你可以将冲突的交易插入到计算机网络中**。例如，你可以创建两笔分别花费同一数字货币的交易，并将这两笔交易同时发送到网络中。
 这就是所谓的“**双重支付**”。
+
 ![Home-5.png](img/Home-5%20(1).png)
 
-因此，如果你创建一个没有中央控制点的电子支付系统，你就会遇到计算出这些交易中哪一个是“先发生”的问题，当你有一个由所有独立行动的计算机组成的网络时，这是一件很难做到的事情。有些电脑会先收到<span style="color: green">绿色</span>的交易，有些电脑会先收到<span style="color: red">红色</span>的交易。
-谁来决定哪一个是“第一”的并且应该是唯一写入文件的？
-比特币通过强制节点在将其写入文件之前将其接收的所有交易保存在[内存](../Technical/Node/Memory%20Pool/Memory%20Pool.md)中来解决这个问题。然后，每隔10分钟，网络上的一个随机节点会将其内存中的交易添加到文件中。
+因此，如果你创建一个没有中央控制点的电子支付系统，你就会遇到计算出这些交易中哪一个是“先发生”的问题，当你有一个由独立运行的计算机组成的网络时，这是一件很难做到的事情。有些电脑会先收到<span style="color: green">绿色</span>的交易，有些电脑会先收到<span style="color: red">红色</span>的交易。
+
+谁来决定哪一个是“第一个”并且应该是唯一写入文件的？
+
+比特币通过强制节点在将其写入文件之前将其接收的所有交易保存在[内存](../Technical/Node/Memory%20Pool/Memory%20Pool.md)中来解决这个问题。然后，每隔10分钟，网络上的随机节点会将其内存中的交易添加到文件中。
 ![Home-6.png](img/Home-6%20(1).png)
 
 更新后的文件将与网络共享，节点将接受更新文件中“正确”的交易，从其内存中删除任何冲突的交易。因此，不会将任何双重支付交易写入文件中，所有节点都可以在彼此达成一致的情况下更新其文件。
@@ -47,8 +50,9 @@
 将交易添加到文件的过程称为[挖矿](../Technical/Mining/Mining.md)，它是一个网络范围内的竞争，不能由网络上的单个节点控制。
 
 ## 挖矿是如何工作的？
-首先，每个节点会将他们收到的最新[交易](../Technical/Transaction/Transaction%20Data/Transaction%20Data.md)存储在[内存池](../Technical/Node/Memory%20Pool/Memory%20Pool.md)，这只是计算机上的临时存储空间。任何节点都可以尝试将内存池中的交易挖掘到[区块链](../Technical/Blockchain/blockchain.md)文件中。
-为了做到这一点，节点将从其内存池中收集交易，并将其放入一个称为[区块](../Beginners/How%20Bitcoin%20Works/2.Mining/2.Blocks/Blocks.md)的容器中，然后使用处理能力尝试将这个交易区块添加到区块链上。
+首先，每个节点会将他们收到的最新[交易](../Technical/Transaction/Transaction%20Data/Transaction%20Data.md)存储在[内存池](../Technical/Node/Memory%20Pool/Memory%20Pool.md)中，这只是计算机上的临时存储空间。任何节点都可以尝试将内存池中的交易挖掘到[区块链](../Technical/Blockchain/blockchain.md)上。
+
+为了做到这一点，节点将从其内存池中收集交易，并将其放入称为[区块](../Beginners/How%20Bitcoin%20Works/2.Mining/2.Blocks/Blocks.md)的容器中，然后使用处理能力尝试将这个交易区块添加到区块链上。
 
 ![Home-8.png](img/Home-8%20(1).png)
 
@@ -75,7 +79,7 @@
 这个新比特币的奖励被称为**区块奖励**，也是为什么这个过程被称为“挖矿”的原因。
 
 ## 为什么文件被称为“区块链”？
-正如我们所见，交易不是单独添加到文件中的 - 它们被收集在一起并以块的形式添加。每个新区块都建立在现有块之上，因此文件由一系列**块**构成；因此，称为[区块链](../Technical/Blockchain/blockchain.md)。
+正如我们所见，交易不是单独添加到文件中的 - 它们被收集在一起并以块的形式添加。每个新区块都建立在现有块之上，因此文件由一系列**块**构成；因此称为[区块链](../Technical/Blockchain/blockchain.md)。
 
 ![Home-13.png](img/Home-13%20(1).png)
 
@@ -91,7 +95,7 @@
 
 
 ## 交易是如何工作的？
-你可以将区块链想象成一个保险箱存储设施，我们称之为[outputs](../Technical/Transaction/Transaction%20Data/output/output.md)。这些输出只是容器，用于存放不同数量的比特币。
+你可以将区块链想象成一个保险箱存储设施，我们称之为[输出](../Technical/Transaction/Transaction%20Data/output/output.md)。这些输出只是容器，用于存放不同数量的比特币。
 
 ![Home-16.png](img/Home-16%20(1).png)
 
@@ -133,7 +137,7 @@
 
 ![Home-23.png](img/Home-23%20(1).png)
 
-这个系统被称为“公钥密码学”，自1978[^1]年以来就已经存在。比特币利用这个系统，允许任何人创建用于安全发送和接收比特币的密钥，无需中央机构发放账户和密码。
+这个系统被称为“公钥密码学”，自1978[^1]年以来就已经存在。比特币利用这个系统，允许任何人创建用于安全发送和接收比特币的密钥，无需中心机构发放账户和密码。
 
 ## 所有内容放在一起
 [开始使用比特币](../Beginners/Getting%20Started/getting-started/getting%20started.md)，你需要生成自己的[私钥](../Technical/Keys/Private%20Key/Private%20Key.md)和[公钥](../Technical/Keys/Private%20Key/Private%20Key.md)。你的私钥只是一个非常大的随机数，你的公钥是从它计算出来的。这些密钥可以在计算机上轻松生成，甚至可以在简单的计算器上生成。大多数人使用[比特币钱包](https://electrum.org/)来帮助生成和管理他们的密钥。
@@ -186,7 +190,7 @@ https://github.com/bitcoin/bitcoin/ (源代码)
 * 这个网站是完全由免费的[开源工具](https://learnmeabitcoin.com/thanks#development)构建的。
 那么为什么不免费教育呢？
 
-尽管如此，还是非常感谢您的捐赠：[3Beer3irc1vgs76ENA4coqsEQpGZeM5CTd](bitcoin:3Beer3irc1vgs76ENA4coqsEQpGZeM5CTd)
+尽管如此，还是非常感谢你的捐赠：[3Beer3irc1vgs76ENA4coqsEQpGZeM5CTd](bitcoin:3Beer3irc1vgs76ENA4coqsEQpGZeM5CTd)
 
 ## 为什么你做这个网站？
 
