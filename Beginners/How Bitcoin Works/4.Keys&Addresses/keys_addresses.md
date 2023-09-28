@@ -36,7 +36,7 @@
 十六进制数比十进制数短，因为它们还使用字母a、b、c、d、e和f。
 
 这里有一个私钥...是一个大的随机数（以十六进制格式）。
-|Private Key|ef235aacf90d9f4aadd8c92e4b2562e1d9eb97f0df9ba3b508258739cb013db2|
+|**Private Key**|ef235aacf90d9f4aadd8c92e4b2562e1d9eb97f0df9ba3b508258739cb013db2|
 |---|---|
 >私钥可以是1到115792089237316195423570985008687907852837564279074904382605163141518161494336之间的任何数字。
 
@@ -44,7 +44,7 @@
 
 使用**私钥**创建**公钥**。
 
-但首先，这个公钥将被其他人看到。因此，当我们使用私钥创建公钥时，**我们不希望任何人能够找出私钥是什么。**
+但首先，这个公钥将被其他人看到。因此当我们使用私钥创建公钥时，**我们不希望任何人能够找出私钥是什么。**
 
 因为毕竟私钥保护着我们的比特币。
 
@@ -70,13 +70,13 @@
 
 因此，通过随机数和这个函数，我们现在拥有一对可以用来发送和接收比特币的密钥。
 
-|Private Key|ef235aacf90d9f4aadd8c92e4b2562e1d9eb97f0df9ba3b508258739cb013db2|
+|**Private Key**|ef235aacf90d9f4aadd8c92e4b2562e1d9eb97f0df9ba3b508258739cb013db2|
 |---|---|
-|Public Key|02b4632d08485ff1df2db55b9dafd23347d1c47a457072a1e87be26896549a8737|
+|**Public Key**|02b4632d08485ff1df2db55b9dafd23347d1c47a457072a1e87be26896549a8737|
 
 ## 地址
 
-那个公钥太长了，没有人会喜欢把它写出来，所以要让它更实用，并将其称为地址。
+那个公钥过于复杂了，人们不喜欢把它写出来。因此为了让它更实用，我们把它简化并称之为 **“地址”（address）**。
 
 ![keys addresses-8.png](img/keys_addresses-8%20(1).png)
 
@@ -86,12 +86,12 @@
 
 它仍然不太好记，但这是一个改进。
 
-而这就是地址的全部意义——公钥的缩写/简化版。
+而这就是地址的全部内容——公钥的缩写/简化版。
 
-|Private Key|ef235aacf90d9f4aadd8c92e4b2562e1d9eb97f0df9ba3b508258739cb013db2|
+|**Private Key**|ef235aacf90d9f4aadd8c92e4b2562e1d9eb97f0df9ba3b508258739cb013db2|
 |---|---|
-|Public Key|02b4632d08485ff1df2db55b9dafd23347d1c47a457072a1e87be26896549a8737|
-|Address|	1EUXSxuUVy2PC5enGXR1a3yxbEjNWMHuem|
+|**Public Key**|02b4632d08485ff1df2db55b9dafd23347d1c47a457072a1e87be26896549a8737|
+|**Address**|	1EUXSxuUVy2PC5enGXR1a3yxbEjNWMHuem|
 
 >由于公钥的压缩方式，无法从地址中推导出公钥。
 
