@@ -199,17 +199,17 @@ puts target
 # 000000000000000006a4c3000000000000000000000000000000000000000000
 ```
 
->**提示**：你可以使用bitcoin-cli getblockheader <hash>获取区块的时间戳（ 你可以使用bitcoin-cli getblockhash <height>获取特定高度的区块哈希）。
+>**提示**：你可以使用**bitcoin-cli getblockheader <hash>**获取区块的时间戳（ 你可以使用**bitcoin-cli getblockhash <height>**获取特定高度的区块哈希）。
 
->**官方目标值**：官方目标值是存储在块头中的截断目标值（在[bits](../../Block/block-header/bits/bits.md)字段中），因此它实际上不是在调整前一个目标值后获得的完整精度目标值。
+>**官方目标值**：官方目标值是存储在块头中的截断目标值（在[位](../../Block/block-header/bits/bits.md)字段中），因此它实际上不是在调整前一个目标值后获得的完整精度目标值。
 
 >**偏差**：你可能会注意到新目标值是使用2015个块的时间计算的（而不是你所预期的2016个）。这是代码中存在的实现错误，今天仍然存在。
 
 >**4的倍数**：目标值调整受到4的倍数的限制，以防止从一个目标值到下一个目标值的过度大的调整。
 
 ## 链接
-* [pow.cpp](https://github.com/bitcoin/bitcoin/blob/master/src/pow.cpp)-CalculateNextWorkRequired()函数会调整目标值。
-* [chainparams.cpp](https://github.com/bitcoin/bitcoin/blob/master/src/chainparams.cpp)-原始目标值（也是可能的最高目标值）由共识.powLimit设定。
+* [pow.cpp](https://github.com/bitcoin/bitcoin/blob/master/src/pow.cpp)-**CalculateNextWorkRequired()**函数会调整目标值。
+* [chainparams.cpp](https://github.com/bitcoin/bitcoin/blob/master/src/chainparams.cpp)-原始目标值（也是可能的最高目标值）由**consensus.powLimit**设定。
 * https://en.bitcoin.it/wiki/Target
 * [比特币的目标值是如何设置的？由谁来完成？(bitcoin.stackexchange.com)](https://bitcoin.stackexchange.com/questions/77875/how-is-the-target-in-bitcoin-set-who-does-this)
 * [为什么不在每个区块上重新定位？ (bitcoin.stackexchange.com)](https://bitcoin.stackexchange.com/questions/9305/why-not-retarget-on-every-block)
@@ -217,6 +217,6 @@ puts target
 * https://bitcoin.stackexchange.com/questions/1511/gaming-the-off-by-one-bug-difficulty-re-target-based-on-2015-instead-of-2016
 
 ## 谢谢
-感谢[David Harding](https://dtrt.org/)指出，你可以通过bitcoin-cli getblocktemplate直接从bitcoind获取目标值。
+感谢[David Harding](https://dtrt.org/)指出，你可以通过**bitcoin-cli getblocktemplate**直接从bitcoind获取目标值。
 
 [^1]:https://github.com/bitcoin/bitcoin/blob/master/src/chainparams.cpp#L106
