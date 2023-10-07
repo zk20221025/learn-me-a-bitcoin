@@ -5,12 +5,12 @@
 
 我称它为“挖矿字段”。
 
->随机数是“仅使用一次的数字”的缩写。  
+>**随机数**是“仅使用一次的数字”的缩写。  
 [cryptography.wikia.com](http://cryptography.wikia.com/wiki/Cryptographic_nonce)
 
 ## 它有什么用处？
 
-挖矿者通过调整Nonce来尝试使区块头的[哈希值](../../../Other/Hash%20Function/Hash%20Function.md)低于[目标值](../../../Mining/Target/Target.md)，即获得有效的[区块哈希](../../block-hash/block-hash.md)。
+挖矿者通过调整Nonce来尝试使区块头的[哈希值](../../../Other/Hash%20Function/Hash%20Function.md)低于[目标值](../../../Mining/Target/Target.md)，即获得候选区块的有效的[区块哈希值](../../block-hash/block-hash.md)。
 
 ![nonce-1.png](img/Nonce-1.gif)
 

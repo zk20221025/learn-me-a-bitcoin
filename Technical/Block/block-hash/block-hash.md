@@ -19,9 +19,9 @@
 ![block-hash-2.png](img/block-hash-2.svg)
 
 ([交换字节序](https://learnmeabitcoin.com/tools/swapendian))
-```
-0000000000002917ED80650C6174AAC8DFC46F5FE36480AAEF682FF6CD83C3CA
-```
+
+[0000000000002917ED80650C6174AAC8DFC46F5FE36480AAEF682FF6CD83C3CA](https://learnmeabitcoin.com/explorer/block/0000000000002917ED80650C6174AAC8DFC46F5FE36480AAEF682FF6CD83C3CA)
+
 
 ### 工具:
 [哈希块头](https://learnmeabitcoin.com/tools/hashblockheader)
