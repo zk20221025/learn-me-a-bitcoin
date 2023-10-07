@@ -5,35 +5,35 @@
 
 目标值是在[挖掘](../Mining.md)中使用的数字，[区块哈希值](../../Block/block-hash/block-hash.md)必须低于该数字才能将该区块添加到[区块链](../../Blockchain/blockchain.md)中。
 
-目标值每2016个区块（大约两周）进行一次调整，以尝试确保**平均每10分钟**挖掘一个区块。这样可以保证区块产生的时间一致，并使新比特币的发行量保持稳定。
->为了弥补硬件速度的增加和随时间变化的节点运行兴趣的差异，工作量证明的难度是通过移动平均值来确定的，以达到每小时平均区块数量的目标值。如果区块生成过快，难度会增加。-[中本聪](https://nakamotoinstitute.org/bitcoin/)
+目标值每2016个区块（大约两周）进行一次调整，以尝试确保**平均每10分钟**挖掘出一个区块。这样可以保证区块产生的时间一致，并使新比特币的发行量保持稳定。
+>为了弥补硬件速度的增加和随时间推移人们对运行节点的兴趣变化，工作量证明的难度是通过移动平均值来确定的，以达到每小时平均区块数量的目标值。如果区块生成过快，难度会增加。-[中本聪](https://nakamotoinstitute.org/bitcoin/)
 
 **当前目标值**:
 ```
 0000000000000000000561020000000000000000000000000000000000000000
 ```
-[Block 800,564](https://learnmeabitcoin.com/explorer/blockchain/800564)
+[区块 800,564](https://learnmeabitcoin.com/explorer/blockchain/800564)
 >目标值是[十六进制](../../Other/Hexadecimal/hexadecimal.md)表示的，但它仍然是一个数字。
 
 ## 1. 目标值什么时候调整?
 目标值**每2016个区块**进行一次调整。这大约是每两周一次（因为两周内有20160分钟）。
 
 ## 2. 目标值如何计算？
-第一个区块的目标值已设定为：
+第一个区块的目标值设置为：
 ```
 00000000ffff0000000000000000000000000000000000000000000000000000
 ```
-Block [0](https://learnmeabitcoin.com/explorer/blockchain/0)
+区块 [0](https://learnmeabitcoin.com/explorer/blockchain/0)
 
->这个初始（和最大）目标值是编写每个比特币节点源代码的硬编码[^1]。这可能是Satoshi Nakamoto对于一个足够困难的起始点的最佳猜测，这将导致新区块之间的10分钟间隔。
+>这个初始（和最大）目标值是编写每个比特币节点源代码的硬编码[^1]。这可能是Satoshi Nakamoto对于一个足够困难的目标值的最佳猜测，这将导致新区块之间的10分钟间隔。
 
 ![target-2.png](img/target-2%20(1).png)
 
-每经过2016个区块，每个节点将查看最近2016个区块的时间，然后计算它们的平均挖掘速度是否快于或慢于10分钟。
+每经过2016个区块，每个节点将查看最近2016个区块之间的时间，然后计算它们的平均挖掘速度是否快于或慢于10分钟。
 
 ![target-3.png](img/target-3%20(1).png)
 
->每个区块的[区块头](../../Block/block-header/block-header.md)包含一个时间戳。这个时间戳以[Unix](https://en.wikipedia.org/wiki/Unix_time)时间表示，即自1970年1月1日以来的秒数。
+>每个区块的[区块头](../../Block/block-header/block-header.md)包含一个时间戳。这个时间戳采用[Unix](https://en.wikipedia.org/wiki/Unix_time)时间，即自1970年1月1日以来的秒数。
 
 如果在此期间挖掘的区块速度比每10分钟一次更快，目标值将向下调整，以使在下一个区块周期中更难达到目标值。
 
@@ -48,7 +48,7 @@ Block [0](https://learnmeabitcoin.com/explorer/blockchain/0)
 请见本页底部的[代码](#代码)，这是一个真实的示例。
 
 ### 是什么导致区块的挖掘速度比每10分钟快或慢？
-首先，[挖矿](../Mining.md)是不可预测的，因此你永远不知道矿工何时会找到下一个区块哈希小于当前目标值的区块。
+首先，[挖矿](../Mining.md)是不可预测的，因此你永远不知道矿工何时会找到区块哈希值小于当前目标值的下一个区块。
 
 其次（也是最重要的），矿工可以随时加入和离开网络，这会影响在10分钟内挖掘新区块的可能性。网络上的矿工越多，进行的哈希运算就越多，新区块在10分钟内被挖掘的可能性就越大。
 
@@ -67,7 +67,7 @@ Block [0](https://learnmeabitcoin.com/explorer/blockchain/0)
 
 尽管节点独立计算目标值，但它们每个节点都共享相同的区块链，并计算相同的目标值。
 
->每个人都使用相同的链数据进行相同的计算，因此他们在链中的相同链接处获得相同的结果。-[中本聪](https://satoshi.nakamotoinstitute.org/emails/cryptography/10/#selection-73.260-73.383)
+>每个人都使用相同的链数据进行相同的计算，因此他们在链上的同一环节获得相同的结果。-[中本聪](https://satoshi.nakamotoinstitute.org/emails/cryptography/10/#selection-73.260-73.383)
 
 ## 4. 为什么比特币使用目标值？
 目标值是**调节将新区块添加到区块链的速度**。
@@ -88,10 +88,10 @@ Block [0](https://learnmeabitcoin.com/explorer/blockchain/0)
 
 ![target-10.png](img/target-10%20(1).png)
 
->如果广播实际上比预期的慢，目标区块生成时间可能需要增加，以避免浪费资源。我们希望区块的传播时间通常要比生成时间短得多，否则节点将花费太多时间在过时的区块上工作。-[中本聪](https://satoshi.nakamotoinstitute.org/emails/cryptography/12/#selection-63.209-63.512)
+>如果广播实际上比预期的慢，为了避免浪费资源，目标区块生成时间可能需要增加。我们希望区块的传播时间要比生成时间短得多，否则节点将花费太多时间过处理时的区块。-[中本聪](https://satoshi.nakamotoinstitute.org/emails/cryptography/12/#selection-63.209-63.512)
 
 ### **ii. 新比特币的持续发行。**
-比特币是一种货币，因此固定比率的新比特币数量可以提供稳定性。
+比特币是一种货币，因此以固定比率发现的新比特币数量可以提供稳定性。
 
 ![target-11.png](img/target-11%20(1).png)
 
@@ -100,33 +100,33 @@ Block [0](https://learnmeabitcoin.com/explorer/blockchain/0)
 >硬币必须以某种方式进行初始分配，恒定的速率似乎是最好的公式。-[中本聪](https://satoshi.nakamotoinstitute.org/emails/cryptography/5/#selection-57.0-57.97)
 
 ## 5.为什么区块之间要间隔10分钟？
-我认为除了Satoshi之外，没有人知道为什么会选择**10分钟**的时间。
+我认为除了Satoshi之外，没有人知道为什么会选择**10分钟**的时间间隔。
 
-我猜测这看起来是一个足够长的时间，可以让区块在网络中传播（以最小化[链重组](../../Blockchain/chain-reorganisation/chain-reorganisation.md)），同时又不必等待太长时间才能将新交易挖掘到区块链上。10是一个很好的整数。
+我猜测这看起来是一个足够长的时间，可以让区块在网络中传播（来最大限度地减少[链重组](../../Blockchain/chain-reorganisation/chain-reorganisation.md)），同时又不必等待太长时间才能将新交易挖掘到区块链上。**10**是一个很好的整数。
 
 ## 6. 你可以在哪里找到目标值？
-目标值被存储在每个[区块头](../../Block/block-header/block-header.md)中的[bits](../../Block/block-header/bits/bits.md)字段中。
+目标值被存储在每个[区块头](../../Block/block-header/block-header.md)中的[位](../../Block/block-header/bits/bits.md)字段中。
 
 ![target-11.png](img/target-12%20(1).png)
 
 <center>目标值以紧凑格式存储以节省空间。</center>
 
 ## **命令**
->bitcoin-cli getblocktemplate
+>**bitcoin-cli getblocktemplate**  
 这是获取当前目标值的最简单方法。当你请求用于[挖掘](../Mining.md)的区块模板时，它也会返回当前目标值：
 ```
 $ bitcoin-cli getblocktemplate '{"rules": ["segwit"]}' | grep target
   "target": "00000000000000000005dd010000000000000000000000000000000000000000",
 ```
 
->bitcoin-cli getdifficulty
+>**bitcoin-cli getdifficulty**  
 同样，你可以询问当前的[难度](../../../Beginners/How%20Bitcoin%20Works/2.Mining/3.Difficulty/Difficulty.md)，然后将其转换为目标值：
 ```
 $ bitcoin-cli getdifficulty
 49549703178593
 ```
 
->bitcoin-cli getblockheader
+>**bitcoin-cli getblockheader**  
 另外，正如之前提到的，在挖掘时的目标值以[bits](../../Block/block-header/bits/bits.md)格式存储在每个[块头](../../Block/block-header/block-header.md)中（你可以将其转换为完整的目标值）。
 
 ```
@@ -150,7 +150,7 @@ $ bitcoin-cli getblockheader 000000000000000002e9533a4fe03bb251b3fdb30ffaa384aad
 }
 ```
 
->>**提示**：你可以使用以下命令获取链中顶部区块的目标值：\$ bitcoin-cli getblockheader \$(bitcoin-cli getblockhash \$(bitcoin-cli getblockcount))
+>>**提示**：你可以使用以下命令获取链中顶部区块的目标值：**$ bitcoin-cli getblockheader $(bitcoin-cli getblockhash \$(bitcoin-cli getblockcount))**
 
 >>**注意**：这将为你提供该区块的目标值，而不一定是用于下一个块的当前目标值。
 
