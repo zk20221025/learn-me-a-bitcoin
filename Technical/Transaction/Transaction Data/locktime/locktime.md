@@ -1,5 +1,5 @@
 # <center>锁定时间</center>
-<center>用于延迟日期的交易中的字段。</center>
+<center>交易中用于延后日期的字段。</center>
 
 ![locktime-1.png](img/locktime-1-svg.png)
 
@@ -11,9 +11,9 @@
 你可以使用锁定时间确保交易在特定的**区块高度**或**时间点**后才解锁。
 |锁定时间|描述|
 |---|---|
-|< 500000000|在区块高度到达时解锁。|
-|>= 500000000|在特定时间（Unix时间）解锁|
-如果不希望你的交易被锁定到特定的区块或时间，请将锁定时间设置为0x00000000（或任何低于当前区块高度或Unix时间的值）。
+|**< 500000000**|在区块高度到达时解锁。|
+|**>= 500000000**|在特定时间（Unix时间）解锁|
+如果不希望你的交易被锁定到特定的区块或时间，请将锁定时间设置为**0x00000000**（或任何低于当前区块高度或Unix时间的值）。
 
 ![locktime-2.png](img/locktime-2%20(1).png)
 
@@ -21,24 +21,24 @@
 
 ## 例子
 
-大多数交易不使用锁定时间，因此它们的锁定时间设置为0x00000000。
+大多数交易不使用锁定时间，因此它们的锁定时间设置为**0x00000000**。
 
 尽管如此：
 |锁定时间|十进制|描述|
 |--|--|--|
-|0xede80600	|452845 |这个交易只能在区块链**达到高度452,845之后**在网络上传递。（[tx](https://learnmeabitcoin.com/explorer/transaction/a28a01703beeba8e9f067cdb8c19127ef72bdb65ec894b9488b2e571e7717347)）|
-|0x06241559	|1494557702 |这是Unix时间中的Fri，12 May 2017 02:55:02。只有在最后11个块的中位时间（根据它们[块头](../../../Block/block-header/block-header.md)中的时间字段）大于此时间时，交易才能在网络上传递。([tx](https://learnmeabitcoin.com/explorer/transaction/207c356380d11efd88e1189ba2769fdbace39e2eedb8651a411cbfd4a344c06f))|
-|0xb154c233	|868373681| 这是Unix时间中的Tue，08 Jul 1997 14:54:41。这实际上就像将锁定时间设置为0x00000000一样，因为*第一个区块*是在2011年2月2日23:16:42挖掘出来的。([tx](https://learnmeabitcoin.com/explorer/transaction/207c356380d11efd88e1189ba2769fdbace39e2eedb8651a411cbfd4a344c06f))|
+|**0xede80600**	|**452845** |这个交易只能在区块链**达到高度452,845之后**在网络上传递。（[tx](https://learnmeabitcoin.com/explorer/transaction/a28a01703beeba8e9f067cdb8c19127ef72bdb65ec894b9488b2e571e7717347)）|
+|**0x06241559**	|**1494557702** |这是Unix时间中的2017 年 5 月 12 日星期五 02:55:02 。只有在最近11个区块的中位数时间（根据它们[区块头](../../../Block/block-header/block-header.md)中的时间字段）大于此时间时，交易才能在网络上传递。([tx](https://learnmeabitcoin.com/explorer/transaction/207c356380d11efd88e1189ba2769fdbace39e2eedb8651a411cbfd4a344c06f))|
+|**0xb154c233**	|**868373681**| 这是Unix时间中的1997 年 7 月 8 日星期二 14:54:41。这就像将锁定时间设置为**0x00000000**一样，因为[第一个区块](https://learnmeabitcoin.com/explorer/blockchain/0)是在2011年2月2日23:16:42挖掘出来的。([tx](https://learnmeabitcoin.com/explorer/transaction/207c356380d11efd88e1189ba2769fdbace39e2eedb8651a411cbfd4a344c06f))|
 * [交换字节序](https://learnmeabitcoin.com/tools/swapendian)
 * [十六进制](https://learnmeabitcoin.com/tools/hexdec)
   
 ## 注释
->为了使锁定时间生效，你需要将交易数据中的一个[输入](../Input/input.md)的[序列值](../Transaction%20Data.md)设置为低于默认最大值（0xffffffff）的任何值。  
+>为了使锁定时间生效，你需要将交易数据中的一个[输入](../Input/input.md)的[**序列值**](../Transaction%20Data.md)设置为低于默认最大值（**0xffffffff**）的任何值。  
 >[Unix时间](https://en.wikipedia.org/wiki/Unix_time)是自1970年1月1日以来的秒数。  
 
 >如上所述，锁定时间具有设置区块高度和时间戳这两种方式。这是因为：
 >>* 在设置区块高度的时候需要**9,497年**才能达到500,000,000个块。
->>* 当前的Unix时间是1,684,829,097（也称为2023年5月23日08:04:57），已经超过了500,000,000。
+>>* 当前的Unix时间是**1,684,829,097**（也称为2023年5月23日08:04:57），已经超过了**500,000,000**。
 
 ## 资源
 * https://bitcoin.org/en/developer-guide#locktime-and-sequence-number

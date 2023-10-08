@@ -10,8 +10,8 @@
 
 ![Fees-2.png](img/Fees-2-svg.png)
 
-如果[内存池](../../Node/Memory%20Pool/Memory%20Pool.md)中的交易数量超过了一个区块所能容纳的数量，矿工将选择具有交易手续费最高的交易。  
-因此，如果内存池中存在大量比特币交易，但并非所有所有交易都能放入区块中，则可以使用交易手续费作为“购买区块空间”的方式。
+如果[内存池](../../Node/Memory%20Pool/Memory%20Pool.md)中的交易数量超过了一个区块所能容纳的数量，矿工将选择交易手续费最高的交易。  
+因此，如果内存池中存在大量比特币交易，但并非所有交易都能放入区块中，则可以使用交易手续费作为“购买区块空间”的方式。
 
 ## 交易手续费去哪里了？
 
@@ -19,7 +19,7 @@
 
 ![Fees-3.png](img/Fees-3-svg.png)
 
-矿工可以获得放入[候选块](../../Node/Candidate%20Block/Candidate%20Block.md)中的交易的所有交易手续费。
+矿工可以获得放入[候选区块](../../Node/Candidate%20Block/Candidate%20Block.md)中的所有交易的交易手续费。
 
 ## 按字节收费
 
@@ -43,7 +43,7 @@
 
 ## 注释
 >**任何比特币交易的剩余部分都是交易手续费。全部都是。**  
-如果你创建了一个使用10个BTC[输入](../Transaction/Transaction%20Data/Input/input.md)的比特币交易，并且只创建一个0.1个BTC的[输出](../Transaction%20Data/output/output.md)，则剩余的9.9个BTC将被视为交易手续费。
+如果你创建了一个使用**10个BTC**作为[输入](../Transaction/Transaction%20Data/Input/input.md)的比特币交易，并且只创建一个**0.1个BTC**作为[输出](../Transaction%20Data/output/output.md)，则剩余的9.9个BTC将被视为交易手续费。
 
 >>**不幸的例子：**
 >>* [291.2409个BTC交易手续费](https://learnmeabitcoin.com/explorer/transaction/cc455ae816e6cdafdb58d54e35d4f46d860047458eacf1c7405dc634631c570d) - （[bitcointalk帖子](https://bitcointalk.org/index.php?topic=1451924.0)）
