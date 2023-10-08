@@ -3,7 +3,7 @@
 
 ![Public Key-1.png](img/Public%20Key-1%20(1).png)
 
-公钥就像你用来接收比特币的账号。
+**公钥**就像你用来接收比特币的账号。
 
 它是由你的[私钥](../Private%20Key/Private%20Key.md)创建的，私钥就像该账号的密码。
 
@@ -12,14 +12,14 @@
 ## 如何生成公钥？
 使用你的**私钥**（它只是一个大的随机数）来生成相应的公钥。
 
-使用私钥执行**椭圆曲线乘法**，这将提供椭圆曲线上最终的停留点。该点的**x**和**y**坐标就是你的公钥。
+使用私钥执行**椭圆曲线乘法**，这将提供椭圆曲线上最终的停留点。该点的**x**和**y**坐标就是你的**公钥**。
 
 ![Public Key-2.png](img/Public%20Key-2%20(1).png)
 
 ### 代码
-这里是从私钥创建公钥的基本代码。
+这里是从**私钥创建公钥**的基本代码。
 
-我还没有解释[椭圆曲线数学](../ECDSA/ECDSA.md#椭圆曲线数学)是如何工作的，但我还是提供了这些代码，以便你开始计算自己的公钥。
+我还没有解释[椭圆曲线数学](../ECDSA/ECDSA.md#椭圆曲线数学)是如何工作的，但我还是提供了这些代码，以便你开始计算自己的**公钥**。
 ```ruby
 # example private key
 private_key = "ef235aacf90d9f4aadd8c92e4b2562e1d9eb97f0df9ba3b508258739cb013db2"
@@ -166,19 +166,19 @@ puts public_key_compressed #=> 02b4632d08485ff1df2db55b9dafd23347d1c47a457072a1e
 
 ![Public Key-4.png](img/Public%20Key-4%20(1).png)
 
-这要归功于看似神奇的数字签名，而这一切都是通过椭圆曲线数学实现的。
+这要归功于数字签名，而这一切都是通过椭圆曲线数学实现的。
 
 ## 公钥格式
-公钥只是椭圆曲线上一点的x和y坐标。通常以[十六进制](../../Other/Hexadecimal/hexadecimal.md)格式存储。
+公钥只是椭圆曲线上一点的**x**和**y**坐标。通常以[十六进制](../../Other/Hexadecimal/hexadecimal.md)格式存储。
 
-有两种公钥格式：
+公钥有两种格式：
 
 ### 1. 未压缩
 >这是旧格式。通常已经没人使用，取而代之的是更短的压缩格式。
 
 比特币最初使用**x**和**y**坐标来存储公钥。
 
-在这种未压缩格式中，只需将**x**和**y**坐标放在一起，然后在整个字符串前加上04来表示它是未压缩的公钥：
+在这种未压缩格式中，只需将**x**和**y**坐标放在一起，然后在整个字符串前加上**04**来表示它是未压缩的公钥：
 
 ![Public Key-5.png](img/Public%20Key-5%20(1).png)
 
@@ -187,7 +187,7 @@ puts public_key_compressed #=> 02b4632d08485ff1df2db55b9dafd23347d1c47a457072a1e
 public key (uncompressed) = 04b4632d08485ff1df2db55b9dafd23347d1c47a457072a1e87be26896549a87378ec38ff91d43e8c2092ebda601780485263da089465619e0358a5c1be7ac91f4
 ```
 ### 2. 压缩
-然而，由于椭圆曲线沿着其x轴是对称的，每个x坐标只会有两个可能的y坐标。
+然而，由于椭圆曲线沿着其x轴是对称的，每个**x**坐标只会有两个可能的**y**坐标。
 
 ![Public Key-6.png](img/Public%20Key-6%20(1).png)
 
@@ -211,9 +211,9 @@ public key (compressed)   = 02b4632d08485ff1df2db55b9dafd23347d1c47a457072a1e87b
 这种压缩格式最终使我们能够计算出完整的**x**和**y**坐标，也在区块链内节省了大量空间（例如创建将[输出](../../Transaction/Transaction%20Data/output/output.md)锁定到特定公钥的交易时）。
 
 #### 如何解压公钥
-你可以通过解决曲线方程y^2 = x^3 + 7来解压缩公钥。
+你可以通过解决曲线方程**y^2 = x^3 + 7**来解压缩公钥。
 
-这将为你提供未压缩密钥的可能缺失的y值。然后可以通过使用压缩密钥不同的前缀来确定使用哪个y值（因为任何数字的平方根都有两个可能的答案，例如16的平方根可以是+4或-4）。
+这将为你提供未压缩密钥的可能缺失的**y**值。然后可以通过使用压缩密钥不同的前缀来确定使用哪个y值（因为任何数字的平方根都有两个可能的答案，例如**16的平方根可以是+4或-4**）。
 ```ruby
 # Compressed public key
 compressed = "02b4632d08485ff1df2db55b9dafd23347d1c47a457072a1e87be26896549a8737"
@@ -269,7 +269,7 @@ puts uncompressed #=> 04b4632d08485ff1df2db55b9dafd23347d1c47a457072a1e87be26896
 
 例如，在标准的P2PKH交易中：
 
-1. 公钥哈希位于[输出](../../Transaction/Transaction%20Data/output/output.md)的锁定代码（[scriptPubKey](../../Transaction/Transaction%20Data/output/scriptPubKey/scriptPubKey.md)）中。
+1. **公钥哈希**位于[输出](../../Transaction/Transaction%20Data/output/output.md)的锁定代码（[scriptPubKey](../../Transaction/Transaction%20Data/output/scriptPubKey/scriptPubKey.md)）中。
 
 ![Public Key-10.png](img/public-key-10.jpg)
 
@@ -277,13 +277,13 @@ puts uncompressed #=> 04b4632d08485ff1df2db55b9dafd23347d1c47a457072a1e87be26896
 
 接下来，在下一笔花费比特币的交易中...
 
-2. 原始公钥可以在[输入](../../Transaction/Transaction%20Data/Input/input.md)的解锁代码（scriptSig）中找到。
+2. 原始**公钥**可以在[输入](../../Transaction/Transaction%20Data/Input/input.md)的解锁代码（scriptSig）中找到。
 
 ![Public Key-11.png](img/public-key-11.jpg)
 
 交易： [33ab606c34dce6e43673d20c1a72c7b0bce314d9d21e227c04092bbdaf8aaed5](https://learnmeabitcoin.com/explorer/transaction/33ab606c34dce6e43673d20c1a72c7b0bce314d9d21e227c04092bbdaf8aaed5)
 
->正如你所看到的，公钥开头的04表示它是未压缩的公钥。这使得它几乎是现在通常使用的压缩公钥的两倍长。
+>正如你所看到的，公钥开头的**04**表示它是未压缩的公钥。这使得它几乎是现在通常使用的压缩公钥的两倍长。
 
 ### 库
 今天大多数语言都可以使用现有的**椭圆曲线库**来帮助你创建公钥（而不必须自己编写数学代码）。例如：
