@@ -16,7 +16,7 @@
 ![Transaction Data-3.png](img/Transaction%20Data-3.png)
 
 * 交易中的所有数据都是[十六进制](../../Other/Hexadecimal/hexadecimal.md)的。
-* 以下图标表示数据是[反向字节顺序](../../Other/Little-endian/Little-Endian.md)：⟲
+* 以下图标表示数据是[**反向字节顺序**](../../Other/Little-endian/Little-Endian.md)：⟲
 
 ## 图表
 比特币交易是**一系列**的[输入](../Transaction%20Data/Input/input.md)和[输出](../Transaction%20Data/output/output.md)。
@@ -33,7 +33,7 @@
 比特币网络上的节点期望每个字段具有特定的长度。这种结构化格式使它们能够遍历交易数据并确定每个字段的开头和结尾。  
 这就是为什么即使版本号为**1**，它也存储为**01000000**，因为比特币节点需要一个4字节大小的字段。  
 >>如果你将字节数翻倍，你就能得到这个字段中字符的数量。
->>>输入数量（和签名）和输出数量（和锁定脚本）的长度可以变化，这就是为什么使用特殊的[VarInt](../../Other/VarInt/varint.md)字段来指定它们即将出现的大小的原因。
+>>>**输入数量（和签名）和输出数量（和锁定脚本）**的长度可以变化，这就是为什么使用特殊的[VarInt](../../Other/VarInt/varint.md)字段来指定它们即将出现的大小的原因。
 
 ## 链接
 * http://royalforkblog.github.io/2014/11/20/txn-demo/

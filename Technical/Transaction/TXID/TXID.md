@@ -51,7 +51,7 @@ bitcoin-cli getrawtransaction 0e3e2357e806b6cdb1f70b54c3a3a17b6714ee1f0e68bebb44
 >如果你的比特币钱包提供了**TXID**，它很可能已经是可搜索的格式（交换字节顺序）。
 
 ### 2. 花费输出。
-当你想在新交易中将现有[输出](../Transaction%20Data/output/output.md)用作[输入](../Transaction%20Data/Input/input.md)时，你会使用**TXID**】。
+当你想在新交易中将现有[输出](../Transaction%20Data/output/output.md)用作[输入](../Transaction%20Data/Input/input.md)时，你会使用**TXID**。
 
 ![txid-4.png](img/TXID-4.svg)
 

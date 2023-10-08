@@ -17,7 +17,7 @@
 ## 字段
 ![output-2.png](img/output.png)
 
->如果想解码输出的值，只需要[交换字节顺序](https://learnmeabitcoin.com/tools/swapendian)，然后将其从[十六进制转换为十进制](https://learnmeabitcoin.com/tools/hexdec)。这你就可以得到以**Satoshis**为单位的值。
+>如果想解码输出的**值**，只需要[交换字节顺序](https://learnmeabitcoin.com/tools/swapendian)，然后将其从[十六进制转换为十进制](https://learnmeabitcoin.com/tools/hexdec)。这你就可以得到以**Satoshis**为单位的值。
 
 ## 输出是如何工作的？
 在选择要使用的[输入](../Input/input.md)后，你可以从中创建任意数量的输出。
@@ -38,7 +38,7 @@
  
 你还可以在创建输出时对其进行**锁定**。这些锁定脚本可以防止其他人将这些输出用作另一笔交易的[输入](../Input/input.md)（即花费它们）。
 
-这个锁定代码称为ScriptPubKey。
+这个锁定代码称为**ScriptPubKey**。
 
 ![output-4.png](img/output-4-svg.png)
 

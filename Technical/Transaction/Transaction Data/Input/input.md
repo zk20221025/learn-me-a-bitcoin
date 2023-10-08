@@ -3,7 +3,7 @@
 
 ![input-1.png](img/input-1-svg.png)
 
-输入就是你在交易中花费时所说的[输出](../output/output.md)。
+**输入**就是你在交易中花费时所说的[输出](../output/output.md)。
 
 ## 结构
 ```
@@ -15,7 +15,7 @@
 ## 字段
 ![input-2.png](img/input.png)
 
->**TXID字节顺序**：在[交易数据](../Transaction%20Data.md)中引用TXID时，必须[反转字节顺序](https://learnmeabitcoin.com/tools/swapendian)才能将其恢复为原始格式。搜索TXID时使用的字节顺序是反向的（由于原始比特币客户端工作方式中存在历史错误）。
+>**TXID字节顺序**：在[交易数据](../Transaction%20Data.md)中引用**TXID**时，必须[反转字节顺序](https://learnmeabitcoin.com/tools/swapendian)才能将其恢复为原始格式。搜索**TXID**时使用的字节顺序是反向的（由于原始比特币客户端工作方式中存在历史错误）。
 
 ## 输入如何工作？
 “输入”有两个任务：
@@ -26,25 +26,25 @@
 ### 1. 选择一个输出。
 当你想将输出用作交易的输入时，只需指定想要消费哪个输出。
 
-每个交易都有一个唯一的[TXID](../../TXID/TXID.md)，因此通过使用特定的输出编号（[VOUT](../../../Other/VOUT/VOUT.md)）和TXID，可以引用区块链中的任何输出。
+每个交易都有一个唯一的[**TXID**](../../TXID/TXID.md)，因此通过将其与特定的输出编号（[**VOUT**](../../../Other/VOUT/VOUT.md)）一起使用，可以引用区块链中的任何输出。
 
 ![input-3.png](img/input-3-svg.png)
 
-只需要一个[txid](../../TXID/TXID.md)和一个[vout](../../../Other/VOUT/VOUT.md)，就可以选择区块链上的任何输出。
+只需要一个[**txid**](../../TXID/TXID.md)和一个[**vout**](../../../Other/VOUT/VOUT.md)，就可以选择区块链上的任何输出。
 
 ### 2. 解锁它。
 
 选择一个输出后，你需要能够**解锁它**。
 
-每个输出都设置有锁定脚本。因此，如果想花费其中一个输出，需要提供一个解锁脚本（称为ScriptSig）。
+每个输出都设置有锁定脚本。因此，如果想花费其中一个输出，需要提供一个解锁脚本（称为**ScriptSig**）。
 
 ![input-4.png](img/input-4-svg.png)
 
 >[节点](../../../../Beginners/How%20Bitcoin%20Works/1.Network/Nodes/Nodes.md)会验证它们收到的每个交易。因此，如果你没有提供满足锁定脚本的解锁脚本，你的交易将被拒绝。
 
 ## 注释
-listunspent
-该命令会给你的比特币核心钱包提供一个未花费的输出列表。
+**listunspent**  
+该命令会给你提供比特币核心钱包中未花费输出的列表。
 
 换句话说，它会给你提供一个可以作为新交易**输入**的输出列表：
 ```
