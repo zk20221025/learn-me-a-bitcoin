@@ -3,7 +3,7 @@
 
 ![Private Key-1.png](img/Private%20Key-1%20(1).png)
 
-私钥是一个随机数。它是一个256位的数字。
+**私钥**是一个随机数。它是一个**256位**的数字。
 
 私钥是生成[公钥](../Public%20Key/Public%20Key.md)的基础。
 
@@ -12,7 +12,7 @@
 ## 生成私钥
 >**生成私钥所需的只是可靠的随机源。**
 
-Linux计算机上的一个简单的随机源是[/dev/urandom](https://linux.die.net/man/4/urandom)，它提供来自计算机的随机数据位。你所需要做的就是从中读取：
+Linux计算机上的一个简单的随机源是[**/dev/urandom**](https://linux.die.net/man/4/urandom)，它提供来自计算机的随机数据位。你所需要做的就是从中读取：
 ```ruby
 # generate 256 bits of random data
 urandom = File.open("/dev/urandom")    # urandom is a "file"
@@ -36,7 +36,7 @@ max = 11579208923731619542357098500868790785283756427907490438260516314151816149
 ```
 ef235aacf90d9f4aadd8c92e4b2562e1d9eb97f0df9ba3b508258739cb013db2
 ```
-如果你为自己的个人使用生成私钥，那么这就是你所需要的全部。
+如果你要为自己的个人使用生成私钥，那么这就是你所需要的全部。
 
 ### 钱包导入格式
 
