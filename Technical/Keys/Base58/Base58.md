@@ -14,14 +14,14 @@ Base58是一组字符，可用于以更短且更易人看懂的格式表示大�
 
 |基础	|描述|
 |---|---|
-|2 (二进制)	|01|
-|10 (十进制)	|0123456789|
-|16 ([十六进制](../../Other/Hexadecimal/hexadecimal.md))	|0123456789abcdef|
-|58	|123456789ABCDEFGH JKLMN PQRSTUVWXYZabcdefghijk mnopqrstuvwxyz|
+|2 (二进制)	|**01**|
+|10 (十进制)	|**0123456789**|
+|16 ([十六进制](../../Other/Hexadecimal/hexadecimal.md))	|**0123456789abcdef**|
+|58	|**123456789ABCDEFGH JKLMN PQRSTUVWXYZabcdefghijk mnopqrstuvwxyz**|
 
 在日常生活中，我们习惯于使用**基数为10**的数字（使用数字**0-9**）。
 
-但如果你是一台计算机，使用额外的字符来表示值就很容易：
+但如果你是一台计算机，使用不同的字符来表示值就很容易：
 
 ```
 base10(9999) = 9999
@@ -31,11 +31,11 @@ base58(9999) = 3yQ
 
 所有这些“数字”都具有相同的值——**它们只是使用不同的字符集（基数）来表示它。**
 
->基数中的字符越多，需要用来表示大数值的字符就越少。因此，基数越大，“数字”就越短。
+>基数中的字符越多，表示大数值所需要字符就越少。因此，基数越大，“数字”就越短。
 
 ## 为什么是base58？
 
-因为58是当你使用字母数字字母表（62）中的所有字符，然后去掉所有容易混淆的字符，如0，O，l和I后剩下的字符数量。
+因为58是由你使用字母数字字母表（62）中的所有字符，然后去掉所有容易混淆的字符（如**0，O，l和I**）后剩下的字符数量。
 ```
 alphanumeric = 0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz
 base58       =  123456789ABCDEFGH JKLMN PQRSTUVWXYZabcdefghijk mnopqrstuvwxyz
@@ -53,7 +53,7 @@ base58       =  123456789ABCDEFGH JKLMN PQRSTUVWXYZabcdefghijk mnopqrstuvwxyz
 
 将整数（十进制）转换为Base58，需要使用**模数**[^1]函数。
 
-基本上，你不断地将数字除以58，在每个步骤中取**余数**以获得下一个base58的**字符索引**，并在没有余数的情况下结束。
+你不断地将数字除以58，在每个步骤中取**余数**以获得下一个base58的**字符索引**，并在没有余数的情况下结束。
 ```
 base10 = 123456789
 
@@ -106,7 +106,7 @@ puts int_to_base58(123456789) #=> BukQL
 
 ## Base58解码
 
-要将Base58值转换为Base10，需要将每个**字符的索引**乘以它所在的位置表示的**58的数量**。
+要将Base58值转换为Base10，需要将每个**字符的索引**乘以数字中该位置表示的**58数量**。
 
 然后将所有这些值加在一起即可。
 ```
@@ -173,17 +173,17 @@ Base58 在比特币中用于将常用数据转换为更易分享的格式。例�
 **前导零（0x00…）**
 >0x: **0x**前缀表示为[十六进制值](../../Other/Hexadecimal/hexadecimal.md)。十六进制值有时只包含数字0-9，因此可能会被误认为是十进制值，因此前缀有助于我们区分它们。该前缀在用于计算之前被舍弃。
 
->字节：一个字节的数据可以保存0-255之间的值，并且可以用两个十六进制字符表示。例如，0xff是一个字节的数据，表示十进制值255。
+>字节：一个字节的数据可以保存**0-255**之间的值，并且可以用两个十六进制字符表示。例如，**0xff**是一个字节的数据，表示十进制值255。
 
 >**我们将每个十六进制值开头的零字节（0x00）转换为Base58表示中的1。**
 
 ![base58-4.png](img/Base58-4-svg.png)
 
-你看，把零放在数字前面并不会增加它的大小（例如0x12与0x0012是相同的），因此当我们转换为base58（它使用模数函数）时，任何额外的零在开头将不会影响结果。
+你看，把零放在数字前面并不会增加它的大小（例如**0x12与0x0012**是相同的），因此当我们转换为base58（它使用模数函数）时，任何额外的零在开头将不会影响结果。
 
-因此，为了确保前导零对结果产生影响，比特币base58编码包括一个手动步骤，将所有开头的0x00转换为1。
+因此，为了确保前导零对结果产生影响，比特币base58编码包括一个手动步骤，将所有开头的**0x00**转换为**1**。
 
-我不确定为什么将开头的零字节转换为base58中的1，但这就是比特币的工作方式。
+我不确定为什么将开头的零字节转换为base58中的**1**，但这就是比特币的工作方式。
 
 ## 前缀
 在比特币中，在转换为base58之前，会在数据前添加不同的前缀，作为影响结果的前导字符。然后，该前导字符帮助我们识别每个base58字符串代表什么。
@@ -192,26 +192,26 @@ Base58 在比特币中用于将常用数据转换为更易分享的格式。例�
 主网:
 |前缀（十六进制）|	Base58前导字符|	表示|	示例|
 |---|---|---|---|
-|00	|1	|[P2PKH](../../Script/P2PKH/P2PKH.md) Address	|1AKDDsfTh8uY4X3ppy1m7jw1fVMBSMkzjP|
-|05	|3	|[P2SH](../../Script/P2SH/P2SH.md) Address	|34nSkinWC9rDDJiUY438qQN1JHmGqBHGW7|
-|80	|K / L|	WIF Private Key 	|L4mee2GrpBSckB9SgC9WhHxvtEgKUvgvTiyYcGu38mr9CGKBGp93|
-|80|	5|	[WIF Private Key](../Private%20Key/WIF%20Private%20Key/WIF%20Private%20Key.md) 	|5KXWNXeaVMwjzMsrKPv8dmdEZuVPmPay4nm5SfVZCjLHoy1B56w|
-|0488ADE4|	xprv|	[Extended Private Key](../../HD%20Wallets/Extended%20Keys/Extended%20Keys.md)|xprv9tuogRdb5YTgcL3P8Waj7REqDuQx4sXcodQaWTtEVFEp6yRKh1CjrWfXChnhgHeLDuXxo2auDZegMiVMGGxwxcrb2PmiGyCngLxvLeGsZRq|
-|0488B21E|	xpub|	[Extended Public Key](../../HD%20Wallets/Extended%20Keys/Extended%20Keys.md)|xpub67uA5wAUuv1ypp7rEY7jUZBZmwFSULFUArLBJrHr3amnymkUEYWzQJz13zLacZv33sSuxKVmerpZeFExapBNt8HpAqtTtWqDQRAgyqSKUHu|
+|**00**	|1	|[P2PKH](../../Script/P2PKH/P2PKH.md) Address	|1AKDDsfTh8uY4X3ppy1m7jw1fVMBSMkzjP|
+|**05**	|3	|[P2SH](../../Script/P2SH/P2SH.md) Address	|34nSkinWC9rDDJiUY438qQN1JHmGqBHGW7|
+|**80**	|K / L|	WIF Private Key 	|L4mee2GrpBSckB9SgC9WhHxvtEgKUvgvTiyYcGu38mr9CGKBGp93|
+|**80**|	5|	[WIF Private Key](../Private%20Key/WIF%20Private%20Key/WIF%20Private%20Key.md) 	|5KXWNXeaVMwjzMsrKPv8dmdEZuVPmPay4nm5SfVZCjLHoy1B56w|
+|**0488ADE4**|	xprv|	[Extended Private Key](../../HD%20Wallets/Extended%20Keys/Extended%20Keys.md)|xprv9tuogRdb5YTgcL3P8Waj7REqDuQx4sXcodQaWTtEVFEp6yRKh1CjrWfXChnhgHeLDuXxo2auDZegMiVMGGxwxcrb2PmiGyCngLxvLeGsZRq|
+|**0488B21E**|	xpub|	[Extended Public Key](../../HD%20Wallets/Extended%20Keys/Extended%20Keys.md)|xpub67uA5wAUuv1ypp7rEY7jUZBZmwFSULFUArLBJrHr3amnymkUEYWzQJz13zLacZv33sSuxKVmerpZeFExapBNt8HpAqtTtWqDQRAgyqSKUHu|
 
 测试网络:
 |前缀（十六进制）|	Base58前导字符|	表示|	示例|
 |---|---|---|---|
-|6F	|m / n	|P2PKH Address|	ms2qxPw1Q2nTkm4eMHqe6mM7JAFqAwDhpB|
-|C4	|2	|P2SH Address|	2MwSNRexxm3uhAKF696xq3ztdiqgMj36rJo|
-|EF	|c	|WIF Private Key 	|cV8e6wGiFF8succi4bxe4cTzWTyj9NncXm81ihMYdtW9T1QXV5gS|
-|EF	|9	|WIF Private Key 	|93J8xGU85b1sxRP8wjp3WNBCDZr6vZ8AQjd2XHr4YU5Lb21jS1L|
-|04358394|	tprv|	Extended Private Key|tprv9tuogRdb5YTgcL3P8Waj7REqDuQx4sXcodQaWTtEVFEp6yRKh1CjrWfXChnhgHeLDuXxo2auDZegMiVMGGxwxcrb2PmiGyCngLxvLeGsZRq|
-|043587CF	|tpub	|Extended Public Key|tpub67uA5wAUuv1ypp7rEY7jUZBZmwFSULFUArLBJrHr3amnymkUEYWzQJz13zLacZv33sSuxKVmerpZeFExapBNt8HpAqtTtWqDQRAgyqSKUHu|
+|**6F**	|m / n	|P2PKH Address|	ms2qxPw1Q2nTkm4eMHqe6mM7JAFqAwDhpB|
+|**C4**	|2	|P2SH Address|	2MwSNRexxm3uhAKF696xq3ztdiqgMj36rJo|
+|**EF**	|c	|WIF Private Key 	|cV8e6wGiFF8succi4bxe4cTzWTyj9NncXm81ihMYdtW9T1QXV5gS|
+|**EF**	|9	|WIF Private Key 	|93J8xGU85b1sxRP8wjp3WNBCDZr6vZ8AQjd2XHr4YU5Lb21jS1L|
+|**04358394**|	tprv|	Extended Private Key|tprv9tuogRdb5YTgcL3P8Waj7REqDuQx4sXcodQaWTtEVFEp6yRKh1CjrWfXChnhgHeLDuXxo2auDZegMiVMGGxwxcrb2PmiGyCngLxvLeGsZRq|
+|**043587CF**	|tpub	|Extended Public Key|tpub67uA5wAUuv1ypp7rEY7jUZBZmwFSULFUArLBJrHr3amnymkUEYWzQJz13zLacZv33sSuxKVmerpZeFExapBNt8HpAqtTtWqDQRAgyqSKUHu|
 
 >如前所述，十六进制前缀**00**在编码为base58时不会自然地转换为“1”。这种转换是在代码中手动执行的。
 
->你会注意到，[WIF私钥](../Private%20Key/WIF%20Private%20Key/WIF%20Private%20Key.md)使用相同的十六进制前缀，但产生不同的前导字符。这是因为如果私钥用于创建压缩的公钥（将产生与未压缩的公钥不同的地址），我们在将其转换为base58之前还会附加一个**01**。这个额外的字节对base58结果中的前导字符产生影响。
+>你会注意到，[WIF私钥](../Private%20Key/WIF%20Private%20Key/WIF%20Private%20Key.md)使用相同的十六进制前缀，但产生不同的前导字符。这是因为如果私钥用于创建压缩公钥（将产生与未压缩的公钥不同的地址），我们在将其转换为base58之前还会附加一个**01**。这个额外的字节对base58结果中的前导字符产生影响。
 
 >[扩展密钥](../../HD%20Wallets/Extended%20Keys/Extended%20Keys.md)包含原始公钥和私钥以外的额外元数据，这就是它们的base58字符串更长的原因。
 
