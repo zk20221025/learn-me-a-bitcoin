@@ -62,7 +62,7 @@ VarInt =   000f3a70
 
 ## 为什么要使用VarInts？
 
-在[交易数据](../../Transaction/Transaction%20Data/Transaction%20Data.md)中，像[txid](../../Transaction/TXID/TXID.md)和[vout](../../Other/VOUT/VOUT.md)这样的字段具有固定的大小，因此始终知道它们的起始位置和结束位置。但是，像scriptSig这样的字段可以变化长度，因此在它之前放置一个VarInt字段，以便知道它的长度有多少字节。
+在[交易数据](../../Transaction/Transaction%20Data/Transaction%20Data.md)中，像[txid](../../Transaction/TXID/TXID.md)和[vout](../../Other/VOUT/VOUT.md)这样的字段具有固定的大小，因此始终知道它们的起始位置和结束位置。但是，像scriptSig这样的字段长度可以变化，因此在它之前放置一个VarInt字段，以便知道它的长度。
 
 如果你编写了读取交易数据的脚本或程序，这些VarInt是必不可少的，因为如果没有它们，你将不知道可变长度字段在哪里结束。
 

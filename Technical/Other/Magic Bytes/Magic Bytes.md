@@ -39,14 +39,14 @@ https://github.com/in3rsha/php-simple-bitcoin-node
 
 如果你试图读取这些数据，最好有一种可靠的方法来识别新信息的开始（和结束）。**这就是为什么使用特定的“魔法字节”被用作“标记”，以便你始终可以识别新消息的开始。**
 
-因此，关于魔术字节并没有什么神奇之处--它只是一种分段数据的方法。
+因此，关于魔术字节并没有什么神奇之处--它只是一种数据分段的方法。
 
 ## 为什么特别选择这些字节？
 这些字节没有特定的含义，除了：
 
 >消息起始字符串的设计目的在正常数据中不太可能出现。字符很少使用上ASCII码，与 UTF-8 一样无效，并且会产生任意对齐的大型 32 位整数。-[chainparams.cpp](https://github.com/bitcoin/bitcoin/blob/master/src/chainparams.cpp)
 
-它们可能是不同的，但这只是4个字节，具有使比特币网络有魔法字节的属性。
+它们可能是不同的，但这只是4个字节，并且具有适合比特币网络的良好特性。
 
 ## 资源
 * https://en.bitcoin.it/wiki/Protocol_documentation#Message_structure
