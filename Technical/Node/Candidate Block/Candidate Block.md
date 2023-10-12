@@ -1,7 +1,7 @@
-# <center>候选块</center>
+# <center>候选区块</center>
 >**候选区块是使用从[内存池](../Memory%20Pool/Memory%20Pool.md)中选择的交易创建的临时区块**。
 
-节点（挖矿节点）从其内存池中选择交易来形成自己的候选块。
+节点（挖矿节点）从其内存池中选择交易来形成自己的候选区块。
 
 ![Candidate Block-1.png](img/Candidate%20Block-1%20(1).png)
 
