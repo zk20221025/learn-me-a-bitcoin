@@ -6,9 +6,9 @@
 **TXID**（交易ID）是比特币交易的标识号码。
 
 ## 例子：
-* [f4184fc596403b9d638783cf57adfe4c75c605f6356fbc91338530e9831e9e16](https://learnmeabitcoin.com/explorer/transaction/f4184fc596403b9d638783cf57adfe4c75c605f6356fbc91338530e9831e9e16) - 2010年，Hal Finney进行的第一笔比特币交易。
+* [f4184fc596403b9d638783cf57adfe4c75c605f6356fbc91338530e9831e9e16](https://learnmeabitcoin.com/explorer/transaction/f4184fc596403b9d638783cf57adfe4c75c605f6356fbc91338530e9831e9e16) - 2010年，Hal Finney进行了第一笔比特币交易。
 * [a1075db55d416d3ca199f55b6084e2115b9345e16c5cf302fc80e9d5fbf5d48d](https://learnmeabitcoin.com/explorer/transaction/a1075db55d416d3ca199f55b6084e2115b9345e16c5cf302fc80e9d5fbf5d48d) - 2010年进行了一笔以1万个BTC为交易额的披萨交易。
-* [4ce18f49ba153a51bcda9bb80d7f978e3de6e81b5fc326f00465464530c052f4](https://learnmeabitcoin.com/explorer/transaction/4ce18f49ba153a51bcda9bb80d7f978e3de6e81b5fc326f00465464530c052f4) - 包含我为此网站收到的第一笔捐款的交易。  
+* [4ce18f49ba153a51bcda9bb80d7f978e3de6e81b5fc326f00465464530c052f4](https://learnmeabitcoin.com/explorer/transaction/4ce18f49ba153a51bcda9bb80d7f978e3de6e81b5fc326f00465464530c052f4) - 它代表了我收到的第一笔为创建这个网站的捐款。
 **TXID**始终为**32字节**（64个字符）且为[十六进制](../../Other/Hexadecimal/hexadecimal.md)。
 
 ## 创建TXID
@@ -64,10 +64,10 @@ bitcoin-cli getrawtransaction 0e3e2357e806b6cdb1f70b54c3a3a17b6714ee1f0e68bebb44
 
 >在比特币中，通常会进行两次哈希以获得超级安全性。
 
->>Ferguson 和 Schneier 在他们的优秀著作《实用密码学》中（后来由 Ferguson、Schneier 和 Kohno 更新并更名为《密码工程》），提出了 SHA-256(SHA-256(x)) 的方式，以使 SHA-256 不易受到“长度扩展”攻击。他们称之为“SHA-256d”。
+>>Ferguson 和 Schneier 在他们的优秀著作《实用密码学》中（后来由 Ferguson、Schneier 和 Kohno 更新并更名为《密码学工程》），提出了 SHA-256(SHA-256(x)) 的方式，以使 SHA-256 不易受到“长度扩展”攻击。他们称之为“SHA-256d”。
 https://crypto.stackexchange.com/questions/779/hashing-or-encrypting-twice-to-increase-security/884#884
 
->哈希函数（如[SHA256](https://learnmeabitcoin.com/tools/sha256)）非常适合创建标识符，因为它们可以接受任何字符串的数据并始终输出简短而**唯一**的结果。
+>哈希函数（如[SHA256](https://learnmeabitcoin.com/tools/sha256)）非常适合创建识别号码，因为它们可以接受任何字符串的数据并始终输出简短而**唯一**的结果。
 
 ### Coinbase交易具有相同的TXID。
 曾经出现过两个“不同”的[Coinbase交易](../../Transaction/Coinbase%20Transaction/Coinbase%20Transaction.md)具有相同的TXID的情况。
@@ -79,8 +79,9 @@ https://crypto.stackexchange.com/questions/779/hashing-or-encrypting-twice-to-in
 2. [d5d27987d2a3dfc724e359870c6644b40e497bdc0589a033220fe15429d88599](https://learnmeabitcoin.com/explorer/transaction/d5d27987d2a3dfc724e359870c6644b40e497bdc0589a033220fe15429d88599)
    * block 91,812: [00000000000af0aed4792b1acee3d966af36cf5def14935db8de83d6f9306f2f](https://learnmeabitcoin.com/explorer/block/00000000000af0aed4792b1acee3d966af36cf5def14935db8de83d6f9306f2f)
    * block 91,842: [00000000000a4d0a398161ffc163c503763b1f4360639393e0e4c8e300e0caec](https://learnmeabitcoin.com/explorer/block/00000000000a4d0a398161ffc163c503763b1f4360639393e0e4c8e300e0caec) 
-### 修复方案。
-最初，[BIP 30](https://github.com/bitcoin/bips/blob/master/bip-0030.mediawiki)引入了一条规则，防止区块包含已经存在的TXID。后来，[BIP 34](https://github.com/bitcoin/bips/blob/master/bip-0034.mediawiki)要求coinbase交易在它们的交易数据中包含它们正在挖掘的区块的高度，这样coinbase交易就有所不同了。
+### 改进方案。
+最初，[BIP 30](https://github.com/bitcoin/bips/blob/master/bip-0030.mediawiki)引入了一条规则，防止区块包含已经存在的TXID。后来，[BIP 34](https://github.com/bitcoin/bips/blob/master/bip-0034.mediawiki)要求coinbase交易在它们的交易数据中包含它们正在挖掘的区块的高度，这样就可以使coinbase交易都是不同的，避免了TXID重复的问题。
+
 ### 链接
 
 * https://github.com/bitpay/insight-api/issues/42  
