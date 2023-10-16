@@ -3,7 +3,7 @@
 
 ![coinbase-transaction-1.png](img/Coinbase%20Transaction-1-svg.png)
 
-Coinbase交易是区块中的第一个交易。矿工使用它来收集**区块奖励**和任何额外的[**交易手续费**](../Fees/Fees.md)。
+Coinbase交易是区块中的第一个交易。这是比特币矿工用来收集**区块奖励**和任何额外的[**交易手续费**](../Fees/Fees.md)的一种方式。
 
 这就像把你的详细信息放在一个写有你地址的信封上，以便你可以领取奖金。
 
@@ -24,8 +24,8 @@ Coinbase交易与普通[交易数据](../Transaction%20Data/Transaction%20Data.m
 01000000010000000000000000000000000000000000000000000000000000000000000000ffffffff4503ec59062f48616f4254432f53756e204368756e2059753a205a6875616e67205975616e2c2077696c6c20796f75206d61727279206d653f2f06fcc9cacc19c5f278560300ffffffff01529c6d98000000001976a914bfd3ebb5485b49a6cf1657824623ead693b5a45888ac00000000
 ```
 * **TXID**全部是零。（不引用任何现有交易）
-* **VOUT**全部是**f**（这个字段的[十六进制](../../Other/Hexadecimal/hexadecimal.md)最大值）。 （同样，因为不想引用任何现有输出）。
-* **scriptSig**可以包含任何你喜欢的数据。[1](#bip34),[2](#coinbase交易中的信息)（因为不需要解锁任何东西）。
+* **VOUT**全部是**f**（这个字段的[十六进制](../../Other/Hexadecimal/hexadecimal.md)最大值）。 （同样因为不引用任何现有输出）。
+* **scriptSig**可以包含任何你想要的数据。[1](#bip34),[2](#coinbase交易中的信息)（因为不需要解锁任何东西）。
   
 除此之外，你只需要确保你的**输出值的总和**不超过你从区块奖励和交易手续费中获得的比特币数量。
 
@@ -37,7 +37,7 @@ Coinbase交易与普通[交易数据](../Transaction%20Data/Transaction%20Data.m
 
 在上面的交易数据中，**03**表示被推送的[字节数](https://en.bitcoin.it/wiki/Script#Constants)，因此接下来的3个字节**ec5906**表示区块的高度。
 
->当你[交换字节顺序](https://learnmeabitcoin.com/tools/swapendian)并转换为[十进制](https://learnmeabitcoin.com/tools/hexdec)时，**ec5906**是**416236**。
+>当你使用[交换字节顺序](https://learnmeabitcoin.com/tools/swapendian)并转换为[十进制](https://learnmeabitcoin.com/tools/hexdec)后，**ec5906**是**416236**。
 
 >### **Coinbase交易中的信息。**
 >矿工们经常使用**scriptSig**来存储文本字符串。你只需要将它们解码（[从十六进制转换为ASCII](https://learnmeabitcoin.com/tools/hex2ascii)）即可阅读。  
