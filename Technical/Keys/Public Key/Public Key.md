@@ -12,14 +12,14 @@
 ## 如何生成公钥？
 使用你的**私钥**（它只是一个大的随机数）来生成相应的公钥。
 
-使用私钥执行**椭圆曲线乘法**，这将提供椭圆曲线上最终的停留点。该点的**x**和**y**坐标就是你的**公钥**。
+使用私钥进行**椭圆曲线乘法**运算，得到的结果是一个在椭圆曲线上的点。该点的**x**和**y**坐标就是你的**公钥**。
 
 ![Public Key-2.png](img/Public%20Key-2%20(1).png)
 
 ### 代码
-这里是从**私钥创建公钥**的基本代码。
+这是从**私钥创建公钥**的基本代码。
 
-我还没有解释[椭圆曲线数学](../ECDSA/ECDSA.md#椭圆曲线数学)是如何工作的，但我还是提供了这些代码，以便你开始计算自己的**公钥**。
+我还没有解释[椭圆曲线数学](../ECDSA/ECDSA.md#椭圆曲线数学)是如何工作的，但我还是提供了这些代码，以便你知道如何开始为自己计算**公钥**。
 ```ruby
 # example private key
 private_key = "ef235aacf90d9f4aadd8c92e4b2562e1d9eb97f0df9ba3b508258739cb013db2"
@@ -151,11 +151,11 @@ puts public_key_compressed #=> 02b4632d08485ff1df2db55b9dafd23347d1c47a457072a1e
 使用椭圆曲线乘法可以在你的私钥和公钥之间建立**数学联系**。它还具有两个重要的特性：
 
 #### 1. 不能反向计算私钥。
-可以使用椭圆曲线乘法正向计算，但无法进行反向数学计算。
+可以使用椭圆曲线乘法正向计算，但无法通过数学方法逆向求解。。
 
 ![Public Key-3.png](img/Public%20Key-3%20(1).png)
 
-这意味着从私钥到公钥之间存在数学联系，但没有人可以使用你的公钥来找出你的私钥。
+这意味着从私钥到公钥之间存在数学联系，但没有人可以使用你的公钥来推算出你的私钥。
 
 因此，你可以公开公钥，同时使私钥保密。
 
@@ -187,7 +187,7 @@ puts public_key_compressed #=> 02b4632d08485ff1df2db55b9dafd23347d1c47a457072a1e
 public key (uncompressed) = 04b4632d08485ff1df2db55b9dafd23347d1c47a457072a1e87be26896549a87378ec38ff91d43e8c2092ebda601780485263da089465619e0358a5c1be7ac91f4
 ```
 ### 2. 压缩
-然而，由于椭圆曲线沿着其x轴是对称的，每个**x**坐标只会有两个可能的**y**坐标。
+然而，由于椭圆曲线沿着其x轴对称的，每个**x**坐标只会有两个可能的**y**坐标之一。
 
 ![Public Key-6.png](img/Public%20Key-6%20(1).png)
 
@@ -258,7 +258,7 @@ puts uncompressed #=> 04b4632d08485ff1df2db55b9dafd23347d1c47a457072a1e87be26896
 
 我们可以把我们的公钥给别人，这样他们就可以向我们发送比特币。这被称为Pay-To-Pubkey（[P2PK](../../Script/P2PK/P2PK.md)）。
 
-然而，在比特币中，现在更常见的是在公钥之前进行[哈希处理](../Public%20Key/Public%20Key%20Hash/public-key-hash.md)。只有在解锁输出时才使用[公钥](../Public%20Key/Public%20Key%20Hash/public-key-hash.md)。（初始锁定将首先检查公钥的哈希值是否正确,然后再将其与签名进行检查。）
+然而，在比特币中，现在更常将公钥进行[哈希处理](../Public%20Key/Public%20Key%20Hash/public-key-hash.md)再给出去。只有在解锁输出时才使用[公钥](../Public%20Key/Public%20Key%20Hash/public-key-hash.md)。（初始锁定将首先检查公钥是否正确地进行了哈希处理,然后再检查它与签名的对应关系。）
 
 ![Public Key-9.png](img/Public%20Key-9%20(1).png)
 
@@ -269,7 +269,7 @@ puts uncompressed #=> 04b4632d08485ff1df2db55b9dafd23347d1c47a457072a1e87be26896
 
 例如，在标准的P2PKH交易中：
 
-1. **公钥哈希**位于[输出](../../Transaction/Transaction%20Data/output/output.md)的锁定代码（[scriptPubKey](../../Transaction/Transaction%20Data/output/scriptPubKey/scriptPubKey.md)）中。
+1. **公钥哈希**位于[输出](../../Transaction/Transaction%20Data/output/output.md)的锁定代码（[脚本公钥](../../Transaction/Transaction%20Data/output/scriptPubKey/scriptPubKey.md)）中。
 
 ![Public Key-10.png](img/public-key-10.jpg)
 
@@ -286,7 +286,7 @@ puts uncompressed #=> 04b4632d08485ff1df2db55b9dafd23347d1c47a457072a1e87be26896
 >正如你所看到的，公钥开头的**04**表示它是未压缩的公钥。这使得它几乎是现在通常使用的压缩公钥的两倍长。
 
 ### 库
-今天大多数语言都可以使用现有的**椭圆曲线库**来帮助你创建公钥（而不必须自己编写数学代码）。例如：
+今天大多数语言都可以使用现有的**椭圆曲线库**来帮助你创建公钥（而不需要自己编写数学代码）。例如：
 ```ruby
 require 'ecdsa' # Use an elliptic curve library
 
