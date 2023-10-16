@@ -10,9 +10,9 @@
 >**永远不要使用由网站或其他人生成的私钥。始终在自己的计算机上秘密生成自己的私钥**。
 
 ## 生成私钥
->**生成私钥所需的只是可靠的随机源。**
+>**生成私钥所需的只是一个可靠的随机源。**
 
-Linux计算机上的一个简单的随机源是[**/dev/urandom**](https://linux.die.net/man/4/urandom)，它提供来自计算机的随机数据位。你所需要做的就是从中读取：
+在Linux计算机上，一个简单的随机源是[**/dev/urandom**](https://linux.die.net/man/4/urandom)，它是一个提供随机数据的设备。你可以通过读取这个设备来获取随机数，从而生成私钥：
 ```ruby
 # generate 256 bits of random data
 urandom = File.open("/dev/urandom")    # urandom is a "file"
@@ -32,7 +32,7 @@ max = 11579208923731619542357098500868790785283756427907490438260516314151816149
 这个数字是**n-1**，其中**n**是比特币中使用的[椭圆曲线](https://cryptobook.nakov.com/digital-signatures/ecdsa-sign-verify-messages)上的点的数量。因此，当生成一个256位的数字时，你需要检查它是否超过了这个最大值。
 
 ## 格式
-十六进制私钥是32字节（64个字符）：
+一个十六进制私钥由32字节（或64个字符）组成：
 ```
 ef235aacf90d9f4aadd8c92e4b2562e1d9eb97f0df9ba3b508258739cb013db2
 ```
@@ -40,4 +40,4 @@ ef235aacf90d9f4aadd8c92e4b2562e1d9eb97f0df9ba3b508258739cb013db2
 
 ### 钱包导入格式
 
-然后，你可以将私钥转换为[WIF私钥](./WIF%20Private%20Key/WIF%20Private%20Key.md)，这样可以更轻松地复制和导入到[钱包](../../../Beginners/Getting%20Started/getting-started/getting%20started.md)中。
+然后，为了复制和导入到[钱包](../../../Beginners/Getting%20Started/getting-started/getting%20started.md)中，你可以将私钥转换为[WIF私钥](./WIF%20Private%20Key/WIF%20Private%20Key.md)。
