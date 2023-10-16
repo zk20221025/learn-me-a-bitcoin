@@ -11,13 +11,13 @@
 ### 1. 验证交易
 [节点](../../../Beginners/How%20Bitcoin%20Works/1.Network/Nodes/Nodes.md)将通过检查其输入是否已经被花费来验证它接收到的交易。
 
-因此，如果你想创建自己的比特币交易，你必须在[输入](../Transaction%20Data/Input/input.md)中使用UTXO。
+因此，如果你想创建自己的比特币交易，你必须在交易[输入](../Transaction%20Data/Input/input.md)中使用UTXO集。
 
 ![UTXO-2.png](img/UTXO-2-svg.png)
 
-<center>这个新交易是指未花费的输出。一切正常。</center>
+<center>这个新交易是指未花费的输出。</center>
 
-然而，如果你尝试使用已经在另一个交易中使用过的输出，你的交易将会被节点拒绝。
+然而，如果你尝试使用已经在另一个交易中被使用过的交易输出，你的交易将会被节点拒绝。
 
 ![UTXO-3.png](img/UTXO-3-svg.png)
 
@@ -30,11 +30,11 @@
 ![UTXO-4.png](img/UTXO-4-svg.png)
 
 ## UTXO数据库
-由于UTXO被用于验证节点接收到的每个交易，因此UTXO被存储在其自己的数据库中。
+由于UTXO被用于验证节点接收到的每个交易，因此UTXO被存储在一个特定的数据库中。
 ```
 ~/.bitcoin/chainstate/
 ```
-节点通过检查交易的输入是否在UTXO数据库中来快速验证交易。
+这种设置方式使得你的节点能够通过检查一笔交易的输入是否在UTXO数据库中存在，从而快速地验证交易。
 
 ## 注释
 >**gettxoutsetinfo**
@@ -53,11 +53,11 @@ $ bitcoin-cli gettxoutsetinfo
   "total_amount": 16187023.59866495
 }
 ```
->当你运行bitcoind时，UTXO数据库也会被加载到RAM中，这进一步加快了验证的速度。  
+>当你运行bitcoind时，UTXO数据库也会被加载到RAM中，这有助于加快交易的验证速度。  
 **什么是RAM?**  
 RAM是**随机存取存储器**。  
-如果你在电脑上存储数据，则从RAM中读取数据比从磁盘（即SSD或HDD）中读取数据更快。硬盘是用于长期存储的，而RAM是临时存储，你可以从中更快地读取数据。
->>可以通过**bitcoin.conf**文件中的**dbcache=**选项来更改用于UTXO数据库的RAM数量（默认为100MB）。增加这个值将加快节点验证传入交易的时间。
+RAM是一种可以快速读取数据的临时存储设备，比从硬盘读取数据更快。  
+>>可以在比特币的配置文件**bitcoin.conf**中，通过**dbcache=**选项来更改用于UTXO数据库的RAM数量（默认为100MB）。增加这个值将加快节点验证新交易的时间。
 
 ## 资源
 ### 链接

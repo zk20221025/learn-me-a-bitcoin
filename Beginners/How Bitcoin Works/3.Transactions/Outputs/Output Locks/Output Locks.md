@@ -72,7 +72,7 @@
 
 ![Output%20Locks-10.png](img/Output%20Locks-10%20(1).png)
 
-例如，要解锁典型的锁定脚本（例如 **[address][CHECKPRIVATEKEY]**），需要证明我们拥有地址[address]。为此，我们使用私钥创建数字签名。
+例如，要解锁传统的锁定脚本（例如 **[address][CHECKPRIVATEKEY]**），需要证明我们拥有地址[address]。为此，我们使用私钥创建数字签名。
 
 ![Output%20Locks-11.png](img/Output%20Locks-11%20(1).png)  
 
