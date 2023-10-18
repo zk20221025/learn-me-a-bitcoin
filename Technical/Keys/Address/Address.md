@@ -97,7 +97,7 @@ https://en.bitcoin.it/wiki/List_of_address_prefixes
 ```
 1AKDDsfTh8uY4X3ppy1m7jw1fVMBSMkzjP
 ```
-它们都可以达到相同的效果，但地址提供了对用户更友好的格式。更不用说它们**包含[校验和](../Checksum/Checksum.md)**，这意味着如果有人错误地写入地址，错误可以被检测到。
+它们都可以达到相同的效果，但地址提供了更便于人类阅读和理解的格式。更不用说它们**包含[校验和](../Checksum/Checksum.md)**，这意味着如果有人错误地写入地址，错误可以被检测到。
 
 ## 代码
 **注意**：此代码需要[checksum.rb](https://github.com/in3rsha/learnmeabitcoin-code/blob/master/checksum.rb)和[base58_encode.rb](https://github.com/in3rsha/learnmeabitcoin-code/blob/master/base58_encode.rb)函数。
