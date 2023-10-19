@@ -16,7 +16,7 @@
 ## 注释
 >在编程中，计数从0开始。所有如果想使用现有交易的第一个输出，我们将vout设置为**0**。（第二个输出将为1。）
 
->**vout**中的“v”代表**向量**，因为比特币源代码中的输出存储在[向量](http://www.cplusplus.com/reference/vector/vector/)数据结构中（是一个[数组](https://www.go4expert.com/articles/array-vector-stack-data-structures-t27921/)）。
+>**vout**中的“v”代表**向量**，因在再比特币源代码中，输出存储在[向量](http://www.cplusplus.com/reference/vector/vector/)数据结构中（类似于[数组](https://www.go4expert.com/articles/array-vector-stack-data-structures-t27921/)）。
 
 ## 链接
 
